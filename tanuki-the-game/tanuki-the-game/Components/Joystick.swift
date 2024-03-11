@@ -30,7 +30,6 @@ class Joystick: SKNode {
         
         addChild(circle)
         addChild(ring)
-       
         
     }
     

@@ -58,7 +58,7 @@ struct Representable: UIViewRepresentable {
 
 }
 
-class RepresentableCoordinator {
+class RepresentableCoordinator{
     
     
 }
