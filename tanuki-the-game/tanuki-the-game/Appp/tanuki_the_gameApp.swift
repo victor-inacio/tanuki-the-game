@@ -26,3 +26,7 @@ struct MyApp: App {
         }
     }
 }
+
+#Preview {
+    GameViewControllerWrapper()
+}

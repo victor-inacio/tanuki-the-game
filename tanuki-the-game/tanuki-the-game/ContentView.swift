@@ -7,6 +7,7 @@
 
 import SwiftUI
 import SpriteKit
+import SceneKit
 
 struct ContentView: View {
     var body: some View {
@@ -25,11 +26,11 @@ struct Representable: UIViewRepresentable {
    
     
    
-    var scene: SKScene
-    var view: SKView
+    var scene: SCNScene
+    var view: SCNView
     
     init() {
-        let scene = SKScene(size: .init(width: 720, height: 1280))
+        let scene = MainScene(scnView: <#T##SCNView#>)
         
         scene.scaleMode = .aspectFill
         

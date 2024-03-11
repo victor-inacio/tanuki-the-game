@@ -17,7 +17,8 @@ class GameViewController: UIViewController {
         let scnView = SCNView(frame: view.frame)
         
 
-        let scene = MainScene()
+        let scene = MainScene(scnView: scnView)
+        
         scnView.scene = scene
         scnView.allowsCameraControl = true
         scnView.defaultCameraController.interactionMode = .orbitTurntable

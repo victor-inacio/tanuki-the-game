@@ -11,12 +11,18 @@ import SceneKit
 class MainScene: SCNScene {
     
     var player = PlayerEntity()
+    var overlay: Overlay!
     
-    override init() {
+    
+    init(scnView: SCNView) {
         super.init()
         
-       rootNode.addChildNode(player.node)
         
+        overlay = Overlay(size: scnView.bounds.size)
+        
+        scnView.overlaySKScene = overlay
+        
+        rootNode.addChildNode(player.node)
         
         let cameraNode = SCNNode()
         cameraNode.camera = SCNCamera()
