@@ -63,12 +63,13 @@
 		98F679EE2B9B989D00A0EBEE /* tanuki-the-game */ = {
 			isa = PBXGroup;
 			children = (
+				ABF676BE2B9F2F08007806B3 /* aoo */,
 				98E0E3BE2B9E7C860034011F /* Components */,
 				98F679EF2B9B989D00A0EBEE /* tanuki_the_gameApp.swift */,
 				98F679F12B9B989D00A0EBEE /* ContentView.swift */,
 				98F679F32B9B989E00A0EBEE /* Assets.xcassets */,
 				98F679F52B9B989E00A0EBEE /* Preview Content */,
-				98E0E3C12B9E8A910034011F /* Math.swift */,
+				ABF676BD2B9F2EFA007806B3 /* Utility */,
 			);
 			path = "tanuki-the-game";
 			sourceTree = "<group>";
@@ -79,6 +80,21 @@
 				98F679F62B9B989E00A0EBEE /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		ABF676BD2B9F2EFA007806B3 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				98E0E3C12B9E8A910034011F /* Math.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		ABF676BE2B9F2F08007806B3 /* aoo */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = aoo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
