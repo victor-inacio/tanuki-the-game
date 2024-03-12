@@ -38,8 +38,6 @@ class Joystick: SKNode {
             
         let componentSize = circle.frame.size
         
-        print(ring.frame.size)
-        
         let vector = simd_float2(x: Float(location.x), y: Float(location.y))
         let magnitude = simd_length(vector)
         let clampMagnitude = Math.Clamp(value: magnitude, minVal: 0, maxVal: Float(componentSize.width + componentSize.width / 2))

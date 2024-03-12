@@ -20,11 +20,11 @@ class GameViewController: UIViewController {
         let scene = MainScene(scnView: scnView)
         
         scnView.scene = scene
-        scnView.allowsCameraControl = true
-        scnView.defaultCameraController.interactionMode = .orbitTurntable
-        scnView.defaultCameraController.inertiaEnabled = true
-        scnView.defaultCameraController.maximumVerticalAngle = 89
-        scnView.defaultCameraController.minimumVerticalAngle = -89
+//        scnView.allowsCameraControl = true
+//        scnView.defaultCameraController.interactionMode = .orbitTurntable
+//        scnView.defaultCameraController.inertiaEnabled = true
+//        scnView.defaultCameraController.maximumVerticalAngle = 89
+//        scnView.defaultCameraController.minimumVerticalAngle = -89
         scene.background.contents = UIColor.black
         
         view.addSubview(scnView)
