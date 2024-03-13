@@ -23,7 +23,7 @@ class Controllers: SKNode
     private func hideJoystick(after: TimeInterval) {
         let animation = SKAction.sequence([
             .wait(forDuration: after),
-            .fadeOut(withDuration: 0.5)
+            .fadeOut(withDuration: 0.5),
         ])
         
         joystick.run(animation)
@@ -49,7 +49,7 @@ class Controllers: SKNode
     public func onTouchEnd(touches: Set<UITouch>, event: UIEvent?) {
         hideJoystick(after: 1.0)
         joystick.touchesEnded(touches, with: event)
-        resetJoystickPos()
+  
     }
     
     private func resetJoystickPos() {

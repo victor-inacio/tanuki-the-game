@@ -45,12 +45,8 @@ class Joystick: SKNode {
         
         let newVector = dir * clampMagnitude
         
-        
         let x = newVector.x
-        
         let y = newVector.y
-        
-        
         
         circle.position = .init(x: CGFloat(x), y: CGFloat(y))
     }
