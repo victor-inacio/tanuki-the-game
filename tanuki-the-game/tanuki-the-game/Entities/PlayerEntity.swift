@@ -13,7 +13,7 @@ class PlayerEntity: BaseEntity{
     override init(){
         super.init()
         
-        self.addComponent(VisualComponent(geometry: SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)))
+        self.addComponent(VisualComponent(geometry: SCNCapsule(capRadius: 0.5, height: 2)))
         
         self.addComponent(PhysicsBodyComponent(node: self.node, bodyType: .dynamic))
     }

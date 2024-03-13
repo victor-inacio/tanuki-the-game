@@ -34,8 +34,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate {
         
         self.physicsWorld.gravity = SCNVector3(0, -9.8, 0)
         
-      
-        
+    
         let ambientLightNode = SCNNode()
         ambientLightNode.light = SCNLight()
         ambientLightNode.light?.type = .ambient
@@ -60,7 +59,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate {
         scenario.node.eulerAngles.x = -.pi / 2
         scenario.node.position = SCNVector3(x: 0, y: -1, z: 0)
  
-        
         rootNode.addChildNode(scenario.node)
     }
     
