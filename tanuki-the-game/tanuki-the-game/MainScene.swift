@@ -43,10 +43,8 @@ class MainScene: SCNScene, SCNSceneRendererDelegate {
         rootNode.addChildNode(ambientLightNode)
         
         let plane = SCNPlane(width: 10, height: 10)
-        let planeMaterial = SCNMaterial()
-        planeMaterial.diffuse.contents = UIColor(red: 0.13, green: 0.55, blue: 0.13, alpha: 1.00)
-        plane.firstMaterial = planeMaterial
-        
+        plane.firstMaterial?.diffuse.contents = UIColor(red: 0.13, green: 0.55, blue: 0.13, alpha: 1.00)
+
         let planeNode = SCNNode(geometry: plane)
         planeNode.eulerAngles.x = -.pi / 2
         planeNode.position = SCNVector3(x: 0, y: -1, z: 0)
@@ -55,10 +53,11 @@ class MainScene: SCNScene, SCNSceneRendererDelegate {
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-    
         deltaTime = time - lastTime
         lastTime = time
     }
+    
+
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
