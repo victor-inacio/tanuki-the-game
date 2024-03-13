@@ -67,7 +67,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate {
         
         cameraNode = SCNNode()
         cameraNode.camera = camera
-        cameraNode.position = SCNVector3(x: 0, y: 0, z: 10)
+        cameraNode.position = SCNVector3(x: 0, y: 0, z: 5)
         rootNode.addChildNode(cameraNode)
     }
     

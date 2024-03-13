@@ -16,7 +16,8 @@ class PhysicsBodyComponent: GKComponent {
     init(node: SCNNode, bodyType: SCNPhysicsBodyType?) {
    
         node.physicsBody = SCNPhysicsBody(type: bodyType ?? .static, shape: SCNPhysicsShape(node: node, options: .none))
-
+     
+        
         super.init()
     }
     required init?(coder: NSCoder) {
