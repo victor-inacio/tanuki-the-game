@@ -34,7 +34,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate {
         cameraNode.position = SCNVector3(x: 0, y: 0, z: 5)
         
 
-        
         rootNode.addChildNode(cameraNode)
         
         let ambientLightNode = SCNNode()
@@ -43,21 +42,22 @@ class MainScene: SCNScene, SCNSceneRendererDelegate {
         ambientLightNode.light?.color = UIColor.white
         rootNode.addChildNode(ambientLightNode)
         
-        
         let plane = SCNPlane(width: 10, height: 10)
+        let planeMaterial = SCNMaterial()
+        planeMaterial.diffuse.contents = UIColor(red: 0.13, green: 0.55, blue: 0.13, alpha: 1.00)
+        plane.firstMaterial = planeMaterial
+        
         let planeNode = SCNNode(geometry: plane)
-        planeNode.look(at: cameraNode.position)
-        print(rootNode.childNodes)
+        planeNode.eulerAngles.x = -.pi / 2
+        planeNode.position = SCNVector3(x: 0, y: -1, z: 0)
+        
+        rootNode.addChildNode(planeNode)
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-
-
     
         deltaTime = time - lastTime
         lastTime = time
-        
-    
     }
     
     required init?(coder: NSCoder) {
