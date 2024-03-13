@@ -27,13 +27,16 @@ class MainScene: SCNScene, SCNSceneRendererDelegate {
         
         rootNode.addChildNode(player.node)
         
+        
         camera = SCNCamera()
         
         cameraNode = SCNNode()
         cameraNode.camera = camera
-        cameraNode.position = SCNVector3(x: 0, y: 0, z: 5)
+        cameraNode.position = SCNVector3(x: 0, y: 0, z: 10)
         
-
+        
+        self.physicsWorld.gravity = SCNVector3(0, -9.8, 0)
+        
         rootNode.addChildNode(cameraNode)
         
         let ambientLightNode = SCNNode()
@@ -44,10 +47,12 @@ class MainScene: SCNScene, SCNSceneRendererDelegate {
         
         let plane = SCNPlane(width: 10, height: 10)
         plane.firstMaterial?.diffuse.contents = UIColor(red: 0.13, green: 0.55, blue: 0.13, alpha: 1.00)
-
+        
         let planeNode = SCNNode(geometry: plane)
         planeNode.eulerAngles.x = -.pi / 2
         planeNode.position = SCNVector3(x: 0, y: -1, z: 0)
+        let planePhysicsBody = SCNPhysicsBody(type: .kinematic, shape: SCNPhysicsShape(geometry: plane, options: nil))
+        planeNode.physicsBody = planePhysicsBody
         
         rootNode.addChildNode(planeNode)
     }
@@ -57,7 +62,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate {
         lastTime = time
     }
     
-
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

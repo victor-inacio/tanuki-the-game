@@ -24,7 +24,9 @@ class PlayerEntity: GKEntity{
     override init(){
         super.init()
         
-        addComponent(VisualComponent())
+        self.addComponent(VisualComponent(geometry: SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)))
+        
+        self.addComponent(PhysicsBodyComponent(node: self.node, bodyType: .dynamic))
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

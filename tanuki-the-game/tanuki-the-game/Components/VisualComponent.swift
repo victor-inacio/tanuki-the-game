@@ -12,10 +12,9 @@ import GameplayKit
 class VisualComponent: GKComponent {
     var node: SCNNode
     
-    override init() {
+     init(geometry: SCNGeometry) {
         
-        let boxGeometry = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
-        self.node = SCNNode(geometry: boxGeometry)
+        self.node = SCNNode(geometry: geometry)
         
         super.init()
     }
