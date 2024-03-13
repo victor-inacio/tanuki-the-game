@@ -10,6 +10,7 @@ import SceneKit
 
 class MainScene: SCNScene, SCNSceneRendererDelegate {
     var player = PlayerEntity()
+    var scenario: ScenarioEntity!
     var overlay: Overlay!
     var camera: SCNCamera!
     var cameraNode: SCNNode!
@@ -25,19 +26,15 @@ class MainScene: SCNScene, SCNSceneRendererDelegate {
         
         scnView.overlaySKScene = overlay
         
-        rootNode.addChildNode(player.node)
+   
         
-        
-        camera = SCNCamera()
-        
-        cameraNode = SCNNode()
-        cameraNode.camera = camera
-        cameraNode.position = SCNVector3(x: 0, y: 0, z: 10)
-        
+        setupCamera()
+   
+      
         
         self.physicsWorld.gravity = SCNVector3(0, -9.8, 0)
         
-        rootNode.addChildNode(cameraNode)
+      
         
         let ambientLightNode = SCNNode()
         ambientLightNode.light = SCNLight()
@@ -45,16 +42,8 @@ class MainScene: SCNScene, SCNSceneRendererDelegate {
         ambientLightNode.light?.color = UIColor.white
         rootNode.addChildNode(ambientLightNode)
         
-        let plane = SCNPlane(width: 10, height: 10)
-        plane.firstMaterial?.diffuse.contents = UIColor(red: 0.13, green: 0.55, blue: 0.13, alpha: 1.00)
-        
-        let planeNode = SCNNode(geometry: plane)
-        planeNode.eulerAngles.x = -.pi / 2
-        planeNode.position = SCNVector3(x: 0, y: -1, z: 0)
-        let planePhysicsBody = SCNPhysicsBody(type: .kinematic, shape: SCNPhysicsShape(geometry: plane, options: nil))
-        planeNode.physicsBody = planePhysicsBody
-        
-        rootNode.addChildNode(planeNode)
+        setupPlayer()
+        setupScenario()
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
@@ -62,7 +51,27 @@ class MainScene: SCNScene, SCNSceneRendererDelegate {
         lastTime = time
     }
     
+    func setupPlayer(){
+        rootNode.addChildNode(player.node)
+    }
     
+    func setupScenario(){
+        scenario = ScenarioEntity()
+        scenario.node.eulerAngles.x = -.pi / 2
+        scenario.node.position = SCNVector3(x: 0, y: -1, z: 0)
+ 
+        
+        rootNode.addChildNode(scenario.node)
+    }
+    
+    func setupCamera(){
+        camera = SCNCamera()
+        
+        cameraNode = SCNNode()
+        cameraNode.camera = camera
+        cameraNode.position = SCNVector3(x: 0, y: 0, z: 10)
+        rootNode.addChildNode(cameraNode)
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
