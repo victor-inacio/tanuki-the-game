@@ -2,11 +2,31 @@ import SpriteKit
 import SwiftUI
 import simd
 
+struct JoystickData {
+    
+    let direction: simd_float2
+    let clampDirection: simd_float2
+    
+}
+
+protocol JoystickDelegate: AnyObject {
+    
+    func onJoystickChange(_ joystickData: JoystickData)
+    
+}
+
 class Joystick: SKNode {
     
     
     var circle: SKShapeNode!
     var ring: SKShapeNode!
+    weak var delegate: JoystickDelegate?
+    
+    var currentData: JoystickData? {
+        didSet {
+            delegate?.onJoystickChange(currentData!)
+        }
+    }
     
     override init() {
         super.init()
@@ -48,13 +68,47 @@ class Joystick: SKNode {
         let x = newVector.x
         let y = newVector.y
         
+
         circle.position = .init(x: CGFloat(x), y: CGFloat(y))
+        
+        currentData = getCurrentData()
     }
     
     private func resetCircleLoc() {
-        
         circle.position = CGPoint.zero
+        currentData = getCurrentData()
+    }
+    
+    private func getCurrentData() -> JoystickData {
         
+        let circlePos = circle.position
+        let circleWidth = circle.frame.size.width
+        
+        let x = circlePos.x / (circleWidth + circleWidth / 2)
+        let y = circlePos.y / (circleWidth + circleWidth / 2)
+        
+        let direction = simd_float2(x: Float(x), y: Float(y))
+        
+        var clampedDirection = direction
+        
+        if (direction.x > 0.3) {
+            clampedDirection.x = 1
+        }
+        
+        if (direction.x < -0.3) {
+            clampedDirection.x = -1
+        }
+        
+        if (direction.y > 0.3) {
+            clampedDirection.y = 1
+        }
+        
+        if (direction.y < -0.3) {
+            clampedDirection.y = -1
+        }
+        
+        return .init(direction: direction, clampDirection: clampedDirection)
+    
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
