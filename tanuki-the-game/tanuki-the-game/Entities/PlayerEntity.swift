@@ -22,7 +22,6 @@ class PlayerEntity: BaseEntity{
         self.addComponent(PhysicsBodyComponent(node: self.node, bodyType: .kinematic))
     }
     
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -38,7 +37,6 @@ class PlayerEntity: BaseEntity{
         
         let front = node.simdWorldFront
         let movement = front * speed * magnitude
-        
         
         node.simdPosition += movement * Float(Time.deltaTime)
     }

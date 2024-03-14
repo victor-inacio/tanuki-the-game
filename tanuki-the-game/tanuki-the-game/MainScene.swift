@@ -13,8 +13,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate {
     var player = PlayerEntity()
     var scenario: ScenarioEntity!
     var overlay: Overlay!
-    var camera: SCNCamera!
-    var cameraNode: SCNNode!
+    var camera: Camera!
     
     var firstFrame = true
     
@@ -62,6 +61,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate {
         }
         
         player.moveToDir(dir: joystickDir)
+        camera.followTarget(target: player.node.simdPosition, offset: simd_float3(5, 5, 0))
     }
     
     func setupPlayer(){
@@ -77,13 +77,10 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate {
     }
     
     func setupCamera(){
-        camera = SCNCamera()
+        camera = Camera()
         
-        cameraNode = SCNNode()
-        cameraNode.camera = camera
-        cameraNode.position = SCNVector3(x: 0, y: 5, z: 0)
-        cameraNode.look(at: scenario.node.position)
-        rootNode.addChildNode(cameraNode)
+        
+        rootNode.addChildNode(camera.node)
     }
     
     required init?(coder: NSCoder) {
