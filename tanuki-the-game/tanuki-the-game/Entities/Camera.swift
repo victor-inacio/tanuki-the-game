@@ -22,13 +22,10 @@ class Camera: GKEntity {
     public func followTarget(target: simd_float3, offset: simd_float3) {
         
         var newPos = target
-        
         newPos += offset
-        
-
+    
         node.simdPosition = newPos
         node.simdLook(at: target)
-            
     }
     
     required init?(coder: NSCoder) {
