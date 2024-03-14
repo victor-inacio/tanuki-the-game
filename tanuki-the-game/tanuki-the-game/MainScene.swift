@@ -8,7 +8,9 @@
 import Foundation
 import SceneKit
 
-class MainScene: SCNScene, SCNSceneRendererDelegate {
+class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate {
+   
+    
     var player = PlayerEntity()
     var scenario: ScenarioEntity!
     var overlay: Overlay!
@@ -23,18 +25,13 @@ class MainScene: SCNScene, SCNSceneRendererDelegate {
         scnView.delegate = self
         
         overlay = Overlay(size: scnView.bounds.size)
-        
+        overlay.controllerDelegate = self
         scnView.overlaySKScene = overlay
-        
-   
-        
-        setupCamera()
-   
-      
-        
-        self.physicsWorld.gravity = SCNVector3(0, -9.8, 0)
-        
     
+        setupCamera()
+
+        self.physicsWorld.gravity = SCNVector3(0, -9.8, 0)
+
         let ambientLightNode = SCNNode()
         ambientLightNode.light = SCNLight()
         ambientLightNode.light?.type = .ambient
@@ -43,6 +40,22 @@ class MainScene: SCNScene, SCNSceneRendererDelegate {
         
         setupPlayer()
         setupScenario()
+        
+        
+    }
+    
+    func onJoystickChange(_ joystickData: JoystickData) {
+        if (joystickData.lastEvent == .end) {
+            return
+        }
+        
+        let direction = joystickData.direction
+        let angle = atan2(direction.y, direction.x)
+        
+        player.node.runAction(.rotateTo(x: 0, y: CGFloat(angle), z: 0, duration: 0.0, usesShortestUnitArc: true))
+        
+        print(angle * 180 / Float.pi)
+        
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {

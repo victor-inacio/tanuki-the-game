@@ -4,6 +4,12 @@ class Overlay: SKScene {
     
     var controllers: Controllers!
     
+    weak var controllerDelegate: JoystickDelegate? {
+        didSet {
+            controllers.delegate = controllerDelegate
+        }
+    }
+    
     override init(size: CGSize) {
         super.init(size: size)
         controllers = Controllers(frame: size)

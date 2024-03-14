@@ -2,10 +2,14 @@ import SpriteKit
 
 class Controllers: SKNode
 {
-    
     let joystick = Joystick()
     let initialJoystickPosition = CGPoint(x: 120, y: 0)
     
+    weak var delegate: JoystickDelegate? {
+        didSet {
+            joystick.delegate = delegate
+        }
+    }
     
     init(frame: CGSize) {
         super.init()

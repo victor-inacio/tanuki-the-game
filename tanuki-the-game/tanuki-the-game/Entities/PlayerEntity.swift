@@ -13,9 +13,11 @@ class PlayerEntity: BaseEntity{
     override init(){
         super.init()
         
-        self.addComponent(VisualComponent(geometry: SCNCapsule(capRadius: 0.5, height: 2)))
+        let cube = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
         
-        self.addComponent(PhysicsBodyComponent(node: self.node, bodyType: .dynamic))
+        self.addComponent(VisualComponent(geometry: cube))
+        
+//        self.addComponent(PhysicsBodyComponent(node: self.node, bodyType: .dynamic))
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

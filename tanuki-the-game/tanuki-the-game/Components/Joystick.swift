@@ -2,10 +2,17 @@ import SpriteKit
 import SwiftUI
 import simd
 
+enum JoystickEvent: Int {
+    case change
+    case start
+    case end
+}
+
 struct JoystickData {
     
     let direction: simd_float2
     let clampDirection: simd_float2
+    let lastEvent: JoystickEvent
     
 }
 
@@ -21,6 +28,7 @@ class Joystick: SKNode {
     var circle: SKShapeNode!
     var ring: SKShapeNode!
     weak var delegate: JoystickDelegate?
+    var lastEvent: JoystickEvent?
     
     var currentData: JoystickData? {
         didSet {
@@ -68,7 +76,6 @@ class Joystick: SKNode {
         let x = newVector.x
         let y = newVector.y
         
-
         circle.position = .init(x: CGFloat(x), y: CGFloat(y))
         
         currentData = getCurrentData()
@@ -107,23 +114,27 @@ class Joystick: SKNode {
             clampedDirection.y = -1
         }
         
-        return .init(direction: direction, clampDirection: clampedDirection)
+        return .init(direction: direction, clampDirection: clampedDirection, lastEvent: lastEvent!)
     
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
+            lastEvent = .start
+            
             updateCircleLoc(touch: touch)
         }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
+            lastEvent = .change
             updateCircleLoc(touch: touch)
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        lastEvent = .end
         resetCircleLoc()
     }
     
