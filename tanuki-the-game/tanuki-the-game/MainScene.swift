@@ -10,15 +10,17 @@ import SceneKit
 
 class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate {
    
-    
     var player = PlayerEntity()
     var scenario: ScenarioEntity!
     var overlay: Overlay!
     var camera: SCNCamera!
     var cameraNode: SCNNode!
     
+    var firstFrame = true
+    
     var lastTime: TimeInterval = 0.0
-    var deltaTime: TimeInterval = 0.0
+    
+    var joystickDir: simd_float2 = simd_float2(0, 0)
     
     init(scnView: SCNView) {
         super.init()
@@ -28,7 +30,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate {
         overlay.controllerDelegate = self
         scnView.overlaySKScene = overlay
     
-        setupCamera()
+       
 
         self.physicsWorld.gravity = SCNVector3(0, -9.8, 0)
 
@@ -40,27 +42,26 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate {
         
         setupPlayer()
         setupScenario()
-        
+        setupCamera()
         
     }
     
     func onJoystickChange(_ joystickData: JoystickData) {
-        if (joystickData.lastEvent == .end) {
-            return
-        }
-        
-        let direction = joystickData.direction
-        let angle = atan2(direction.y, direction.x)
-        
-        player.node.runAction(.rotateTo(x: 0, y: CGFloat(angle), z: 0, duration: 0.0, usesShortestUnitArc: true))
-        
-        print(angle * 180 / Float.pi)
-        
+        joystickDir = joystickData.direction
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
-        deltaTime = time - lastTime
+        Time.deltaTime = time - lastTime
         lastTime = time
+        
+        
+        if (firstFrame) {
+            firstFrame = false
+            
+            return
+        }
+        
+        player.moveToDir(dir: joystickDir)
     }
     
     func setupPlayer(){
@@ -80,7 +81,8 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate {
         
         cameraNode = SCNNode()
         cameraNode.camera = camera
-        cameraNode.position = SCNVector3(x: 0, y: 0, z: 5)
+        cameraNode.position = SCNVector3(x: 0, y: 5, z: 0)
+        cameraNode.look(at: scenario.node.position)
         rootNode.addChildNode(cameraNode)
     }
     

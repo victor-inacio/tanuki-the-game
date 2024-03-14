@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		989296662BA38BE200681BCD /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989296652BA38BE200681BCD /* Time.swift */; };
 		98E0E3C02B9E7C8F0034011F /* Joystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E3BF2B9E7C8F0034011F /* Joystick.swift */; };
 		98E0E3C22B9E8A910034011F /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E3C12B9E8A910034011F /* Math.swift */; };
 		98E0E3C42B9F45B00034011F /* Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E3C32B9F45B00034011F /* Controllers.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		989296652BA38BE200681BCD /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		98E0E3BF2B9E7C8F0034011F /* Joystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joystick.swift; sourceTree = "<group>"; };
 		98E0E3C12B9E8A910034011F /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		98E0E3C32B9F45B00034011F /* Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controllers.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				98E0E3C12B9E8A910034011F /* Math.swift */,
+				989296652BA38BE200681BCD /* Time.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				98E0E3C62B9F47AA0034011F /* Overlay.swift in Sources */,
 				98E0E3C02B9E7C8F0034011F /* Joystick.swift in Sources */,
 				ABAFEA892BA22A8900BB5E9D /* PhysicsBodyComponent.swift in Sources */,
+				989296662BA38BE200681BCD /* Time.swift in Sources */,
 				ABF676C52B9F31B6007806B3 /* MainScene.swift in Sources */,
 				ABAFEA8D2BA22C3E00BB5E9D /* BaseEntity.swift in Sources */,
 				98F679F02B9B989D00A0EBEE /* tanuki_the_gameApp.swift in Sources */,

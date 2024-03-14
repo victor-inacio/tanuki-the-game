@@ -13,10 +13,14 @@ import GameplayKit
 class PhysicsBodyComponent: GKComponent {
 
     
-    init(node: SCNNode, bodyType: SCNPhysicsBodyType?) {
+    init(node: SCNNode, bodyType: SCNPhysicsBodyType?, friction: CGFloat? = nil) {
    
         node.physicsBody = SCNPhysicsBody(type: bodyType ?? .static, shape: SCNPhysicsShape(node: node, options: .none))
-     
+        
+        
+        if let friction = friction {
+            node.physicsBody?.friction = friction
+        }
         
         super.init()
     }

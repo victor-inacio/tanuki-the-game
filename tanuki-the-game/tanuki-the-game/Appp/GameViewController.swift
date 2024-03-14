@@ -20,7 +20,7 @@ class GameViewController: UIViewController {
         let scene = MainScene(scnView: scnView)
         
         scnView.scene = scene
-        scnView.allowsCameraControl = true
+        scnView.allowsCameraControl = false
         scnView.defaultCameraController.interactionMode = .orbitTurntable
         scnView.defaultCameraController.inertiaEnabled = true
         scnView.defaultCameraController.maximumVerticalAngle = 89
