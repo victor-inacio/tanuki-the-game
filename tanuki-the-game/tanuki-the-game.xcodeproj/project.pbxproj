@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		989296662BA38BE200681BCD /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989296652BA38BE200681BCD /* Time.swift */; };
 		989296682BA390C900681BCD /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989296672BA390C900681BCD /* Camera.swift */; };
+		9892966A2BA4B76400681BCD /* CharacterEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989296692BA4B76400681BCD /* CharacterEntity.swift */; };
+		9892966C2BA4B7CA00681BCD /* EnemyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9892966B2BA4B7CA00681BCD /* EnemyEntity.swift */; };
+		9892966E2BA4B7FB00681BCD /* Spawner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9892966D2BA4B7FA00681BCD /* Spawner.swift */; };
+		989296702BA4BDE500681BCD /* Bounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9892966F2BA4BDE500681BCD /* Bounds.swift */; };
 		98E0E3C02B9E7C8F0034011F /* Joystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E3BF2B9E7C8F0034011F /* Joystick.swift */; };
 		98E0E3C22B9E8A910034011F /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E3C12B9E8A910034011F /* Math.swift */; };
 		98E0E3C42B9F45B00034011F /* Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E3C32B9F45B00034011F /* Controllers.swift */; };
@@ -28,6 +32,10 @@
 /* Begin PBXFileReference section */
 		989296652BA38BE200681BCD /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		989296672BA390C900681BCD /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		989296692BA4B76400681BCD /* CharacterEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterEntity.swift; sourceTree = "<group>"; };
+		9892966B2BA4B7CA00681BCD /* EnemyEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyEntity.swift; sourceTree = "<group>"; };
+		9892966D2BA4B7FA00681BCD /* Spawner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spawner.swift; sourceTree = "<group>"; };
+		9892966F2BA4BDE500681BCD /* Bounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bounds.swift; sourceTree = "<group>"; };
 		98E0E3BF2B9E7C8F0034011F /* Joystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joystick.swift; sourceTree = "<group>"; };
 		98E0E3C12B9E8A910034011F /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		98E0E3C32B9F45B00034011F /* Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controllers.swift; sourceTree = "<group>"; };
@@ -111,6 +119,7 @@
 			children = (
 				98E0E3C12B9E8A910034011F /* Math.swift */,
 				989296652BA38BE200681BCD /* Time.swift */,
+				9892966F2BA4BDE500681BCD /* Bounds.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -131,6 +140,9 @@
 				ABF676C02B9F2FB8007806B3 /* PlayerEntity.swift */,
 				ABAFEA8A2BA22C2200BB5E9D /* ScenarioEntity.swift */,
 				989296672BA390C900681BCD /* Camera.swift */,
+				989296692BA4B76400681BCD /* CharacterEntity.swift */,
+				9892966B2BA4B7CA00681BCD /* EnemyEntity.swift */,
+				9892966D2BA4B7FA00681BCD /* Spawner.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -211,13 +223,17 @@
 				98E0E3C62B9F47AA0034011F /* Overlay.swift in Sources */,
 				98E0E3C02B9E7C8F0034011F /* Joystick.swift in Sources */,
 				ABAFEA892BA22A8900BB5E9D /* PhysicsBodyComponent.swift in Sources */,
+				989296702BA4BDE500681BCD /* Bounds.swift in Sources */,
 				989296662BA38BE200681BCD /* Time.swift in Sources */,
+				9892966C2BA4B7CA00681BCD /* EnemyEntity.swift in Sources */,
 				ABF676C52B9F31B6007806B3 /* MainScene.swift in Sources */,
 				ABAFEA8D2BA22C3E00BB5E9D /* BaseEntity.swift in Sources */,
 				989296682BA390C900681BCD /* Camera.swift in Sources */,
+				9892966A2BA4B76400681BCD /* CharacterEntity.swift in Sources */,
 				98F679F02B9B989D00A0EBEE /* tanuki_the_gameApp.swift in Sources */,
 				98E0E3C22B9E8A910034011F /* Math.swift in Sources */,
 				98E0E3C42B9F45B00034011F /* Controllers.swift in Sources */,
+				9892966E2BA4B7FB00681BCD /* Spawner.swift in Sources */,
 				ABF676C92B9F37B8007806B3 /* VisualComponent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
