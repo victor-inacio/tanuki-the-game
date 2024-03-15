@@ -17,6 +17,6 @@ class BaseEntity: GKEntity{
     }()
     
     var node: SCNNode {
-        return visualComponent.node
+        return visualComponent.visualNode
     }
 }

@@ -10,11 +10,11 @@ import GameplayKit
 
 
 class VisualComponent: GKComponent {
-    var node: SCNNode
+    var visualNode: SCNNode
     
      init(geometry: SCNGeometry) {
         
-        self.node = SCNNode(geometry: geometry)
+        self.visualNode = SCNNode(geometry: geometry)
         
         super.init()
     }

@@ -11,15 +11,22 @@ import GameplayKit
 class PlayerEntity: BaseEntity{
     
     let speed: Float = 2.0
-    
+    let playerNode: SCNNode
+   
     override init(){
+        self.playerNode = SCNNode()
         super.init()
+        
         
         let cube = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
         
         self.addComponent(VisualComponent(geometry: cube))
         
-        self.addComponent(PhysicsBodyComponent(node: self.node, bodyType: .kinematic))
+        playerNode.addChildNode(node)
+        
+//        self.addComponent(PhysicsBodyComponent(node: self.node, bodyType: .kinematic))
+        
+        
     }
     
     required init?(coder: NSCoder) {
