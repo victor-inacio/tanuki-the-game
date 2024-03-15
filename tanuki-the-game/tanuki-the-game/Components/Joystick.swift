@@ -58,7 +58,6 @@ class Joystick: SKNode {
         
         addChild(circle)
         addChild(ring)
-        
     }
     
     private func updateCircleLoc(touch: UITouch) {
@@ -91,11 +90,19 @@ class Joystick: SKNode {
         let circlePos = circle.position
         let circleWidth = circle.frame.size.width
         
-        let x = circlePos.x / (circleWidth + circleWidth / 2)
-        let y = circlePos.y / (circleWidth + circleWidth / 2)
+        var x = (circlePos.x) / (circleWidth + circleWidth / 2)
+        var y = circlePos.y / (circleWidth + circleWidth / 2)
+    
+        if (x.isNaN) {
+            x = 0.0
+        }
+        
+        if (y.isNaN) {
+            y = 0.0
+        }
         
         let direction = simd_float2(x: Float(x), y: Float(y))
-        
+    
         var clampedDirection = direction
         
         if (direction.x > 0.3) {
@@ -115,7 +122,6 @@ class Joystick: SKNode {
         }
         
         return .init(direction: direction, clampDirection: clampedDirection, lastEvent: lastEvent!)
-    
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
