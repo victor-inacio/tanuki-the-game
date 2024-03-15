@@ -20,6 +20,7 @@
 		ABAFEA8B2BA22C2200BB5E9D /* ScenarioEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAFEA8A2BA22C2200BB5E9D /* ScenarioEntity.swift */; };
 		ABAFEA8D2BA22C3E00BB5E9D /* BaseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAFEA8C2BA22C3E00BB5E9D /* BaseEntity.swift */; };
 		ABC429322BA4D469009F0905 /* character in Resources */ = {isa = PBXBuildFile; fileRef = ABC429312BA4D469009F0905 /* character */; };
+		ABC429332BA4D528009F0905 /* character in Sources */ = {isa = PBXBuildFile; fileRef = ABC429312BA4D469009F0905 /* character */; };
 		ABF676C12B9F2FB8007806B3 /* PlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF676C02B9F2FB8007806B3 /* PlayerEntity.swift */; };
 		ABF676C52B9F31B6007806B3 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF676C42B9F31B6007806B3 /* MainScene.swift */; };
 		ABF676C72B9F343D007806B3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF676C62B9F343D007806B3 /* GameViewController.swift */; };
@@ -93,7 +94,7 @@
 				98F679F32B9B989E00A0EBEE /* Assets.xcassets */,
 				98F679F52B9B989E00A0EBEE /* Preview Content */,
 				ABF676BD2B9F2EFA007806B3 /* Utility */,
-				ABF676BE2B9F2F08007806B3 /* Appp */,
+				ABF676BE2B9F2F08007806B3 /* APP */,
 				ABF676C42B9F31B6007806B3 /* MainScene.swift */,
 				98E0E3C52B9F47AA0034011F /* Overlay.swift */,
 			);
@@ -117,13 +118,13 @@
 			path = Utility;
 			sourceTree = "<group>";
 		};
-		ABF676BE2B9F2F08007806B3 /* Appp */ = {
+		ABF676BE2B9F2F08007806B3 /* APP */ = {
 			isa = PBXGroup;
 			children = (
 				98F679EF2B9B989D00A0EBEE /* tanuki_the_gameApp.swift */,
 				ABF676C62B9F343D007806B3 /* GameViewController.swift */,
 			);
-			path = Appp;
+			path = APP;
 			sourceTree = "<group>";
 		};
 		ABF676BF2B9F2FAC007806B3 /* Entities */ = {
@@ -209,6 +210,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABC429332BA4D528009F0905 /* character in Sources */,
 				ABF676C72B9F343D007806B3 /* GameViewController.swift in Sources */,
 				ABF676C12B9F2FB8007806B3 /* PlayerEntity.swift in Sources */,
 				ABAFEA8B2BA22C2200BB5E9D /* ScenarioEntity.swift in Sources */,
