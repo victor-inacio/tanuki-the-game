@@ -27,6 +27,7 @@ class GameViewController: UIViewController {
         scnView.defaultCameraController.minimumVerticalAngle = -89
         scnView.debugOptions = [.showPhysicsShapes]
         scnView.showsStatistics = true
+        scnView.rendersContinuously = true
         scene.background.contents = UIColor.black
         
         view.addSubview(scnView)
