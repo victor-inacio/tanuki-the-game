@@ -61,19 +61,21 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate {
         }
         
         player.moveToDir(dir: joystickDir)
-        camera.followTarget(target: player.node.simdPosition, offset: simd_float3(5, 5, 0))
+        camera.followTarget(target: player.playerNode.simdPosition, offset: simd_float3(1, 1, 0))
+        
+
     }
     
     func setupPlayer(){
-        rootNode.addChildNode(player.node)
+        rootNode.addChildNode(player.playerNode)
     }
     
     func setupScenario(){
         scenario = ScenarioEntity()
-        scenario.node.eulerAngles.x = -.pi / 2
-        scenario.node.position = SCNVector3(x: 0, y: -1, z: 0)
+        scenario.planeNode.eulerAngles.x = -.pi / 2
+        scenario.planeNode.position = SCNVector3(x: 0, y: -1, z: 0)
  
-        rootNode.addChildNode(scenario.node)
+        rootNode.addChildNode(scenario.planeNode)
     }
     
     func setupCamera(){
