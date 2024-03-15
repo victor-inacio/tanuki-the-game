@@ -46,11 +46,11 @@ class Spawner {
         let randomPos = simd_float3(randomX, randomY, randomZ)
         
         let entity = EnemyEntity()
-        entity.node.simdPosition = randomPos
-        
-        
-        scene.enemyEntities.append(entity)
-        scene.rootNode.addChildNode(entity.node)
+//        entity.node.simdPosition = randomPos
+//        
+//        
+//        scene.enemyEntities.append(entity)
+//        scene.rootNode.addChildNode(entity.node)
     }
     
     private func setNewDelay() {
