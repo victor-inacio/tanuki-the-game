@@ -12,14 +12,17 @@ class PlayerEntity: BaseEntity{
     
     let speed: Float = 2.0
     let playerNode: SCNNode
+    let playerDirection: SCNNode
    
     override init(){
         self.playerNode = SCNNode()
+        self.playerDirection = SCNNode()
         super.init()
         
         self.addComponent(VisualComponent(modelFile:  "Art.scnassets/character/max.scn", nameOfChild: "Max_rootNode"))
         
-        playerNode.addChildNode(model)
+        playerNode.addChildNode(playerDirection)
+        playerDirection.addChildNode(model)
         
 //        self.addComponent(PhysicsBodyComponent(node: self.node, bodyType: .kinematic))
         
