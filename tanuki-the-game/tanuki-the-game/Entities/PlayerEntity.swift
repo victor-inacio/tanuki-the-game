@@ -44,7 +44,7 @@ class PlayerEntity: BaseEntity{
         
         let front = playerNode.simdWorldFront
         let movement = front * speed * magnitude
-        print(magnitude)
+
         playerNode.simdPosition += movement * Float(Time.deltaTime)
     }
     
