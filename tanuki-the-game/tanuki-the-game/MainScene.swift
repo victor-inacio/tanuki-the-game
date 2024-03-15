@@ -24,7 +24,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate {
     init(scnView: SCNView) {
         super.init()
         scnView.delegate = self
-        scnView.rendersContinuously = true
         overlay = Overlay(size: scnView.bounds.size)
         overlay.controllerDelegate = self
         scnView.overlaySKScene = overlay
