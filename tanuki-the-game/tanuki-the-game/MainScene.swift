@@ -14,9 +14,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate {
     var scenario: ScenarioEntity!
     var overlay: Overlay!
     var camera: Camera!
-    var spawner: Spawner!
-    
-    var enemyEntities: [EnemyEntity] = []
     
     var firstFrame = true
     
@@ -31,6 +28,8 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate {
         overlay = Overlay(size: scnView.bounds.size)
         overlay.controllerDelegate = self
         scnView.overlaySKScene = overlay
+    
+       
 
         self.physicsWorld.gravity = SCNVector3(0, -9.8, 0)
 
@@ -40,8 +39,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate {
         ambientLightNode.light?.color = UIColor.white
         rootNode.addChildNode(ambientLightNode)
         
-        
-        setupSpawner()
         setupPlayer()
         setupScenario()
         setupCamera()
@@ -51,8 +48,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate {
     func onJoystickChange(_ joystickData: JoystickData) {
         joystickDir = joystickData.direction
     }
-    
-    
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         Time.deltaTime = time - lastTime
@@ -66,33 +61,21 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate {
         }
         
         player.moveToDir(dir: joystickDir)
-        camera.followTarget(target: player.node.simdPosition, offset: simd_float3(5, 5, 0))
+        camera.followTarget(target: player.playerNode.simdPosition, offset: simd_float3(1, 1, 0))
         
-        spawner.update(Time.deltaTime)
+
     }
     
     func setupPlayer(){
-        rootNode.addChildNode(player.node)
-    }
-    
-    func setupSpawner() {
-        
-        let bounds = Bounds(center: simd_float3.zero, size: simd_float3(10, 0, 10))
-        
-        let spawner = Spawner(bounds: bounds, delayRange: 1.0..<3.0, scene: self)
-        
-        spawner.runSpawner()
-        
-        self.spawner = spawner
-        
+        rootNode.addChildNode(player.playerNode)
     }
     
     func setupScenario(){
         scenario = ScenarioEntity()
-        scenario.node.eulerAngles.x = -.pi / 2
-        scenario.node.position = SCNVector3(x: 0, y: -1, z: 0)
+        scenario.planeNode.eulerAngles.x = -.pi / 2
+        scenario.planeNode.position = SCNVector3(x: 0, y: -1, z: 0)
  
-        rootNode.addChildNode(scenario.node)
+        rootNode.addChildNode(scenario.planeNode)
     }
     
     func setupCamera(){

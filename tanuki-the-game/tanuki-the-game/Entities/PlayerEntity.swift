@@ -11,15 +11,19 @@ import GameplayKit
 class PlayerEntity: BaseEntity{
     
     let speed: Float = 2.0
-    
+    let playerNode: SCNNode
+   
     override init(){
+        self.playerNode = SCNNode()
         super.init()
         
-        let cube = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
+        self.addComponent(VisualComponent(modelFile:  "Art.scnassets/character/max.scn", nameOfChild: "Max_rootNode"))
         
-        self.addComponent(VisualComponent(geometry: cube))
+        playerNode.addChildNode(model)
         
-        self.addComponent(PhysicsBodyComponent(node: self.node, bodyType: .kinematic))
+//        self.addComponent(PhysicsBodyComponent(node: self.node, bodyType: .kinematic))
+        
+        
     }
     
     required init?(coder: NSCoder) {
@@ -32,13 +36,13 @@ class PlayerEntity: BaseEntity{
         let magnitude = simd_length(dir)
       
         if (magnitude > 0) {
-            node.simdEulerAngles = simd_float3(0, angle, 0)
+            playerNode.simdEulerAngles = simd_float3(0, angle, 0)
         }
         
-        let front = node.simdWorldFront
+        let front = playerNode.simdWorldFront
         let movement = front * speed * magnitude
-        
-        node.simdPosition += movement * Float(Time.deltaTime)
+        print(magnitude)
+        playerNode.simdPosition += movement * Float(Time.deltaTime)
     }
     
 }

@@ -16,7 +16,7 @@ class BaseEntity: GKEntity{
         return component
     }()
     
-    var node: SCNNode {
-        return visualComponent.node
+    var model: SCNNode {
+        return visualComponent.model
     }
 }

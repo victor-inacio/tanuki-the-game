@@ -10,11 +10,12 @@ import GameplayKit
 
 
 class VisualComponent: GKComponent {
-    var node: SCNNode
+    var model: SCNNode!
     
-     init(geometry: SCNGeometry) {
-        
-        self.node = SCNNode(geometry: geometry)
+     init(modelFile: String, nameOfChild: String){
+
+        let scene = SCNScene(named: modelFile)!
+         model = scene.rootNode.childNode( withName: nameOfChild , recursively: true)
         
         super.init()
     }
