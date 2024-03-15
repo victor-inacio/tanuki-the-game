@@ -12,17 +12,19 @@ class PlayerEntity: BaseEntity{
     
     let speed: Float = 2.0
     let playerNode: SCNNode
-    let playerDirection: SCNNode
+    let playerRotation: SCNNode
    
     override init(){
         self.playerNode = SCNNode()
-        self.playerDirection = SCNNode()
+        self.playerRotation = SCNNode()
         super.init()
         
         self.addComponent(VisualComponent(modelFile:  "Art.scnassets/character/max.scn", nameOfChild: "Max_rootNode"))
         
-        playerNode.addChildNode(playerDirection)
-        playerDirection.addChildNode(model)
+        playerNode.addChildNode(playerRotation)
+        
+        playerRotation.addChildNode(model)
+        
         
 //        self.addComponent(PhysicsBodyComponent(node: self.node, bodyType: .kinematic))
         
@@ -39,11 +41,15 @@ class PlayerEntity: BaseEntity{
         let magnitude = simd_length(dir)
       
         if (magnitude > 0) {
-            playerNode.simdEulerAngles = simd_float3(0, angle, 0)
+            playerRotation.simdEulerAngles = simd_float3(0, angle, 0)
         }
         
-        let front = playerNode.simdWorldFront
+        
+        
+        let front = -playerRotation.simdWorldFront
         let movement = front * speed * magnitude
+        
+        print(front)
 
         playerNode.simdPosition += movement * Float(Time.deltaTime)
     }
