@@ -3,13 +3,17 @@ import SpriteKit
 class Controllers: SKNode
 {
     let joystick = Joystick()
+    let buttonA = Button(label: "A")
     let initialJoystickPosition = CGPoint(x: 120, y: 0)
     
-    weak var delegate: JoystickDelegate? {
+    weak var delegate: (JoystickDelegate & ButtonDelegate)? {
         didSet {
             joystick.delegate = delegate
+            buttonA.delegate = delegate
         }
     }
+    
+    
     
     init(frame: CGSize) {
         super.init()
@@ -17,8 +21,13 @@ class Controllers: SKNode
         joystick.position = initialJoystickPosition
         addChild(joystick)
         
+        buttonA.position = .init(x: frame.width - 120, y: 0)
+        addChild(buttonA)
+        
         hideJoystick(after: 3.0)
     }
+    
+   
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

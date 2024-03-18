@@ -8,7 +8,9 @@
 import Foundation
 import SceneKit
 
-class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate {
+class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate, ButtonDelegate {
+  
+    
    
     var player = PlayerEntity()
     var scenario: ScenarioEntity!
@@ -47,6 +49,13 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate {
     func onJoystickChange(_ joystickData: JoystickData) {
         joystickDir = joystickData.direction
     }
+    
+    func onButtonUp() {
+        
+    }
+    
+    func onButtonDown() {
+            }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         Time.deltaTime = time - lastTime
