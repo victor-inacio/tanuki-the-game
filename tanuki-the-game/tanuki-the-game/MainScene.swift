@@ -12,7 +12,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate, ButtonDel
   
     
    
-    var player = PlayerEntity()
+    var player: PlayerEntity!
     var scenario: ScenarioEntity!
     var overlay: Overlay!
     var camera: Camera!
@@ -21,10 +21,15 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate, ButtonDel
     
     var lastTime: TimeInterval = 0.0
     
-    var joystickDir: simd_float2 = simd_float2(0, 0)
+    var joystickDir: simd_float2 = simd_float2(0, 0)  {
+        didSet {
+            player.characterDirection = joystickDir
+        }
+    }
     
     init(scnView: SCNView) {
         super.init()
+      
         scnView.delegate = self
         overlay = Overlay(size: scnView.bounds.size)
         overlay.controllerDelegate = self
@@ -43,6 +48,8 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate, ButtonDel
         setupPlayer()
         setupScenario()
         setupCamera()
+        
+        
         
     }
     
@@ -71,19 +78,24 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate, ButtonDel
         player.moveToDir(dir: joystickDir)
         camera.followTarget(target: player.playerNode.simdPosition, offset: simd_float3(1, 1, 0))
         
+        player.movementComponent.update(atTime: time, with: renderer)
 
     }
     
     func setupPlayer(){
+        player = PlayerEntity(physicsWorld: self.physicsWorld)
         rootNode.addChildNode(player.playerNode)
+
+
     }
     
     func setupScenario(){
-        scenario = ScenarioEntity()
-        scenario.planeNode.eulerAngles.x = -.pi / 2
-        scenario.planeNode.position = SCNVector3(x: 0, y: -1, z: 0)
- 
-        rootNode.addChildNode(scenario.planeNode)
+        // load the collision mesh from another scene and merge into main scene
+        let collisionsScene = SCNScene( named: "Art.scnassets/collision.scn" )
+        collisionsScene!.rootNode.enumerateChildNodes { (_ child: SCNNode, _ _: UnsafeMutablePointer<ObjCBool>) in
+            child.opacity = 0.0
+            self.rootNode.addChildNode(child)
+        }
     }
     
     func setupCamera(){

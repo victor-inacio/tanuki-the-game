@@ -13,8 +13,16 @@ class PlayerEntity: BaseEntity{
     let speed: Float = 2.0
     let playerNode: SCNNode
     let playerRotation: SCNNode
+    
+    
+    public lazy var movementComponent: MovementComponent = {
+        guard let component = component(ofType: MovementComponent.self) else {
+            fatalError("VisualComponent not found")
+        }
+        return component
+    }()
    
-    override init(){
+     init(physicsWorld: SCNPhysicsWorld){
         self.playerNode = SCNNode()
         self.playerRotation = SCNNode()
         super.init()
@@ -25,10 +33,26 @@ class PlayerEntity: BaseEntity{
         
         playerRotation.addChildNode(model)
         
+        self.addComponent(MovementComponent(topLevelNode: playerNode, rotationNode: playerRotation, modelNode: model, physicsWorld: physicsWorld))
         
-//        self.addComponent(PhysicsBodyComponent(node: self.node, bodyType: .kinematic))
         
         
+    }
+    
+    
+    
+    var characterDirection: vector_float2 {
+        get {
+            return movementComponent.direction
+        }
+        set {
+            var direction = newValue
+            let l = simd_length(direction)
+            if l > 1.0 {
+                direction *= 1 / l
+            }
+            movementComponent.direction = direction
+        }
     }
     
     required init?(coder: NSCoder) {
@@ -37,21 +61,21 @@ class PlayerEntity: BaseEntity{
     
     public func moveToDir(dir: simd_float2) {
         
-        let angle = atan2(dir.y, dir.x)
-        let magnitude = simd_length(dir)
-      
-        if (magnitude > 0) {
-            playerRotation.simdEulerAngles = simd_float3(0, angle, 0)
-        }
-        
-        
-        
-        let front = -playerRotation.simdWorldFront
-        let movement = front * speed * magnitude
-        
-        print(front)
-
-        playerNode.simdPosition += movement * Float(Time.deltaTime)
+//        let angle = atan2(dir.y, dir.x)
+//        let magnitude = simd_length(dir)
+//      
+//        if (magnitude > 0) {
+//            playerRotation.simdEulerAngles = simd_float3(0, angle, 0)
+//        }
+//        
+//        
+//        
+//        let front = -playerRotation.simdWorldFront
+//        let movement = front * speed * magnitude
+//        
+//        print(front)
+//
+//        playerNode.simdPosition += movement * Float(Time.deltaTime)
     }
     
 }
