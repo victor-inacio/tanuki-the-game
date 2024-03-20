@@ -16,10 +16,10 @@ class AnimationComponent: GKComponent {
        
         let idleAnimation = loadAnimation(fromSceneNamed: "Art.scnassets/character/max_idle.scn")
         playerModel.addAnimationPlayer(idleAnimation, forKey: "idle")
-        idleAnimation.play()
         
         let walkAnimation = loadAnimation(fromSceneNamed: "Art.scnassets/character/max_walk.scn")
         playerModel.addAnimationPlayer(walkAnimation, forKey: "walk")
+        walkAnimation.stop()
         
     }
 

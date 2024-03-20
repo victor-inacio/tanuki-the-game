@@ -81,6 +81,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate, ButtonDel
     func setupPlayer(){
         player = PlayerEntity(physicsWorld: self.physicsWorld)
         rootNode.addChildNode(player.playerNode)
+        player.playerNode.position = SCNVector3(x: 0, y: 0, z: 6)
 
 
     }

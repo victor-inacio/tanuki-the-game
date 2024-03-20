@@ -20,7 +20,7 @@ class PlayerEntity: BaseEntity{
         }
         return component
     }()
-    
+
     var characterDirection: vector_float2 {
         get {
             return movementComponent.direction
@@ -73,6 +73,7 @@ class PlayerEntity: BaseEntity{
             IdleState(playerModel: model),
             WalkingState(playerModel: model)
         ])
+        stateMachine.enter(IdleState.self)
     }
 
     required init?(coder: NSCoder) {

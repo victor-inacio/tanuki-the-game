@@ -9,14 +9,15 @@ import Foundation
 import GameplayKit
 
 class IdleState: GKState{
+    let playerModel: SCNNode
     
     init(playerModel: SCNNode){
-
+        self.playerModel = playerModel
        
     }
-    
     override func didEnter(from previousState: GKState?){
-     print("Idle")
+        playerModel.animationPlayer(forKey: "idle")?.play()
+        print("idle")
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool{
