@@ -21,20 +21,6 @@ class PlayerEntity: BaseEntity{
         }
         return component
     }()
-   
-     init(physicsWorld: SCNPhysicsWorld){
-        self.playerNode = SCNNode()
-        self.playerRotation = SCNNode()
-        super.init()
-        
-        self.addComponent(VisualComponent(modelFile:  "Art.scnassets/character/max.scn", nameOfChild: "Max_rootNode"))
-        
-        playerNode.addChildNode(playerRotation)
-        
-        playerRotation.addChildNode(model)
-        
-        self.addComponent(MovementComponent(topLevelNode: playerNode, rotationNode: playerRotation, modelNode: model, physicsWorld: physicsWorld))
-    }
     
     var characterDirection: vector_float2 {
         get {
@@ -50,6 +36,26 @@ class PlayerEntity: BaseEntity{
         }
     }
     
+    init(physicsWorld: SCNPhysicsWorld){
+        self.playerNode = SCNNode()
+        self.playerRotation = SCNNode()
+        super.init()
+        
+        self.addComponent(VisualComponent(modelFile:  "Art.scnassets/character/max.scn", nameOfChild: "Max_rootNode"))
+        
+        setupPlayerHierarchy()
+  
+        self.addComponent(MovementComponent(topLevelNode: playerNode, rotationNode: playerRotation, modelNode: model, physicsWorld: physicsWorld))
+        
+        self.addComponent(AnimationComponent(playerModel: model, idle: "Art.scnassets/character/max_idle.scn", idleNameKey: "idle", walking: "Art.scnassets/character/max_walk.scn", walkingNameKey: "walk"))
+    }
+    
+    func setupPlayerHierarchy(){
+        playerNode.addChildNode(playerRotation)
+        playerRotation.addChildNode(model)
+    }
+   
+   
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

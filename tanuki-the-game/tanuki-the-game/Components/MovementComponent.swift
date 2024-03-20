@@ -14,7 +14,7 @@ func planeIntersect(planeNormal: simd_float3, planeDist: Float, rayOrigin: simd_
 
 
 class MovementComponent: GKComponent{
-    static private let speedFactor: CGFloat = 2.0
+   
     static private let stepsCount = 10
     
     static private let initialPosition = simd_float3(0.1, -0.2, 0)
@@ -67,7 +67,7 @@ class MovementComponent: GKComponent{
         super.init()
         
         let collider = model.childNode(withName: "collider", recursively: true)!
-        collider.physicsBody?.collisionBitMask = Int(([ .enemy, .trigger, .collectable ] as Bitmask).rawValue)
+        collider.physicsBody?.collisionBitMask = Int(([ .enemy] as Bitmask).rawValue)
 
         // Setup collision shape
         let (min, max) = model.boundingBox
@@ -77,6 +77,7 @@ class MovementComponent: GKComponent{
         let collisionGeometry = SCNCapsule(capRadius: collisionCapsuleRadius, height: collisionCapsuleHeight)
         characterCollisionShape = SCNPhysicsShape(geometry: collisionGeometry, options:[.collisionMargin: MovementComponent.collisionMargin])
         collisionShapeOffsetFromModel = simd_float3(0, Float(collisionCapsuleHeight) * 0.51, 0.0)
+        
     }
     
     func queueResetCharacterPosition() {
@@ -86,8 +87,27 @@ class MovementComponent: GKComponent{
     private var directionAngle: CGFloat = 0.0 {
         didSet {
             characterOrientation.runAction(
-                SCNAction.rotateTo(x: 0.0, y: directionAngle, z: 0.0, duration: 0.1, usesShortestUnitArc:true))
+                SCNAction.rotateTo(x: 0.0, y: directionAngle, z: 0.0, duration: 0.08, usesShortestUnitArc:true))
             
+        }
+    }
+    
+    var isWalking: Bool = true {
+        didSet {
+            if oldValue != isWalking {
+            
+                if isWalking {
+                    model.animationPlayer(forKey: "walk")?.play()
+                } else {
+                    model.animationPlayer(forKey: "walk")?.stop(withBlendOutDuration: 0.2)
+                }
+            }
+        }
+    }
+    
+    var walkSpeed: CGFloat = 1.0 {
+        didSet {
+            model.animationPlayer(forKey: "walk")?.speed = 2 * walkSpeed
         }
     }
     
@@ -107,7 +127,7 @@ class MovementComponent: GKComponent{
         
         let deltaTime = time - previousUpdateTime
         let characterSpeed = CGFloat(deltaTime) * 2 * walkSpeed
-        let virtualFrameCount = Int(deltaTime / (1 / 60.0))
+    
         previousUpdateTime = time
         
         // move
@@ -147,11 +167,9 @@ class MovementComponent: GKComponent{
         let hitTo = SCNVector3(p1)
         let hitResult = renderer.scene!.rootNode.hitTestWithSegment(from: hitFrom, to: hitTo, options: options).first
         
-        let wasTouchingTheGroup = groundNode != nil
         groundNode = nil
         var touchesTheGround = false
-        let wasBurning = false
-        
+       
         if let hit = hitResult {
             let ground = simd_float3(hit.worldCoordinates)
             if wPosition.y <= ground.y + MovementComponent.collisionMargin {
@@ -189,25 +207,6 @@ class MovementComponent: GKComponent{
     }
     
     
-    var isWalking: Bool = false {
-        didSet {
-            if oldValue != isWalking {
-                // Update node animation.
-                if isWalking {
-                    model.animationPlayer(forKey: "walk")?.play()
-                } else {
-                    model.animationPlayer(forKey: "walk")?.stop(withBlendOutDuration: 0.2)
-                }
-            }
-        }
-    }
-    
-    var walkSpeed: CGFloat = 1.0 {
-        didSet {
-            model.animationPlayer(forKey: "walk")?.speed = 2 * walkSpeed
-        }
-    }
-    
     func characterDirection(withPointOfView pointOfView: SCNNode?) -> simd_float3 {
         let controllerDir = self.direction
         if controllerDir.allZero() {
@@ -216,7 +215,7 @@ class MovementComponent: GKComponent{
         
         var directionWorld = simd_float3.zero
         if let pov = pointOfView {
-            let p1 = pov.presentation.simdConvertPosition(simd_float3(controllerDir.x, 0.0, controllerDir.y), to: nil)
+            let p1 = pov.presentation.simdConvertPosition(simd_float3(controllerDir.x, 0.0, -controllerDir.y), to: nil)
             let p0 = pov.presentation.simdConvertPosition(simd_float3.zero, to: nil)
             
             directionWorld = p1 - p0

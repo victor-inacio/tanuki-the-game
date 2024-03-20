@@ -10,8 +10,6 @@ import SceneKit
 
 class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate, ButtonDelegate {
   
-    
-   
     var player: PlayerEntity!
     var scenario: ScenarioEntity!
     var overlay: Overlay!
@@ -21,7 +19,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate, ButtonDel
     
     var lastTime: TimeInterval = 0.0
     
-    var joystickDir: simd_float2 = simd_float2(0, 0)  {
+    var joystickDir: simd_float2 = simd_float2(0, -0)  {
         didSet {
             player.characterDirection = joystickDir
         }
@@ -65,7 +63,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate, ButtonDel
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         Time.deltaTime = time - lastTime
         lastTime = time
-        
         
         if (firstFrame) {
             firstFrame = false
