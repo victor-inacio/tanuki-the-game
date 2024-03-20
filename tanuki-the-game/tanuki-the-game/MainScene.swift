@@ -12,7 +12,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate, ButtonDel
   
     
    
-    var player = PlayerEntity()
+    var player: PlayerEntity!
     var scenario: ScenarioEntity!
     var overlay: Overlay!
     var camera: Camera!
@@ -30,8 +30,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate, ButtonDel
         overlay.controllerDelegate = self
         scnView.overlaySKScene = overlay
     
-       
-
         self.physicsWorld.gravity = SCNVector3(0, -9.8, 0)
 
         let ambientLightNode = SCNNode()
@@ -44,10 +42,19 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate, ButtonDel
         setupScenario()
         setupCamera()
         
+        
+        spawnRandomEnemies()
     }
     
     func onJoystickChange(_ joystickData: JoystickData) {
         joystickDir = joystickData.direction
+    }
+    
+    private func spawnRandomEnemies() {
+        
+        let enemyEntity = EnemyEntity()
+      
+        rootNode.addChildNode(enemyEntity.model)
     }
     
     func onButtonUp() {
@@ -55,7 +62,8 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate, ButtonDel
     }
     
     func onButtonDown() {
-            }
+        player.attack()
+    }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         Time.deltaTime = time - lastTime
@@ -70,11 +78,11 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate, ButtonDel
         
         player.moveToDir(dir: joystickDir)
         camera.followTarget(target: player.playerNode.simdPosition, offset: simd_float3(1, 1, 0))
-        
-
     }
     
     func setupPlayer(){
+        player = PlayerEntity(scene: self)
+        
         rootNode.addChildNode(player.playerNode)
     }
     

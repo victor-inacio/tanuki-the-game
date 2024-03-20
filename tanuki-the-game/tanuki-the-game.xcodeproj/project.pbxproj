@@ -14,6 +14,8 @@
 		9892966C2BA4B7CA00681BCD /* EnemyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9892966B2BA4B7CA00681BCD /* EnemyEntity.swift */; };
 		9892966E2BA4B7FB00681BCD /* Spawner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9892966D2BA4B7FA00681BCD /* Spawner.swift */; };
 		989296702BA4BDE500681BCD /* Bounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9892966F2BA4BDE500681BCD /* Bounds.swift */; };
+		98BE5FE92BAA0F940031DC15 /* AttackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE5FE82BAA0F940031DC15 /* AttackComponent.swift */; };
+		98BE5FEC2BAB80070031DC15 /* simd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98BE5FEB2BAB80070031DC15 /* simd.swift */; };
 		98E0E3C02B9E7C8F0034011F /* Joystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E3BF2B9E7C8F0034011F /* Joystick.swift */; };
 		98E0E3C22B9E8A910034011F /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E3C12B9E8A910034011F /* Math.swift */; };
 		98E0E3C42B9F45B00034011F /* Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E3C32B9F45B00034011F /* Controllers.swift */; };
@@ -39,6 +41,8 @@
 		9892966B2BA4B7CA00681BCD /* EnemyEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyEntity.swift; sourceTree = "<group>"; };
 		9892966D2BA4B7FA00681BCD /* Spawner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spawner.swift; sourceTree = "<group>"; };
 		9892966F2BA4BDE500681BCD /* Bounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bounds.swift; sourceTree = "<group>"; };
+		98BE5FE82BAA0F940031DC15 /* AttackComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackComponent.swift; sourceTree = "<group>"; };
+		98BE5FEB2BAB80070031DC15 /* simd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = simd.swift; sourceTree = "<group>"; };
 		98E0E3BF2B9E7C8F0034011F /* Joystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joystick.swift; sourceTree = "<group>"; };
 		98E0E3C12B9E8A910034011F /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		98E0E3C32B9F45B00034011F /* Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controllers.swift; sourceTree = "<group>"; };
@@ -68,6 +72,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		98BE5FEA2BAB7FFF0031DC15 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				98BE5FEB2BAB80070031DC15 /* simd.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		98E0E3BE2B9E7C860034011F /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +88,7 @@
 				98E0E3C32B9F45B00034011F /* Controllers.swift */,
 				ABAFEA882BA22A8900BB5E9D /* PhysicsBodyComponent.swift */,
 				986D6E372BA8B3D600AF42D6 /* Button.swift */,
+				98BE5FE82BAA0F940031DC15 /* AttackComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -99,6 +112,7 @@
 		98F679EE2B9B989D00A0EBEE /* tanuki-the-game */ = {
 			isa = PBXGroup;
 			children = (
+				98BE5FEA2BAB7FFF0031DC15 /* Extensions */,
 				ABF676BF2B9F2FAC007806B3 /* Entities */,
 				98E0E3BE2B9E7C860034011F /* Components */,
 				98F679F32B9B989E00A0EBEE /* Assets.xcassets */,
@@ -225,6 +239,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABF676C72B9F343D007806B3 /* GameViewController.swift in Sources */,
+				98BE5FEC2BAB80070031DC15 /* simd.swift in Sources */,
 				ABF676C12B9F2FB8007806B3 /* PlayerEntity.swift in Sources */,
 				ABAFEA8B2BA22C2200BB5E9D /* ScenarioEntity.swift in Sources */,
 				98E0E3C62B9F47AA0034011F /* Overlay.swift in Sources */,
@@ -235,6 +250,7 @@
 				989296662BA38BE200681BCD /* Time.swift in Sources */,
 				9892966C2BA4B7CA00681BCD /* EnemyEntity.swift in Sources */,
 				ABF676C52B9F31B6007806B3 /* MainScene.swift in Sources */,
+				98BE5FE92BAA0F940031DC15 /* AttackComponent.swift in Sources */,
 				ABAFEA8D2BA22C3E00BB5E9D /* BaseEntity.swift in Sources */,
 				989296682BA390C900681BCD /* Camera.swift in Sources */,
 				9892966A2BA4B76400681BCD /* CharacterEntity.swift in Sources */,
