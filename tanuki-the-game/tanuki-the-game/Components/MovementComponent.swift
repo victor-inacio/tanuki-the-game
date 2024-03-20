@@ -12,7 +12,6 @@ func planeIntersect(planeNormal: simd_float3, planeDist: Float, rayOrigin: simd_
     return (planeDist - simd_dot(planeNormal, rayOrigin)) / simd_dot(planeNormal, rayDirection)
 }
 
-
 class MovementComponent: GKComponent{
    
     static private let stepsCount = 10
@@ -107,7 +106,7 @@ class MovementComponent: GKComponent{
     
     var walkSpeed: CGFloat = 1.0 {
         didSet {
-            model.animationPlayer(forKey: "walk")?.speed = 2 * walkSpeed
+            model.animationPlayer(forKey: "walk")?.speed = 1 * walkSpeed
         }
     }
     

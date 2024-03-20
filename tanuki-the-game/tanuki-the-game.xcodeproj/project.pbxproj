@@ -24,6 +24,8 @@
 		AB38C6402BAA256A006C279A /* bitMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38C63F2BAA256A006C279A /* bitMask.swift */; };
 		AB38C6422BAB602E006C279A /* GetAnimationsFromArt.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38C6412BAB602E006C279A /* GetAnimationsFromArt.swift */; };
 		AB38C6452BAB61F6006C279A /* AnimationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38C6442BAB61F6006C279A /* AnimationComponent.swift */; };
+		AB38C6482BAB65DB006C279A /* IdleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38C6472BAB65DB006C279A /* IdleState.swift */; };
+		AB38C64A2BAB65E7006C279A /* WalkingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38C6492BAB65E7006C279A /* WalkingState.swift */; };
 		ABAFEA892BA22A8900BB5E9D /* PhysicsBodyComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAFEA882BA22A8900BB5E9D /* PhysicsBodyComponent.swift */; };
 		ABAFEA8B2BA22C2200BB5E9D /* ScenarioEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAFEA8A2BA22C2200BB5E9D /* ScenarioEntity.swift */; };
 		ABAFEA8D2BA22C3E00BB5E9D /* BaseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAFEA8C2BA22C3E00BB5E9D /* BaseEntity.swift */; };
@@ -53,6 +55,8 @@
 		AB38C63F2BAA256A006C279A /* bitMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bitMask.swift; sourceTree = "<group>"; };
 		AB38C6412BAB602E006C279A /* GetAnimationsFromArt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAnimationsFromArt.swift; sourceTree = "<group>"; };
 		AB38C6442BAB61F6006C279A /* AnimationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationComponent.swift; sourceTree = "<group>"; };
+		AB38C6472BAB65DB006C279A /* IdleState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleState.swift; sourceTree = "<group>"; };
+		AB38C6492BAB65E7006C279A /* WalkingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingState.swift; sourceTree = "<group>"; };
 		ABAFEA882BA22A8900BB5E9D /* PhysicsBodyComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsBodyComponent.swift; sourceTree = "<group>"; };
 		ABAFEA8A2BA22C2200BB5E9D /* ScenarioEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioEntity.swift; sourceTree = "<group>"; };
 		ABAFEA8C2BA22C3E00BB5E9D /* BaseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseEntity.swift; sourceTree = "<group>"; };
@@ -106,6 +110,7 @@
 			children = (
 				ABF676BF2B9F2FAC007806B3 /* Entities */,
 				98E0E3BE2B9E7C860034011F /* Components */,
+				AB38C6462BAB64CD006C279A /* PlayerStates */,
 				AB38C6432BAB612D006C279A /* HUD */,
 				98F679F32B9B989E00A0EBEE /* Assets.xcassets */,
 				ABC429532BA4DB87009F0905 /* Art.scnassets */,
@@ -134,6 +139,15 @@
 				98E0E3C32B9F45B00034011F /* Controllers.swift */,
 			);
 			path = HUD;
+			sourceTree = "<group>";
+		};
+		AB38C6462BAB64CD006C279A /* PlayerStates */ = {
+			isa = PBXGroup;
+			children = (
+				AB38C6472BAB65DB006C279A /* IdleState.swift */,
+				AB38C6492BAB65E7006C279A /* WalkingState.swift */,
+			);
+			path = PlayerStates;
 			sourceTree = "<group>";
 		};
 		ABF676BD2B9F2EFA007806B3 /* Utility */ = {
@@ -254,11 +268,13 @@
 				989296702BA4BDE500681BCD /* Bounds.swift in Sources */,
 				989296662BA38BE200681BCD /* Time.swift in Sources */,
 				AB38C6452BAB61F6006C279A /* AnimationComponent.swift in Sources */,
+				AB38C6482BAB65DB006C279A /* IdleState.swift in Sources */,
 				9892966C2BA4B7CA00681BCD /* EnemyEntity.swift in Sources */,
 				ABF676C52B9F31B6007806B3 /* MainScene.swift in Sources */,
 				ABAFEA8D2BA22C3E00BB5E9D /* BaseEntity.swift in Sources */,
 				989296682BA390C900681BCD /* Camera.swift in Sources */,
 				98F679F02B9B989D00A0EBEE /* tanuki_the_gameApp.swift in Sources */,
+				AB38C64A2BAB65E7006C279A /* WalkingState.swift in Sources */,
 				98E0E3C22B9E8A910034011F /* Math.swift in Sources */,
 				98E0E3C42B9F45B00034011F /* Controllers.swift in Sources */,
 				9892966E2BA4B7FB00681BCD /* Spawner.swift in Sources */,

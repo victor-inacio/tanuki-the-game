@@ -9,11 +9,10 @@ import Foundation
 import GameplayKit
 
 class PlayerEntity: BaseEntity{
-    
-    let speed: Float = 2.0
+   
+    var stateMachine: GKStateMachine!
     let playerNode: SCNNode
     let playerRotation: SCNNode
-    
     
     public lazy var movementComponent: MovementComponent = {
         guard let component = component(ofType: MovementComponent.self) else {
@@ -48,14 +47,34 @@ class PlayerEntity: BaseEntity{
         self.addComponent(MovementComponent(topLevelNode: playerNode, rotationNode: playerRotation, modelNode: model, physicsWorld: physicsWorld))
         
         self.addComponent(AnimationComponent(playerModel: model, idle: "Art.scnassets/character/max_idle.scn", idleNameKey: "idle", walking: "Art.scnassets/character/max_walk.scn", walkingNameKey: "walk"))
+        
+        applyMachine()
+    }
+    
+    override func update(deltaTime seconds: TimeInterval) {
+        
+        if !characterDirection.allZero() && stateMachine.currentState is WalkingState == false{
+            stateMachine.enter(WalkingState.self)
+        }
+        
+        if characterDirection.allZero() && stateMachine.currentState is IdleState == false{
+            stateMachine.enter(IdleState.self)
+        }
     }
     
     func setupPlayerHierarchy(){
         playerNode.addChildNode(playerRotation)
         playerRotation.addChildNode(model)
     }
-   
-   
+    
+    
+    func applyMachine(){
+        stateMachine = GKStateMachine(states: [
+            IdleState(playerModel: model),
+            WalkingState(playerModel: model)
+        ])
+    }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
