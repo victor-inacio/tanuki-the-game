@@ -13,7 +13,7 @@ func planeIntersect(planeNormal: simd_float3, planeDist: Float, rayOrigin: simd_
 }
 
 
-class MovementComponent: GKComponent {
+class MovementComponent: GKComponent{
     static private let speedFactor: CGFloat = 2.0
     static private let stepsCount = 10
     
@@ -92,9 +92,8 @@ class MovementComponent: GKComponent {
     }
     
     func update(atTime time: TimeInterval, with renderer: SCNSceneRenderer) {
-        print("aa")
+
         frameCounter += 1
-        
         
         var characterVelocity = simd_float3.zero
         
@@ -113,7 +112,7 @@ class MovementComponent: GKComponent {
         
         // move
         if !direction.allZero() {
-            characterVelocity = direction * Float(characterSpeed)
+            characterVelocity = (direction * Float(characterSpeed)) / 3
             var runModifier = Float(2.0)
             
             // animation walkSpeed

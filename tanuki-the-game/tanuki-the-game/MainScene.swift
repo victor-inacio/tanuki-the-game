@@ -49,8 +49,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate, ButtonDel
         setupScenario()
         setupCamera()
         
-        
-        
     }
     
     func onJoystickChange(_ joystickData: JoystickData) {
@@ -75,7 +73,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate, ButtonDel
             return
         }
         
-        player.moveToDir(dir: joystickDir)
+       
         camera.followTarget(target: player.playerNode.simdPosition, offset: simd_float3(1, 1, 0))
         
         player.movementComponent.update(atTime: time, with: renderer)

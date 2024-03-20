@@ -34,12 +34,7 @@ class PlayerEntity: BaseEntity{
         playerRotation.addChildNode(model)
         
         self.addComponent(MovementComponent(topLevelNode: playerNode, rotationNode: playerRotation, modelNode: model, physicsWorld: physicsWorld))
-        
-        
-        
     }
-    
-    
     
     var characterDirection: vector_float2 {
         get {
@@ -57,25 +52,6 @@ class PlayerEntity: BaseEntity{
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    public func moveToDir(dir: simd_float2) {
-        
-//        let angle = atan2(dir.y, dir.x)
-//        let magnitude = simd_length(dir)
-//      
-//        if (magnitude > 0) {
-//            playerRotation.simdEulerAngles = simd_float3(0, angle, 0)
-//        }
-//        
-//        
-//        
-//        let front = -playerRotation.simdWorldFront
-//        let movement = front * speed * magnitude
-//        
-//        print(front)
-//
-//        playerNode.simdPosition += movement * Float(Time.deltaTime)
     }
     
 }
