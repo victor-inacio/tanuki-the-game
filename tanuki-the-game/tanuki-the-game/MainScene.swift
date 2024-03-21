@@ -90,7 +90,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate, ButtonDel
         // load the collision mesh from another scene and merge into main scene
         let collisionsScene = SCNScene( named: "Art.scnassets/collision.scn" )
         collisionsScene!.rootNode.enumerateChildNodes { (_ child: SCNNode, _ _: UnsafeMutablePointer<ObjCBool>) in
-            child.opacity = 0.0
+            child.opacity = 1
             self.rootNode.addChildNode(child)
         }
     }
