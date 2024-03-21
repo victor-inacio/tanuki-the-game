@@ -20,6 +20,14 @@ class PlayerEntity: BaseEntity{
         }
         return component
     }()
+    
+    public lazy var attackComponent: AttackComponent = {
+        guard let component = component(ofType: AttackComponent.self) else {
+            fatalError("VisualComponent not found")
+        }
+        return component
+    }()
+
 
     var characterDirection: vector_float2 {
         get {
@@ -48,6 +56,7 @@ class PlayerEntity: BaseEntity{
         
         self.addComponent(AnimationComponent(playerModel: model, idle: "Art.scnassets/character/max_idle.scn", idleNameKey: "idle", walking: "Art.scnassets/character/max_walk.scn", walkingNameKey: "walk"))
         
+        self.addComponent(AttackComponent(attackerModel: model, ColliderName: "swordCollider"))
         applyMachine()
     }
     

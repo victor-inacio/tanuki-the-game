@@ -71,7 +71,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate, ButtonDel
         }
         
        
-        camera.followTarget(target: player.playerNode.simdPosition, offset: simd_float3(1, 1, 0))
+        camera.followTarget(target: player.playerNode.simdPosition, offset: simd_float3(1, 1.5, 0))
         
         player.update(deltaTime: time)
         player.movementComponent.update(atTime: time, with: renderer)

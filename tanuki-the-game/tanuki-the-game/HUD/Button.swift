@@ -45,9 +45,8 @@ class Button: SKNode {
         
         
         if let first = touches.first {
-            
             onButtonUp()
-            
+          
         }
     }
     
@@ -58,7 +57,6 @@ class Button: SKNode {
             onButtonDown()
             
         }
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
