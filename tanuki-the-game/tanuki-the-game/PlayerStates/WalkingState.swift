@@ -8,13 +8,7 @@
 import Foundation
 import GameplayKit
 
-class WalkingState: GKState{
-    
-    let playerModel: SCNNode
-    
-    init(playerModel: SCNNode){
-        self.playerModel = playerModel
-    }
+class WalkingState: PlayerState{
     
     override func didEnter(from previousState: GKState?){
         print("walking")

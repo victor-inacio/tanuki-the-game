@@ -8,13 +8,8 @@
 import Foundation
 import GameplayKit
 
-class IdleState: GKState{
-    let playerModel: SCNNode
+class IdleState: PlayerState{
     
-    init(playerModel: SCNNode){
-        self.playerModel = playerModel
-       
-    }
     override func didEnter(from previousState: GKState?){
         playerModel.animationPlayer(forKey: "idle")?.play()
         print("idle")

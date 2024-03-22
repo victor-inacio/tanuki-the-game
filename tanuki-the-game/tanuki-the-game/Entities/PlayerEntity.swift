@@ -81,8 +81,8 @@ class PlayerEntity: BaseEntity{
     
     func applyMachine(){
         stateMachine = GKStateMachine(states: [
-            IdleState(playerModel: model),
-            WalkingState(playerModel: model)
+            IdleState(playerEntity: self),
+            WalkingState(playerEntity: self)
         ])
         stateMachine.enter(IdleState.self)
     }
