@@ -58,7 +58,11 @@ class MovementComponent: GKComponent{
         super.init()
         
         let collider = model.childNode(withName: "collider", recursively: true)!
-        collider.physicsBody?.collisionBitMask = Int(([ .enemy] as Bitmask).rawValue)
+        collider.physicsBody?.categoryBitMask = Bitmask.character.rawValue
+        collider.physicsBody?.contactTestBitMask = 0
+        collider.physicsBody?.collisionBitMask = Bitmask.character.rawValue
+        
+        
         
         // Setup collision shape
         let (min, max) = model.boundingBox

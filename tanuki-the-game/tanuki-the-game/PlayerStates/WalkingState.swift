@@ -11,7 +11,6 @@ import GameplayKit
 class WalkingState: PlayerState{
     
     override func didEnter(from previousState: GKState?){
-        print("walking")
         playerModel.animationPlayer(forKey: "walk")?.play()
     }
     
