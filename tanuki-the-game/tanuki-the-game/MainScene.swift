@@ -56,7 +56,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         // Add physics body to the node
         let boxPhysicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
         boxPhysicsBody.categoryBitMask =  Bitmask.enemy.rawValue | Bitmask.character.rawValue
-        boxPhysicsBody.contactTestBitMask = Bitmask.playerWeapon.rawValue
+        boxPhysicsBody.contactTestBitMask = Bitmask.character.rawValue
 
         
       
