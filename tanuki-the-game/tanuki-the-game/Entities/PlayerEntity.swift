@@ -56,7 +56,10 @@ class PlayerEntity: BaseEntity{
   
         self.addComponent(MovementComponent(topLevelNode: playerNode, rotationNode: playerRotation, modelNode: model, physicsWorld: physicsWorld))
         
-        self.addComponent(AnimationComponent(playerModel: model, idle: "Art.scnassets/character/max_idle.scn", idleNameKey: "idle", walking: "Art.scnassets/character/max_walk.scn", walkingNameKey: "walk"))
+        self.addComponent(AnimationComponent(nodeToAddAnimation: model, animations: [
+            .init(fromSceneNamed: "Art.scnassets/character/max_idle.scn", animationKey: "idle"),
+            .init(fromSceneNamed: "Art.scnassets/character/max_walk.scn", animationKey: "walk")
+        ]))
         
         self.addComponent(AttackComponent(attackerModel: model, ColliderName: "swordCollider"))
         setupStateMachine()

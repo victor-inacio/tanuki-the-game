@@ -8,18 +8,24 @@
 import Foundation
 import GameplayKit
 
+struct Animation {
+    let fromSceneNamed: String
+    let animationKey: String
+}
+
 
 class AnimationComponent: GKComponent {
     
-    init(playerModel: SCNNode, idle: String, idleNameKey: String, walking: String, walkingNameKey: String){
+    init(nodeToAddAnimation: SCNNode, animations: [Animation]){
         super.init()
        
-        let idleAnimation = loadAnimation(fromSceneNamed: "Art.scnassets/character/max_idle.scn")
-        playerModel.addAnimationPlayer(idleAnimation, forKey: "idle")
-        
-        let walkAnimation = loadAnimation(fromSceneNamed: "Art.scnassets/character/max_walk.scn")
-        playerModel.addAnimationPlayer(walkAnimation, forKey: "walk")
-        walkAnimation.stop()
+        for animation in animations {
+            let animationPlayer = loadAnimation(fromSceneNamed: animation.fromSceneNamed)
+            
+            nodeToAddAnimation.addAnimationPlayer(animationPlayer, forKey: animation.animationKey)
+            
+            animationPlayer.stop()
+        }
         
     }
 
