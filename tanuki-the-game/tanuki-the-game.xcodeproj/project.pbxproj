@@ -15,6 +15,7 @@
 		989296702BA4BDE500681BCD /* Bounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9892966F2BA4BDE500681BCD /* Bounds.swift */; };
 		98DD7FD32BAE073D00CB4FBB /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DD7FD22BAE073D00CB4FBB /* Input.swift */; };
 		98DD7FD52BAE08CF00CB4FBB /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DD7FD42BAE08CF00CB4FBB /* PlayerState.swift */; };
+		98DD7FD72BAE0CEC00CB4FBB /* PlayerStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DD7FD62BAE0CEC00CB4FBB /* PlayerStateMachine.swift */; };
 		98E0E3C02B9E7C8F0034011F /* Joystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E3BF2B9E7C8F0034011F /* Joystick.swift */; };
 		98E0E3C22B9E8A910034011F /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E3C12B9E8A910034011F /* Math.swift */; };
 		98E0E3C42B9F45B00034011F /* Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E3C32B9F45B00034011F /* Controllers.swift */; };
@@ -48,6 +49,7 @@
 		9892966F2BA4BDE500681BCD /* Bounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bounds.swift; sourceTree = "<group>"; };
 		98DD7FD22BAE073D00CB4FBB /* Input.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
 		98DD7FD42BAE08CF00CB4FBB /* PlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
+		98DD7FD62BAE0CEC00CB4FBB /* PlayerStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStateMachine.swift; sourceTree = "<group>"; };
 		98E0E3BF2B9E7C8F0034011F /* Joystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joystick.swift; sourceTree = "<group>"; };
 		98E0E3C12B9E8A910034011F /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		98E0E3C32B9F45B00034011F /* Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controllers.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				AB38C6472BAB65DB006C279A /* IdleState.swift */,
 				AB38C6492BAB65E7006C279A /* WalkingState.swift */,
 				98DD7FD42BAE08CF00CB4FBB /* PlayerState.swift */,
+				98DD7FD62BAE0CEC00CB4FBB /* PlayerStateMachine.swift */,
 			);
 			path = PlayerStates;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				989296682BA390C900681BCD /* Camera.swift in Sources */,
 				98F679F02B9B989D00A0EBEE /* tanuki_the_gameApp.swift in Sources */,
 				AB38C64A2BAB65E7006C279A /* WalkingState.swift in Sources */,
+				98DD7FD72BAE0CEC00CB4FBB /* PlayerStateMachine.swift in Sources */,
 				98E0E3C22B9E8A910034011F /* Math.swift in Sources */,
 				98E0E3C42B9F45B00034011F /* Controllers.swift in Sources */,
 				9892966E2BA4B7FB00681BCD /* Spawner.swift in Sources */,

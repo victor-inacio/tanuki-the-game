@@ -10,7 +10,7 @@ import GameplayKit
 
 class PlayerEntity: BaseEntity{
    
-    var stateMachine: GKStateMachine!
+    var stateMachine: PlayerStateMachine!
     let playerNode: SCNNode
     let playerRotation: SCNNode
     
@@ -46,7 +46,9 @@ class PlayerEntity: BaseEntity{
     init(physicsWorld: SCNPhysicsWorld){
         self.playerNode = SCNNode()
         self.playerRotation = SCNNode()
+        
         super.init()
+        self.stateMachine = PlayerStateMachine(player: self)
         
         self.addComponent(VisualComponent(modelFile:  "Art.scnassets/character/max.scn", nameOfChild: "Max_rootNode"))
         
@@ -57,20 +59,14 @@ class PlayerEntity: BaseEntity{
         self.addComponent(AnimationComponent(playerModel: model, idle: "Art.scnassets/character/max_idle.scn", idleNameKey: "idle", walking: "Art.scnassets/character/max_walk.scn", walkingNameKey: "walk"))
         
         self.addComponent(AttackComponent(attackerModel: model, ColliderName: "swordCollider"))
-        applyMachine()
+        setupStateMachine()
     }
     
     override func update(deltaTime seconds: TimeInterval) {
         
         characterDirection = Input.movement
         
-        if !characterDirection.allZero() && stateMachine.currentState is WalkingState == false{
-            stateMachine.enter(WalkingState.self)
-        }
-        
-        if characterDirection.allZero() && stateMachine.currentState is IdleState == false{
-            stateMachine.enter(IdleState.self)
-        }
+        stateMachine.update(deltaTime: seconds)
     }
     
     func setupPlayerHierarchy(){
@@ -79,11 +75,7 @@ class PlayerEntity: BaseEntity{
     }
     
     
-    func applyMachine(){
-        stateMachine = GKStateMachine(states: [
-            IdleState(playerEntity: self),
-            WalkingState(playerEntity: self)
-        ])
+    func setupStateMachine(){
         stateMachine.enter(IdleState.self)
     }
 

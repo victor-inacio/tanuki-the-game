@@ -2,13 +2,13 @@ import GameplayKit
 
 class PlayerState: GKState {
     
-    var playerEntity: PlayerEntity
+    var player: PlayerEntity
     var playerModel: SCNNode {
-        self.playerEntity.model
+        self.player.model
     }
     
     init(playerEntity: PlayerEntity) {
-        self.playerEntity = playerEntity
+        self.player = playerEntity
     }
     
 }
