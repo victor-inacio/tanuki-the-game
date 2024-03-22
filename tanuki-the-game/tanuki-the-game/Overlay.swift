@@ -4,7 +4,7 @@ class Overlay: SKScene {
     
     var controllers: Controllers!
     
-    weak var controllerDelegate: (JoystickDelegate & ButtonDelegate)? {
+    weak var controllerDelegate: (ButtonDelegate)? {
         didSet {
             controllers.delegate = controllerDelegate
         }

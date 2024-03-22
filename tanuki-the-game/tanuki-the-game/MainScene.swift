@@ -8,7 +8,7 @@
 import Foundation
 import SceneKit
 
-class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate, ButtonDelegate {
+class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate {
   
     var player: PlayerEntity!
     var scenario: ScenarioEntity!
@@ -19,24 +19,18 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate, ButtonDel
     
     var lastTime: TimeInterval = 0.0
     
-    var joystickDir: simd_float2 = simd_float2(0, -0)  {
-        didSet {
-            player.characterDirection = joystickDir
-        }
-    }
-    
     init(scnView: SCNView) {
         super.init()
-      
+        
         scnView.delegate = self
         overlay = Overlay(size: scnView.bounds.size)
         overlay.controllerDelegate = self
         scnView.overlaySKScene = overlay
-    
-       
-
+        
+        
+        
         self.physicsWorld.gravity = SCNVector3(0, -9.8, 0)
-
+        
         let ambientLightNode = SCNNode()
         ambientLightNode.light = SCNLight()
         ambientLightNode.light?.type = .ambient
@@ -47,10 +41,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, JoystickDelegate, ButtonDel
         setupScenario()
         setupCamera()
         
-    }
-    
-    func onJoystickChange(_ joystickData: JoystickData) {
-        joystickDir = joystickData.direction
     }
     
     func onButtonUp() {

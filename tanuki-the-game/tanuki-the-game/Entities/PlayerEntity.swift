@@ -62,6 +62,8 @@ class PlayerEntity: BaseEntity{
     
     override func update(deltaTime seconds: TimeInterval) {
         
+        characterDirection = Input.movement
+        
         if !characterDirection.allZero() && stateMachine.currentState is WalkingState == false{
             stateMachine.enter(WalkingState.self)
         }
