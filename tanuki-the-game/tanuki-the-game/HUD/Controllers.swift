@@ -3,7 +3,7 @@ import SpriteKit
 class Controllers: SKNode
 {
     let joystick = Joystick()
-    let buttonA = Button(label: "A")
+    let buttonA = ButtonComponent(label: "A")
     let initialJoystickPosition = CGPoint(x: 120, y: 0)
     
     weak var delegate: (JoystickDelegate & ButtonDelegate)? {

@@ -7,7 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		986D6E382BA8B3D600AF42D6 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986D6E372BA8B3D600AF42D6 /* Button.swift */; };
+		81A4029B2BAB8293006AB0E8 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A4029A2BAB8293006AB0E8 /* DrawingView.swift */; };
+		81A4029D2BAB82B9006AB0E8 /* DrawingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A4029C2BAB82B9006AB0E8 /* DrawingViewModel.swift */; };
+		81A4029F2BAB82E8006AB0E8 /* DrawingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A4029E2BAB82E8006AB0E8 /* DrawingModel.swift */; };
+		81A402A22BAB8328006AB0E8 /* ConvertImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A402A12BAB8328006AB0E8 /* ConvertImage.swift */; };
+		81A402A42BAB8355006AB0E8 /* RuneClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 81A402A32BAB8354006AB0E8 /* RuneClassifier.mlmodel */; };
+		986D6E382BA8B3D600AF42D6 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986D6E372BA8B3D600AF42D6 /* ButtonComponent.swift */; };
 		989296662BA38BE200681BCD /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989296652BA38BE200681BCD /* Time.swift */; };
 		989296682BA390C900681BCD /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989296672BA390C900681BCD /* Camera.swift */; };
 		9892966C2BA4B7CA00681BCD /* EnemyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9892966B2BA4B7CA00681BCD /* EnemyEntity.swift */; };
@@ -35,7 +40,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		986D6E372BA8B3D600AF42D6 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		81A4029A2BAB8293006AB0E8 /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
+		81A4029C2BAB82B9006AB0E8 /* DrawingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewModel.swift; sourceTree = "<group>"; };
+		81A4029E2BAB82E8006AB0E8 /* DrawingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingModel.swift; sourceTree = "<group>"; };
+		81A402A12BAB8328006AB0E8 /* ConvertImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertImage.swift; sourceTree = "<group>"; };
+		81A402A32BAB8354006AB0E8 /* RuneClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = RuneClassifier.mlmodel; sourceTree = "<group>"; };
+		986D6E372BA8B3D600AF42D6 /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
 		989296652BA38BE200681BCD /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		989296672BA390C900681BCD /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		9892966B2BA4B7CA00681BCD /* EnemyEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyEntity.swift; sourceTree = "<group>"; };
@@ -74,6 +84,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		81A402992BAB8275006AB0E8 /* Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				81A402A02BAB8313006AB0E8 /* CoreML */,
+				81A4029E2BAB82E8006AB0E8 /* DrawingModel.swift */,
+				81A4029A2BAB8293006AB0E8 /* DrawingView.swift */,
+				81A4029C2BAB82B9006AB0E8 /* DrawingViewModel.swift */,
+			);
+			path = Drawing;
+			sourceTree = "<group>";
+		};
+		81A402A02BAB8313006AB0E8 /* CoreML */ = {
+			isa = PBXGroup;
+			children = (
+				81A402A32BAB8354006AB0E8 /* RuneClassifier.mlmodel */,
+				81A402A12BAB8328006AB0E8 /* ConvertImage.swift */,
+			);
+			path = CoreML;
+			sourceTree = "<group>";
+		};
 		98E0E3BE2B9E7C860034011F /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +134,7 @@
 		98F679EE2B9B989D00A0EBEE /* tanuki-the-game */ = {
 			isa = PBXGroup;
 			children = (
+				81A402992BAB8275006AB0E8 /* Drawing */,
 				ABF676BF2B9F2FAC007806B3 /* Entities */,
 				98E0E3BE2B9E7C860034011F /* Components */,
 				AB38C6432BAB612D006C279A /* HUD */,
@@ -130,7 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				98E0E3BF2B9E7C8F0034011F /* Joystick.swift */,
-				986D6E372BA8B3D600AF42D6 /* Button.swift */,
+				986D6E372BA8B3D600AF42D6 /* ButtonComponent.swift */,
 				98E0E3C32B9F45B00034011F /* Controllers.swift */,
 			);
 			path = HUD;
@@ -248,19 +279,24 @@
 				AB38C6402BAA256A006C279A /* bitMask.swift in Sources */,
 				98E0E3C62B9F47AA0034011F /* Overlay.swift in Sources */,
 				98E0E3C02B9E7C8F0034011F /* Joystick.swift in Sources */,
-				986D6E382BA8B3D600AF42D6 /* Button.swift in Sources */,
+				986D6E382BA8B3D600AF42D6 /* ButtonComponent.swift in Sources */,
 				AB38C6422BAB602E006C279A /* GetAnimationsFromArt.swift in Sources */,
 				ABAFEA892BA22A8900BB5E9D /* PhysicsBodyComponent.swift in Sources */,
 				989296702BA4BDE500681BCD /* Bounds.swift in Sources */,
 				989296662BA38BE200681BCD /* Time.swift in Sources */,
 				AB38C6452BAB61F6006C279A /* AnimationComponent.swift in Sources */,
+				81A4029B2BAB8293006AB0E8 /* DrawingView.swift in Sources */,
 				9892966C2BA4B7CA00681BCD /* EnemyEntity.swift in Sources */,
 				ABF676C52B9F31B6007806B3 /* MainScene.swift in Sources */,
 				ABAFEA8D2BA22C3E00BB5E9D /* BaseEntity.swift in Sources */,
+				81A4029D2BAB82B9006AB0E8 /* DrawingViewModel.swift in Sources */,
 				989296682BA390C900681BCD /* Camera.swift in Sources */,
 				98F679F02B9B989D00A0EBEE /* tanuki_the_gameApp.swift in Sources */,
 				98E0E3C22B9E8A910034011F /* Math.swift in Sources */,
+				81A402A42BAB8355006AB0E8 /* RuneClassifier.mlmodel in Sources */,
 				98E0E3C42B9F45B00034011F /* Controllers.swift in Sources */,
+				81A4029F2BAB82E8006AB0E8 /* DrawingModel.swift in Sources */,
+				81A402A22BAB8328006AB0E8 /* ConvertImage.swift in Sources */,
 				9892966E2BA4B7FB00681BCD /* Spawner.swift in Sources */,
 				ABF676C92B9F37B8007806B3 /* VisualComponent.swift in Sources */,
 			);
@@ -396,7 +432,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tanuki-the-game/Preview Content\"";
-				DEVELOPMENT_TEAM = 6FXWX5Z987;
+				DEVELOPMENT_TEAM = 3XAB48JYXN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -425,7 +461,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tanuki-the-game/Preview Content\"";
-				DEVELOPMENT_TEAM = 6FXWX5Z987;
+				DEVELOPMENT_TEAM = 3XAB48JYXN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
