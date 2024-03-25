@@ -13,21 +13,19 @@ class AttackComponent: GKComponent {
     var swordCollider: SCNNode
     
     init(attackerModel: SCNNode, ColliderName: String){
-    
-    
+
         swordCollider = attackerModel.childNode(withName: ColliderName, recursively: true)!
-        swordCollider.physicsBody?.collisionBitMask = Int(([ .enemy] as Bitmask).rawValue)
+        swordCollider.physicsBody?.categoryBitMask = Bitmask.playerWeapon.rawValue
+        swordCollider.physicsBody?.contactTestBitMask = Bitmask.enemy.rawValue
+        swordCollider.physicsBody?.collisionBitMask = Bitmask.none.rawValue
+      
         
         super.init()
     }
     
     public func attack() {
-        if let geometryNode = swordCollider.childNodes.first,
-           let geometry = geometryNode.geometry {
-            let material = SCNMaterial()
-            material.diffuse.contents = UIColor.red 
-            geometry.materials = [material]
-        }
+      
+        
     }
     
     private func handleAttackContact(node: SCNNode) {

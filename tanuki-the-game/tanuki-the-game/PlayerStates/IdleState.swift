@@ -8,16 +8,11 @@
 import Foundation
 import GameplayKit
 
-class IdleState: GKState{
-    let playerModel: SCNNode
+class IdleState: PlayerState{
     
-    init(playerModel: SCNNode){
-        self.playerModel = playerModel
-       
-    }
     override func didEnter(from previousState: GKState?){
         playerModel.animationPlayer(forKey: "idle")?.play()
-        print("idle")
+      
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool{
@@ -28,6 +23,8 @@ class IdleState: GKState{
        
     }
     override func update(deltaTime seconds: TimeInterval){
-       
+        if (!player.characterDirection.allZero()) {
+            player.stateMachine.enter(WalkingState.self)
+        }
     }
 }

@@ -16,23 +16,16 @@ struct JoystickData {
     
 }
 
-protocol JoystickDelegate: AnyObject {
-    
-    func onJoystickChange(_ joystickData: JoystickData)
-    
-}
-
 class Joystick: SKNode {
     
     
     var circle: SKShapeNode!
     var ring: SKShapeNode!
-    weak var delegate: JoystickDelegate?
     var lastEvent: JoystickEvent?
     
     var currentData: JoystickData? {
         didSet {
-            delegate?.onJoystickChange(currentData!)
+            Input.movement = currentData!.direction
         }
     }
     
@@ -50,7 +43,6 @@ class Joystick: SKNode {
        
         ring.lineWidth = 3
         
-    
         circle = SKShapeNode(circleOfRadius: 15)
         circle.fillColor = .white
         
