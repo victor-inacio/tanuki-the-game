@@ -21,8 +21,7 @@ class EnemyEntity: BaseEntity {
         collider.physicsBody?.contactTestBitMask = Bitmask.character.rawValue
 
         setupEnemyHierarchy()
-        
-        
+  
     }
     
     func setupEnemyHierarchy(){

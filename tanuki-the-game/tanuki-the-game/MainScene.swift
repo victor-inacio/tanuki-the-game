@@ -30,8 +30,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         overlay.controllerDelegate = self
         scnView.overlaySKScene = overlay
         
-        
-        
         self.physicsWorld.gravity = SCNVector3(0, -9.8, 0)
         
         let ambientLightNode = SCNNode()
@@ -69,8 +67,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         rootNode.addChildNode(enemy.enemyNode)
         enemy.enemyNode.position = SCNVector3(x: 0, y: -0.5, z: 7)
         
-        
-        
     }
     
     func onButtonUp() {
@@ -100,10 +96,10 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     }
     
     func setupPlayer(){
+        
         player = PlayerEntity(physicsWorld: self.physicsWorld)
         rootNode.addChildNode(player.playerNode)
         player.playerNode.position = SCNVector3(x: 0, y: 0, z: 6)
-        
     }
     
     func setupScenario(){
