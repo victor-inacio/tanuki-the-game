@@ -15,7 +15,11 @@ class EnemyEntity: BaseEntity {
         self.addComponent(VisualComponent(modelFile:  "Art.scnassets/character/max.scn", nameOfChild: "Max_rootNode"))
         
         self.addComponent(HealthComponent(health: 100, node: enemyNode))
-        //        self.addComponent(PhysicsBodyComponent(node: self.node, bodyType: .kinematic))
+        
+        let collider = model.childNode(withName: "collider", recursively: true)!
+        collider.physicsBody?.categoryBitMask =  Bitmask.enemy.rawValue | Bitmask.character.rawValue
+        collider.physicsBody?.contactTestBitMask = Bitmask.character.rawValue
+
         
     }
     
