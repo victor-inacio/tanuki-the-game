@@ -11,14 +11,19 @@ import GameplayKit
 class HealthComponent: GKComponent {
     
     var health: Float
+    var node: SCNNode
     
-    init (health: Float) {
+    init (health: Float, node: SCNNode) {
         self.health = health
+        self.node = node
         super.init()
     }
     
-    public func receiveDamage(){
-        
+    public func receiveDamage(damageAmount: Float){
+        self.health -= damageAmount
+        if health <= 0 {
+            node.removeFromParentNode()
+        }
     }
     
     required init?(coder: NSCoder) {
