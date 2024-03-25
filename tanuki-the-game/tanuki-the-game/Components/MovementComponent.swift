@@ -63,7 +63,6 @@ class MovementComponent: GKComponent{
         collider.physicsBody?.collisionBitMask = Bitmask.character.rawValue
         
         
-        
         // Setup collision shape
         let (min, max) = model.boundingBox
         let collisionCapsuleRadius = CGFloat(max.x - min.x) * CGFloat(0.4)

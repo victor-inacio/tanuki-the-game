@@ -5,10 +5,10 @@ class EnemyEntity: BaseEntity {
     let enemyNode: SCNNode
     let enemyRotation: SCNNode
     
-    init(enemyNode: SCNNode, enemyRotation: SCNNode){
+    override init(){
     
-        self.enemyNode = enemyNode
-        self.enemyRotation = enemyRotation
+        self.enemyNode = SCNNode()
+        self.enemyRotation = SCNNode()
         
         super.init()
         
@@ -20,7 +20,14 @@ class EnemyEntity: BaseEntity {
         collider.physicsBody?.categoryBitMask =  Bitmask.enemy.rawValue | Bitmask.character.rawValue
         collider.physicsBody?.contactTestBitMask = Bitmask.character.rawValue
 
+        setupEnemyHierarchy()
         
+        
+    }
+    
+    func setupEnemyHierarchy(){
+        enemyNode.addChildNode(enemyRotation)
+        enemyRotation.addChildNode(model)
     }
     
     required init?(coder: NSCoder) {

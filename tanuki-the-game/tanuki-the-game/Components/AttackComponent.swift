@@ -30,7 +30,6 @@ class AttackComponent: GKComponent {
     }
     
     public func attack() {
-        
     }
     
     public func handleAttackContact(target: BaseEntity) {

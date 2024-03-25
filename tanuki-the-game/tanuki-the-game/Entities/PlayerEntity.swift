@@ -61,7 +61,8 @@ class PlayerEntity: BaseEntity {
             .init(fromSceneNamed: "Art.scnassets/character/max_walk.scn", animationKey: "walk")
         ]))
         
-//        self.addComponent(AttackComponent(attackerModel: model, ColliderName: "swordCollider"))
+        self.addComponent(AttackComponent(topLevelNode: playerNode, attackerModel: model, ColliderName: "swordCollider", damage: 100))
+        
         setupStateMachine()
     }
     

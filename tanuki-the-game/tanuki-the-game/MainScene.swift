@@ -11,6 +11,7 @@ import SceneKit
 class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsContactDelegate {
     
     var player: PlayerEntity!
+    var enemy: EnemyEntity!
     var scenario: ScenarioEntity!
     var overlay: Overlay!
     var camera: Camera!
@@ -56,15 +57,19 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         // Add physics body to the node
         let boxPhysicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
         boxPhysicsBody.categoryBitMask =  Bitmask.enemy.rawValue | Bitmask.character.rawValue
-        boxPhysicsBody.contactTestBitMask = Bitmask.character.rawValue
-        
-        
-        
-        
+        boxPhysicsBody.contactTestBitMask = Bitmask.playerWeapon.rawValue
+    
+  
         boxNode.physicsBody = boxPhysicsBody
         
         // Add the node to the scene
         rootNode.addChildNode(boxNode)
+        
+        enemy = EnemyEntity()
+        rootNode.addChildNode(enemy.enemyNode)
+        enemy.enemyNode.position = SCNVector3(x: 0, y: -0.5, z: 7)
+        
+        
         
     }
     

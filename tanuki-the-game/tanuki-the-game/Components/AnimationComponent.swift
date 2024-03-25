@@ -13,7 +13,6 @@ struct Animation {
     let animationKey: String
 }
 
-
 class AnimationComponent: GKComponent {
     
     init(nodeToAddAnimation: SCNNode, animations: [Animation]){
