@@ -35,6 +35,7 @@
 		ABF676C52B9F31B6007806B3 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF676C42B9F31B6007806B3 /* MainScene.swift */; };
 		ABF676C72B9F343D007806B3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF676C62B9F343D007806B3 /* GameViewController.swift */; };
 		ABF676C92B9F37B8007806B3 /* VisualComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF676C82B9F37B8007806B3 /* VisualComponent.swift */; };
+		C3F701C82BAE0B85001C6D13 /* HealthComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F701C72BAE0B85001C6D13 /* HealthComponent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		ABF676C42B9F31B6007806B3 /* MainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
 		ABF676C62B9F343D007806B3 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		ABF676C82B9F37B8007806B3 /* VisualComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualComponent.swift; sourceTree = "<group>"; };
+		C3F701C72BAE0B85001C6D13 /* HealthComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				AB38C63D2BAA1BC7006C279A /* MovementComponent.swift */,
 				AB38C6442BAB61F6006C279A /* AnimationComponent.swift */,
 				ABA87F3F2BACC14C00D60155 /* AttackComponent.swift */,
+				C3F701C72BAE0B85001C6D13 /* HealthComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				9892966C2BA4B7CA00681BCD /* EnemyEntity.swift in Sources */,
 				ABF676C52B9F31B6007806B3 /* MainScene.swift in Sources */,
 				ABA87F402BACC14C00D60155 /* AttackComponent.swift in Sources */,
+				C3F701C82BAE0B85001C6D13 /* HealthComponent.swift in Sources */,
 				ABAFEA8D2BA22C3E00BB5E9D /* BaseEntity.swift in Sources */,
 				989296682BA390C900681BCD /* Camera.swift in Sources */,
 				98F679F02B9B989D00A0EBEE /* tanuki_the_gameApp.swift in Sources */,
@@ -416,7 +420,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tanuki-the-game/Preview Content\"";
-				DEVELOPMENT_TEAM = 6FXWX5Z987;
+				DEVELOPMENT_TEAM = CKX23Y9XSA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -445,7 +449,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tanuki-the-game/Preview Content\"";
-				DEVELOPMENT_TEAM = 6FXWX5Z987;
+				DEVELOPMENT_TEAM = CKX23Y9XSA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
