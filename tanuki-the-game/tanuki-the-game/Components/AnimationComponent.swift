@@ -23,7 +23,7 @@ class AnimationComponent: GKComponent {
             let animationPlayer = loadAnimation(fromSceneNamed: animation.fromSceneNamed)
             
             nodeToAddAnimation.addAnimationPlayer(animationPlayer, forKey: animation.animationKey)
-            
+
             animationPlayer.stop()
         }
         

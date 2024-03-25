@@ -102,6 +102,8 @@ class MovementComponent: GKComponent{
         
         let direction = characterDirection(withPointOfView:renderer.pointOfView)
         
+        
+        
         if previousUpdateTime == 0.0 {
             previousUpdateTime = time
         }

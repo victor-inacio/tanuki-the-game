@@ -11,6 +11,7 @@ import SceneKit
 class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsContactDelegate {
     
     var player: PlayerEntity!
+    var enemy: EnemyEntity!
     var scenario: ScenarioEntity!
     var overlay: Overlay!
     var camera: Camera!
@@ -40,6 +41,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         rootNode.addChildNode(ambientLightNode)
         
         setupPlayer()
+        setupEnemy()
         setupScenario()
         setupCamera()
         
@@ -59,8 +61,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         boxPhysicsBody.contactTestBitMask = Bitmask.character.rawValue
 
         
-      
-   
         boxNode.physicsBody = boxPhysicsBody
         
         // Add the node to the scene
@@ -89,8 +89,19 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         
         camera.followTarget(target: player.playerNode.simdPosition, offset: simd_float3(1, 1.5, 0))
         
-        player.update(deltaTime: time)
+        player.update(deltaTime: Time.deltaTime)
         player.movementComponent.update(atTime: time, with: renderer)
+        
+        
+        enemy.update(deltaTime: Time.deltaTime)
+    }
+    
+    func setupEnemy() {
+        
+        enemy = EnemyEntity()
+        enemy.model.simdPosition = .init(x: 0, y: 0, z: 7.0)
+        rootNode.addChildNode(enemy.model)
+        
         
     }
     
@@ -99,6 +110,8 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         rootNode.addChildNode(player.playerNode)
         player.playerNode.position = SCNVector3(x: 0, y: 0, z: 6)
         
+        
+        GameManager.player = player
     }
     
     func setupScenario(){
