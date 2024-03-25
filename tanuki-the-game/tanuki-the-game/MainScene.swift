@@ -7,6 +7,7 @@
 
 import Foundation
 import SceneKit
+import GameplayKit
 
 class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsContactDelegate {
     
@@ -15,6 +16,9 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     var scenario: ScenarioEntity!
     var overlay: Overlay!
     var camera: Camera!
+    var waveManager = WaveManager()
+    var waveStateMachine: GKStateMachine?
+    var spawner = SpawnerEntity(isVisible: true)
     
     var firstFrame = true
     
@@ -41,6 +45,8 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         setupPlayer()
         setupScenario()
         setupCamera()
+        setupWaveStateMachine()
+        setupSpawners()
         
         // Create a red box geometry
         let boxGeometry = SCNBox(width: 0.2, height: 0.2, length: 1.0, chamferRadius: 0.0)
@@ -92,6 +98,8 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         
         player.update(deltaTime: time)
         player.movementComponent.update(atTime: time, with: renderer)
+        spawner.update()
+        self.waveStateMachine?.update(deltaTime: time)
         
     }
     
@@ -130,13 +138,27 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         case Bitmask.playerWeapon.rawValue | Bitmask.enemy.rawValue | Bitmask.character.rawValue:
             print("Player weapon collided with enemy")
             
-            
-            
         default:
             break
         }
     }
     
+    func setupWaveStateMachine(){
+        self.waveStateMachine = GKStateMachine(states: [
+            WaveIdle(waveManager: waveManager),
+            WaveHoard1(waveManager: waveManager),
+            WaveHoard2(waveManager: waveManager),
+            WaveHoard3(waveManager: waveManager)
+        ])
+        self.waveStateMachine?.enter(WaveHoard3.self)
+    }
+    
+    func setupSpawners(){
+        spawner.scene = self
+        spawner.waveManager = waveManager
+        spawner.spawnPoint.position = SCNVector3(0, -0.5, 7)
+        spawner.scene.rootNode.addChildNode(spawner.spawnPoint)
+    }
     
     func physicsWorld(_ world: SCNPhysicsWorld, didUpdate contact: SCNPhysicsContact){
         
