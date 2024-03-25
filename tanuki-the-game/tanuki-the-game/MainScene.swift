@@ -57,10 +57,10 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         let boxPhysicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
         boxPhysicsBody.categoryBitMask =  Bitmask.enemy.rawValue | Bitmask.character.rawValue
         boxPhysicsBody.contactTestBitMask = Bitmask.character.rawValue
-
         
-      
-   
+        
+        
+        
         boxNode.physicsBody = boxPhysicsBody
         
         // Add the node to the scene
@@ -102,7 +102,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     }
     
     func setupScenario(){
-      
+        
         let collisionsScene = SCNScene( named: "Art.scnassets/collision.scn" )
         collisionsScene!.rootNode.enumerateChildNodes { (_ child: SCNNode, _ _: UnsafeMutablePointer<ObjCBool>) in
             child.opacity = 1
@@ -121,19 +121,21 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         let bitmaskA = contact.nodeA.physicsBody!.categoryBitMask
         let bitmaskB = contact.nodeB.physicsBody!.categoryBitMask
         let collision = bitmaskA | bitmaskB
-
+        
         switch collision {
-            case Bitmask.character.rawValue | Bitmask.enemy.rawValue:
-                print("Character collided with an enemy")
-                
-            case Bitmask.playerWeapon.rawValue | Bitmask.enemy.rawValue | Bitmask.character.rawValue:
-                print("Player weapon collided with enemy")
-                
-            default:
-                break
+        case Bitmask.character.rawValue | Bitmask.enemy.rawValue:
+            print("Character collided with an enemy")
+            
+        case Bitmask.playerWeapon.rawValue | Bitmask.enemy.rawValue | Bitmask.character.rawValue:
+            print("Player weapon collided with enemy")
+            
+            
+            
+        default:
+            break
         }
     }
-
+    
     
     func physicsWorld(_ world: SCNPhysicsWorld, didUpdate contact: SCNPhysicsContact){
         

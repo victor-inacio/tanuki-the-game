@@ -45,7 +45,7 @@ class Spawner {
         
         let randomPos = simd_float3(randomX, randomY, randomZ)
         
-        let entity = EnemyEntity()
+//        let entity = EnemyEntity()
 //        entity.node.simdPosition = randomPos
 //        
 //        
