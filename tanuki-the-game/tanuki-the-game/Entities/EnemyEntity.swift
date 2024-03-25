@@ -2,16 +2,21 @@ import SpriteKit
 import GameplayKit
 
 class EnemyEntity: BaseEntity {
-
+    let enemyNode: SCNNode
+    let enemyRotation: SCNNode
     
-    override init(){
+    init(enemyNode: SCNNode, enemyRotation: SCNNode){
+    
+        self.enemyNode = enemyNode
+        self.enemyRotation = enemyRotation
+        
         super.init()
         
-//        let cube = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
-//        
-//        self.addComponent(VisualComponent(geometry: cube))
-//        
-//        self.addComponent(PhysicsBodyComponent(node: self.node, bodyType: .kinematic))
+        self.addComponent(VisualComponent(modelFile:  "Art.scnassets/character/max.scn", nameOfChild: "Max_rootNode"))
+        
+        self.addComponent(HealthComponent(health: 100, node: enemyNode))
+        //        self.addComponent(PhysicsBodyComponent(node: self.node, bodyType: .kinematic))
+        
     }
     
     required init?(coder: NSCoder) {
@@ -19,5 +24,5 @@ class EnemyEntity: BaseEntity {
     }
     
     
-
+    
 }

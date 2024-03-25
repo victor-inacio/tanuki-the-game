@@ -19,4 +19,14 @@ class BaseEntity: GKEntity{
     var model: SCNNode {
         return visualComponent.model
     }
+    
+    public lazy var healthComponent: HealthComponent = {
+        guard let component = component(ofType: HealthComponent.self) else {
+            fatalError("VisualComponent not found")
+        }
+        return component
+    }()
+    
+    
+    
 }

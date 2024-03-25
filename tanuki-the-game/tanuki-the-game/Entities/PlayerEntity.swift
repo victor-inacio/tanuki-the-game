@@ -8,7 +8,7 @@
 import Foundation
 import GameplayKit
 
-class PlayerEntity: BaseEntity{
+class PlayerEntity: BaseEntity {
    
     var stateMachine: PlayerStateMachine!
     let playerNode: SCNNode
