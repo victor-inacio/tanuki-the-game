@@ -102,7 +102,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     }
     
     func setupScenario(){
-        // load the collision mesh from another scene and merge into main scene
+      
         let collisionsScene = SCNScene( named: "Art.scnassets/collision.scn" )
         collisionsScene!.rootNode.enumerateChildNodes { (_ child: SCNNode, _ _: UnsafeMutablePointer<ObjCBool>) in
             child.opacity = 1
@@ -128,7 +128,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
                 
             case Bitmask.playerWeapon.rawValue | Bitmask.enemy.rawValue | Bitmask.character.rawValue:
                 print("Player weapon collided with enemy")
-                
                 
             default:
                 break

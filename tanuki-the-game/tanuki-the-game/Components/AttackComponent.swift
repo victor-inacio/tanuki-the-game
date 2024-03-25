@@ -13,13 +13,11 @@ class AttackComponent: GKComponent {
     var swordCollider: SCNNode
     
     init(attackerModel: SCNNode, ColliderName: String){
-    
-    
-        
+
         swordCollider = attackerModel.childNode(withName: ColliderName, recursively: true)!
         swordCollider.physicsBody?.categoryBitMask = Bitmask.playerWeapon.rawValue
         swordCollider.physicsBody?.contactTestBitMask = Bitmask.enemy.rawValue
-        swordCollider.physicsBody?.collisionBitMask = Bitmask.none.rawValue // Assuming you don't want the sword to collide with anything
+        swordCollider.physicsBody?.collisionBitMask = Bitmask.none.rawValue
       
         
         super.init()
