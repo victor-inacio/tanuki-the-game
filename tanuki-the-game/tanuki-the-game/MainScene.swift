@@ -56,8 +56,8 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         let boxPhysicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
         boxPhysicsBody.categoryBitMask =  Bitmask.enemy.rawValue | Bitmask.character.rawValue
         boxPhysicsBody.contactTestBitMask = Bitmask.playerWeapon.rawValue
-    
-  
+        
+        
         boxNode.physicsBody = boxPhysicsBody
         
         // Add the node to the scene
@@ -119,8 +119,12 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     
     
     func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
-        let bitmaskA = contact.nodeA.physicsBody!.categoryBitMask
-        let bitmaskB = contact.nodeB.physicsBody!.categoryBitMask
+        
+        let nodeA = contact.nodeA
+        let nodeB = contact.nodeB
+        
+        let bitmaskA = nodeA.physicsBody!.categoryBitMask
+        let bitmaskB = nodeB.physicsBody!.categoryBitMask
         let collision = bitmaskA | bitmaskB
         
         switch collision {
@@ -130,7 +134,16 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         case Bitmask.playerWeapon.rawValue | Bitmask.enemy.rawValue | Bitmask.character.rawValue:
             print("Player weapon collided with enemy")
             
+            let nodesInvolved = [nodeA, nodeB]
             
+            for node in nodesInvolved {
+              
+                if node.name == "collider"{
+                   let parent = node.parent
+                    let parentDoParant = parent?.parent
+                    parentDoParant?.removeFromParentNode()
+                }
+            }
             
         default:
             break

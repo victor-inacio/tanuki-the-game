@@ -10,31 +10,39 @@ import GameplayKit
 
 class AttackComponent: GKComponent {
     
-    var swordCollider: SCNNode
+    var weaponCollider: SCNNode
     var attackerModel: SCNNode
     var attacker: SCNNode
     var damage: Float
+    var stateMachine: GKStateMachine
     
     
-    init(topLevelNode: SCNNode,attackerModel: SCNNode, ColliderName: String, damage: Float){
+    init(topLevelNode: SCNNode,attackerModel: SCNNode, ColliderName: String, damage: Float, stateMachine: GKStateMachine){
         
-        swordCollider = attackerModel.childNode(withName: ColliderName, recursively: true)!
-        swordCollider.physicsBody?.categoryBitMask = Bitmask.playerWeapon.rawValue
-        swordCollider.physicsBody?.contactTestBitMask = Bitmask.enemy.rawValue
-        swordCollider.physicsBody?.collisionBitMask = Bitmask.none.rawValue
+        weaponCollider = attackerModel.childNode(withName: ColliderName, recursively: true)!
+        weaponCollider.physicsBody?.categoryBitMask = Bitmask.playerWeapon.rawValue
+        weaponCollider.physicsBody?.contactTestBitMask = Bitmask.enemy.rawValue
+        weaponCollider.physicsBody?.collisionBitMask = Bitmask.none.rawValue
+        
+        
         self.attackerModel = attackerModel
         self.damage = damage
         self.attacker = topLevelNode
+        self.stateMachine = stateMachine
         
         super.init()
     }
     
     public func attack() {
+        
     }
     
-    public func handleAttackContact(target: BaseEntity) {
+    
+    public func handleAttackContact(target: SCNNode) {
         
-        target.healthComponent.receiveDamage(damageAmount: damage)
+        if let entity = target.entity as? BaseEntity{
+            entity.healthComponent.receiveDamage(damageAmount: damage)
+        }
     }
     
     required init?(coder: NSCoder) {
