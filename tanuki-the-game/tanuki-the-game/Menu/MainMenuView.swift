@@ -8,22 +8,30 @@
 import SwiftUI
 
 struct MainMenuView: View {
-    @State private var isGameViewPresented = false
+    @State private var isGameViewActive = false
     
     var body: some View {
-        VStack {
-            Text("Main Menu")
-                .font(.title)
-                .padding()
-            
-            Button("Start Game") {
-                    self.isGameViewPresented = true
+        NavigationView {
+            VStack {
+                if isGameViewActive {
+                    GameViewControllerWrapper()
+                        .transition(.opacity)
+                        .animation(.easeInOut(duration: 5), value: 10) // Add animation
+                } else {
+                    Text("Main Menu")
+                        .font(.title)
+                        .padding()
+                    
+                    Button(action: {
+                        withAnimation {
+                            self.isGameViewActive = true // Apply animation to state change
+                        }
+                    }) {
+                        Text("Start Game")
+                    }
+                    .padding()
+                }
             }
-            .padding()
-            .sheet(isPresented: $isGameViewPresented) {
-                GameViewControllerWrapper()
-            }
-            .transition(.blurReplace)
         }
     }
 }
