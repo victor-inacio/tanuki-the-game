@@ -9,11 +9,10 @@ import Foundation
 import GameplayKit
 
 class PlayerEntity: BaseEntity{
-    
-    let speed: Float = 2.0
+   
+    var stateMachine: PlayerStateMachine!
     let playerNode: SCNNode
     let playerRotation: SCNNode
-    
     
     public lazy var movementComponent: MovementComponent = {
         guard let component = component(ofType: MovementComponent.self) else {
@@ -22,6 +21,14 @@ class PlayerEntity: BaseEntity{
         return component
     }()
     
+    public lazy var attackComponent: AttackComponent = {
+        guard let component = component(ofType: AttackComponent.self) else {
+            fatalError("VisualComponent not found")
+        }
+        return component
+    }()
+
+
     var characterDirection: vector_float2 {
         get {
             return movementComponent.direction
@@ -39,7 +46,9 @@ class PlayerEntity: BaseEntity{
     init(physicsWorld: SCNPhysicsWorld){
         self.playerNode = SCNNode()
         self.playerRotation = SCNNode()
+        
         super.init()
+        self.stateMachine = PlayerStateMachine(player: self)
         
         self.addComponent(VisualComponent(modelFile:  "Art.scnassets/character/max.scn", nameOfChild: "Max_rootNode"))
         
@@ -47,15 +56,32 @@ class PlayerEntity: BaseEntity{
   
         self.addComponent(MovementComponent(topLevelNode: playerNode, rotationNode: playerRotation, modelNode: model, physicsWorld: physicsWorld))
         
-        self.addComponent(AnimationComponent(playerModel: model, idle: "Art.scnassets/character/max_idle.scn", idleNameKey: "idle", walking: "Art.scnassets/character/max_walk.scn", walkingNameKey: "walk"))
+        self.addComponent(AnimationComponent(nodeToAddAnimation: model, animations: [
+            .init(fromSceneNamed: "Art.scnassets/character/max_idle.scn", animationKey: "idle"),
+            .init(fromSceneNamed: "Art.scnassets/character/max_walk.scn", animationKey: "walk")
+        ]))
+        
+        self.addComponent(AttackComponent(attackerModel: model, ColliderName: "swordCollider"))
+        setupStateMachine()
+    }
+    
+    override func update(deltaTime seconds: TimeInterval) {
+        
+        characterDirection = Input.movement
+        
+        stateMachine.update(deltaTime: seconds)
     }
     
     func setupPlayerHierarchy(){
         playerNode.addChildNode(playerRotation)
         playerRotation.addChildNode(model)
     }
-   
-   
+    
+    
+    func setupStateMachine(){
+        stateMachine.enter(IdleState.self)
+    }
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

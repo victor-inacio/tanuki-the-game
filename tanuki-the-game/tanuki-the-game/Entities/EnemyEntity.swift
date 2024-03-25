@@ -7,7 +7,7 @@ class EnemyEntity: BaseEntity {
     override init(){
         super.init()
         
-        let cube = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
+//        let cube = SCNBox(width: 1, height: 1, length: 1, chamferRadius: 0)
 //        
 //        self.addComponent(VisualComponent(geometry: cube))
 //        

@@ -6,9 +6,8 @@ class Controllers: SKNode
     let buttonA = ButtonComponent(label: "A")
     let initialJoystickPosition = CGPoint(x: 120, y: 0)
     
-    weak var delegate: (JoystickDelegate & ButtonDelegate)? {
+    weak var delegate: (ButtonDelegate)? {
         didSet {
-            joystick.delegate = delegate
             buttonA.delegate = delegate
         }
     }
