@@ -4,23 +4,23 @@ import GameplayKit
 
 class SpawnerEntity: GKEntity {
     
-    var spawnSphere: SCNNode
+    var spawnPoint: SCNNode
     var isVisible: Bool
     var currentDelay: TimeInterval = 0.0
     var currentTime: TimeInterval = 0.0
-    var scene: MainScene!
+    var scene: SCNScene!
     var waveManager: WaveManager!
 
     init(isVisible: Bool){
         self.isVisible = isVisible
-        let sphere = SCNSphere(radius: 0.5)
+        let sphere = SCNSphere(radius: 0.2)
             sphere.firstMaterial?.diffuse.contents = UIColor.green
-            spawnSphere = SCNNode(geometry: sphere)
+            spawnPoint = SCNNode(geometry: sphere)
         
         if !isVisible {
-            spawnSphere.isHidden = true
+            spawnPoint.isHidden = true
         } else {
-            spawnSphere.isHidden = false
+            spawnPoint.isHidden = false
         }
         
         super.init()
@@ -34,10 +34,11 @@ class SpawnerEntity: GKEntity {
     func spawnEnemy() {
         if !waveManager.canSpawn || waveManager.enemiesSpawned == waveManager.toBeSpawned  { return }
         
-//        let enemy = EnemyEntity()
-//        enemy.cubeEnemy.position = spawnSphere.position
-//        scene.rootNode.addChildNode(enemy.cubeEnemy)
-//        waveManager.enemiesSpawned += 1
+        let enemy = EnemyEntity()
+        enemy.enemyNode.position = spawnPoint.position
+        enemy.enemyNode.position.z += Float.random(in: -5..<5) 
+        scene.rootNode.addChildNode(enemy.enemyNode)
+        waveManager.enemiesSpawned += 1
     }
     
     func setNewDelay() {
