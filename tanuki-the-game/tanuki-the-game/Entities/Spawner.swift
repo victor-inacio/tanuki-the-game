@@ -1,71 +1,56 @@
+import Foundation
 import SceneKit
+import GameplayKit
 
-class Spawner {
+class SpawnerEntity: GKEntity {
     
-    var isRunning: Bool = false
-    var delayRange: Range<TimeInterval>
+    var spawnSphere: SCNNode
+    var isVisible: Bool
     var currentDelay: TimeInterval = 0.0
     var currentTime: TimeInterval = 0.0
-    var bounds: Bounds
-    var scene: MainScene
-    
-    init(bounds: Bounds, delayRange: Range<TimeInterval>, scene: MainScene) {
-        self.bounds = bounds
-        self.delayRange = delayRange
-        self.scene = scene
-    }
-    
-    public func runSpawner() {
-        isRunning = true
-    }
-    
-    public func update(_ deltaTime: TimeInterval) {
-        if (!isRunning) {
-            return
-        }
-                
-        currentTime += deltaTime
+    var scene: MainScene!
+    var waveManager: WaveManager!
+
+    init(isVisible: Bool){
+        self.isVisible = isVisible
+        let sphere = SCNSphere(radius: 0.5)
+            sphere.firstMaterial?.diffuse.contents = UIColor.green
+            spawnSphere = SCNNode(geometry: sphere)
         
+        if !isVisible {
+            spawnSphere.isHidden = true
+        } else {
+            spawnSphere.isHidden = false
+        }
+        
+        super.init()
+
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func spawnEnemy() {
+        if !waveManager.canSpawn || waveManager.enemiesSpawned == waveManager.toBeSpawned  { return }
+        
+//        let enemy = EnemyEntity()
+//        enemy.cubeEnemy.position = spawnSphere.position
+//        scene.rootNode.addChildNode(enemy.cubeEnemy)
+//        waveManager.enemiesSpawned += 1
+    }
+    
+    func setNewDelay() {
+        currentDelay = 2
+    }
+    
+     func update() {
+         currentTime += Time.deltaTime
         if (currentTime >= currentDelay) {
-            spawnAtRandom()
-            
+            spawnEnemy()
             currentTime = 0.0
             setNewDelay()
         }
-        
-    }
-    
-    private func spawnAtRandom() {
-        let randomX = Float.random(in: bounds.min.x...bounds.max.x)
-        
-        let randomY = Float.random(in: bounds.min.y...bounds.max.y)
-        
-        let randomZ = Float.random(in: bounds.min.z...bounds.max.z)
-        
-        
-        let randomPos = simd_float3(randomX, randomY, randomZ)
-        
-        let entity = EnemyEntity()
-//        entity.node.simdPosition = randomPos
-//        
-//        
-//        scene.enemyEntities.append(entity)
-//        scene.rootNode.addChildNode(entity.node)
-//        entity.node.entity = entity
-    }
-    
-    private func setNewDelay() {
-        
-        currentDelay = .random(in: delayRange)
-        
-    }
-    
-    public func stopSpawner() {
-        
-        
-        isRunning = false
-        currentTime = 0.0
-        
     }
     
 }
