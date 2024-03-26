@@ -15,16 +15,15 @@ struct MainMenuView: View {
             VStack {
                 if isGameViewActive {
                     GameViewControllerWrapper()
-                        .transition(.opacity)
-                        .animation(.easeInOut(duration: 5), value: 10) // Add animation
+                        
                 } else {
                     Text("Main Menu")
                         .font(.title)
                         .padding()
                     
                     Button(action: {
-                        withAnimation {
-                            self.isGameViewActive = true // Apply animation to state change
+                        withAnimation(.easeInOut(duration: 1)) { // Adjust duration as needed
+                          self.isGameViewActive = true
                         }
                     }) {
                         Text("Start Game")
