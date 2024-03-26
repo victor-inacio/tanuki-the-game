@@ -26,7 +26,4 @@ class BaseEntity: GKEntity{
         }
         return component
     }()
-    
-    
-    
 }

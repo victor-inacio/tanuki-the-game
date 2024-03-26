@@ -64,6 +64,8 @@ class PlayerEntity: BaseEntity {
         self.addComponent(AttackComponent(topLevelNode: playerNode, attackerModel: model, ColliderName: "swordCollider", damage: 100, stateMachine: stateMachine))
         
         setupStateMachine()
+        
+        
     }
     
     override func update(deltaTime seconds: TimeInterval) {

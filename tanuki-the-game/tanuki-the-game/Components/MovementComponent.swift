@@ -72,6 +72,8 @@ class MovementComponent: GKComponent{
         characterCollisionShape = SCNPhysicsShape(geometry: collisionGeometry, options:[.collisionMargin: MovementComponent.collisionMargin])
         collisionShapeOffsetFromModel = simd_float3(0, Float(collisionCapsuleHeight) * 0.51, 0.0)
         
+
+        
     }
     
     func queueResetCharacterPosition() {

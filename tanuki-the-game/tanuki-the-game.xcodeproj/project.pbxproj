@@ -30,6 +30,7 @@
 		AB38C6482BAB65DB006C279A /* IdleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38C6472BAB65DB006C279A /* IdleState.swift */; };
 		AB38C64A2BAB65E7006C279A /* WalkingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38C6492BAB65E7006C279A /* WalkingState.swift */; };
 		ABA1A8872BB20BB9001C3533 /* AttackingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA1A8862BB20BB9001C3533 /* AttackingState.swift */; };
+		ABA1A8892BB32DF7001C3533 /* ColliderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA1A8882BB32DF7001C3533 /* ColliderComponent.swift */; };
 		ABA87F402BACC14C00D60155 /* AttackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA87F3F2BACC14C00D60155 /* AttackComponent.swift */; };
 		ABAFEA892BA22A8900BB5E9D /* PhysicsBodyComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAFEA882BA22A8900BB5E9D /* PhysicsBodyComponent.swift */; };
 		ABAFEA8B2BA22C2200BB5E9D /* ScenarioEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAFEA8A2BA22C2200BB5E9D /* ScenarioEntity.swift */; };
@@ -73,6 +74,7 @@
 		AB38C6472BAB65DB006C279A /* IdleState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleState.swift; sourceTree = "<group>"; };
 		AB38C6492BAB65E7006C279A /* WalkingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingState.swift; sourceTree = "<group>"; };
 		ABA1A8862BB20BB9001C3533 /* AttackingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackingState.swift; sourceTree = "<group>"; };
+		ABA1A8882BB32DF7001C3533 /* ColliderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColliderComponent.swift; sourceTree = "<group>"; };
 		ABA87F3F2BACC14C00D60155 /* AttackComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackComponent.swift; sourceTree = "<group>"; };
 		ABAFEA882BA22A8900BB5E9D /* PhysicsBodyComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsBodyComponent.swift; sourceTree = "<group>"; };
 		ABAFEA8A2BA22C2200BB5E9D /* ScenarioEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioEntity.swift; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 				AB38C6442BAB61F6006C279A /* AnimationComponent.swift */,
 				ABA87F3F2BACC14C00D60155 /* AttackComponent.swift */,
 				C3F701C72BAE0B85001C6D13 /* HealthComponent.swift */,
+				ABA1A8882BB32DF7001C3533 /* ColliderComponent.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				C3F701D32BB1FAF6001C6D13 /* WaveHoard3.swift in Sources */,
 				98E0E3C62B9F47AA0034011F /* Overlay.swift in Sources */,
 				C3F701CA2BB1F911001C6D13 /* Spawner.swift in Sources */,
+				ABA1A8892BB32DF7001C3533 /* ColliderComponent.swift in Sources */,
 				98E0E3C02B9E7C8F0034011F /* Joystick.swift in Sources */,
 				986D6E382BA8B3D600AF42D6 /* Button.swift in Sources */,
 				AB38C6422BAB602E006C279A /* GetAnimationsFromArt.swift in Sources */,
@@ -476,7 +480,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tanuki-the-game/Preview Content\"";
-				DEVELOPMENT_TEAM = CKX23Y9XSA;
+				DEVELOPMENT_TEAM = 6FXWX5Z987;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -505,7 +509,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tanuki-the-game/Preview Content\"";
-				DEVELOPMENT_TEAM = CKX23Y9XSA;
+				DEVELOPMENT_TEAM = 6FXWX5Z987;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

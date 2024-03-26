@@ -12,7 +12,6 @@ import GameplayKit
 class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsContactDelegate {
     
     var player: PlayerEntity!
-    var enemy: EnemyEntity!
     var scenario: ScenarioEntity!
     var overlay: Overlay!
     var camera: Camera!
@@ -26,6 +25,8 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     
     init(scnView: SCNView) {
         super.init()
+        
+       
         
         scnView.delegate = self
         self.physicsWorld.contactDelegate = self
@@ -68,11 +69,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         
         // Add the node to the scene
         rootNode.addChildNode(boxNode)
-        
-        enemy = EnemyEntity()
-        rootNode.addChildNode(enemy.enemyNode)
-        enemy.enemyNode.position = SCNVector3(x: 0, y: -0.5, z: 7)
-        
     }
     
     func onButtonUp() {
@@ -108,6 +104,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         player = PlayerEntity(physicsWorld: self.physicsWorld)
         rootNode.addChildNode(player.playerNode)
         player.playerNode.position = SCNVector3(x: 0, y: 0, z: 6)
+     
     }
     
     func setupScenario(){
@@ -139,8 +136,10 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         case Bitmask.character.rawValue | Bitmask.enemy.rawValue:
             print("Character collided with an enemy")
             
+           
+            
         case Bitmask.playerWeapon.rawValue | Bitmask.enemy.rawValue | Bitmask.character.rawValue:
-            print("Player weapon collided with enemy")
+//            print("Player weapon collided with enemy")
             
 
             let nodesInvolved = [nodeA, nodeB]
@@ -148,19 +147,15 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
             for node in nodesInvolved {
               
                 if node.name == "collider"{
-                   let parent = node.parent
-                    let parentDoParant = parent?.parent
-                    parentDoParant?.removeFromParentNode()
+                    player.attackComponent.handleAttackContact(target: node)
                 }
             }
-            
-
-
+        
         default:
             break
         }
     }
-    
+ 
     func setupWaveStateMachine(){
         self.waveStateMachine = GKStateMachine(states: [
             WaveIdle(waveManager: waveManager),

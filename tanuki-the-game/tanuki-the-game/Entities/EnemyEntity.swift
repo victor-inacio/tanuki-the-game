@@ -5,6 +5,14 @@ class EnemyEntity: BaseEntity {
     let enemyNode: SCNNode
     let enemyRotation: SCNNode
     
+    
+//    public lazy var attackComponent: AttackComponent = {
+//        guard let component = component(ofType: AttackComponent.self) else {
+//            fatalError("VisualComponent not found")
+//        }
+//        return component
+//    }()
+    
     override init(){
     
         self.enemyNode = SCNNode()
@@ -15,15 +23,16 @@ class EnemyEntity: BaseEntity {
         self.addComponent(VisualComponent(modelFile:  "Art.scnassets/character/max.scn", nameOfChild: "Max_rootNode"))
         
         self.addComponent(HealthComponent(health: 100, node: enemyNode))
+       
+        self.addComponent(ColliderComponent(model: model, baseEntity: self))
         
-        let collider = model.childNode(withName: "collider", recursively: true)!
-        collider.physicsBody?.categoryBitMask =  Bitmask.enemy.rawValue | Bitmask.character.rawValue
-        collider.physicsBody?.contactTestBitMask = Bitmask.character.rawValue
-
+    
+        
         setupEnemyHierarchy()
   
     }
     
+ 
     func setupEnemyHierarchy(){
         enemyNode.addChildNode(enemyRotation)
         enemyRotation.addChildNode(model)

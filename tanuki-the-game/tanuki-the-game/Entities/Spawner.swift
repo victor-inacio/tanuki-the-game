@@ -10,6 +10,7 @@ class SpawnerEntity: GKEntity {
     var currentTime: TimeInterval = 0.0
     var scene: SCNScene!
     var waveManager: WaveManager!
+    var enemy: EnemyEntity!
 
     init(isVisible: Bool){
         self.isVisible = isVisible
@@ -34,7 +35,7 @@ class SpawnerEntity: GKEntity {
     func spawnEnemy() {
         if !waveManager.canSpawn || waveManager.enemiesSpawned == waveManager.toBeSpawned  { return }
         
-        let enemy = EnemyEntity()
+        enemy = EnemyEntity()
         enemy.enemyNode.position = spawnPoint.position
         enemy.enemyNode.position.z += Float.random(in: -5..<5) 
         scene.rootNode.addChildNode(enemy.enemyNode)
