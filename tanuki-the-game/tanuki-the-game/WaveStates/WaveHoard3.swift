@@ -15,7 +15,7 @@ class WaveHoard3: GKState {
         print("hoard3")
         waveManager.enemiesKilled = 0
         waveManager.enemiesSpawned = 0
-        waveManager.toBeSpawned = (waveManager.waveNumber * 6 ) * 3/6
+        waveManager.toBeSpawned = (waveManager.waveNumber * 6 ) * 3
     }
     
     override func willExit(to nextState: GKState) {

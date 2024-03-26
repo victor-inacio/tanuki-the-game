@@ -15,7 +15,7 @@ class WaveHoard1: GKState {
         print("hoard1")
         waveManager.enemiesKilled = 0
         waveManager.enemiesSpawned = 0
-        waveManager.toBeSpawned = (waveManager.waveNumber * 6 ) * 1/6
+        waveManager.toBeSpawned = (waveManager.waveNumber * 6 ) * 1/6 + 1
         print(waveManager.toBeSpawned)
     }
     

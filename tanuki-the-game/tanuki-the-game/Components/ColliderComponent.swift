@@ -13,12 +13,16 @@ class ColliderComponent: GKComponent {
     init (model: SCNNode, baseEntity: GKEntity) {
         super.init()
         
-        print("collider")
-        
         let collider = model.childNode(withName: "collider", recursively: true)!
         collider.physicsBody?.categoryBitMask =  Bitmask.enemy.rawValue | Bitmask.character.rawValue
         collider.physicsBody?.contactTestBitMask = Bitmask.character.rawValue
         collider.entity = baseEntity
+        print(collider.entity)
+
+    }
+    
+    deinit{
+        print("a")
     }
     
     required init?(coder: NSCoder) {

@@ -38,9 +38,13 @@ class AttackComponent: GKComponent {
     }
     
     public func handleAttackContact(target: SCNNode) {
-        if let entity = target.entity as? BaseEntity{
+    
+        if let entity = target.entity as? EnemyEntity{
             entity.healthComponent.receiveDamage(damageAmount: damage)
+            
+    
         }
+        
     }
     
     required init?(coder: NSCoder) {

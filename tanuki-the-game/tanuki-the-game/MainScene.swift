@@ -17,7 +17,8 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     var camera: Camera!
     var waveManager = WaveManager()
     var waveStateMachine: GKStateMachine?
-    var spawner = SpawnerEntity(isVisible: true)
+    var spawner: SpawnerEntity!
+    
     
     var firstFrame = true
     
@@ -26,7 +27,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     init(scnView: SCNView) {
         super.init()
         
-       
+       spawner = SpawnerEntity(isVisible: true, scene: self)
         
         scnView.delegate = self
         self.physicsWorld.contactDelegate = self
@@ -48,27 +49,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         setupCamera()
         setupWaveStateMachine()
         setupSpawners()
-        
-        // Create a red box geometry
-        let boxGeometry = SCNBox(width: 0.2, height: 0.2, length: 1.0, chamferRadius: 0.0)
-        let redMaterial = SCNMaterial()
-        redMaterial.diffuse.contents = UIColor.red
-        boxGeometry.materials = [redMaterial]
-        
-        // Create a node with the box geometry
-        let boxNode = SCNNode(geometry: boxGeometry)
-        boxNode.position = SCNVector3(0, 2, 6) // Place the box in front of the camera
-        
-        // Add physics body to the node
-        let boxPhysicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
-        boxPhysicsBody.categoryBitMask =  Bitmask.enemy.rawValue | Bitmask.character.rawValue
-        boxPhysicsBody.contactTestBitMask = Bitmask.playerWeapon.rawValue
-        
-        
-        boxNode.physicsBody = boxPhysicsBody
-        
-        // Add the node to the scene
-        rootNode.addChildNode(boxNode)
+      
     }
     
     func onButtonUp() {
@@ -82,6 +63,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         Time.deltaTime = time - lastTime
         lastTime = time
+
         
         if (firstFrame) {
             firstFrame = false
@@ -134,18 +116,14 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         
         switch collision {
         case Bitmask.character.rawValue | Bitmask.enemy.rawValue:
-            print("Character collided with an enemy")
+            return
             
            
-            
         case Bitmask.playerWeapon.rawValue | Bitmask.enemy.rawValue | Bitmask.character.rawValue:
-//            print("Player weapon collided with enemy")
-            
 
             let nodesInvolved = [nodeA, nodeB]
             
             for node in nodesInvolved {
-              
                 if node.name == "collider"{
                     player.attackComponent.handleAttackContact(target: node)
                 }

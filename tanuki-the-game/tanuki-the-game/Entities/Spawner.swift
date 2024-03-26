@@ -8,12 +8,16 @@ class SpawnerEntity: GKEntity {
     var isVisible: Bool
     var currentDelay: TimeInterval = 0.0
     var currentTime: TimeInterval = 0.0
-    var scene: SCNScene!
+    var scene: MainScene!
     var waveManager: WaveManager!
     var enemy: EnemyEntity!
+    static var enemies: [EnemyEntity] = []
+  
 
-    init(isVisible: Bool){
+    init(isVisible: Bool, scene: MainScene){
         self.isVisible = isVisible
+        self.scene = scene
+        
         let sphere = SCNSphere(radius: 0.2)
             sphere.firstMaterial?.diffuse.contents = UIColor.green
             spawnPoint = SCNNode(geometry: sphere)
@@ -25,6 +29,7 @@ class SpawnerEntity: GKEntity {
         }
         
         super.init()
+        
 
     }
     
@@ -32,14 +37,19 @@ class SpawnerEntity: GKEntity {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func spawnEnemy() {
+    func spawnEnemy(){
         if !waveManager.canSpawn || waveManager.enemiesSpawned == waveManager.toBeSpawned  { return }
         
-        enemy = EnemyEntity()
+      
+        let enemy = EnemyEntity()
         enemy.enemyNode.position = spawnPoint.position
-        enemy.enemyNode.position.z += Float.random(in: -5..<5) 
+        enemy.enemyNode.position.z = Float.random(in: 7...9) 
         scene.rootNode.addChildNode(enemy.enemyNode)
+
         waveManager.enemiesSpawned += 1
+        
+        SpawnerEntity.enemies.append(enemy)
+        print(SpawnerEntity.enemies.count)
     }
     
     func setNewDelay() {

@@ -21,6 +21,7 @@ class PlayerEntity: BaseEntity {
         return component
     }()
     
+    
     public lazy var attackComponent: AttackComponent = {
         guard let component = component(ofType: AttackComponent.self) else {
             fatalError("VisualComponent not found")
