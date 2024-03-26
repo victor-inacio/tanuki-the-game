@@ -63,4 +63,6 @@ struct PKCanvasRepresentation: UIViewRepresentable {
     }
 }
 
-
+#Preview {
+    DrawingView(viewModel: DrawingViewModel(), presentationViewModel: PresentationViewModel())
+}
