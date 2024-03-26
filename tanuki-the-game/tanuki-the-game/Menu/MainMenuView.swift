@@ -17,7 +17,7 @@ struct MainMenuView: View {
                     GameViewControllerWrapper()
                         
                 } else {
-                    Text("Main Menu")
+                    Text("Sakemori")
                         .font(.title)
                         .padding()
                     
