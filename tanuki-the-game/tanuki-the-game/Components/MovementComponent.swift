@@ -93,25 +93,18 @@ class MovementComponent: GKComponent{
         }
     }
 
-    func update(atTime time: TimeInterval, with renderer: SCNSceneRenderer) {
+    override func update(deltaTime: TimeInterval) {
         
         frameCounter += 1
         
         var characterVelocity = simd_float3.zero
-        
+        let renderer = GameManager.sceneRenderer!
         
         let direction = characterDirection(withPointOfView:renderer.pointOfView)
         
-        
-        
-        if previousUpdateTime == 0.0 {
-            previousUpdateTime = time
-        }
-        
-        let deltaTime = time - previousUpdateTime
+
         let characterSpeed = CGFloat(deltaTime) * 2 * walkSpeed
         
-        previousUpdateTime = time
         
         // move
         if !direction.allZero() {

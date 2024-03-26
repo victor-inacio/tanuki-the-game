@@ -77,6 +77,8 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        GameManager.sceneRenderer = renderer
+        
         Time.deltaTime = time - lastTime
         lastTime = time
         
@@ -86,12 +88,10 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
             return
         }
         
-        
         camera.followTarget(target: player.playerNode.simdPosition, offset: simd_float3(1, 1.5, 0))
         
         player.update(deltaTime: Time.deltaTime)
-        player.movementComponent.update(atTime: time, with: renderer)
-        
+
         
         enemy.update(deltaTime: Time.deltaTime)
     }

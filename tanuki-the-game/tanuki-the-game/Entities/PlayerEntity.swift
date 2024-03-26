@@ -76,7 +76,7 @@ class PlayerEntity: BaseEntity{
         characterDirection = Input.movement
         
         stateMachine.update(deltaTime: seconds)
-
+        movementComponent.update(deltaTime: seconds)
         
         
         
