@@ -30,6 +30,7 @@
 		AB38C64A2BAB65E7006C279A /* WalkingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38C6492BAB65E7006C279A /* WalkingState.swift */; };
 		ABA1A8872BB20BB9001C3533 /* AttackingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA1A8862BB20BB9001C3533 /* AttackingState.swift */; };
 		ABA1A8892BB32DF7001C3533 /* ColliderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA1A8882BB32DF7001C3533 /* ColliderComponent.swift */; };
+		ABA1A88B2BB4875B001C3533 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA1A88A2BB4875B001C3533 /* GameManager.swift */; };
 		ABA87F402BACC14C00D60155 /* AttackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA87F3F2BACC14C00D60155 /* AttackComponent.swift */; };
 		ABAFEA892BA22A8900BB5E9D /* PhysicsBodyComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAFEA882BA22A8900BB5E9D /* PhysicsBodyComponent.swift */; };
 		ABAFEA8B2BA22C2200BB5E9D /* ScenarioEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAFEA8A2BA22C2200BB5E9D /* ScenarioEntity.swift */; };
@@ -73,6 +74,7 @@
 		AB38C6492BAB65E7006C279A /* WalkingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingState.swift; sourceTree = "<group>"; };
 		ABA1A8862BB20BB9001C3533 /* AttackingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackingState.swift; sourceTree = "<group>"; };
 		ABA1A8882BB32DF7001C3533 /* ColliderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColliderComponent.swift; sourceTree = "<group>"; };
+		ABA1A88A2BB4875B001C3533 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		ABA87F3F2BACC14C00D60155 /* AttackComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackComponent.swift; sourceTree = "<group>"; };
 		ABAFEA882BA22A8900BB5E9D /* PhysicsBodyComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsBodyComponent.swift; sourceTree = "<group>"; };
 		ABAFEA8A2BA22C2200BB5E9D /* ScenarioEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioEntity.swift; sourceTree = "<group>"; };
@@ -146,6 +148,7 @@
 				98F679F52B9B989E00A0EBEE /* Preview Content */,
 				ABF676BD2B9F2EFA007806B3 /* Utility */,
 				ABF676BE2B9F2F08007806B3 /* App */,
+				ABA1A88A2BB4875B001C3533 /* GameManager.swift */,
 				ABF676C42B9F31B6007806B3 /* MainScene.swift */,
 				98E0E3C52B9F47AA0034011F /* Overlay.swift */,
 			);
@@ -321,6 +324,7 @@
 				AB38C6422BAB602E006C279A /* GetAnimationsFromArt.swift in Sources */,
 				C3F701D12BB1FAEB001C6D13 /* WaveHoard2.swift in Sources */,
 				ABAFEA892BA22A8900BB5E9D /* PhysicsBodyComponent.swift in Sources */,
+				ABA1A88B2BB4875B001C3533 /* GameManager.swift in Sources */,
 				98DD7FD52BAE08CF00CB4FBB /* PlayerState.swift in Sources */,
 				989296702BA4BDE500681BCD /* Bounds.swift in Sources */,
 				989296662BA38BE200681BCD /* Time.swift in Sources */,

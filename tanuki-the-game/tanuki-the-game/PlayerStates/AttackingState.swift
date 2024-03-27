@@ -10,7 +10,8 @@ import GameplayKit
 
 class AttackingState: PlayerState{
     
-    override func didEnter(from previousState: GKState?){      
+    override func didEnter(from previousState: GKState?){   
+        print("attacking")
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool{

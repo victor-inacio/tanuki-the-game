@@ -57,7 +57,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     }
     
     func onButtonDown() {
-        player.attackComponent.attack()
+        player.stateMachine.enter(AttackingState.self)
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {

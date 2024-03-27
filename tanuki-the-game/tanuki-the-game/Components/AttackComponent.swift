@@ -17,9 +17,9 @@ class AttackComponent: GKComponent {
     var stateMachine: GKStateMachine
     
     
-    init(topLevelNode: SCNNode,attackerModel: SCNNode, ColliderName: String, damage: Float, stateMachine: GKStateMachine){
+    init(topLevelNode: SCNNode,attackerModel: SCNNode, colliderName: String, damage: Float, stateMachine: GKStateMachine){
         
-        weaponCollider = attackerModel.childNode(withName: ColliderName, recursively: true)!
+        weaponCollider = attackerModel.childNode(withName: colliderName, recursively: true)!
         weaponCollider.physicsBody?.categoryBitMask = Bitmask.playerWeapon.rawValue
         weaponCollider.physicsBody?.contactTestBitMask = Bitmask.enemy.rawValue
         weaponCollider.physicsBody?.collisionBitMask = Bitmask.none.rawValue
@@ -39,10 +39,11 @@ class AttackComponent: GKComponent {
     
     public func handleAttackContact(target: SCNNode) {
     
-        if let entity = target.entity as? EnemyEntity{
+        if let entity = target.entity as? EnemyEntity {
+//            if stateMachine.currentState is AttackingState {
             entity.healthComponent.receiveDamage(damageAmount: damage)
-            
-    
+//            }
+        
         }
         
     }

@@ -45,13 +45,12 @@ class SpawnerEntity: GKEntity {
         enemy.enemyNode.position = spawnPoint.position
         enemy.enemyNode.position.z = Float.random(in: 7...9) 
         scene.rootNode.addChildNode(enemy.enemyNode)
-
+        enemy.enemyNode.entity = enemy
         waveManager.enemiesSpawned += 1
         
-        SpawnerEntity.enemies.append(enemy)
-        print(SpawnerEntity.enemies.count)
+        GameManager.addEntity(entity: enemy)
     }
-    
+
     func setNewDelay() {
         currentDelay = 2
     }

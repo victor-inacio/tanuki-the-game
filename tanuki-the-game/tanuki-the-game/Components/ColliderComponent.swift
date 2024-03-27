@@ -17,12 +17,10 @@ class ColliderComponent: GKComponent {
         collider.physicsBody?.categoryBitMask =  Bitmask.enemy.rawValue | Bitmask.character.rawValue
         collider.physicsBody?.contactTestBitMask = Bitmask.character.rawValue
         collider.entity = baseEntity
-        print(collider.entity)
-
+        
     }
-    
     deinit{
-        print("a")
+        
     }
     
     required init?(coder: NSCoder) {

@@ -100,6 +100,8 @@ class MovementComponent: GKComponent{
         
         var characterVelocity = simd_float3.zero
         
+     
+        print(GameManager.entities.count)
         
         let direction = characterDirection(withPointOfView:renderer.pointOfView)
         

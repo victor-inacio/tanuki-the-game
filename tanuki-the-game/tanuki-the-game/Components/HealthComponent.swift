@@ -22,9 +22,15 @@ class HealthComponent: GKComponent {
     public func receiveDamage(damageAmount: Float){
         self.health -= damageAmount
         if health <= 0 {
-            node.removeFromParentNode()
+            die()
         }
     }
+    
+    func die(){
+        GameManager.removeEntity(entity: self.node.entity!)
+        self.node.removeFromParentNode()
+    }
+    
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
