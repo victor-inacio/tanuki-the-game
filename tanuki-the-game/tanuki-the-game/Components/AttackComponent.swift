@@ -40,12 +40,10 @@ class AttackComponent: GKComponent {
     public func handleAttackContact(target: SCNNode) {
     
         if let entity = target.entity as? EnemyEntity {
-//            if stateMachine.currentState is AttackingState {
+            if stateMachine.currentState is AttackingState {
             entity.healthComponent.receiveDamage(damageAmount: damage)
-//            }
-        
+            }
         }
-        
     }
     
     required init?(coder: NSCoder) {

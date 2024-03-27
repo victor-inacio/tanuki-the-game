@@ -27,7 +27,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     init(scnView: SCNView) {
         super.init()
         
-       spawner = SpawnerEntity(isVisible: true, scene: self)
+        spawner = SpawnerEntity(isVisible: true, scene: self)
         
         scnView.delegate = self
         self.physicsWorld.contactDelegate = self
@@ -49,7 +49,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         setupCamera()
         setupWaveStateMachine()
         setupSpawners()
-      
+        
     }
     
     func onButtonUp() {
@@ -57,13 +57,15 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     }
     
     func onButtonDown() {
-        player.stateMachine.enter(AttackingState.self)
+        if player.stateMachine.currentState is AttackingState == false{
+            player.stateMachine.enter(AttackingState.self)
+        }
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
         Time.deltaTime = time - lastTime
         lastTime = time
-
+        
         
         if (firstFrame) {
             firstFrame = false
@@ -86,7 +88,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         player = PlayerEntity(physicsWorld: self.physicsWorld)
         rootNode.addChildNode(player.playerNode)
         player.playerNode.position = SCNVector3(x: 0, y: 0, z: 6)
-     
+        
     }
     
     func setupScenario(){
@@ -107,33 +109,9 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     
     func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
         
-        let nodeA = contact.nodeA
-        let nodeB = contact.nodeB
         
-        let bitmaskA = nodeA.physicsBody!.categoryBitMask
-        let bitmaskB = nodeB.physicsBody!.categoryBitMask
-        let collision = bitmaskA | bitmaskB
-        
-        switch collision {
-        case Bitmask.character.rawValue | Bitmask.enemy.rawValue:
-            return
-            
-           
-        case Bitmask.playerWeapon.rawValue | Bitmask.enemy.rawValue | Bitmask.character.rawValue:
-
-            let nodesInvolved = [nodeA, nodeB]
-            
-            for node in nodesInvolved {
-                if node.name == "collider"{
-                    player.attackComponent.handleAttackContact(target: node)
-                }
-            }
-        
-        default:
-            break
-        }
     }
- 
+    
     func setupWaveStateMachine(){
         self.waveStateMachine = GKStateMachine(states: [
             WaveIdle(waveManager: waveManager),
@@ -152,7 +130,31 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     }
     
     func physicsWorld(_ world: SCNPhysicsWorld, didUpdate contact: SCNPhysicsContact){
+        let nodeA = contact.nodeA
+        let nodeB = contact.nodeB
         
+        let bitmaskA = nodeA.physicsBody!.categoryBitMask
+        let bitmaskB = nodeB.physicsBody!.categoryBitMask
+        let collision = bitmaskA | bitmaskB
+        
+        switch collision {
+        case Bitmask.character.rawValue | Bitmask.enemy.rawValue:
+            return
+            
+            
+        case Bitmask.playerWeapon.rawValue | Bitmask.enemy.rawValue | Bitmask.character.rawValue:
+            
+            let nodesInvolved = [nodeA, nodeB]
+            
+            for node in nodesInvolved {
+                if node.name == "collider"{
+                    player.attackComponent.handleAttackContact(target: node)
+                }
+            }
+            
+        default:
+            break
+        }
     }
     func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact){
         

@@ -49,6 +49,7 @@ class MovementComponent: GKComponent{
     var physicsWorld: SCNPhysicsWorld
 
     var direction = simd_float2()
+    var speedFactor = 2.0
     
     init(topLevelNode: SCNNode, rotationNode: SCNNode, modelNode: SCNNode, physicsWorld: SCNPhysicsWorld){
         self.characterNode = topLevelNode
@@ -100,9 +101,7 @@ class MovementComponent: GKComponent{
         
         var characterVelocity = simd_float3.zero
         
-     
-        print(GameManager.entities.count)
-        
+    
         let direction = characterDirection(withPointOfView:renderer.pointOfView)
         
         if previousUpdateTime == 0.0 {
@@ -110,7 +109,7 @@ class MovementComponent: GKComponent{
         }
         
         let deltaTime = time - previousUpdateTime
-        let characterSpeed = CGFloat(deltaTime) * 2 * walkSpeed
+        let characterSpeed = CGFloat(deltaTime) * speedFactor * walkSpeed
         
         previousUpdateTime = time
         
