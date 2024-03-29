@@ -19,6 +19,13 @@
 		98E0E3C22B9E8A910034011F /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E3C12B9E8A910034011F /* Math.swift */; };
 		98E0E3C42B9F45B00034011F /* Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E3C32B9F45B00034011F /* Controllers.swift */; };
 		98E0E3C62B9F47AA0034011F /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E3C52B9F47AA0034011F /* Overlay.swift */; };
+		98E8D0EF2BB4B83F00608087 /* tanuki.scn in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0EE2BB4B83F00608087 /* tanuki.scn */; };
+		98E8D0F12BB4B90100608087 /* corpo-textura.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0F02BB4B90100608087 /* corpo-textura.jpg */; };
+		98E8D0F52BB4BBB700608087 /* walk.scn in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0F42BB4BBB700608087 /* walk.scn */; };
+		98E8D0F82BB5B15F00608087 /* corpobake.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0F72BB5B15F00608087 /* corpobake.jpeg */; };
+		98E8D0FA2BB5B1C900608087 /* faca-textura.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0F92BB5B1C900608087 /* faca-textura.jpg */; };
+		98E8D0FC2BB5B52200608087 /* folha-textura.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0FB2BB5B52200608087 /* folha-textura.jpg */; };
+		98E8D0FE2BB5B60B00608087 /* folhanormal.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0FD2BB5B60B00608087 /* folhanormal.jpeg */; };
 		98F679F02B9B989D00A0EBEE /* tanuki_the_gameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F679EF2B9B989D00A0EBEE /* tanuki_the_gameApp.swift */; };
 		98F679F42B9B989E00A0EBEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F679F32B9B989E00A0EBEE /* Assets.xcassets */; };
 		98F679F72B9B989E00A0EBEE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F679F62B9B989E00A0EBEE /* Preview Assets.xcassets */; };
@@ -62,6 +69,13 @@
 		98E0E3C12B9E8A910034011F /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		98E0E3C32B9F45B00034011F /* Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controllers.swift; sourceTree = "<group>"; };
 		98E0E3C52B9F47AA0034011F /* Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
+		98E8D0EE2BB4B83F00608087 /* tanuki.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = tanuki.scn; sourceTree = "<group>"; };
+		98E8D0F02BB4B90100608087 /* corpo-textura.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "corpo-textura.jpg"; sourceTree = "<group>"; };
+		98E8D0F42BB4BBB700608087 /* walk.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = walk.scn; sourceTree = "<group>"; };
+		98E8D0F72BB5B15F00608087 /* corpobake.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = corpobake.jpeg; sourceTree = "<group>"; };
+		98E8D0F92BB5B1C900608087 /* faca-textura.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "faca-textura.jpg"; sourceTree = "<group>"; };
+		98E8D0FB2BB5B52200608087 /* folha-textura.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "folha-textura.jpg"; sourceTree = "<group>"; };
+		98E8D0FD2BB5B60B00608087 /* folhanormal.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = folhanormal.jpeg; sourceTree = "<group>"; };
 		98F679EC2B9B989D00A0EBEE /* tanuki-the-game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tanuki-the-game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F679EF2B9B989D00A0EBEE /* tanuki_the_gameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tanuki_the_gameApp.swift; sourceTree = "<group>"; };
 		98F679F32B9B989E00A0EBEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -118,6 +132,28 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		98E8D0E92BB4B6E600608087 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				98E8D0F62BB5B14800608087 /* Tanuki */,
+				98E8D0F42BB4BBB700608087 /* walk.scn */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		98E8D0F62BB5B14800608087 /* Tanuki */ = {
+			isa = PBXGroup;
+			children = (
+				98E8D0FD2BB5B60B00608087 /* folhanormal.jpeg */,
+				98E8D0FB2BB5B52200608087 /* folha-textura.jpg */,
+				98E8D0F92BB5B1C900608087 /* faca-textura.jpg */,
+				98E8D0F72BB5B15F00608087 /* corpobake.jpeg */,
+				98E8D0F02BB4B90100608087 /* corpo-textura.jpg */,
+				98E8D0EE2BB4B83F00608087 /* tanuki.scn */,
+			);
+			path = Tanuki;
+			sourceTree = "<group>";
+		};
 		98F679E32B9B989D00A0EBEE = {
 			isa = PBXGroup;
 			children = (
@@ -147,6 +183,7 @@
 				ABC429532BA4DB87009F0905 /* Art.scnassets */,
 				98F679F52B9B989E00A0EBEE /* Preview Content */,
 				ABF676BD2B9F2EFA007806B3 /* Utility */,
+				98E8D0E92BB4B6E600608087 /* Assets */,
 				ABF676BE2B9F2F08007806B3 /* App */,
 				ABA1A88A2BB4875B001C3533 /* GameManager.swift */,
 				ABF676C42B9F31B6007806B3 /* MainScene.swift */,
@@ -298,8 +335,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABC429542BA4DB87009F0905 /* Art.scnassets in Resources */,
+				98E8D0FC2BB5B52200608087 /* folha-textura.jpg in Resources */,
+				98E8D0F82BB5B15F00608087 /* corpobake.jpeg in Resources */,
+				98E8D0FE2BB5B60B00608087 /* folhanormal.jpeg in Resources */,
+				98E8D0F12BB4B90100608087 /* corpo-textura.jpg in Resources */,
 				98F679F72B9B989E00A0EBEE /* Preview Assets.xcassets in Resources */,
+				98E8D0FA2BB5B1C900608087 /* faca-textura.jpg in Resources */,
+				98E8D0F52BB4BBB700608087 /* walk.scn in Resources */,
 				98F679F42B9B989E00A0EBEE /* Assets.xcassets in Resources */,
+				98E8D0EF2BB4B83F00608087 /* tanuki.scn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

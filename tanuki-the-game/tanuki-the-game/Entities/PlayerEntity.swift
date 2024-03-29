@@ -51,15 +51,15 @@ class PlayerEntity: BaseEntity {
         super.init()
         self.stateMachine = PlayerStateMachine(player: self)
         
-        self.addComponent(VisualComponent(modelFile:  "Art.scnassets/character/max.scn", nameOfChild: "Max_rootNode"))
+        self.addComponent(VisualComponent(modelFile:  "tanuki.scn", nameOfChild: "Armature"))
         
         setupPlayerHierarchy()
   
         self.addComponent(MovementComponent(topLevelNode: playerNode, rotationNode: playerRotation, modelNode: model, physicsWorld: physicsWorld))
         
         self.addComponent(AnimationComponent(nodeToAddAnimation: model, animations: [
-            .init(fromSceneNamed: "Art.scnassets/character/max_idle.scn", animationKey: "idle"),
-            .init(fromSceneNamed: "Art.scnassets/character/max_walk.scn", animationKey: "walk")
+//            .init(fromSceneNamed: "Art.scnassets/character/max_idle.scn", animationKey: "idle"),
+            .init(fromSceneNamed: "walk.scn", animationKey: "walk")
         ]))
         
         self.addComponent(AttackComponent(topLevelNode: playerNode, attackerModel: model, colliderName: "swordCollider", damage: 100, stateMachine: stateMachine))
