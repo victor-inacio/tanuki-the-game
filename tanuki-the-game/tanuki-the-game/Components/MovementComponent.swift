@@ -139,7 +139,8 @@ class MovementComponent: GKComponent{
         let options: [String: Any] = [
             SCNHitTestOption.backFaceCulling.rawValue: false,
             SCNHitTestOption.categoryBitMask.rawValue: MovementComponent.collisionMeshBitMask,
-            SCNHitTestOption.ignoreHiddenNodes.rawValue: false]
+            SCNHitTestOption.ignoreHiddenNodes.rawValue: false,
+            ]
         
         let hitFrom = SCNVector3(p0)
         let hitTo = SCNVector3(p1)
@@ -165,6 +166,9 @@ class MovementComponent: GKComponent{
         
         characterVelocity.y += downwardAcceleration
         if simd_length_squared(characterVelocity) > 10E-4 * 10E-4 {
+        
+            
+            
             let startPosition = characterNode!.presentation.simdWorldPosition + collisionShapeOffsetFromModel
             slideInWorld(fromPosition: startPosition, velocity: characterVelocity)
         }
@@ -239,6 +243,7 @@ class MovementComponent: GKComponent{
         
         let colliderPositionAtContact = start + Float(closestContact.sweepTestFraction) * velocity
         
+            
         // Compute the sliding plane.
         let slidePlaneNormal = simd_float3(closestContact.contactNormal)
         let slidePlaneOrigin = simd_float3(closestContact.contactPoint)
@@ -249,7 +254,9 @@ class MovementComponent: GKComponent{
         
         // We now project the destination point onto the sliding plane.
         let distPlane = simd_dot(slidePlaneOrigin, slidePlaneNormal)
+        print("Slide Plane Origin:", slidePlaneOrigin)
         
+        print("Slide Plane Normal:", slidePlaneNormal)
         // Project on plane.
         var t = planeIntersect(planeNormal: slidePlaneNormal, planeDist: distPlane,
                                rayOrigin: destinationPoint, rayDirection: slidePlaneNormal)
