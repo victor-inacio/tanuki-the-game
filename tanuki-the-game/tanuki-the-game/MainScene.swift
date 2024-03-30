@@ -26,6 +26,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         scnView.delegate = self
         self.physicsWorld.contactDelegate = self
         
+        GameManager.scene = self
         overlay = Overlay(size: scnView.bounds.size)
         overlay.controllerDelegate = self
         scnView.overlaySKScene = overlay
@@ -90,25 +91,24 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         
         camera.followTarget(target: player.playerNode.simdPosition, offset: simd_float3(1, 1.5, 0))
         
-        player.update(deltaTime: Time.deltaTime)
-
         
+        player.update(deltaTime: Time.deltaTime)
         enemy.update(deltaTime: Time.deltaTime)
     }
     
     func setupEnemy() {
         
         enemy = EnemyEntity()
-        enemy.model.simdPosition = .init(x: 0, y: 0, z: 7.0)
-        rootNode.addChildNode(enemy.model)
-        
-        
+        enemy.playerNode.simdPosition = .init(x: 0, y: 2, z: 2)
+        enemy.agentComponent.position = enemy.playerNode.simdPosition
+        enemy.agent.position = .init(x: 0, y: 0, z: 10)
+        rootNode.addChildNode(enemy.playerNode)
     }
     
     func setupPlayer(){
         player = PlayerEntity(physicsWorld: self.physicsWorld)
         rootNode.addChildNode(player.playerNode)
-        player.playerNode.position = SCNVector3(x: 0, y: 0, z: 6)
+        player.playerNode.position = SCNVector3(x: -1, y: 0, z: 6)
         
         
         GameManager.player = player

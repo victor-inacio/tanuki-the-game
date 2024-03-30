@@ -50,11 +50,14 @@ class MovementComponent: GKComponent{
 
     var direction = simd_float2()
     
-    init(topLevelNode: SCNNode, rotationNode: SCNNode, modelNode: SCNNode, physicsWorld: SCNPhysicsWorld){
+    let dynamicControl: Bool
+    
+    init(topLevelNode: SCNNode, rotationNode: SCNNode, modelNode: SCNNode, physicsWorld: SCNPhysicsWorld, dynamicControl: Bool = true){
         self.characterNode = topLevelNode
         self.characterOrientation = rotationNode
         self.model = modelNode
         self.physicsWorld = physicsWorld
+        self.dynamicControl = dynamicControl
         super.init()
         
         let collider = model.childNode(withName: "collider", recursively: true)!
@@ -81,8 +84,7 @@ class MovementComponent: GKComponent{
     
     private var directionAngle: CGFloat = 0.0 {
         didSet {
-            characterOrientation.runAction(
-                SCNAction.rotateTo(x: 0.0, y: directionAngle, z: 0.0, duration: 0.08, usesShortestUnitArc:true))
+            characterOrientation.simdEulerAngles = .init(x: 0, y: Float(directionAngle), z: 0)
             
         }
     }
@@ -100,8 +102,7 @@ class MovementComponent: GKComponent{
         var characterVelocity = simd_float3.zero
         let renderer = GameManager.sceneRenderer!
         
-        let direction = characterDirection(withPointOfView:renderer.pointOfView)
-        
+        let direction = dynamicControl ?  characterDirection(withPointOfView:renderer.pointOfView) : characterOrientation.simdWorldFront
 
         let characterSpeed = CGFloat(deltaTime) * 2 * walkSpeed
         

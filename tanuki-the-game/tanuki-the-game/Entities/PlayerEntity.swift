@@ -78,9 +78,8 @@ class PlayerEntity: BaseEntity{
         stateMachine.update(deltaTime: seconds)
         movementComponent.update(deltaTime: seconds)
         
-        
-        
-        agent.position = playerNode.simdPosition
+        agent.position = playerNode.simdWorldPosition
+        agent.rotation = simd_float3x3(simd_quatf(vector: playerRotation.simdRotation))
         
     }
     
