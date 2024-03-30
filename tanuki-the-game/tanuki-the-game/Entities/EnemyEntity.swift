@@ -40,10 +40,12 @@ class EnemyEntity: BaseEntity {
         
         super.init()
         
-        addComponent(AgentComponent())
+       
         
         self.addComponent(VisualComponent(modelFile:  "Art.scnassets/character/max.scn", nameOfChild: "Max_rootNode"))
         setupPlayerHierarchy()
+        
+        addComponent(AgentComponent(model: model))
 //        addComponent(MovementComponent(topLevelNode: playerNode, rotationNode: playerRotation, modelNode: model, physicsWorld: GameManager.scene.physicsWorld, dynamicControl: false))
         
 //        addComponent(AIComponent())
@@ -63,9 +65,7 @@ class EnemyEntity: BaseEntity {
         
 //        playerNode.simdWorldPosition = agent.position
 //        playerRotation.simdTransform = float4x4(rotation: agent.rotation, position: .init(x: 0, y: 0, z: 0))
-        
-        
-    
+
         agentComponent.update(deltaTime: Time.deltaTime)
         
         playerNode.simdEulerAngles.y = atan2(agentComponent.velocity.x, agentComponent.velocity.z)

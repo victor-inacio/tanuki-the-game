@@ -159,6 +159,7 @@ class MovementComponent: GKComponent{
         }
         
         characterVelocity.y += downwardAcceleration
+        
         if simd_length_squared(characterVelocity) > 10E-4 * 10E-4 {
             let startPosition = characterNode!.presentation.simdWorldPosition + collisionShapeOffsetFromModel
             slideInWorld(fromPosition: startPosition, velocity: characterVelocity)
@@ -185,6 +186,8 @@ class MovementComponent: GKComponent{
                 directionWorld = speed * simd_normalize(directionWorld)
             }
         }
+        
+        
         return directionWorld
     }
     
