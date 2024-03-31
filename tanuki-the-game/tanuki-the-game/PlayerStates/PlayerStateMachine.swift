@@ -21,7 +21,6 @@ class PlayerStateMachine: GKStateMachine {
         if player.characterDirection.allZero() && currentState is IdleState == false && currentState is AttackingState == false  {
             enter(IdleState.self)
         }
-  
-        print(self.currentState!)
+
     }
 }

@@ -42,10 +42,10 @@ class SpawnerEntity: GKEntity {
         
       
         let enemy = EnemyEntity()
-        enemy.enemyNode.position = spawnPoint.position
-        enemy.enemyNode.position.z = Float.random(in: 7...9) 
-        scene.rootNode.addChildNode(enemy.enemyNode)
-        enemy.enemyNode.entity = enemy
+        enemy.node.position = spawnPoint.position
+        enemy.node.position.z = Float.random(in: 7...9) 
+        scene.rootNode.addChildNode(enemy.node)
+        enemy.node.entity = enemy
         waveManager.enemiesSpawned += 1
         
         GameManager.addEntity(entity: enemy)
