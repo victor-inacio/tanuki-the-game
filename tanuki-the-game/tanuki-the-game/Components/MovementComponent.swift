@@ -21,20 +21,12 @@ class MovementComponent: GKComponent{
     private var characterNode: SCNNode! // top level node
     private var characterOrientation: SCNNode! // the node to rotate to orient the character
     private var model: SCNNode! // the model loaded from the character file
-    
-    // some constants
-    static private let gravity = Float(0.004)
-    static private let jumpImpulse = Float(0.1)
-    static private let minAltitude = Float(-10)
-    static private let enableFootStepSound = true
-    static private let collisionMargin = Float(0.04)
-    static private let modelOffset = simd_float3(0, -collisionMargin, 0)
-    static private let collisionMeshBitMask = 8
+
     
     // Physics
     private var characterCollisionShape: SCNPhysicsShape?
     private var collisionShapeOffsetFromModel = simd_float3.zero
-    private var downwardAcceleration: Float = 0
+    private var downwardAcceleration = simd_float3(repeating: 0)
     
     
     // void playing the step sound too often
@@ -51,11 +43,14 @@ class MovementComponent: GKComponent{
     var direction = simd_float2()
     var speedFactor = 2.0
     
-    init(topLevelNode: SCNNode, rotationNode: SCNNode, modelNode: SCNNode, physicsWorld: SCNPhysicsWorld){
+    let dynamicControl: Bool
+    
+    init(topLevelNode: SCNNode, rotationNode: SCNNode, modelNode: SCNNode, physicsWorld: SCNPhysicsWorld, dynamicControl: Bool = true){
         self.characterNode = topLevelNode
         self.characterOrientation = rotationNode
         self.model = modelNode
         self.physicsWorld = physicsWorld
+        self.dynamicControl = dynamicControl
         super.init()
         
         let collider = model.childNode(withName: "collider", recursively: true)!
@@ -70,7 +65,7 @@ class MovementComponent: GKComponent{
         let collisionCapsuleHeight = CGFloat(max.y - min.y)
         
         let collisionGeometry = SCNCapsule(capRadius: collisionCapsuleRadius, height: collisionCapsuleHeight)
-        characterCollisionShape = SCNPhysicsShape(geometry: collisionGeometry, options:[.collisionMargin: MovementComponent.collisionMargin])
+        characterCollisionShape = SCNPhysicsShape(geometry: collisionGeometry, options:[.collisionMargin: Physics.collisionMargin])
         collisionShapeOffsetFromModel = simd_float3(0, Float(collisionCapsuleHeight) * 0.51, 0.0)
         
 
@@ -83,8 +78,7 @@ class MovementComponent: GKComponent{
     
     private var directionAngle: CGFloat = 0.0 {
         didSet {
-            characterOrientation.runAction(
-                SCNAction.rotateTo(x: 0.0, y: directionAngle, z: 0.0, duration: 0.08, usesShortestUnitArc:true))
+            characterOrientation.simdEulerAngles = .init(x: 0, y: Float(directionAngle), z: 0)
             
         }
     }
@@ -95,23 +89,16 @@ class MovementComponent: GKComponent{
         }
     }
 
-    func update(atTime time: TimeInterval, with renderer: SCNSceneRenderer) {
+    override func update(deltaTime: TimeInterval) {
         
         frameCounter += 1
         
         var characterVelocity = simd_float3.zero
+        let renderer = GameManager.sceneRenderer!
         
-    
-        let direction = characterDirection(withPointOfView:renderer.pointOfView)
+        let direction = characterDirection(withPointOfView:renderer.pointOfView) 
+        let characterSpeed = CGFloat(deltaTime) * 2 * walkSpeed
         
-        if previousUpdateTime == 0.0 {
-            previousUpdateTime = time
-        }
-        
-        let deltaTime = time - previousUpdateTime
-        let characterSpeed = CGFloat(deltaTime) * speedFactor * walkSpeed
-        
-        previousUpdateTime = time
         
         // move
         if !direction.allZero() {
@@ -125,54 +112,12 @@ class MovementComponent: GKComponent{
             directionAngle = CGFloat(atan2f(direction.x, direction.z))
         }
         
-        // put the character on the ground
-        let up = simd_float3(0, 1, 0)
-        var wPosition = characterNode.simdWorldPosition
-        // gravity
-        downwardAcceleration -= MovementComponent.gravity
-        wPosition.y += downwardAcceleration
-        let HIT_RANGE = Float(0.2)
-        var p0 = wPosition
-        var p1 = wPosition
-        p0.y = wPosition.y + up.y * HIT_RANGE
-        p1.y = wPosition.y - up.y * HIT_RANGE
+        downwardAcceleration = Physics.calculateGravityAcceleration(position: characterNode.simdWorldPosition, downwardAcceleration: downwardAcceleration)
         
-        let options: [String: Any] = [
-            SCNHitTestOption.backFaceCulling.rawValue: false,
-            SCNHitTestOption.categoryBitMask.rawValue: MovementComponent.collisionMeshBitMask,
-            SCNHitTestOption.ignoreHiddenNodes.rawValue: false,
-            ]
-        
-        let hitFrom = SCNVector3(p0)
-        let hitTo = SCNVector3(p1)
-        let hitResult = renderer.scene!.rootNode.hitTestWithSegment(from: hitFrom, to: hitTo, options: options).first
+        characterVelocity += downwardAcceleration
         
         
-        if let hit = hitResult {
-            let ground = simd_float3(hit.worldCoordinates)
-            if wPosition.y <= ground.y + MovementComponent.collisionMargin {
-                wPosition.y = ground.y + MovementComponent.collisionMargin
-                if downwardAcceleration < 0 {
-                    downwardAcceleration = 0
-                }
-                
-            }
-        } else {
-            if wPosition.y < MovementComponent.minAltitude {
-                wPosition.y = MovementComponent.minAltitude
-                //reset
-                queueResetCharacterPosition()
-            }
-        }
-        
-        characterVelocity.y += downwardAcceleration
-        if simd_length_squared(characterVelocity) > 10E-4 * 10E-4 {
-        
-            
-            
-            let startPosition = characterNode!.presentation.simdWorldPosition + collisionShapeOffsetFromModel
-            slideInWorld(fromPosition: startPosition, velocity: characterVelocity)
-        }
+        characterNode.simdWorldPosition = Physics.calculateSlidePos(position: characterNode.simdWorldPosition, velocity: characterVelocity, collisionShapeOffsetFromModel: collisionShapeOffsetFromModel, collisionShape: characterCollisionShape!)
     }
     
     func characterDirection(withPointOfView pointOfView: SCNNode?) -> simd_float3 {
@@ -195,6 +140,8 @@ class MovementComponent: GKComponent{
                 directionWorld = speed * simd_normalize(directionWorld)
             }
         }
+        
+        
         return directionWorld
     }
     

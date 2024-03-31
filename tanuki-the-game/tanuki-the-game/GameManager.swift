@@ -5,8 +5,9 @@
 //  Created by Gabriel Eirado on 27/03/24.
 //
 
-import GameplayKit
 
+import SceneKit
+import GameplayKit
 class GameManager {
     static var entities: [GKEntity] = []
     

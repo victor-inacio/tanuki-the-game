@@ -12,6 +12,7 @@ import GameplayKit
 class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsContactDelegate {
     
     var player: PlayerEntity!
+    var enemy: EnemyEntity!
     var scenario: ScenarioEntity!
     var overlay: Overlay!
     var camera: Camera!
@@ -32,6 +33,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         scnView.delegate = self
         self.physicsWorld.contactDelegate = self
         
+        GameManager.scene = self
         overlay = Overlay(size: scnView.bounds.size)
         overlay.controllerDelegate = self
         scnView.overlaySKScene = overlay
@@ -45,10 +47,33 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         rootNode.addChildNode(ambientLightNode)
         
         setupPlayer()
+        setupEnemy()
         setupScenario()
         setupCamera()
         setupWaveStateMachine()
         setupSpawners()
+        
+        // Create a red box geometry
+        let boxGeometry = SCNBox(width: 0.2, height: 0.2, length: 1.0, chamferRadius: 0.0)
+        let redMaterial = SCNMaterial()
+        redMaterial.diffuse.contents = UIColor.red
+        boxGeometry.materials = [redMaterial]
+        
+        // Create a node with the box geometry
+        let boxNode = SCNNode(geometry: boxGeometry)
+        boxNode.position = SCNVector3(0, 2, 6) // Place the box in front of the camera
+        
+        // Add physics body to the node
+        let boxPhysicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
+        boxPhysicsBody.categoryBitMask =  Bitmask.enemy.rawValue | Bitmask.character.rawValue
+        boxPhysicsBody.contactTestBitMask = Bitmask.character.rawValue
+
+        
+        boxNode.physicsBody = boxPhysicsBody
+        
+        // Add the node to the scene
+        rootNode.addChildNode(boxNode)
+
         
     }
     
@@ -63,6 +88,8 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        GameManager.sceneRenderer = renderer
+        
         Time.deltaTime = time - lastTime
         lastTime = time
         
@@ -73,22 +100,34 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
             return
         }
         
-        
         camera.followTarget(target: player.playerNode.simdPosition, offset: simd_float3(1, 1.5, 0))
         
-        player.update(deltaTime: time)
-        player.movementComponent.update(atTime: time, with: renderer)
+        player.update(deltaTime: Time.deltaTime)
+        
         spawner.update()
         self.waveStateMachine?.update(deltaTime: time)
         
+        player.update(deltaTime: Time.deltaTime)
+        enemy.update(deltaTime: Time.deltaTime)
+    }
+    
+    func setupEnemy() {
+        
+        enemy = EnemyEntity()
+        enemy.node.simdPosition = .init(x: 0, y: 2, z: 8)
+        enemy.agentComponent.position = enemy.node.simdPosition
+        enemy.agent.position = .init(x: 0, y: 0, z: 10)
+        rootNode.addChildNode(enemy.node)
     }
     
     func setupPlayer(){
         
         player = PlayerEntity(physicsWorld: self.physicsWorld)
         rootNode.addChildNode(player.playerNode)
-        player.playerNode.position = SCNVector3(x: 0, y: 0, z: 6)
+        player.playerNode.position = SCNVector3(x: -1, y: 0, z: 6)
         
+        
+        GameManager.player = player
     }
     
     func setupScenario(){

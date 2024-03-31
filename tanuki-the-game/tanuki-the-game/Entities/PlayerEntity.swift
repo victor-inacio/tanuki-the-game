@@ -13,6 +13,7 @@ class PlayerEntity: BaseEntity {
     var stateMachine: PlayerStateMachine!
     let playerNode: SCNNode
     let playerRotation: SCNNode
+    let agent = GKAgent3D()
     
     public lazy var movementComponent: MovementComponent = {
         guard let component = component(ofType: MovementComponent.self) else {
@@ -28,6 +29,7 @@ class PlayerEntity: BaseEntity {
         }
         return component
     }()
+
 
 
     var characterDirection: vector_float2 {
@@ -49,6 +51,9 @@ class PlayerEntity: BaseEntity {
         self.playerRotation = SCNNode()
         
         super.init()
+        
+        agent.radius = 0.9
+        
         self.stateMachine = PlayerStateMachine(player: self)
         
         self.addComponent(VisualComponent(modelFile:  "tanuki.scn", nameOfChild: "Armature"))
@@ -74,6 +79,11 @@ class PlayerEntity: BaseEntity {
         characterDirection = Input.movement
         
         stateMachine.update(deltaTime: seconds)
+        movementComponent.update(deltaTime: seconds)
+        
+        agent.position = playerNode.simdWorldPosition
+        agent.rotation = simd_float3x3(simd_quatf(vector: playerRotation.simdRotation))
+        
     }
     
     func setupPlayerHierarchy(){
