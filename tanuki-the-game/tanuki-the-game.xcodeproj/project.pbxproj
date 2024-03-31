@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		983F1ECC2BBA100900D66467 /* Physics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983F1ECB2BBA100900D66467 /* Physics.swift */; };
 		986D6E382BA8B3D600AF42D6 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986D6E372BA8B3D600AF42D6 /* Button.swift */; };
 		989296662BA38BE200681BCD /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989296652BA38BE200681BCD /* Time.swift */; };
 		989296682BA390C900681BCD /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989296672BA390C900681BCD /* Camera.swift */; };
@@ -44,6 +45,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		983F1ECB2BBA100900D66467 /* Physics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Physics.swift; sourceTree = "<group>"; };
 		986D6E372BA8B3D600AF42D6 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		989296652BA38BE200681BCD /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		989296672BA390C900681BCD /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 				9892966F2BA4BDE500681BCD /* Bounds.swift */,
 				AB38C63F2BAA256A006C279A /* bitMask.swift */,
 				AB38C6412BAB602E006C279A /* GetAnimationsFromArt.swift */,
+				983F1ECB2BBA100900D66467 /* Physics.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -287,6 +290,7 @@
 				AB38C6422BAB602E006C279A /* GetAnimationsFromArt.swift in Sources */,
 				ABAFEA892BA22A8900BB5E9D /* PhysicsBodyComponent.swift in Sources */,
 				98DD7FD52BAE08CF00CB4FBB /* PlayerState.swift in Sources */,
+				983F1ECC2BBA100900D66467 /* Physics.swift in Sources */,
 				989296702BA4BDE500681BCD /* Bounds.swift in Sources */,
 				989296662BA38BE200681BCD /* Time.swift in Sources */,
 				98E8D0DF2BB4AD0F00608087 /* AgentComponent.swift in Sources */,
