@@ -13,8 +13,11 @@ class AttackingState: PlayerState{
     var attacking = false
     
     override func didEnter(from previousState: GKState?){
-                
-        player.movementComponent.speedFactor*=2.5
+        
+        playerModel.animationPlayer(forKey: "attack")?.play()
+        
+        player.movementComponent.speedFactor*=2.2
+        
         
         player.playerNode.runAction(.sequence([.wait(duration: 0.2), .run({ _ in
             self.attacking = true
@@ -25,7 +28,6 @@ class AttackingState: PlayerState{
             self.stateMachine?.enter(IdleState.self)
         })]))
          
-        
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool{
