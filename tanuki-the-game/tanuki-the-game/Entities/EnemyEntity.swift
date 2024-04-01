@@ -42,7 +42,7 @@ class EnemyEntity: BaseEntity {
         
        
         
-        self.addComponent(VisualComponent(modelFile:  "Art.scnassets/character/max.scn", nameOfChild: "Max_rootNode"))
+        self.addComponent(VisualComponent(modelFile:  "Karakasa.scn", nameOfChild: "Armature"))
         setupPlayerHierarchy()
         
         addComponent(AgentComponent(model: model))

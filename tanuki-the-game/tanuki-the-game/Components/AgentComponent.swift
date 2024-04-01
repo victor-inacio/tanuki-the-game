@@ -9,6 +9,8 @@ class AgentComponent: GKComponent {
     var position: simd_float3
     var maxSpeed: Float
     var maxForce: Float = 0.5
+    
+    
 
     private var characterCollisionShape: SCNPhysicsShape?
     private var collisionShapeOffsetFromModel = simd_float3.zero
@@ -44,7 +46,6 @@ class AgentComponent: GKComponent {
         velocity *= Float(deltaTime)
         
         downwardAcceleration = Physics.calculateGravityAcceleration(position: position, downwardAcceleration: downwardAcceleration)
-
         
         velocity += downwardAcceleration
             
