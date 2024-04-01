@@ -75,28 +75,6 @@ extension simd_float4x4 {
     }
 }
 
-extension float4 {
-    
-    init(_ vec3: float3, _ w: Float) {
-        self = float4(vec3.x, vec3.y, vec3.z, w)
-    }
-}
-
-extension float4x4 {
-    var upperLeft3x3: float3x3 {
-        let (a,b,c,_) = columns
-        return float3x3(a.xyz, b.xyz, c.xyz)
-    }
-    
-    init(rotation: float3x3, position: float3) {
-        let (a,b,c) = rotation.columns
-        self = float4x4(float4(a, 0),
-                        float4(b, 0),
-                        float4(c, 0),
-                        float4(position, 1))
-    }
-}
-
 extension matrix_float3x3 {
 
     func toEulerAngles() -> simd_float3 {
