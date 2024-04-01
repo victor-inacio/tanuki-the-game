@@ -25,7 +25,7 @@
 		98E8D0DF2BB4AD0F00608087 /* AgentComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E8D0DE2BB4AD0F00608087 /* AgentComponent.swift */; };
 		98E8D0EF2BB4B83F00608087 /* tanuki.scn in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0EE2BB4B83F00608087 /* tanuki.scn */; };
 		98E8D0F12BB4B90100608087 /* corpo-textura.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0F02BB4B90100608087 /* corpo-textura.jpg */; };
-		98E8D0F52BB4BBB700608087 /* walk.scn in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0F42BB4BBB700608087 /* walk.scn */; };
+		98E8D0F52BB4BBB700608087 /* tanuki_walk.scn in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0F42BB4BBB700608087 /* tanuki_walk.scn */; };
 		98E8D0F82BB5B15F00608087 /* corpobake.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0F72BB5B15F00608087 /* corpobake.jpeg */; };
 		98E8D0FA2BB5B1C900608087 /* faca-textura.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0F92BB5B1C900608087 /* faca-textura.jpg */; };
 		98E8D0FC2BB5B52200608087 /* folha-textura.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0FB2BB5B52200608087 /* folha-textura.jpg */; };
@@ -79,7 +79,7 @@
 		98E8D0DE2BB4AD0F00608087 /* AgentComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentComponent.swift; sourceTree = "<group>"; };
 		98E8D0EE2BB4B83F00608087 /* tanuki.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = tanuki.scn; sourceTree = "<group>"; };
 		98E8D0F02BB4B90100608087 /* corpo-textura.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "corpo-textura.jpg"; sourceTree = "<group>"; };
-		98E8D0F42BB4BBB700608087 /* walk.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = walk.scn; sourceTree = "<group>"; };
+		98E8D0F42BB4BBB700608087 /* tanuki_walk.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = tanuki_walk.scn; sourceTree = "<group>"; };
 		98E8D0F72BB5B15F00608087 /* corpobake.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = corpobake.jpeg; sourceTree = "<group>"; };
 		98E8D0F92BB5B1C900608087 /* faca-textura.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "faca-textura.jpg"; sourceTree = "<group>"; };
 		98E8D0FB2BB5B52200608087 /* folha-textura.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "folha-textura.jpg"; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				98E8D0F62BB5B14800608087 /* Tanuki */,
-				98E8D0F42BB4BBB700608087 /* walk.scn */,
+				98E8D0F42BB4BBB700608087 /* tanuki_walk.scn */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -353,7 +353,7 @@
 				98E8D0F12BB4B90100608087 /* corpo-textura.jpg in Resources */,
 				98F679F72B9B989E00A0EBEE /* Preview Assets.xcassets in Resources */,
 				98E8D0FA2BB5B1C900608087 /* faca-textura.jpg in Resources */,
-				98E8D0F52BB4BBB700608087 /* walk.scn in Resources */,
+				98E8D0F52BB4BBB700608087 /* tanuki_walk.scn in Resources */,
 				98F679F42B9B989E00A0EBEE /* Assets.xcassets in Resources */,
 				98E8D0EF2BB4B83F00608087 /* tanuki.scn in Resources */,
 			);

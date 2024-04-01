@@ -64,7 +64,7 @@ class PlayerEntity: BaseEntity {
         
         self.addComponent(AnimationComponent(nodeToAddAnimation: model, animations: [
 //            .init(fromSceneNamed: "Art.scnassets/character/max_idle.scn", animationKey: "idle"),
-            .init(fromSceneNamed: "walk.scn", animationKey: "walk")
+            .init(fromSceneNamed: "tanuki_walk.scn", animationKey: "walk")
         ]))
         
         self.addComponent(AttackComponent(topLevelNode: playerNode, attackerModel: model, colliderName: "swordCollider", damage: 100, stateMachine: stateMachine))
