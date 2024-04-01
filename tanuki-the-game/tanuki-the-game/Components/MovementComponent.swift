@@ -78,7 +78,8 @@ class MovementComponent: GKComponent{
     
     private var directionAngle: CGFloat = 0.0 {
         didSet {
-            characterOrientation.simdEulerAngles = .init(x: 0, y: Float(directionAngle), z: 0)
+            characterOrientation.runAction(
+                SCNAction.rotateTo(x: 0.0, y: directionAngle, z: 0.0, duration: 0.08, usesShortestUnitArc:true))
             
         }
     }
