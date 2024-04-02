@@ -9,18 +9,16 @@ class PlayerStateMachine: GKStateMachine {
         
         super.init(states: [
             IdleState(playerEntity: player),
-            WalkingState(playerEntity: player),
-            AttackingState(playerEntity: player)
+            WalkingState(playerEntity: player)
         ])
-      
     }
     
     override func update(deltaTime sec: TimeInterval) {
         super.update(deltaTime: sec)
         
-        if player.characterDirection.allZero() && currentState is IdleState == false && currentState is AttackingState == false  {
+        if player.characterDirection.allZero() && currentState is IdleState == false {
             enter(IdleState.self)
         }
-
     }
+    
 }

@@ -18,8 +18,6 @@ class GameViewController: UIViewController {
         let scnView = SCNView(frame: view.frame)
         let scene = MainScene(scnView: scnView)
         
-        
-        
         scnView.scene = scene
         scnView.allowsCameraControl = false
         scnView.defaultCameraController.interactionMode = .orbitTurntable
@@ -29,7 +27,6 @@ class GameViewController: UIViewController {
         scnView.debugOptions = [.showPhysicsShapes]
         scnView.showsStatistics = true
         scnView.rendersContinuously = true
-
         scene.background.contents = UIColor.black
         
         view.addSubview(scnView)

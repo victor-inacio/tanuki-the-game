@@ -23,7 +23,7 @@ class IdleState: PlayerState{
        
     }
     override func update(deltaTime seconds: TimeInterval){
-        if (!player.characterDirection.allZero()) && stateMachine?.currentState is AttackingState == false {
+        if (!player.characterDirection.allZero()) {
             player.stateMachine.enter(WalkingState.self)
         }
     }

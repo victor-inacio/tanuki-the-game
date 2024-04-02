@@ -13,37 +13,18 @@
 		81A402A22BAB8328006AB0E8 /* ConvertImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A402A12BAB8328006AB0E8 /* ConvertImage.swift */; };
 		81A402A42BAB8355006AB0E8 /* RuneClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 81A402A32BAB8354006AB0E8 /* RuneClassifier.mlmodel */; };
 		986D6E382BA8B3D600AF42D6 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986D6E372BA8B3D600AF42D6 /* ButtonComponent.swift */; };
-		983F1ECC2BBA100900D66467 /* Physics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983F1ECB2BBA100900D66467 /* Physics.swift */; };
-		984F35822BBB311C00A54B09 /* tanuki_attack.scn in Resources */ = {isa = PBXBuildFile; fileRef = 984F35812BBB311C00A54B09 /* tanuki_attack.scn */; };
-		984F35862BBB35A100A54B09 /* karakasa_attack.dae in Resources */ = {isa = PBXBuildFile; fileRef = 984F35842BBB35A100A54B09 /* karakasa_attack.dae */; };
-		984F35872BBB35A100A54B09 /* karakasa_walk.dae in Resources */ = {isa = PBXBuildFile; fileRef = 984F35852BBB35A100A54B09 /* karakasa_walk.dae */; };
-		984F35892BBB35BD00A54B09 /* karakasa_attack.scn in Resources */ = {isa = PBXBuildFile; fileRef = 984F35882BBB35BD00A54B09 /* karakasa_attack.scn */; };
-		984F358B2BBB35C900A54B09 /* karakasa_walk.scn in Resources */ = {isa = PBXBuildFile; fileRef = 984F358A2BBB35C900A54B09 /* karakasa_walk.scn */; };
-		984F358D2BBB35F500A54B09 /* Karakasa.scn in Resources */ = {isa = PBXBuildFile; fileRef = 984F358C2BBB35F500A54B09 /* Karakasa.scn */; };
-		984F35902BBB36D300A54B09 /* karakasa-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 984F358E2BBB36D200A54B09 /* karakasa-normal.png */; };
-		984F35912BBB36D300A54B09 /* karakasa-textura.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 984F358F2BBB36D200A54B09 /* karakasa-textura.jpg */; };
-		986D6E382BA8B3D600AF42D6 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986D6E372BA8B3D600AF42D6 /* Button.swift */; };
 		989296662BA38BE200681BCD /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989296652BA38BE200681BCD /* Time.swift */; };
 		989296682BA390C900681BCD /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989296672BA390C900681BCD /* Camera.swift */; };
 		9892966C2BA4B7CA00681BCD /* EnemyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9892966B2BA4B7CA00681BCD /* EnemyEntity.swift */; };
+		9892966E2BA4B7FB00681BCD /* Spawner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9892966D2BA4B7FA00681BCD /* Spawner.swift */; };
 		989296702BA4BDE500681BCD /* Bounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9892966F2BA4BDE500681BCD /* Bounds.swift */; };
 		98DD7FD32BAE073D00CB4FBB /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DD7FD22BAE073D00CB4FBB /* Input.swift */; };
 		98DD7FD52BAE08CF00CB4FBB /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DD7FD42BAE08CF00CB4FBB /* PlayerState.swift */; };
 		98DD7FD72BAE0CEC00CB4FBB /* PlayerStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DD7FD62BAE0CEC00CB4FBB /* PlayerStateMachine.swift */; };
-		98DD7FD92BAE1C5A00CB4FBB /* AIComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DD7FD82BAE1C5A00CB4FBB /* AIComponent.swift */; };
-		98DD7FDB2BB1EF5A00CB4FBB /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DD7FDA2BB1EF5A00CB4FBB /* GameManager.swift */; };
 		98E0E3C02B9E7C8F0034011F /* Joystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E3BF2B9E7C8F0034011F /* Joystick.swift */; };
 		98E0E3C22B9E8A910034011F /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E3C12B9E8A910034011F /* Math.swift */; };
 		98E0E3C42B9F45B00034011F /* Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E3C32B9F45B00034011F /* Controllers.swift */; };
 		98E0E3C62B9F47AA0034011F /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E3C52B9F47AA0034011F /* Overlay.swift */; };
-		98E8D0DF2BB4AD0F00608087 /* AgentComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E8D0DE2BB4AD0F00608087 /* AgentComponent.swift */; };
-		98E8D0EF2BB4B83F00608087 /* tanuki.scn in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0EE2BB4B83F00608087 /* tanuki.scn */; };
-		98E8D0F12BB4B90100608087 /* corpo-textura.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0F02BB4B90100608087 /* corpo-textura.jpg */; };
-		98E8D0F52BB4BBB700608087 /* tanuki_walk.scn in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0F42BB4BBB700608087 /* tanuki_walk.scn */; };
-		98E8D0F82BB5B15F00608087 /* corpobake.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0F72BB5B15F00608087 /* corpobake.jpeg */; };
-		98E8D0FA2BB5B1C900608087 /* faca-textura.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0F92BB5B1C900608087 /* faca-textura.jpg */; };
-		98E8D0FC2BB5B52200608087 /* folha-textura.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0FB2BB5B52200608087 /* folha-textura.jpg */; };
-		98E8D0FE2BB5B60B00608087 /* folhanormal.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0FD2BB5B60B00608087 /* folhanormal.jpeg */; };
 		98F679F02B9B989D00A0EBEE /* tanuki_the_gameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F679EF2B9B989D00A0EBEE /* tanuki_the_gameApp.swift */; };
 		98F679F42B9B989E00A0EBEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F679F32B9B989E00A0EBEE /* Assets.xcassets */; };
 		98F679F72B9B989E00A0EBEE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F679F62B9B989E00A0EBEE /* Preview Assets.xcassets */; };
@@ -53,9 +34,6 @@
 		AB38C6452BAB61F6006C279A /* AnimationComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38C6442BAB61F6006C279A /* AnimationComponent.swift */; };
 		AB38C6482BAB65DB006C279A /* IdleState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38C6472BAB65DB006C279A /* IdleState.swift */; };
 		AB38C64A2BAB65E7006C279A /* WalkingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38C6492BAB65E7006C279A /* WalkingState.swift */; };
-		ABA1A8872BB20BB9001C3533 /* AttackingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA1A8862BB20BB9001C3533 /* AttackingState.swift */; };
-		ABA1A8892BB32DF7001C3533 /* ColliderComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA1A8882BB32DF7001C3533 /* ColliderComponent.swift */; };
-		ABA1A88B2BB4875B001C3533 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA1A88A2BB4875B001C3533 /* GameManager.swift */; };
 		ABA87F402BACC14C00D60155 /* AttackComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABA87F3F2BACC14C00D60155 /* AttackComponent.swift */; };
 		ABAFEA892BA22A8900BB5E9D /* PhysicsBodyComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAFEA882BA22A8900BB5E9D /* PhysicsBodyComponent.swift */; };
 		ABAFEA8B2BA22C2200BB5E9D /* ScenarioEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABAFEA8A2BA22C2200BB5E9D /* ScenarioEntity.swift */; };
@@ -65,13 +43,6 @@
 		ABF676C52B9F31B6007806B3 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF676C42B9F31B6007806B3 /* MainScene.swift */; };
 		ABF676C72B9F343D007806B3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF676C62B9F343D007806B3 /* GameViewController.swift */; };
 		ABF676C92B9F37B8007806B3 /* VisualComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF676C82B9F37B8007806B3 /* VisualComponent.swift */; };
-		C3F701C82BAE0B85001C6D13 /* HealthComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F701C72BAE0B85001C6D13 /* HealthComponent.swift */; };
-		C3F701CA2BB1F911001C6D13 /* Spawner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F701C92BB1F911001C6D13 /* Spawner.swift */; };
-		C3F701CD2BB1FAD0001C6D13 /* WaveIdle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F701CC2BB1FAD0001C6D13 /* WaveIdle.swift */; };
-		C3F701CF2BB1FAE3001C6D13 /* WaveHoard1.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F701CE2BB1FAE3001C6D13 /* WaveHoard1.swift */; };
-		C3F701D12BB1FAEB001C6D13 /* WaveHoard2.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F701D02BB1FAEB001C6D13 /* WaveHoard2.swift */; };
-		C3F701D32BB1FAF6001C6D13 /* WaveHoard3.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F701D22BB1FAF6001C6D13 /* WaveHoard3.swift */; };
-		C3F701D62BB1FBB8001C6D13 /* WaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F701D52BB1FBB8001C6D13 /* WaveManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,37 +52,18 @@
 		81A402A12BAB8328006AB0E8 /* ConvertImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertImage.swift; sourceTree = "<group>"; };
 		81A402A32BAB8354006AB0E8 /* RuneClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = RuneClassifier.mlmodel; sourceTree = "<group>"; };
 		986D6E372BA8B3D600AF42D6 /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
-		983F1ECB2BBA100900D66467 /* Physics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Physics.swift; sourceTree = "<group>"; };
-		984F35812BBB311C00A54B09 /* tanuki_attack.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = tanuki_attack.scn; sourceTree = "<group>"; };
-		984F35842BBB35A100A54B09 /* karakasa_attack.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = karakasa_attack.dae; sourceTree = "<group>"; };
-		984F35852BBB35A100A54B09 /* karakasa_walk.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = karakasa_walk.dae; sourceTree = "<group>"; };
-		984F35882BBB35BD00A54B09 /* karakasa_attack.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = karakasa_attack.scn; sourceTree = "<group>"; };
-		984F358A2BBB35C900A54B09 /* karakasa_walk.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = karakasa_walk.scn; sourceTree = "<group>"; };
-		984F358C2BBB35F500A54B09 /* Karakasa.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Karakasa.scn; sourceTree = "<group>"; };
-		984F358E2BBB36D200A54B09 /* karakasa-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "karakasa-normal.png"; sourceTree = "<group>"; };
-		984F358F2BBB36D200A54B09 /* karakasa-textura.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "karakasa-textura.jpg"; sourceTree = "<group>"; };
-		986D6E372BA8B3D600AF42D6 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		989296652BA38BE200681BCD /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		989296672BA390C900681BCD /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		9892966B2BA4B7CA00681BCD /* EnemyEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyEntity.swift; sourceTree = "<group>"; };
+		9892966D2BA4B7FA00681BCD /* Spawner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spawner.swift; sourceTree = "<group>"; };
 		9892966F2BA4BDE500681BCD /* Bounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bounds.swift; sourceTree = "<group>"; };
 		98DD7FD22BAE073D00CB4FBB /* Input.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
 		98DD7FD42BAE08CF00CB4FBB /* PlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
 		98DD7FD62BAE0CEC00CB4FBB /* PlayerStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStateMachine.swift; sourceTree = "<group>"; };
-		98DD7FD82BAE1C5A00CB4FBB /* AIComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIComponent.swift; sourceTree = "<group>"; };
-		98DD7FDA2BB1EF5A00CB4FBB /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		98E0E3BF2B9E7C8F0034011F /* Joystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joystick.swift; sourceTree = "<group>"; };
 		98E0E3C12B9E8A910034011F /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		98E0E3C32B9F45B00034011F /* Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controllers.swift; sourceTree = "<group>"; };
 		98E0E3C52B9F47AA0034011F /* Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
-		98E8D0DE2BB4AD0F00608087 /* AgentComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentComponent.swift; sourceTree = "<group>"; };
-		98E8D0EE2BB4B83F00608087 /* tanuki.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = tanuki.scn; sourceTree = "<group>"; };
-		98E8D0F02BB4B90100608087 /* corpo-textura.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "corpo-textura.jpg"; sourceTree = "<group>"; };
-		98E8D0F42BB4BBB700608087 /* tanuki_walk.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = tanuki_walk.scn; sourceTree = "<group>"; };
-		98E8D0F72BB5B15F00608087 /* corpobake.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = corpobake.jpeg; sourceTree = "<group>"; };
-		98E8D0F92BB5B1C900608087 /* faca-textura.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "faca-textura.jpg"; sourceTree = "<group>"; };
-		98E8D0FB2BB5B52200608087 /* folha-textura.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "folha-textura.jpg"; sourceTree = "<group>"; };
-		98E8D0FD2BB5B60B00608087 /* folhanormal.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = folhanormal.jpeg; sourceTree = "<group>"; };
 		98F679EC2B9B989D00A0EBEE /* tanuki-the-game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tanuki-the-game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F679EF2B9B989D00A0EBEE /* tanuki_the_gameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tanuki_the_gameApp.swift; sourceTree = "<group>"; };
 		98F679F32B9B989E00A0EBEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -122,9 +74,6 @@
 		AB38C6442BAB61F6006C279A /* AnimationComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationComponent.swift; sourceTree = "<group>"; };
 		AB38C6472BAB65DB006C279A /* IdleState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdleState.swift; sourceTree = "<group>"; };
 		AB38C6492BAB65E7006C279A /* WalkingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkingState.swift; sourceTree = "<group>"; };
-		ABA1A8862BB20BB9001C3533 /* AttackingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackingState.swift; sourceTree = "<group>"; };
-		ABA1A8882BB32DF7001C3533 /* ColliderComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColliderComponent.swift; sourceTree = "<group>"; };
-		ABA1A88A2BB4875B001C3533 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		ABA87F3F2BACC14C00D60155 /* AttackComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttackComponent.swift; sourceTree = "<group>"; };
 		ABAFEA882BA22A8900BB5E9D /* PhysicsBodyComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsBodyComponent.swift; sourceTree = "<group>"; };
 		ABAFEA8A2BA22C2200BB5E9D /* ScenarioEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScenarioEntity.swift; sourceTree = "<group>"; };
@@ -134,13 +83,6 @@
 		ABF676C42B9F31B6007806B3 /* MainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
 		ABF676C62B9F343D007806B3 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		ABF676C82B9F37B8007806B3 /* VisualComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualComponent.swift; sourceTree = "<group>"; };
-		C3F701C72BAE0B85001C6D13 /* HealthComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthComponent.swift; sourceTree = "<group>"; };
-		C3F701C92BB1F911001C6D13 /* Spawner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spawner.swift; sourceTree = "<group>"; };
-		C3F701CC2BB1FAD0001C6D13 /* WaveIdle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveIdle.swift; sourceTree = "<group>"; };
-		C3F701CE2BB1FAE3001C6D13 /* WaveHoard1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveHoard1.swift; sourceTree = "<group>"; };
-		C3F701D02BB1FAEB001C6D13 /* WaveHoard2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveHoard2.swift; sourceTree = "<group>"; };
-		C3F701D22BB1FAF6001C6D13 /* WaveHoard3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveHoard3.swift; sourceTree = "<group>"; };
-		C3F701D52BB1FBB8001C6D13 /* WaveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,18 +114,6 @@
 				81A402A12BAB8328006AB0E8 /* ConvertImage.swift */,
 			);
 			path = CoreML;
-		984F35832BBB359900A54B09 /* Karakasa */ = {
-			isa = PBXGroup;
-			children = (
-				984F358E2BBB36D200A54B09 /* karakasa-normal.png */,
-				984F358F2BBB36D200A54B09 /* karakasa-textura.jpg */,
-				984F35842BBB35A100A54B09 /* karakasa_attack.dae */,
-				984F35882BBB35BD00A54B09 /* karakasa_attack.scn */,
-				984F35852BBB35A100A54B09 /* karakasa_walk.dae */,
-				984F358A2BBB35C900A54B09 /* karakasa_walk.scn */,
-				984F358C2BBB35F500A54B09 /* Karakasa.scn */,
-			);
-			path = Karakasa;
 			sourceTree = "<group>";
 		};
 		98E0E3BE2B9E7C860034011F /* Components */ = {
@@ -194,36 +124,8 @@
 				AB38C63D2BAA1BC7006C279A /* MovementComponent.swift */,
 				AB38C6442BAB61F6006C279A /* AnimationComponent.swift */,
 				ABA87F3F2BACC14C00D60155 /* AttackComponent.swift */,
-				C3F701C72BAE0B85001C6D13 /* HealthComponent.swift */,
-				ABA1A8882BB32DF7001C3533 /* ColliderComponent.swift */,
-				98DD7FD82BAE1C5A00CB4FBB /* AIComponent.swift */,
-				98E8D0DE2BB4AD0F00608087 /* AgentComponent.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		98E8D0E92BB4B6E600608087 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				984F35832BBB359900A54B09 /* Karakasa */,
-				98E8D0F62BB5B14800608087 /* Tanuki */,
-			);
-			path = Assets;
-			sourceTree = "<group>";
-		};
-		98E8D0F62BB5B14800608087 /* Tanuki */ = {
-			isa = PBXGroup;
-			children = (
-				98E8D0F42BB4BBB700608087 /* tanuki_walk.scn */,
-				98E8D0FD2BB5B60B00608087 /* folhanormal.jpeg */,
-				98E8D0FB2BB5B52200608087 /* folha-textura.jpg */,
-				98E8D0F92BB5B1C900608087 /* faca-textura.jpg */,
-				98E8D0F72BB5B15F00608087 /* corpobake.jpeg */,
-				98E8D0F02BB4B90100608087 /* corpo-textura.jpg */,
-				98E8D0EE2BB4B83F00608087 /* tanuki.scn */,
-				984F35812BBB311C00A54B09 /* tanuki_attack.scn */,
-			);
-			path = Tanuki;
 			sourceTree = "<group>";
 		};
 		98F679E32B9B989D00A0EBEE = {
@@ -246,22 +148,17 @@
 			isa = PBXGroup;
 			children = (
 				81A402992BAB8275006AB0E8 /* Drawing */,
-				C3F701CB2BB1FA42001C6D13 /* Wave */,
 				ABF676BF2B9F2FAC007806B3 /* Entities */,
 				98E0E3BE2B9E7C860034011F /* Components */,
-				C3F701D42BB1FB2D001C6D13 /* WaveStates */,
 				AB38C6462BAB64CD006C279A /* PlayerStates */,
 				AB38C6432BAB612D006C279A /* HUD */,
 				98F679F32B9B989E00A0EBEE /* Assets.xcassets */,
 				ABC429532BA4DB87009F0905 /* Art.scnassets */,
 				98F679F52B9B989E00A0EBEE /* Preview Content */,
 				ABF676BD2B9F2EFA007806B3 /* Utility */,
-				98E8D0E92BB4B6E600608087 /* Assets */,
 				ABF676BE2B9F2F08007806B3 /* App */,
-				ABA1A88A2BB4875B001C3533 /* GameManager.swift */,
 				ABF676C42B9F31B6007806B3 /* MainScene.swift */,
 				98E0E3C52B9F47AA0034011F /* Overlay.swift */,
-				98DD7FDA2BB1EF5A00CB4FBB /* GameManager.swift */,
 			);
 			path = "tanuki-the-game";
 			sourceTree = "<group>";
@@ -291,7 +188,6 @@
 				AB38C6492BAB65E7006C279A /* WalkingState.swift */,
 				98DD7FD42BAE08CF00CB4FBB /* PlayerState.swift */,
 				98DD7FD62BAE0CEC00CB4FBB /* PlayerStateMachine.swift */,
-				ABA1A8862BB20BB9001C3533 /* AttackingState.swift */,
 			);
 			path = PlayerStates;
 			sourceTree = "<group>";
@@ -305,7 +201,6 @@
 				9892966F2BA4BDE500681BCD /* Bounds.swift */,
 				AB38C63F2BAA256A006C279A /* bitMask.swift */,
 				AB38C6412BAB602E006C279A /* GetAnimationsFromArt.swift */,
-				983F1ECB2BBA100900D66467 /* Physics.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -327,28 +222,9 @@
 				ABAFEA8A2BA22C2200BB5E9D /* ScenarioEntity.swift */,
 				989296672BA390C900681BCD /* Camera.swift */,
 				9892966B2BA4B7CA00681BCD /* EnemyEntity.swift */,
-				C3F701C92BB1F911001C6D13 /* Spawner.swift */,
+				9892966D2BA4B7FA00681BCD /* Spawner.swift */,
 			);
 			path = Entities;
-			sourceTree = "<group>";
-		};
-		C3F701CB2BB1FA42001C6D13 /* Wave */ = {
-			isa = PBXGroup;
-			children = (
-				C3F701D52BB1FBB8001C6D13 /* WaveManager.swift */,
-			);
-			path = Wave;
-			sourceTree = "<group>";
-		};
-		C3F701D42BB1FB2D001C6D13 /* WaveStates */ = {
-			isa = PBXGroup;
-			children = (
-				C3F701CC2BB1FAD0001C6D13 /* WaveIdle.swift */,
-				C3F701CE2BB1FAE3001C6D13 /* WaveHoard1.swift */,
-				C3F701D02BB1FAEB001C6D13 /* WaveHoard2.swift */,
-				C3F701D22BB1FAF6001C6D13 /* WaveHoard3.swift */,
-			);
-			path = WaveStates;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -409,24 +285,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				984F35912BBB36D300A54B09 /* karakasa-textura.jpg in Resources */,
 				ABC429542BA4DB87009F0905 /* Art.scnassets in Resources */,
-				98E8D0FC2BB5B52200608087 /* folha-textura.jpg in Resources */,
-				984F35822BBB311C00A54B09 /* tanuki_attack.scn in Resources */,
-				984F35872BBB35A100A54B09 /* karakasa_walk.dae in Resources */,
-				98E8D0F82BB5B15F00608087 /* corpobake.jpeg in Resources */,
-				98E8D0FE2BB5B60B00608087 /* folhanormal.jpeg in Resources */,
-				984F35862BBB35A100A54B09 /* karakasa_attack.dae in Resources */,
-				984F358B2BBB35C900A54B09 /* karakasa_walk.scn in Resources */,
-				98E8D0F12BB4B90100608087 /* corpo-textura.jpg in Resources */,
 				98F679F72B9B989E00A0EBEE /* Preview Assets.xcassets in Resources */,
-				984F35892BBB35BD00A54B09 /* karakasa_attack.scn in Resources */,
-				984F35902BBB36D300A54B09 /* karakasa-normal.png in Resources */,
-				98E8D0FA2BB5B1C900608087 /* faca-textura.jpg in Resources */,
-				98E8D0F52BB4BBB700608087 /* tanuki_walk.scn in Resources */,
-				984F358D2BBB35F500A54B09 /* Karakasa.scn in Resources */,
 				98F679F42B9B989E00A0EBEE /* Assets.xcassets in Resources */,
-				98E8D0EF2BB4B83F00608087 /* tanuki.scn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -442,47 +303,32 @@
 				ABF676C12B9F2FB8007806B3 /* PlayerEntity.swift in Sources */,
 				ABAFEA8B2BA22C2200BB5E9D /* ScenarioEntity.swift in Sources */,
 				AB38C6402BAA256A006C279A /* bitMask.swift in Sources */,
-				C3F701D32BB1FAF6001C6D13 /* WaveHoard3.swift in Sources */,
 				98E0E3C62B9F47AA0034011F /* Overlay.swift in Sources */,
-				C3F701CA2BB1F911001C6D13 /* Spawner.swift in Sources */,
-				ABA1A8892BB32DF7001C3533 /* ColliderComponent.swift in Sources */,
 				98E0E3C02B9E7C8F0034011F /* Joystick.swift in Sources */,
 				986D6E382BA8B3D600AF42D6 /* ButtonComponent.swift in Sources */,
 				AB38C6422BAB602E006C279A /* GetAnimationsFromArt.swift in Sources */,
-				C3F701D12BB1FAEB001C6D13 /* WaveHoard2.swift in Sources */,
 				ABAFEA892BA22A8900BB5E9D /* PhysicsBodyComponent.swift in Sources */,
-				ABA1A88B2BB4875B001C3533 /* GameManager.swift in Sources */,
 				98DD7FD52BAE08CF00CB4FBB /* PlayerState.swift in Sources */,
-				983F1ECC2BBA100900D66467 /* Physics.swift in Sources */,
 				989296702BA4BDE500681BCD /* Bounds.swift in Sources */,
 				989296662BA38BE200681BCD /* Time.swift in Sources */,
-				98E8D0DF2BB4AD0F00608087 /* AgentComponent.swift in Sources */,
 				AB38C6452BAB61F6006C279A /* AnimationComponent.swift in Sources */,
 				81A4029B2BAB8293006AB0E8 /* DrawingView.swift in Sources */,
 				AB38C6482BAB65DB006C279A /* IdleState.swift in Sources */,
 				9892966C2BA4B7CA00681BCD /* EnemyEntity.swift in Sources */,
 				ABF676C52B9F31B6007806B3 /* MainScene.swift in Sources */,
 				ABA87F402BACC14C00D60155 /* AttackComponent.swift in Sources */,
-				C3F701C82BAE0B85001C6D13 /* HealthComponent.swift in Sources */,
 				ABAFEA8D2BA22C3E00BB5E9D /* BaseEntity.swift in Sources */,
 				81A4029D2BAB82B9006AB0E8 /* DrawingViewModel.swift in Sources */,
-				98DD7FDB2BB1EF5A00CB4FBB /* GameManager.swift in Sources */,
 				989296682BA390C900681BCD /* Camera.swift in Sources */,
 				98F679F02B9B989D00A0EBEE /* tanuki_the_gameApp.swift in Sources */,
 				AB38C64A2BAB65E7006C279A /* WalkingState.swift in Sources */,
 				98DD7FD72BAE0CEC00CB4FBB /* PlayerStateMachine.swift in Sources */,
-				C3F701D62BB1FBB8001C6D13 /* WaveManager.swift in Sources */,
 				98E0E3C22B9E8A910034011F /* Math.swift in Sources */,
 				81A402A42BAB8355006AB0E8 /* RuneClassifier.mlmodel in Sources */,
 				98E0E3C42B9F45B00034011F /* Controllers.swift in Sources */,
 				81A4029F2BAB82E8006AB0E8 /* DrawingModel.swift in Sources */,
 				81A402A22BAB8328006AB0E8 /* ConvertImage.swift in Sources */,
 				9892966E2BA4B7FB00681BCD /* Spawner.swift in Sources */,
-				C3F701CD2BB1FAD0001C6D13 /* WaveIdle.swift in Sources */,
-				ABA1A8872BB20BB9001C3533 /* AttackingState.swift in Sources */,
-				98DD7FD92BAE1C5A00CB4FBB /* AIComponent.swift in Sources */,
-				98E0E3C42B9F45B00034011F /* Controllers.swift in Sources */,
-				C3F701CF2BB1FAE3001C6D13 /* WaveHoard1.swift in Sources */,
 				98DD7FD32BAE073D00CB4FBB /* Input.swift in Sources */,
 				ABF676C92B9F37B8007806B3 /* VisualComponent.swift in Sources */,
 			);
