@@ -66,10 +66,13 @@ enum FullScreenCover: String, Identifiable {
         switch fullScreenCover {
         case .mainMenu:
             MainMenuView()
+                .ignoresSafeArea()
         case .deathMenu:
             DeathMenuView()
+                .ignoresSafeArea()
         case .game:
             GameViewControllerWrapper()
+                .ignoresSafeArea()
         }
     }
     

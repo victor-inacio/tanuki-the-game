@@ -22,6 +22,7 @@ struct MainMenuView: View {
                 
                 Button(action: {
                         coordinator.present(fullScreenCover: .game)
+                    
                 }) {
                     ZStack{
                         RoundedRectangle(cornerRadius: 20)
