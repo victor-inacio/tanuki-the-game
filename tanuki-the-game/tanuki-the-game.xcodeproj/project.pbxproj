@@ -16,6 +16,8 @@
 		984F358D2BBB35F500A54B09 /* Karakasa.scn in Resources */ = {isa = PBXBuildFile; fileRef = 984F358C2BBB35F500A54B09 /* Karakasa.scn */; };
 		984F35902BBB36D300A54B09 /* karakasa-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 984F358E2BBB36D200A54B09 /* karakasa-normal.png */; };
 		984F35912BBB36D300A54B09 /* karakasa-textura.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 984F358F2BBB36D200A54B09 /* karakasa-textura.jpg */; };
+		984F35932BBB4FDA00A54B09 /* knife collider.dae in Resources */ = {isa = PBXBuildFile; fileRef = 984F35922BBB4FDA00A54B09 /* knife collider.dae */; };
+		984F35952BBB4FE400A54B09 /* knife collider.scn in Resources */ = {isa = PBXBuildFile; fileRef = 984F35942BBB4FE400A54B09 /* knife collider.scn */; };
 		986D6E382BA8B3D600AF42D6 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986D6E372BA8B3D600AF42D6 /* Button.swift */; };
 		989296662BA38BE200681BCD /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989296652BA38BE200681BCD /* Time.swift */; };
 		989296682BA390C900681BCD /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989296672BA390C900681BCD /* Camera.swift */; };
@@ -78,6 +80,8 @@
 		984F358C2BBB35F500A54B09 /* Karakasa.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Karakasa.scn; sourceTree = "<group>"; };
 		984F358E2BBB36D200A54B09 /* karakasa-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "karakasa-normal.png"; sourceTree = "<group>"; };
 		984F358F2BBB36D200A54B09 /* karakasa-textura.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "karakasa-textura.jpg"; sourceTree = "<group>"; };
+		984F35922BBB4FDA00A54B09 /* knife collider.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = "knife collider.dae"; sourceTree = "<group>"; };
+		984F35942BBB4FE400A54B09 /* knife collider.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = "knife collider.scn"; sourceTree = "<group>"; };
 		986D6E372BA8B3D600AF42D6 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		989296652BA38BE200681BCD /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		989296672BA390C900681BCD /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
@@ -184,6 +188,8 @@
 		98E8D0F62BB5B14800608087 /* Tanuki */ = {
 			isa = PBXGroup;
 			children = (
+				984F35922BBB4FDA00A54B09 /* knife collider.dae */,
+				984F35942BBB4FE400A54B09 /* knife collider.scn */,
 				98E8D0F42BB4BBB700608087 /* tanuki_walk.scn */,
 				98E8D0FD2BB5B60B00608087 /* folhanormal.jpeg */,
 				98E8D0FB2BB5B52200608087 /* folha-textura.jpg */,
@@ -380,6 +386,8 @@
 			files = (
 				984F35912BBB36D300A54B09 /* karakasa-textura.jpg in Resources */,
 				ABC429542BA4DB87009F0905 /* Art.scnassets in Resources */,
+				984F35932BBB4FDA00A54B09 /* knife collider.dae in Resources */,
+				984F35952BBB4FE400A54B09 /* knife collider.scn in Resources */,
 				98E8D0FC2BB5B52200608087 /* folha-textura.jpg in Resources */,
 				984F35822BBB311C00A54B09 /* tanuki_attack.scn in Resources */,
 				984F35872BBB35A100A54B09 /* karakasa_walk.dae in Resources */,

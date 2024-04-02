@@ -56,7 +56,9 @@ class MovementComponent: GKComponent{
         let collider = model.childNode(withName: "collider", recursively: true)!
         collider.physicsBody?.categoryBitMask = Bitmask.character.rawValue
         collider.physicsBody?.contactTestBitMask = 0
-        collider.physicsBody?.collisionBitMask = Bitmask.character.rawValue
+        collider.physicsBody?.collisionBitMask = Bitmask.enemy.rawValue
+        
+        print(collider.physicsBody?.categoryBitMask)
         
         
         // Setup collision shape

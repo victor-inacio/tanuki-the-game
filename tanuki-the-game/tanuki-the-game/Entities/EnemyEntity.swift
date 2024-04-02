@@ -50,7 +50,7 @@ class EnemyEntity: BaseEntity {
         
 //        addComponent(AIComponent())
         
-        agentComponent.position = node.simdPosition
+        agentComponent.position = node.simdWorldPosition
 
     }
     

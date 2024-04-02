@@ -1,5 +1,6 @@
 import GameplayKit
 import SceneKit
+import simd
 
 class AgentComponent: GKComponent {
     
@@ -9,6 +10,13 @@ class AgentComponent: GKComponent {
     var position: simd_float3
     var maxSpeed: Float
     var maxForce: Float = 0.5
+    let visionRadius: Float = 3.0
+    
+    var node: SCNNode {
+        let entity = entity as! EnemyEntity
+        
+        return entity.node
+    }
     
     
 
@@ -23,9 +31,10 @@ class AgentComponent: GKComponent {
         super.init()
         
         let collider = model.childNode(withName: "collider", recursively: true)!
-        collider.physicsBody?.categoryBitMask = Bitmask.character.rawValue
+        collider.physicsBody?.categoryBitMask = Bitmask.enemy.rawValue
         collider.physicsBody?.contactTestBitMask = 0
         collider.physicsBody?.collisionBitMask = Bitmask.character.rawValue
+        
         
         let (min, max) = model.boundingBox
         let collisionCapsuleRadius = CGFloat(max.x - min.x) * CGFloat(0.4)
@@ -40,16 +49,87 @@ class AgentComponent: GKComponent {
         acceleration = .zero
         
         velocity = .zero
+             
+        acceleration += steerTo(desiredPos: GameManager.player!.playerNode.simdWorldPosition)
         
-        velocity += followTarget(target: GameManager.player!.playerNode.simdWorldPosition)
+        if (isCollisionAhead()) {
+            
+            let avoidDirection = getAvoidDir()
+            
+            acceleration += steerTo(desiredPos: position + avoidDirection) * 20
+        }
         
+        velocity += acceleration
+        velocity = simd_normalize(velocity) * 1.0
         velocity *= Float(deltaTime)
+        
+        
         
         downwardAcceleration = Physics.calculateGravityAcceleration(position: position, downwardAcceleration: downwardAcceleration)
         
         velocity += downwardAcceleration
             
         position = Physics.calculateSlidePos(position: position, velocity: velocity, collisionShapeOffsetFromModel: collisionShapeOffsetFromModel, collisionShape: characterCollisionShape!)
+    }
+    
+    private func steerTo(desiredPos: simd_float3) -> simd_float3 {
+        let desiredVel = simd_normalize(desiredPos - position) * 2.0
+        
+        let desiredAcceleration = simd_normalize(desiredVel - velocity) * 0.5
+        
+        if (desiredAcceleration.isNan()) {
+            return .zero
+        }
+        
+        return desiredAcceleration
+    }
+    
+    private func getAvoidDir() -> simd_float3 {
+        
+        let rayCount: Int = 20
+        
+        
+        for rayIndex in 0..<rayCount {
+            
+            let angle = Float.pi * 2.0 / Float(rayCount) * Float(rayIndex)
+            
+            let dir = simd_float3(cos(angle), 0, sin(angle))
+            
+            let options: [String: Any] = [
+                SCNHitTestOption.backFaceCulling.rawValue: false,
+                SCNHitTestOption.categoryBitMask.rawValue: Bitmask.enemy.rawValue,
+                SCNHitTestOption.ignoreHiddenNodes.rawValue: false]
+            
+            let from = SCNVector3(position)
+            let to = SCNVector3(position + dir * visionRadius)
+            
+            let hitResult = GameManager.sceneRenderer.scene!.rootNode.hitTestWithSegment(from: from, to: to, options: options).first
+            
+            if let _ = hitResult {
+                return dir
+            }
+            
+        }
+        
+        return node.simdWorldFront
+        
+    }
+    
+    private func isCollisionAhead() -> Bool {
+        
+        let from = SCNVector3(position + .up * 0.2)
+        let to = SCNVector3(position + node.simdWorldFront * visionRadius)
+        
+        let options: [String: Any] = [
+            SCNHitTestOption.backFaceCulling.rawValue: false,
+            SCNHitTestOption.categoryBitMask.rawValue: Bitmask.enemy.rawValue,
+            SCNHitTestOption.ignoreHiddenNodes.rawValue: false]
+        
+        let hitResult = GameManager.sceneRenderer.scene!.rootNode.hitTestWithSegment(from: from, to: to, options: options).first
+        
+        return hitResult != nil
+        
+        
     }
     
     

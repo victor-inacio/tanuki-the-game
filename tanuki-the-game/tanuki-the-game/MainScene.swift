@@ -104,11 +104,15 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         
         player.update(deltaTime: Time.deltaTime)
         
+        for enemy in GameManager.enemies {
+            enemy.update(deltaTime: Time.deltaTime)
+        }
+        
         spawner.update()
         self.waveStateMachine?.update(deltaTime: time)
         
         player.update(deltaTime: Time.deltaTime)
-        enemy.update(deltaTime: Time.deltaTime)
+//        enemy.update(deltaTime: Time.deltaTime)
     }
     
     func setupEnemy() {

@@ -9,6 +9,7 @@
 import SceneKit
 import GameplayKit
 class GameManager {
+    
     static var entities: [GKEntity] = []
     
     static var player: PlayerEntity?
