@@ -22,9 +22,7 @@ struct DeathMenuView: View {
                         .bold()
                     
                     Button(action: {
-                        withAnimation(.easeInOut(duration: 1)) { // Adjust duration as needed
                             coordinator.present(fullScreenCover: .mainMenu)
-                        }
                     }) {
                         ZStack{
                             RoundedRectangle(cornerRadius: 20)

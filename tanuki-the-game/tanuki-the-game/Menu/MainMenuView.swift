@@ -21,9 +21,7 @@ struct MainMenuView: View {
                     .padding()
                 
                 Button(action: {
-                    withAnimation(.easeInOut(duration: 1)) { // Adjust duration as needed
                         coordinator.present(fullScreenCover: .game)
-                    }
                 }) {
                     ZStack{
                         RoundedRectangle(cornerRadius: 20)
