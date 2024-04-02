@@ -21,7 +21,11 @@ struct MainMenuView: View {
                     .padding()
                 
                 Button(action: {
-                        coordinator.present(fullScreenCover: .game)
+                    //when testing game
+                    coordinator.present(fullScreenCover: .game)
+                    
+                    //when testing drawing
+//                    coordinator.present(fullScreenCover: .drawing)
                     
                 }) {
                     ZStack{

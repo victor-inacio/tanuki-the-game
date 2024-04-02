@@ -11,6 +11,9 @@ import CoreML
 import UIKit
 
 struct DrawingView: View {
+    
+    @Environment(Coordinator.self) private var coordinator
+    
     @ObservedObject var viewModel: DrawingViewModel
     @ObservedObject var presentationViewModel: PresentationViewModel // Receive the presentationViewModel
     
@@ -46,7 +49,8 @@ struct DrawingView: View {
                         // Button to dismiss the view
                         Button(action: {
                             print("Dismissing view...")
-                            presentationViewModel.isPresented = false // Dismiss the view using the presentationViewModel
+//                            presentationViewModel.isPresented = false // Dismiss the view using the presentationViewModel
+                            coordinator.dismissFullScreenCover()
                         }) {
                             Image(systemName: "xmark.circle")
                                 .font(.system(size: 50))
@@ -55,7 +59,7 @@ struct DrawingView: View {
                         
                         Spacer()
                         
-                    }
+                    }.padding(.horizontal, 50)
                     
                     Spacer()
                 }
@@ -79,5 +83,5 @@ struct PKCanvasRepresentation: UIViewRepresentable {
 }
 
 #Preview {
-    DrawingView(viewModel: DrawingViewModel(), presentationViewModel: PresentationViewModel())
+    DrawingView(viewModel: DrawingViewModel(), presentationViewModel: PresentationViewModel()).environment(Coordinator())
 }

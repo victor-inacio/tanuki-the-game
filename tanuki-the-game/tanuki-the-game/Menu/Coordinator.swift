@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 enum Page: String, Identifiable {
-    case mainMenu, deathMenu, game
+    case mainMenu, deathMenu, game, drawing
     
     var id: String {
         self.rawValue
@@ -17,7 +17,7 @@ enum Page: String, Identifiable {
 }
 
 enum FullScreenCover: String, Identifiable {
-    case mainMenu, deathMenu, game
+    case mainMenu, deathMenu, game, drawing
     
     var id: String {
         self.rawValue
@@ -58,6 +58,8 @@ enum FullScreenCover: String, Identifiable {
             DeathMenuView()
         case .game:
             GameViewControllerWrapper()
+        case .drawing:
+            DrawingView(viewModel: DrawingViewModel(), presentationViewModel: PresentationViewModel())
         }
     }
     
@@ -72,6 +74,9 @@ enum FullScreenCover: String, Identifiable {
                 .ignoresSafeArea()
         case .game:
             GameViewControllerWrapper()
+                .ignoresSafeArea()
+        case .drawing:
+            DrawingView(viewModel: DrawingViewModel(), presentationViewModel: PresentationViewModel())
                 .ignoresSafeArea()
         }
     }
