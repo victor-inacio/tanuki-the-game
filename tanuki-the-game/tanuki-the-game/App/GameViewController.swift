@@ -34,7 +34,7 @@ class GameViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         print("viewDidAppear")
-//        presentPopup()
+        presentPopup()
     }
     
     func presentPopup() {

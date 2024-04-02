@@ -18,33 +18,48 @@ struct DrawingView: View {
         VStack {
             ZStack {
                 Color.white.ignoresSafeArea()
+                HStack{
+                    Spacer()
+                    Image(.leaf)
+                        .resizable()
+                        .aspectRatio(1.6, contentMode: .fit)
+                        .padding()
+                }
                 PKCanvasRepresentation(canvasView: $viewModel.canvasView)
-            }
-            HStack {
-                // Button to classify drawing
-                Button(action: {
-                    print("Classifying drawing...")
-                    viewModel.classifyDrawing()
-                    // Clear canvas after classifying
-                    viewModel.canvasView.drawing = PKDrawing()
-                }) {
-                    Image(systemName: "square.and.arrow.down")
-                        .font(.title)
-                }
                 
-                // Button to dismiss the view
-                Button(action: {
-                    print("Dismissing view...")
-                    presentationViewModel.isPresented = false // Dismiss the view using the presentationViewModel
-                }) {
-                    Image(systemName: "xmark.circle")
-                        .font(.title)
+                HStack{
+                    VStack {
+                        Spacer()
+                        
+                        // Button to classify drawing
+                        Button(action: {
+                            viewModel.classifyDrawing()
+                            print("Classification Result: \(viewModel.classificationResult) \nProbability: \(String(format: "%.2f", viewModel.probability*100))")
+                            // Clear canvas after classifying
+                            viewModel.canvasView.drawing = PKDrawing()
+                        }) {
+                            Image(systemName: "square.and.arrow.down")
+                                .font(.system(size: 50))
+                        }
+                        
+                        Spacer()
+                        // Button to dismiss the view
+                        Button(action: {
+                            print("Dismissing view...")
+                            presentationViewModel.isPresented = false // Dismiss the view using the presentationViewModel
+                        }) {
+                            Image(systemName: "xmark.circle")
+                                .font(.system(size: 50))
+                        }
+                        .foregroundColor(.red) // Optionally change the color of the dismiss button
+                        
+                        Spacer()
+                        
+                    }
+                    
+                    Spacer()
                 }
-                .foregroundColor(.red) // Optionally change the color of the dismiss button
             }
-            
-            Text("Classification Result: \(viewModel.classificationResult) \nProbability: \(String(format: "%.2f", viewModel.probability*100))")
-                .padding()
         }
     }
 }
