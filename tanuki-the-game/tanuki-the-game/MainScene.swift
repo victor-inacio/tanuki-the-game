@@ -7,13 +7,19 @@
 
 import Foundation
 import SceneKit
+import GameplayKit
 
 class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsContactDelegate {
     
     var player: PlayerEntity!
+    var enemy: EnemyEntity!
     var scenario: ScenarioEntity!
     var overlay: Overlay!
     var camera: Camera!
+    var waveManager = WaveManager()
+    var waveStateMachine: GKStateMachine?
+    var spawner: SpawnerEntity!
+    
     
     var firstFrame = true
     
@@ -22,14 +28,15 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     init(scnView: SCNView) {
         super.init()
         
+        spawner = SpawnerEntity(isVisible: true, scene: self)
+        
         scnView.delegate = self
         self.physicsWorld.contactDelegate = self
         
+        GameManager.scene = self
         overlay = Overlay(size: scnView.bounds.size)
         overlay.controllerDelegate = self
         scnView.overlaySKScene = overlay
-        
-        
         
         self.physicsWorld.gravity = SCNVector3(0, -9.8, 0)
         
@@ -40,8 +47,11 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         rootNode.addChildNode(ambientLightNode)
         
         setupPlayer()
+        setupEnemy()
         setupScenario()
         setupCamera()
+        setupWaveStateMachine()
+        setupSpawners()
         
         // Create a red box geometry
         let boxGeometry = SCNBox(width: 0.2, height: 0.2, length: 1.0, chamferRadius: 0.0)
@@ -59,12 +69,11 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         boxPhysicsBody.contactTestBitMask = Bitmask.character.rawValue
 
         
-      
-   
         boxNode.physicsBody = boxPhysicsBody
         
         // Add the node to the scene
         rootNode.addChildNode(boxNode)
+
         
     }
     
@@ -73,12 +82,17 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     }
     
     func onButtonDown() {
-        player.attackComponent.attack()
+        if player.stateMachine.currentState is AttackingState == false{
+            player.stateMachine.enter(AttackingState.self)
+        }
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
+        GameManager.sceneRenderer = renderer
+        
         Time.deltaTime = time - lastTime
         lastTime = time
+        
         
         if (firstFrame) {
             firstFrame = false
@@ -86,23 +100,38 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
             return
         }
         
-        
         camera.followTarget(target: player.playerNode.simdPosition, offset: simd_float3(1, 1.5, 0))
         
-        player.update(deltaTime: time)
-        player.movementComponent.update(atTime: time, with: renderer)
+        player.update(deltaTime: Time.deltaTime)
         
+        spawner.update()
+        self.waveStateMachine?.update(deltaTime: time)
+        
+        player.update(deltaTime: Time.deltaTime)
+        enemy.update(deltaTime: Time.deltaTime)
+    }
+    
+    func setupEnemy() {
+        
+        enemy = EnemyEntity()
+        enemy.node.simdPosition = .init(x: 0, y: 2, z: 8)
+        enemy.agentComponent.position = enemy.node.simdPosition
+        enemy.agent.position = .init(x: 0, y: 0, z: 10)
+        rootNode.addChildNode(enemy.node)
     }
     
     func setupPlayer(){
+        
         player = PlayerEntity(physicsWorld: self.physicsWorld)
         rootNode.addChildNode(player.playerNode)
-        player.playerNode.position = SCNVector3(x: 0, y: 0, z: 6)
+        player.playerNode.position = SCNVector3(x: -1, y: 0, z: 6)
         
+        
+        GameManager.player = player
     }
     
     func setupScenario(){
-      
+        
         let collisionsScene = SCNScene( named: "Art.scnassets/collision.scn" )
         collisionsScene!.rootNode.enumerateChildNodes { (_ child: SCNNode, _ _: UnsafeMutablePointer<ObjCBool>) in
             child.opacity = 1
@@ -118,25 +147,53 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     
     
     func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
-        let bitmaskA = contact.nodeA.physicsBody!.categoryBitMask
-        let bitmaskB = contact.nodeB.physicsBody!.categoryBitMask
-        let collision = bitmaskA | bitmaskB
-
-        switch collision {
-            case Bitmask.character.rawValue | Bitmask.enemy.rawValue:
-                print("Character collided with an enemy")
-                
-            case Bitmask.playerWeapon.rawValue | Bitmask.enemy.rawValue | Bitmask.character.rawValue:
-                print("Player weapon collided with enemy")
-                
-            default:
-                break
-        }
+        
+        
     }
-
+    
+    func setupWaveStateMachine(){
+        self.waveStateMachine = GKStateMachine(states: [
+            WaveIdle(waveManager: waveManager),
+            WaveHoard1(waveManager: waveManager),
+            WaveHoard2(waveManager: waveManager),
+            WaveHoard3(waveManager: waveManager)
+        ])
+        self.waveStateMachine?.enter(WaveHoard3.self)
+    }
+    
+    func setupSpawners(){
+        spawner.scene = self
+        spawner.waveManager = waveManager
+        spawner.spawnPoint.position = SCNVector3(0, -0.5, 7)
+        spawner.scene.rootNode.addChildNode(spawner.spawnPoint)
+    }
     
     func physicsWorld(_ world: SCNPhysicsWorld, didUpdate contact: SCNPhysicsContact){
+        let nodeA = contact.nodeA
+        let nodeB = contact.nodeB
         
+        let bitmaskA = nodeA.physicsBody!.categoryBitMask
+        let bitmaskB = nodeB.physicsBody!.categoryBitMask
+        let collision = bitmaskA | bitmaskB
+        
+        switch collision {
+        case Bitmask.character.rawValue | Bitmask.enemy.rawValue:
+            return
+            
+            
+        case Bitmask.playerWeapon.rawValue | Bitmask.enemy.rawValue | Bitmask.character.rawValue:
+            
+            let nodesInvolved = [nodeA, nodeB]
+            
+            for node in nodesInvolved {
+                if node.name == "collider"{
+                    player.attackComponent.handleAttackContact(target: node)
+                }
+            }
+            
+        default:
+            break
+        }
     }
     func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact){
         
