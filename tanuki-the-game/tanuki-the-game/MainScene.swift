@@ -182,11 +182,11 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         
         switch collision {
         case Bitmask.character.rawValue | Bitmask.enemy.rawValue:
-            return
+            print("character -> enemy")
             
             
         case Bitmask.playerWeapon.rawValue | Bitmask.enemy.rawValue | Bitmask.character.rawValue:
-            
+            print("sword -> enemy")
             let nodesInvolved = [nodeA, nodeB]
             
             for node in nodesInvolved {

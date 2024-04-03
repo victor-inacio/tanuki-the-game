@@ -58,8 +58,6 @@ class MovementComponent: GKComponent{
         collider.physicsBody?.contactTestBitMask = 0
         collider.physicsBody?.collisionBitMask = Bitmask.enemy.rawValue
         
-        print(collider.physicsBody?.categoryBitMask)
-        
         
         // Setup collision shape
         let (min, max) = model.boundingBox
