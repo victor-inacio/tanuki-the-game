@@ -11,7 +11,7 @@ import GameplayKit
 class PlayerEntity: BaseEntity {
    
     var stateMachine: PlayerStateMachine!
-    let playerNode: SCNNode
+
 
     let agent = GKAgent3D()
     
@@ -47,7 +47,6 @@ class PlayerEntity: BaseEntity {
     }
     
     init(physicsWorld: SCNPhysicsWorld){
-        self.playerNode = SCNNode()
         
         super.init()
         

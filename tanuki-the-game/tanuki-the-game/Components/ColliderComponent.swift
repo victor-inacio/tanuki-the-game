@@ -16,8 +16,7 @@ class ColliderComponent: GKComponent {
         let collider = model.childNode(withName: "collider", recursively: true)!
         collider.physicsBody?.categoryBitMask =  Bitmask.enemy.rawValue
         collider.physicsBody?.contactTestBitMask = Bitmask.character.rawValue
-        
-        print(collider.physicsBody?.categoryBitMask)
+    
     }
     deinit{
         

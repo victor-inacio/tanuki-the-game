@@ -26,6 +26,10 @@ class BaseEntity: GKEntity{
         return visualComponent.rotationNode
     }
     
+    var playerNode: SCNNode {
+        return visualComponent.containerNode
+    }
+    
     public lazy var healthComponent: HealthComponent = {
         guard let component = component(ofType: HealthComponent.self) else {
             fatalError("VisualComponent not found")
