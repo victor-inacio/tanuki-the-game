@@ -203,9 +203,9 @@ class MovementComponent: GKComponent{
         
         // We now project the destination point onto the sliding plane.
         let distPlane = simd_dot(slidePlaneOrigin, slidePlaneNormal)
-        print("Slide Plane Origin:", slidePlaneOrigin)
-        
-        print("Slide Plane Normal:", slidePlaneNormal)
+//        print("Slide Plane Origin:", slidePlaneOrigin)
+//        
+//        print("Slide Plane Normal:", slidePlaneNormal)
         // Project on plane.
         var t = planeIntersect(planeNormal: slidePlaneNormal, planeDist: distPlane,
                                rayOrigin: destinationPoint, rayDirection: slidePlaneNormal)

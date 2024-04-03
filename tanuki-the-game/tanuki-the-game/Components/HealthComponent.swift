@@ -60,6 +60,7 @@ class HealthComponent: GKComponent {
     }
     
     public func receiveDamage(damageAmount: Float) {
+        
         if receiveDamageCooldown == false{
             self.currentHealth -= damageAmount
         }

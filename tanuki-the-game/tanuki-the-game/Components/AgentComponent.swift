@@ -138,7 +138,7 @@ class AgentComponent: GKComponent {
             ])
         
         for result in hitResults {
-            print(node.name)
+//            print(node.name) 
             if (result.node.name == node.name) {
                 
                 

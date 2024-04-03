@@ -71,7 +71,6 @@ class PlayerEntity: BaseEntity {
         
         setupStateMachine()
         
-        
     }
     
     override func update(deltaTime seconds: TimeInterval) {

@@ -22,6 +22,7 @@ class IdleState: PlayerState{
     override func willExit(to nextState: GKState){
        
     }
+    
     override func update(deltaTime seconds: TimeInterval){
         if (!entity.characterDirection.allZero()) && stateMachine?.currentState is AttackingState == false {
             entity.stateMachine.enter(WalkingState.self)

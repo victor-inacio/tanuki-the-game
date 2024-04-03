@@ -192,6 +192,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
             for node in nodesInvolved {
                 if node.name == "collider"{
                     player.attackComponent.handleAttackContact(target: node)
+            
                 }
             }
             

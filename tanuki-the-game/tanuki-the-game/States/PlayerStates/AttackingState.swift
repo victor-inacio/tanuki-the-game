@@ -46,5 +46,7 @@ class AttackingState: PlayerState{
             
             entity.characterDirection = simd_float2(x: 0, y: 0)
         }
+        
+   
     }
 }
