@@ -5,7 +5,6 @@ import SceneKit
 class EnemyEntity: BaseEntity {
 
     var node: SCNNode
-    var playerRotation: SCNNode
 
     public lazy var aiComponent: AIComponent = {
         guard let component = component(ofType: AIComponent.self) else {
@@ -32,7 +31,6 @@ class EnemyEntity: BaseEntity {
     
     override init(){
         self.node = SCNNode()
-        self.playerRotation = SCNNode()
        
         super.init()
         stateMachine = EnemyStateMachine(enemy: self)
