@@ -15,8 +15,6 @@ class AttackComponent: GKComponent {
     var attacker: SCNNode
     var damage: Float
     var stateMachine: GKStateMachine
-    var attackCooldown = false
-    
     
     init(topLevelNode: SCNNode,attackerModel: SCNNode, colliderName: String, damage: Float, stateMachine: GKStateMachine){
         
@@ -41,13 +39,8 @@ class AttackComponent: GKComponent {
     public func handleAttackContact(target: SCNNode) {
     
         if let entity = target.entity as? EnemyEntity {
-            if stateMachine.currentState is AttackingState && attackCooldown == false {
+            if stateMachine.currentState is AttackingState{
             entity.healthComponent.receiveDamage(damageAmount: damage)
-                attackCooldown = true
-                
-                attackerModel.runAction(.sequence([.wait(duration: 0.5), .run({ _ in
-                    self.attackCooldown = false
-                })]))
             }
         }
     }

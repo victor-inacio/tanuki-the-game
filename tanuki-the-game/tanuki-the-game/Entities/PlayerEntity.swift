@@ -63,7 +63,7 @@ class PlayerEntity: BaseEntity {
         self.addComponent(MovementComponent(topLevelNode: playerNode, rotationNode: playerRotation, modelNode: model, physicsWorld: physicsWorld))
         
         self.addComponent(AnimationComponent(nodeToAddAnimation: model, animations: [
-//            .init(fromSceneNamed: "Art.scnassets/character/max_idle.scn", animationKey: "idle"),
+            .init(fromSceneNamed: "tanuki_idle.scn", animationKey: "idle"),
             .init(fromSceneNamed: "tanuki_attack.scn", animationKey: "attack"),
             .init(fromSceneNamed: "tanuki_walk.scn", animationKey: "walk")
         ]))

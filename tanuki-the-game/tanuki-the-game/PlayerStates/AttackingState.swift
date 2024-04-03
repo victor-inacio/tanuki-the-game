@@ -25,7 +25,7 @@ class AttackingState: PlayerState{
         })]))
        
         
-        player.playerNode.runAction(.sequence([.wait(duration: 0.5), .run({ _ in
+        player.playerNode.runAction(.sequence([.wait(duration: 0.4), .run({ _ in
             self.stateMachine?.enter(IdleState.self)
         })]))
          

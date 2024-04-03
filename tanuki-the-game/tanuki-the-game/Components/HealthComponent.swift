@@ -7,6 +7,7 @@ class HealthComponent: GKComponent {
     var node: SCNNode
     var currentHealth: Float
     var healthBarNode: SCNNode?
+    var receiveDamageCooldown = false
     
     init (health: Float, node: SCNNode) {
         self.maxHealth = health
@@ -59,12 +60,18 @@ class HealthComponent: GKComponent {
     }
     
     public func receiveDamage(damageAmount: Float) {
-        self.currentHealth -= damageAmount
+        if receiveDamageCooldown == false{
+            self.currentHealth -= damageAmount
+        }
         print(self.currentHealth)
         if currentHealth <= 0 {
             die()
         } else {
             updateHealthBar()
+            receiveDamageCooldown = true
+            node.runAction(.sequence([.wait(duration: 0.5), .run({ _ in
+                self.receiveDamageCooldown = false
+            })]))
         }
     }
     
