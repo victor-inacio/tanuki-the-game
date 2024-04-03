@@ -46,11 +46,12 @@ class EnemyEntity: BaseEntity {
         setupPlayerHierarchy()
         
         addComponent(AgentComponent(model: model))
-//        addComponent(MovementComponent(topLevelNode: playerNode, rotationNode: playerRotation, modelNode: model, physicsWorld: GameManager.scene.physicsWorld, dynamicControl: false))
-        
-//        addComponent(AIComponent())
         
         agentComponent.position = node.simdWorldPosition
+        
+        self.addComponent(ColliderComponent(model: model, baseEntity: self))
+        
+        self.addComponent(HealthComponent(health: 200, node: node))
 
     }
     
