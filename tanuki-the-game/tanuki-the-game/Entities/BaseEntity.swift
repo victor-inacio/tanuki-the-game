@@ -9,6 +9,8 @@ import Foundation
 import GameplayKit
 
 class BaseEntity: GKEntity{
+    
+    
     private lazy var visualComponent: VisualComponent = {
         guard let component = component(ofType: VisualComponent.self) else {
             fatalError("VisualComponent not found")
@@ -18,6 +20,10 @@ class BaseEntity: GKEntity{
     
     var model: SCNNode {
         return visualComponent.model
+    }
+    
+    var playerRotation: SCNNode {
+        return visualComponent.rotationNode
     }
     
     public lazy var healthComponent: HealthComponent = {

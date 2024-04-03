@@ -120,7 +120,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         enemy = EnemyEntity()
         enemy.node.simdPosition = .init(x: 0, y: 2, z: 8)
         enemy.agentComponent.position = enemy.node.simdPosition
-        enemy.agent.position = .init(x: 0, y: 0, z: 10)
+    
         rootNode.addChildNode(enemy.node)
     }
     
