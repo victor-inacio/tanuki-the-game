@@ -100,7 +100,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
             return
         }
         
-        camera.followTarget(target: player.playerNode.simdPosition, offset: simd_float3(1, 2, 0))
+        camera.followTarget(target: player.node.simdPosition, offset: simd_float3(1, 2, 0))
         
         player.update(deltaTime: Time.deltaTime)
         
@@ -127,8 +127,8 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     func setupPlayer(){
         
         player = PlayerEntity(physicsWorld: self.physicsWorld)
-        rootNode.addChildNode(player.playerNode)
-        player.playerNode.position = SCNVector3(x: -1, y: 0, z: 6)
+        rootNode.addChildNode(player.node)
+        player.node.position = SCNVector3(x: -1, y: 0, z: 6)
         
         
         GameManager.player = player

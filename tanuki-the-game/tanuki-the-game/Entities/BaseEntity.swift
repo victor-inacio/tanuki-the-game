@@ -22,8 +22,12 @@ class BaseEntity: GKEntity{
         return visualComponent.model
     }
     
-    var playerRotation: SCNNode {
+    var rotationNode: SCNNode {
         return visualComponent.rotationNode
+    }
+    
+    var node: SCNNode {
+        return visualComponent.containerNode
     }
     
     public lazy var healthComponent: HealthComponent = {

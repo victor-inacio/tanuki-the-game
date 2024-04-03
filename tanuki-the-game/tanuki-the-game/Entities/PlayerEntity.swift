@@ -11,9 +11,6 @@ import GameplayKit
 class PlayerEntity: BaseEntity {
    
     var stateMachine: PlayerStateMachine!
-    let playerNode: SCNNode
-
-    let agent = GKAgent3D()
     
     public lazy var movementComponent: MovementComponent = {
         guard let component = component(ofType: MovementComponent.self) else {
@@ -47,19 +44,16 @@ class PlayerEntity: BaseEntity {
     }
     
     init(physicsWorld: SCNPhysicsWorld){
-        self.playerNode = SCNNode()
         
         super.init()
-        
-        agent.radius = 0.9
+    
         
         self.stateMachine = PlayerStateMachine(player: self)
         
         self.addComponent(VisualComponent(modelFile:  "tanuki.scn", nameOfChild: "Armature"))
         
-        setupPlayerHierarchy()
   
-        self.addComponent(MovementComponent(topLevelNode: playerNode, rotationNode: playerRotation, modelNode: model, physicsWorld: physicsWorld))
+        self.addComponent(MovementComponent(topLevelNode: node, rotationNode: rotationNode, modelNode: model, physicsWorld: physicsWorld))
         
         self.addComponent(AnimationComponent(nodeToAddAnimation: model, animations: [
             .init(fromSceneNamed: "tanuki_idle.scn", animationKey: "idle"),
@@ -67,7 +61,7 @@ class PlayerEntity: BaseEntity {
             .init(fromSceneNamed: "tanuki_walk.scn", animationKey: "walk")
         ]))
         
-        self.addComponent(AttackComponent(topLevelNode: playerNode, attackerModel: model, colliderName: "swordCollider", damage: 80, stateMachine: stateMachine))
+        self.addComponent(AttackComponent(topLevelNode: node, attackerModel: model, colliderName: "swordCollider", damage: 80, stateMachine: stateMachine))
         
         setupStateMachine()
         
@@ -80,15 +74,8 @@ class PlayerEntity: BaseEntity {
         stateMachine.update(deltaTime: seconds)
         movementComponent.update(deltaTime: seconds)
         
-        agent.position = playerNode.simdWorldPosition
-        agent.rotation = simd_float3x3(simd_quatf(vector: playerRotation.simdRotation))
-        
     }
-    
-    func setupPlayerHierarchy(){
-        playerNode.addChildNode(playerRotation)
-        playerRotation.addChildNode(model)
-    }
+
     
     
     func setupStateMachine(){
