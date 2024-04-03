@@ -22,11 +22,11 @@ class BaseEntity: GKEntity{
         return visualComponent.model
     }
     
-    var playerRotation: SCNNode {
+    var rotationNode: SCNNode {
         return visualComponent.rotationNode
     }
     
-    var playerNode: SCNNode {
+    var node: SCNNode {
         return visualComponent.containerNode
     }
     

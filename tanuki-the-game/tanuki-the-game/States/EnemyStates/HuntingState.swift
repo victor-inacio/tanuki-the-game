@@ -5,7 +5,7 @@ class HuntingState: EnemyBaseState {
     
     
     override func update(deltaTime: TimeInterval) {
-        entity.agentComponent.queueSteerTo(disiredPos: GameManager.player!.playerNode.simdWorldPosition)
+        entity.agentComponent.queueSteerTo(disiredPos: GameManager.player!.node.simdWorldPosition)
         
         var neighbours = 0
         var separationOffset: simd_float3 = .zero
@@ -47,7 +47,7 @@ class HuntingState: EnemyBaseState {
             entity.agentComponent.queueSteerTo(disiredPos: entity.agentComponent.position + separationOffset, amount: 1.5)
         }
         
-        print(GameManager.player!.playerNode.simdWorldPosition)
+        print(GameManager.player!.node.simdWorldPosition)
     }
     
 }

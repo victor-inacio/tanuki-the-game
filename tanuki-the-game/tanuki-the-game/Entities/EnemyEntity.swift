@@ -4,8 +4,8 @@ import SceneKit
 
 class EnemyEntity: BaseEntity {
 
-    var node: SCNNode
-
+    
+    
     public lazy var aiComponent: AIComponent = {
         guard let component = component(ofType: AIComponent.self) else {
             fatalError("AIComponent not found")
@@ -30,14 +30,13 @@ class EnemyEntity: BaseEntity {
     var stateMachine: EnemyStateMachine!
     
     override init(){
-        self.node = SCNNode()
        
         super.init()
         stateMachine = EnemyStateMachine(enemy: self)
         
         stateMachine.enter(HuntingState.self)
         self.addComponent(VisualComponent(modelFile:  "Karakasa.scn", nameOfChild: "Armature"))
-        setupPlayerHierarchy()
+      
         
         addComponent(AgentComponent(model: model))
         
@@ -48,11 +47,7 @@ class EnemyEntity: BaseEntity {
         self.addComponent(HealthComponent(health: 200, node: node))
 
     }
-    
-    func setupPlayerHierarchy(){
-        node.addChildNode(playerRotation)
-        playerRotation.addChildNode(model)
-    }
+
     
     
     override func update(deltaTime seconds: TimeInterval) {

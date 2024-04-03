@@ -53,7 +53,7 @@ class PlayerEntity: BaseEntity {
         self.addComponent(VisualComponent(modelFile:  "tanuki.scn", nameOfChild: "Armature"))
         
   
-        self.addComponent(MovementComponent(topLevelNode: playerNode, rotationNode: playerRotation, modelNode: model, physicsWorld: physicsWorld))
+        self.addComponent(MovementComponent(topLevelNode: node, rotationNode: rotationNode, modelNode: model, physicsWorld: physicsWorld))
         
         self.addComponent(AnimationComponent(nodeToAddAnimation: model, animations: [
             .init(fromSceneNamed: "tanuki_idle.scn", animationKey: "idle"),
@@ -61,7 +61,7 @@ class PlayerEntity: BaseEntity {
             .init(fromSceneNamed: "tanuki_walk.scn", animationKey: "walk")
         ]))
         
-        self.addComponent(AttackComponent(topLevelNode: playerNode, attackerModel: model, colliderName: "swordCollider", damage: 80, stateMachine: stateMachine))
+        self.addComponent(AttackComponent(topLevelNode: node, attackerModel: model, colliderName: "swordCollider", damage: 80, stateMachine: stateMachine))
         
         setupStateMachine()
         

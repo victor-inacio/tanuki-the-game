@@ -20,12 +20,12 @@ class AttackingState: PlayerState{
         entity.movementComponent.speedFactor*=2.2
         
         
-        entity.playerNode.runAction(.sequence([.wait(duration: 0.1), .run({ _ in
+        entity.node.runAction(.sequence([.wait(duration: 0.1), .run({ _ in
             self.attacking = true
         })]))
        
         
-        entity.playerNode.runAction(.sequence([.wait(duration: 0.4), .run({ _ in
+        entity.node.runAction(.sequence([.wait(duration: 0.4), .run({ _ in
             self.stateMachine?.enter(IdleState.self)
         })]))
          
