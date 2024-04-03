@@ -20,6 +20,8 @@ class GameManager {
         } as! [EnemyEntity]
     }
     
+    static var camera: Camera?
+    
     static var scene: SCNScene!
     static var sceneRenderer: SCNSceneRenderer!
     
@@ -32,6 +34,7 @@ class GameManager {
             otherEntity == entity
         }
     }
+ 
     
     
 }

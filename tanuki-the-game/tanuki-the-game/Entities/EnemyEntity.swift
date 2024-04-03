@@ -73,6 +73,8 @@ class EnemyEntity: BaseEntity {
         stateMachine.update(deltaTime: Time.deltaTime)
         
         agentComponent.update(deltaTime: Time.deltaTime)
+        healthComponent.update(deltaTime: Time.deltaTime)
+        
         
         node.simdEulerAngles.y = atan2(agentComponent.velocity.x, agentComponent.velocity.z)
         node.simdWorldPosition = agentComponent.position

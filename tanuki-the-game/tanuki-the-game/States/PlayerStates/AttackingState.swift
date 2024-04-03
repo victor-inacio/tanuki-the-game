@@ -14,7 +14,7 @@ class AttackingState: PlayerState{
     
     override func didEnter(from previousState: GKState?){
     
-        
+        playerModel.animationPlayer(forKey: "attack")?.speed = 2
         playerModel.animationPlayer(forKey: "attack")?.play()
         
         entity.movementComponent.speedFactor*=2.2
@@ -25,7 +25,7 @@ class AttackingState: PlayerState{
         })]))
        
         
-        entity.playerNode.runAction(.sequence([.wait(duration: 0.5), .run({ _ in
+        player.playerNode.runAction(.sequence([.wait(duration: 0.4), .run({ _ in
             self.stateMachine?.enter(IdleState.self)
         })]))
          
