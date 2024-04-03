@@ -47,7 +47,7 @@ class HuntingState: EnemyBaseState {
             entity.agentComponent.queueSteerTo(disiredPos: entity.agentComponent.position + separationOffset, amount: 1.5)
         }
 
-        print(GameManager.player!.node.simdWorldPosition)
+//        print(GameManager.player!.node.simdWorldPosition)
 
     }
     

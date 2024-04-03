@@ -38,6 +38,7 @@ class AttackingState: PlayerState{
     override func willExit(to nextState: GKState){
         attacking = false
         entity.movementComponent.speedFactor = 2
+        playerModel.animationPlayer(forKey: "attack")?.stop()
     }
     
    
@@ -46,7 +47,5 @@ class AttackingState: PlayerState{
             
             entity.characterDirection = simd_float2(x: 0, y: 0)
         }
-        
-   
     }
 }
