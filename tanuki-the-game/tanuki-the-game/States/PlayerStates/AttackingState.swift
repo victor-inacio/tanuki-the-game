@@ -38,7 +38,7 @@ class AttackingState: PlayerState{
     override func willExit(to nextState: GKState){
         attacking = false
         entity.movementComponent.speedFactor = 2
-        playerModel.animationPlayer(forKey: "attack")?.stop()
+        playerModel.animationPlayer(forKey: "attack")?.stop(withBlendOutDuration: 0.2)
     }
     
    

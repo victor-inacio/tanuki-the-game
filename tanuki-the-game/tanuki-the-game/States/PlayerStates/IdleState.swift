@@ -20,7 +20,7 @@ class IdleState: PlayerState{
     }
     
     override func willExit(to nextState: GKState){
-       
+        playerModel.animationPlayer(forKey: "idle")?.stop(withBlendOutDuration: 0.1)
     }
     
     override func update(deltaTime seconds: TimeInterval){
