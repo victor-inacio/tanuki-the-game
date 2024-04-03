@@ -3,15 +3,6 @@ import GameplayKit
 import SceneKit
 
 class EnemyEntity: BaseEntity {
-
-    
-    
-    public lazy var aiComponent: AIComponent = {
-        guard let component = component(ofType: AIComponent.self) else {
-            fatalError("AIComponent not found")
-        }
-        return component
-    }()
     
     public lazy var agentComponent: AgentComponent = {
         guard let component = component(ofType: AgentComponent.self) else {
@@ -51,10 +42,6 @@ class EnemyEntity: BaseEntity {
     
     
     override func update(deltaTime seconds: TimeInterval) {
-//        aiComponent.update(deltaTime: seconds)
-        
-//        playerNode.simdWorldPosition = agent.position
-//        playerRotation.simdTransform = float4x4(rotation: agent.rotation, position: .init(x: 0, y: 0, z: 0))
         
         stateMachine.update(deltaTime: Time.deltaTime)
         
