@@ -6,8 +6,7 @@ class EnemyEntity: BaseEntity {
 
     var node: SCNNode
     var playerRotation: SCNNode
-    
-    let agent: GKAgent3D
+
     public lazy var aiComponent: AIComponent = {
         guard let component = component(ofType: AIComponent.self) else {
             fatalError("AIComponent not found")
@@ -34,13 +33,7 @@ class EnemyEntity: BaseEntity {
     override init(){
         self.node = SCNNode()
         self.playerRotation = SCNNode()
-        self.agent = .init()
-        agent.speed = 1
-        agent.maxSpeed = 3
-        agent.maxAcceleration = 3
-        agent.behavior = GKBehavior(goal: GKGoal(toSeekAgent: GameManager.player!.agent), weight: 1.0)
-        
-        
+       
         super.init()
         stateMachine = EnemyStateMachine(enemy: self)
         
