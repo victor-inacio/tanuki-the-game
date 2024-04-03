@@ -68,6 +68,8 @@ class EnemyEntity: BaseEntity {
 //        playerRotation.simdTransform = float4x4(rotation: agent.rotation, position: .init(x: 0, y: 0, z: 0))
 
         agentComponent.update(deltaTime: Time.deltaTime)
+        healthComponent.update(deltaTime: Time.deltaTime)
+        
         
         node.simdEulerAngles.y = atan2(agentComponent.velocity.x, agentComponent.velocity.z)
         node.simdWorldPosition = agentComponent.position

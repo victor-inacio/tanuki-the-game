@@ -14,7 +14,7 @@ class AttackingState: PlayerState{
     
     override func didEnter(from previousState: GKState?){
     
-        
+        playerModel.animationPlayer(forKey: "attack")?.speed = 2
         playerModel.animationPlayer(forKey: "attack")?.play()
         
         player.movementComponent.speedFactor*=2.2

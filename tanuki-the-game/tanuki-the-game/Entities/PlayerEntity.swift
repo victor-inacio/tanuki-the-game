@@ -68,7 +68,7 @@ class PlayerEntity: BaseEntity {
             .init(fromSceneNamed: "tanuki_walk.scn", animationKey: "walk")
         ]))
         
-        self.addComponent(AttackComponent(topLevelNode: playerNode, attackerModel: model, colliderName: "swordCollider", damage: 100, stateMachine: stateMachine))
+        self.addComponent(AttackComponent(topLevelNode: playerNode, attackerModel: model, colliderName: "swordCollider", damage: 80, stateMachine: stateMachine))
         
         setupStateMachine()
         

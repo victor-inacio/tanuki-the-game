@@ -46,10 +46,10 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         ambientLightNode.light?.color = UIColor.white
         rootNode.addChildNode(ambientLightNode)
         
+        setupCamera()
         setupPlayer()
         setupEnemy()
         setupScenario()
-        setupCamera()
         setupWaveStateMachine()
         setupSpawners()
         
@@ -100,7 +100,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
             return
         }
         
-        camera.followTarget(target: player.playerNode.simdPosition, offset: simd_float3(1, 1.5, 0))
+        camera.followTarget(target: player.playerNode.simdPosition, offset: simd_float3(1, 2, 0))
         
         player.update(deltaTime: Time.deltaTime)
         
@@ -145,7 +145,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     
     func setupCamera(){
         camera = Camera()
-        
+        GameManager.camera = camera
         rootNode.addChildNode(camera.node)
     }
     
@@ -162,7 +162,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
             WaveHoard2(waveManager: waveManager),
             WaveHoard3(waveManager: waveManager)
         ])
-        self.waveStateMachine?.enter(WaveHoard3.self)
+        self.waveStateMachine?.enter(WaveHoard1.self)
     }
     
     func setupSpawners(){
@@ -182,11 +182,11 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         
         switch collision {
         case Bitmask.character.rawValue | Bitmask.enemy.rawValue:
-            print("character -> enemy")
-            
+//            print("character -> enemy")
+            return
             
         case Bitmask.playerWeapon.rawValue | Bitmask.enemy.rawValue | Bitmask.character.rawValue:
-            print("sword -> enemy")
+//            print("sword -> enemy")
             let nodesInvolved = [nodeA, nodeB]
             
             for node in nodesInvolved {
