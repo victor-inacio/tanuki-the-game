@@ -40,6 +40,12 @@ struct DrawingView: View {
                             print("Classification Result: \(viewModel.classificationResult) \nProbability: \(String(format: "%.2f", viewModel.probability*100))")
                             // Clear canvas after classifying
                             viewModel.canvasView.drawing = PKDrawing()
+                            if viewModel.classificationResult == "sword" && viewModel.probability*100 >= 85{
+                                print("Ultimate Activated")
+                                
+                                //Retornar autorização da Ult pro scenekit
+                                
+                            }
                         }) {
                             Image(systemName: "square.and.arrow.down")
                                 .font(.system(size: 50))

@@ -22,7 +22,8 @@ struct DeathMenuView: View {
                         .bold()
                     
                     Button(action: {
-                            coordinator.present(fullScreenCover: .mainMenu)
+                        coordinator.dismissFullScreenCover()
+                        coordinator.popToRoot()
                     }) {
                         ZStack{
                             RoundedRectangle(cornerRadius: 20)

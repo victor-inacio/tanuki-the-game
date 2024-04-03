@@ -22,7 +22,7 @@ struct MainMenuView: View {
                 
                 Button(action: {
                     //when testing game
-                    coordinator.present(fullScreenCover: .game)
+                    coordinator.present(fullScreenCover: .drawing)
                     
                     //when testing drawing
 //                    coordinator.present(fullScreenCover: .drawing)
@@ -45,7 +45,8 @@ struct MainMenuView: View {
             }
             .ignoresSafeArea()
             .containerRelativeFrame([.horizontal, .vertical])
-            .background(Gradient(colors: [.white, .white, .green]).opacity(1))
+            .background(.white)
+//            .background(Gradient(colors: [.white, .white, .green]).opacity(1))
             //just trying to simulate having an image in the background
         }
     }
