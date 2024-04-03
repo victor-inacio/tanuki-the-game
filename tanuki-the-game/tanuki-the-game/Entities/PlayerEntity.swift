@@ -12,7 +12,7 @@ class PlayerEntity: BaseEntity {
    
     var stateMachine: PlayerStateMachine!
     let playerNode: SCNNode
-    let playerRotation: SCNNode
+
     let agent = GKAgent3D()
     
     public lazy var movementComponent: MovementComponent = {
@@ -48,7 +48,6 @@ class PlayerEntity: BaseEntity {
     
     init(physicsWorld: SCNPhysicsWorld){
         self.playerNode = SCNNode()
-        self.playerRotation = SCNNode()
         
         super.init()
         
