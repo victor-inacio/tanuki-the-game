@@ -61,7 +61,7 @@ class AgentComponent: GKComponent {
             
         if (!velocity.isZero()) {
             
-            velocity = simd_normalize(velocity) * 1.0
+            velocity = simd_normalize(velocity) * 0.7
         }
    
         velocity *= Float(deltaTime)

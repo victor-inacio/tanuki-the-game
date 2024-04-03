@@ -98,7 +98,7 @@ class MovementComponent: GKComponent{
         let renderer = GameManager.sceneRenderer!
         
         let direction = characterDirection(withPointOfView:renderer.pointOfView) 
-        let characterSpeed = CGFloat(deltaTime) * 2 * walkSpeed
+        let characterSpeed = CGFloat(deltaTime) * walkSpeed
         
         
         // move
