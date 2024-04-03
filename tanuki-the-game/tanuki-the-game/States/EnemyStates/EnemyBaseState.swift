@@ -1,0 +1,3 @@
+class EnemyBaseState: BaseState<EnemyEntity> {
+    
+}

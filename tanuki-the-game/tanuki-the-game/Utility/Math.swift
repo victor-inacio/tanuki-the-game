@@ -23,8 +23,12 @@ extension simd_float3 {
     static var up: Self {
         return .init(x: 0, y: 1, z: 0)
     }
-
+    
     static let zero = simd_float3(0.0, 0.0, 0.0)
+    
+    func isZero() -> Bool {
+        return x == 0.0 && y == 0.0 && z == 0.0
+    }
     
     func allZero() -> Bool {
         return x == 0 && y == 0 && z == 0

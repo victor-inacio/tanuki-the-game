@@ -8,9 +8,9 @@ class PlayerStateMachine: GKStateMachine {
         self.player = player
         
         super.init(states: [
-            IdleState(playerEntity: player),
-            WalkingState(playerEntity: player),
-            AttackingState(playerEntity: player)
+            IdleState(entity: player),
+            WalkingState(entity: player),
+            AttackingState(entity: player)
         ])
       
     }

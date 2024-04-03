@@ -10,7 +10,11 @@ class AgentComponent: GKComponent {
     var position: simd_float3
     var maxSpeed: Float
     var maxForce: Float = 0.5
-    let visionRadius: Float = 3.0
+    let visionRadius: Float = 1.0
+    let separationRadius: Float = 0.7
+    
+    var queueAcceleration: simd_float3 = .zero
+    
     
     var node: SCNNode {
         let entity = entity as! EnemyEntity
@@ -50,20 +54,17 @@ class AgentComponent: GKComponent {
         
         velocity = .zero
              
-        acceleration += steerTo(desiredPos: GameManager.player!.playerNode.simdWorldPosition)
-        
-        if (isCollisionAhead()) {
-            
-            let avoidDirection = getAvoidDir()
-            
-            acceleration += steerTo(desiredPos: position + avoidDirection) * 20
-        }
-        
+        acceleration += queueAcceleration
         velocity += acceleration
-        velocity = simd_normalize(velocity) * 1.0
+        
+        queueAcceleration = .zero
+            
+        if (!velocity.isZero()) {
+            
+            velocity = simd_normalize(velocity) * 1.0
+        }
+   
         velocity *= Float(deltaTime)
-        
-        
         
         downwardAcceleration = Physics.calculateGravityAcceleration(position: position, downwardAcceleration: downwardAcceleration)
         
@@ -72,10 +73,16 @@ class AgentComponent: GKComponent {
         position = Physics.calculateSlidePos(position: position, velocity: velocity, collisionShapeOffsetFromModel: collisionShapeOffsetFromModel, collisionShape: characterCollisionShape!)
     }
     
+    public func queueSteerTo(disiredPos: simd_float3, amount: Float = 1.0) {
+        
+        queueAcceleration += steerTo(desiredPos: disiredPos) * amount
+        
+    }
+    
     private func steerTo(desiredPos: simd_float3) -> simd_float3 {
         let desiredVel = simd_normalize(desiredPos - position) * 2.0
         
-        let desiredAcceleration = simd_normalize(desiredVel - velocity) * 0.5
+        let desiredAcceleration = simd_normalize(desiredVel - velocity) * 0.05
         
         if (desiredAcceleration.isNan()) {
             return .zero
@@ -116,20 +123,30 @@ class AgentComponent: GKComponent {
     }
     
     private func isCollisionAhead() -> Bool {
-        
-        let from = SCNVector3(position + .up * 0.2)
-        let to = SCNVector3(position + node.simdWorldFront * visionRadius)
-        
-        let options: [String: Any] = [
-            SCNHitTestOption.backFaceCulling.rawValue: false,
-            SCNHitTestOption.categoryBitMask.rawValue: Bitmask.enemy.rawValue,
-            SCNHitTestOption.ignoreHiddenNodes.rawValue: false]
-        
-        let hitResult = GameManager.sceneRenderer.scene!.rootNode.hitTestWithSegment(from: from, to: to, options: options).first
-        
-        return hitResult != nil
+        let height = node.boundingBox.max.y - node.boundingBox.min.y
         
         
+        let from = SCNVector3(position)
+        let to = SCNVector3(simd_float3(from) + node.simdWorldFront * visionRadius)
+        
+       
+        
+        let hitResults =
+        GameManager.sceneRenderer.scene!.rootNode.hitTestWithSegment(from: from, to: to, options: [
+            SCNHitTestOption.ignoreChildNodes.rawValue: false,
+            SCNHitTestOption.ignoreHiddenNodes.rawValue: false,
+            ])
+        
+        for result in hitResults {
+            print(node.name)
+            if (result.node.name == node.name) {
+                
+                
+                return true
+            }
+        }
+        
+        return false
     }
     
     

@@ -29,6 +29,8 @@ class EnemyEntity: BaseEntity {
         return component
     }()
     
+    var stateMachine: EnemyStateMachine!
+    
     override init(){
         self.node = SCNNode()
         self.playerRotation = SCNNode()
@@ -38,10 +40,11 @@ class EnemyEntity: BaseEntity {
         agent.maxAcceleration = 3
         agent.behavior = GKBehavior(goal: GKGoal(toSeekAgent: GameManager.player!.agent), weight: 1.0)
         
+        
         super.init()
+        stateMachine = EnemyStateMachine(enemy: self)
         
-       
-        
+        stateMachine.enter(HuntingState.self)
         self.addComponent(VisualComponent(modelFile:  "Karakasa.scn", nameOfChild: "Armature"))
         setupPlayerHierarchy()
         
@@ -66,7 +69,9 @@ class EnemyEntity: BaseEntity {
         
 //        playerNode.simdWorldPosition = agent.position
 //        playerRotation.simdTransform = float4x4(rotation: agent.rotation, position: .init(x: 0, y: 0, z: 0))
-
+        
+        stateMachine.update(deltaTime: Time.deltaTime)
+        
         agentComponent.update(deltaTime: Time.deltaTime)
         
         node.simdEulerAngles.y = atan2(agentComponent.velocity.x, agentComponent.velocity.z)

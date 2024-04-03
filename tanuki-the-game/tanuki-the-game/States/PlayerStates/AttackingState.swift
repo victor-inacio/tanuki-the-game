@@ -17,15 +17,15 @@ class AttackingState: PlayerState{
         
         playerModel.animationPlayer(forKey: "attack")?.play()
         
-        player.movementComponent.speedFactor*=2.2
+        entity.movementComponent.speedFactor*=2.2
         
         
-        player.playerNode.runAction(.sequence([.wait(duration: 0.1), .run({ _ in
+        entity.playerNode.runAction(.sequence([.wait(duration: 0.1), .run({ _ in
             self.attacking = true
         })]))
        
         
-        player.playerNode.runAction(.sequence([.wait(duration: 0.5), .run({ _ in
+        entity.playerNode.runAction(.sequence([.wait(duration: 0.5), .run({ _ in
             self.stateMachine?.enter(IdleState.self)
         })]))
          
@@ -37,14 +37,14 @@ class AttackingState: PlayerState{
     
     override func willExit(to nextState: GKState){
         attacking = false
-        player.movementComponent.speedFactor = 2
+        entity.movementComponent.speedFactor = 2
     }
     
    
     override func update(deltaTime seconds: TimeInterval){
         if attacking{
             
-            player.characterDirection = simd_float2(x: 0, y: 0)
+            entity.characterDirection = simd_float2(x: 0, y: 0)
         }
     }
 }

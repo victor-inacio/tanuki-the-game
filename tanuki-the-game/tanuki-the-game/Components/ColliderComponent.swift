@@ -14,10 +14,10 @@ class ColliderComponent: GKComponent {
         super.init()
         
         let collider = model.childNode(withName: "collider", recursively: true)!
-        collider.physicsBody?.categoryBitMask =  Bitmask.enemy.rawValue | Bitmask.character.rawValue
+        collider.physicsBody?.categoryBitMask =  Bitmask.enemy.rawValue
         collider.physicsBody?.contactTestBitMask = Bitmask.character.rawValue
-        collider.entity = baseEntity
         
+        print(collider.physicsBody?.categoryBitMask)
     }
     deinit{
         
