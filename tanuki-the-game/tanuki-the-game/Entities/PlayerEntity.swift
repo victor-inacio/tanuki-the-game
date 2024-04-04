@@ -71,21 +71,7 @@ class PlayerEntity: BaseEntity {
         
         setupStateMachine()
         
-        let shader = Bundle.main.url(forResource: "damage", withExtension: "shader")
         
-        
-        if let shader = shader {
-            do {
-                let body = model.childNode(withName: "BODY", recursively: true)!
-                
-                body.geometry?.shaderModifiers = [
-                    .fragment: try String(contentsOf: shader, encoding: .utf8)
-                ]
- 
-            } catch {
-
-            }
-        }
         
         print(model.geometry?.shaderModifiers)
         

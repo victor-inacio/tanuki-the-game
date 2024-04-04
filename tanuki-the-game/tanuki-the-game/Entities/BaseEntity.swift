@@ -30,6 +30,16 @@ class BaseEntity: GKEntity{
         return visualComponent.containerNode
     }
     
+    var bodies: [SCNNode] {
+        return model.childNodes.filter { node in
+            if let geometry = node.geometry {
+                return geometry.materials.count > 0
+            }
+            
+            return false
+        }
+    }
+    
     public lazy var healthComponent: HealthComponent = {
         guard let component = component(ofType: HealthComponent.self) else {
             fatalError("Health Component not found")

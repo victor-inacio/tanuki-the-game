@@ -35,14 +35,7 @@ class EnemyAttackState: EnemyBaseState {
             canAttack = false
             player.healthComponent.receiveDamage(damageAmount: 20)
             
-            player.body.geometry?.firstMaterial?.setValue(1, forKey: "isDamaging")
             
-            player.body.runAction(SCNAction.sequence([
-                .wait(duration: 0.5),
-                .run({ node in
-                    node.geometry?.firstMaterial?.setValue(0, forKey: "isDamaging")
-                })
-            ]))
             
         }
     }

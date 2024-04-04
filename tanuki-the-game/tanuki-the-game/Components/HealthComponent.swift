@@ -16,9 +16,30 @@ class HealthComponent: GKComponent {
         super.init()
         
       
+        
+        
+        
+        
         self.healthBarNode = createHeathBar()
         if let healthBarNode = self.healthBarNode {
             node.addChildNode(healthBarNode)
+        }
+    }
+    
+    override func didAddToEntity() {
+        let shader = Bundle.main.url(forResource: "damage", withExtension: "shader")
+        
+        if let shader = shader {
+            do {
+                for body in (entity as! BaseEntity).bodies {
+                    body.geometry?.shaderModifiers = [
+                        .fragment: try String(contentsOf: shader, encoding: .utf8)
+                    ]
+                }
+                
+            } catch {
+                
+            }
         }
     }
     
@@ -68,6 +89,17 @@ class HealthComponent: GKComponent {
         if currentHealth <= 0 {
             die()
         } else {
+            for body in (entity as! BaseEntity).bodies {
+                body.geometry?.firstMaterial?.setValue(1, forKey: "isDamaging")
+                
+                body.runAction(SCNAction.sequence([
+                    .wait(duration: 0.5),
+                    .run({ node in
+                        node.geometry?.firstMaterial?.setValue(0, forKey: "isDamaging")
+                    })
+                ]))
+            }
+            
             updateHealthBar()
             receiveDamageCooldown = true
             node.runAction(.sequence([.wait(duration: 0.5), .run({ _ in
