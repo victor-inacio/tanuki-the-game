@@ -32,7 +32,7 @@ class BaseEntity: GKEntity{
     
     public lazy var healthComponent: HealthComponent = {
         guard let component = component(ofType: HealthComponent.self) else {
-            fatalError("VisualComponent not found")
+            fatalError("Health Component not found")
         }
         return component
     }()

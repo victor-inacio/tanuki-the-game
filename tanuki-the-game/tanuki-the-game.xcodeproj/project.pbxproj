@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9808F7BC2BBDF80D009D31AC /* EnemyAttackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9808F7BB2BBDF80D009D31AC /* EnemyAttackState.swift */; };
 		983F1ECC2BBA100900D66467 /* Physics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983F1ECB2BBA100900D66467 /* Physics.swift */; };
 		984F35822BBB311C00A54B09 /* tanuki_attack.scn in Resources */ = {isa = PBXBuildFile; fileRef = 984F35812BBB311C00A54B09 /* tanuki_attack.scn */; };
 		984F35862BBB35A100A54B09 /* karakasa_attack.dae in Resources */ = {isa = PBXBuildFile; fileRef = 984F35842BBB35A100A54B09 /* karakasa_attack.dae */; };
@@ -75,6 +76,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9808F7BB2BBDF80D009D31AC /* EnemyAttackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyAttackState.swift; sourceTree = "<group>"; };
 		983F1ECB2BBA100900D66467 /* Physics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Physics.swift; sourceTree = "<group>"; };
 		984F35812BBB311C00A54B09 /* tanuki_attack.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = tanuki_attack.scn; sourceTree = "<group>"; };
 		984F35842BBB35A100A54B09 /* karakasa_attack.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = karakasa_attack.dae; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				98B3B0E92BBDE06A00F8BF54 /* EnemyStateMachine.swift */,
 				98B3B0EB2BBDE0C800F8BF54 /* HuntingState.swift */,
 				98B3B0EF2BBDE19F00F8BF54 /* EnemyBaseState.swift */,
+				9808F7BB2BBDF80D009D31AC /* EnemyAttackState.swift */,
 			);
 			path = EnemyStates;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				C3F701CD2BB1FAD0001C6D13 /* WaveIdle.swift in Sources */,
 				ABA1A8872BB20BB9001C3533 /* AttackingState.swift in Sources */,
 				98E0E3C42B9F45B00034011F /* Controllers.swift in Sources */,
+				9808F7BC2BBDF80D009D31AC /* EnemyAttackState.swift in Sources */,
 				98B3B0EC2BBDE0C800F8BF54 /* HuntingState.swift in Sources */,
 				C3F701CF2BB1FAE3001C6D13 /* WaveHoard1.swift in Sources */,
 				98DD7FD32BAE073D00CB4FBB /* Input.swift in Sources */,

@@ -19,13 +19,15 @@ class EnemyEntity: BaseEntity {
     }()
     
     var stateMachine: EnemyStateMachine!
+    var target: BaseEntity!
     
     override init(){
        
         super.init()
+        target = GameManager.player!
         stateMachine = EnemyStateMachine(enemy: self)
         
-        stateMachine.enter(HuntingState.self)
+        
         self.addComponent(VisualComponent(modelFile:  "Karakasa.scn", nameOfChild: "Armature"))
       
         
@@ -36,6 +38,13 @@ class EnemyEntity: BaseEntity {
         self.addComponent(ColliderComponent(model: model, baseEntity: self))
         
         self.addComponent(HealthComponent(health: 200, node: node))
+        
+        addComponent(AnimationComponent(nodeToAddAnimation: model, animations: [
+            .init(fromSceneNamed: "karakasa_walk.scn", animationKey: "walk"),
+            .init(fromSceneNamed: "karakasa_attack.scn", animationKey: "attack")
+        ]))
+        
+        stateMachine.enter(HuntingState.self)
 
     }
 

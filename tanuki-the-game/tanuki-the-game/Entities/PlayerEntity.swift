@@ -44,14 +44,13 @@ class PlayerEntity: BaseEntity {
     }
     
     init(physicsWorld: SCNPhysicsWorld){
-        
         super.init()
     
-        
         self.stateMachine = PlayerStateMachine(player: self)
         
         self.addComponent(VisualComponent(modelFile:  "tanuki.scn", nameOfChild: "Armature"))
         
+        addComponent(HealthComponent(health: 1000, node: node))
   
         self.addComponent(MovementComponent(topLevelNode: node, rotationNode: rotationNode, modelNode: model, physicsWorld: physicsWorld))
         
@@ -64,7 +63,6 @@ class PlayerEntity: BaseEntity {
         self.addComponent(AttackComponent(topLevelNode: node, attackerModel: model, colliderName: "swordCollider", damage: 80, stateMachine: stateMachine))
         
         setupStateMachine()
-        
     }
     
     override func update(deltaTime seconds: TimeInterval) {
@@ -76,8 +74,6 @@ class PlayerEntity: BaseEntity {
         
     }
 
-    
-    
     func setupStateMachine(){
         stateMachine.enter(IdleState.self)
     }

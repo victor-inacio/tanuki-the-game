@@ -8,7 +8,8 @@ class EnemyStateMachine: GKStateMachine {
         self.enemy = enemy
         
         super.init(states: [
-            HuntingState(entity: enemy)
+            HuntingState(entity: enemy),
+            EnemyAttackState(entity: enemy)
         ])
     }
     

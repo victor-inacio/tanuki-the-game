@@ -12,7 +12,6 @@ class IdleState: PlayerState{
     
     override func didEnter(from previousState: GKState?){
         playerModel.animationPlayer(forKey: "idle")?.play()
-      print("idle")
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool{

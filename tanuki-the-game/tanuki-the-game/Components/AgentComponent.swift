@@ -12,6 +12,7 @@ class AgentComponent: GKComponent {
     var maxForce: Float = 0.5
     let visionRadius: Float = 1.0
     let separationRadius: Float = 0.7
+    var active = true
     
     var queueAcceleration: simd_float3 = .zero
     
@@ -50,6 +51,10 @@ class AgentComponent: GKComponent {
     }
     
     override func update(deltaTime: TimeInterval) {
+        if (!active) {
+            return
+        }
+        
         acceleration = .zero
         
         velocity = .zero

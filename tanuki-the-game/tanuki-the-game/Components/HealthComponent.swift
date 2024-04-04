@@ -64,7 +64,7 @@ class HealthComponent: GKComponent {
         if receiveDamageCooldown == false{
             self.currentHealth -= damageAmount
         }
-//        print(self.currentHealth)
+        
         if currentHealth <= 0 {
             die()
         } else {
