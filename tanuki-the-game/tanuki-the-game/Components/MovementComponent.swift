@@ -42,7 +42,6 @@ class MovementComponent: GKComponent{
 
     var direction = simd_float2()
     var speedFactor = 2.0
-    var characterVelocity = simd_float3.zero
     
     let dynamicControl: Bool
     
@@ -95,7 +94,7 @@ class MovementComponent: GKComponent{
         
         frameCounter += 1
         
-        
+        var characterVelocity = simd_float3.zero
         let renderer = GameManager.sceneRenderer!
         
         let direction = characterDirection(withPointOfView:renderer.pointOfView) 
@@ -114,11 +113,10 @@ class MovementComponent: GKComponent{
             directionAngle = CGFloat(atan2f(direction.x, direction.z))
         }
         
-        downwardAcceleration = simd_float3(0, characterVelocity.y, 0)
-        
         downwardAcceleration = Physics.calculateGravityAcceleration(position: characterNode.simdWorldPosition, downwardAcceleration: downwardAcceleration)
         
-        characterVelocity.y =  downwardAcceleration.y
+        characterVelocity += downwardAcceleration
+        
         
         characterNode.simdWorldPosition = Physics.calculateSlidePos(position: characterNode.simdWorldPosition, velocity: characterVelocity, collisionShapeOffsetFromModel: collisionShapeOffsetFromModel, collisionShape: characterCollisionShape!)
     }

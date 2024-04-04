@@ -57,6 +57,8 @@ class AgentComponent: GKComponent {
         
         acceleration = .zero
         
+        velocity = .zero
+             
         acceleration += queueAcceleration
         velocity += acceleration
         
@@ -69,17 +71,10 @@ class AgentComponent: GKComponent {
    
         velocity *= Float(deltaTime)
         
-        downwardAcceleration = simd_float3(0, velocity.y, 0)
-        
-      
-        
         downwardAcceleration = Physics.calculateGravityAcceleration(position: position, downwardAcceleration: downwardAcceleration)
         
-   
-        
-        velocity.y = downwardAcceleration.y
- 
-        
+        velocity += downwardAcceleration
+            
         position = Physics.calculateSlidePos(position: position, velocity: velocity, collisionShapeOffsetFromModel: collisionShapeOffsetFromModel, collisionShape: characterCollisionShape!)
     }
     
