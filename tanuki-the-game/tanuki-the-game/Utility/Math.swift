@@ -24,7 +24,23 @@ extension simd_float3 {
         return .init(x: 0, y: 1, z: 0)
     }
     
+    
+    
     static let zero = simd_float3(0.0, 0.0, 0.0)
+    
+    static func angle(vector1: simd_float3, vector2: simd_float3) -> Float {
+        
+        let dot = simd_dot(vector1, vector2)
+        
+        let magnitudeA = simd_length(vector1)
+        let magnitudeB = simd_length(vector2)
+        
+        let angleCos = dot / (magnitudeA * magnitudeB)
+        
+        let angle = acos(angleCos)
+        
+        return angle
+    }
     
     func isZero() -> Bool {
         return x == 0.0 && y == 0.0 && z == 0.0

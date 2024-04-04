@@ -68,14 +68,7 @@ class PlayerEntity: BaseEntity {
         self.addComponent(AttackComponent(topLevelNode: node, attackerModel: model, colliderName: "swordCollider", damage: 80, stateMachine: stateMachine))
         
         
-        
         setupStateMachine()
-        
-        
-        
-        print(model.geometry?.shaderModifiers)
-        
-        
     }
     
     

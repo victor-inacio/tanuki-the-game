@@ -29,15 +29,30 @@ class EnemyAttackState: EnemyBaseState {
     
     override func update(deltaTime: TimeInterval) {
         timer += deltaTime
+    
         
         if (timer >= animationDuration * 0.7 && canAttack) {
             let player = GameManager.player!
             canAttack = false
-            player.healthComponent.receiveDamage(damageAmount: 20)
-            
-            
-            
+            timer = 0.0
+           
+            if (canReachAttack()) {
+                player.healthComponent.receiveDamage(damageAmount: 20)
+            }
         }
+    }
+    
+    private func canReachAttack() -> Bool {
+        
+        let offset = entity.agentComponent.position - entity.target.node.simdWorldPosition
+        let distRange = entity.agentComponent.separationRadius
+        let sqrDist = simd_length_squared(offset)
+        let isDistanceInRange = sqrDist < distRange * distRange
+        
+        let angle = simd_float3.angle(vector1: entity.node.simdWorldFront, vector2: entity.agentComponent.position - entity.target.node.simdWorldPosition)
+        let isAngleInRange = angle * 180 / Float.pi <= 15
+        
+        return isDistanceInRange && isAngleInRange
     }
     
    
