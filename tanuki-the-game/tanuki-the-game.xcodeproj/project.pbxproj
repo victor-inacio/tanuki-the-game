@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		9808F7BC2BBDF80D009D31AC /* EnemyAttackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9808F7BB2BBDF80D009D31AC /* EnemyAttackState.swift */; };
+		9808F7BF2BBF014B009D31AC /* damage.shader in Resources */ = {isa = PBXBuildFile; fileRef = 9808F7BE2BBF014B009D31AC /* damage.shader */; };
 		983F1ECC2BBA100900D66467 /* Physics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983F1ECB2BBA100900D66467 /* Physics.swift */; };
 		984F35822BBB311C00A54B09 /* tanuki_attack.scn in Resources */ = {isa = PBXBuildFile; fileRef = 984F35812BBB311C00A54B09 /* tanuki_attack.scn */; };
 		984F35862BBB35A100A54B09 /* karakasa_attack.dae in Resources */ = {isa = PBXBuildFile; fileRef = 984F35842BBB35A100A54B09 /* karakasa_attack.dae */; };
@@ -77,6 +78,7 @@
 
 /* Begin PBXFileReference section */
 		9808F7BB2BBDF80D009D31AC /* EnemyAttackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyAttackState.swift; sourceTree = "<group>"; };
+		9808F7BE2BBF014B009D31AC /* damage.shader */ = {isa = PBXFileReference; lastKnownFileType = text; path = damage.shader; sourceTree = "<group>"; };
 		983F1ECB2BBA100900D66467 /* Physics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Physics.swift; sourceTree = "<group>"; };
 		984F35812BBB311C00A54B09 /* tanuki_attack.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = tanuki_attack.scn; sourceTree = "<group>"; };
 		984F35842BBB35A100A54B09 /* karakasa_attack.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = karakasa_attack.dae; sourceTree = "<group>"; };
@@ -156,6 +158,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9808F7BD2BBF0139009D31AC /* Shaders */ = {
+			isa = PBXGroup;
+			children = (
+				9808F7BE2BBF014B009D31AC /* damage.shader */,
+			);
+			path = Shaders;
+			sourceTree = "<group>";
+		};
 		984F35832BBB359900A54B09 /* Karakasa */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,6 +220,7 @@
 		98E8D0E92BB4B6E600608087 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				9808F7BD2BBF0139009D31AC /* Shaders */,
 				984F35832BBB359900A54B09 /* Karakasa */,
 				98E8D0F62BB5B14800608087 /* Tanuki */,
 			);
@@ -435,6 +446,7 @@
 				984F358D2BBB35F500A54B09 /* Karakasa.scn in Resources */,
 				98F679F42B9B989E00A0EBEE /* Assets.xcassets in Resources */,
 				ABE190E52BBDA7DD003449EF /* knife_collider.scn in Resources */,
+				9808F7BF2BBF014B009D31AC /* damage.shader in Resources */,
 				98E8D0EF2BB4B83F00608087 /* tanuki.scn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

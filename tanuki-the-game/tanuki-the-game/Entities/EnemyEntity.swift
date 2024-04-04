@@ -45,10 +45,7 @@ class EnemyEntity: BaseEntity {
         ]))
         
         stateMachine.enter(HuntingState.self)
-
     }
-
-    
     
     override func update(deltaTime seconds: TimeInterval) {
         

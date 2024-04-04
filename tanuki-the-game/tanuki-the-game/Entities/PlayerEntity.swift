@@ -11,6 +11,11 @@ import GameplayKit
 class PlayerEntity: BaseEntity {
    
     var stateMachine: PlayerStateMachine!
+    var body: SCNNode {
+        
+        return model.childNode(withName: "BODY", recursively: true)!
+        
+    }
     
     public lazy var movementComponent: MovementComponent = {
         guard let component = component(ofType: MovementComponent.self) else {
@@ -62,8 +67,32 @@ class PlayerEntity: BaseEntity {
         
         self.addComponent(AttackComponent(topLevelNode: node, attackerModel: model, colliderName: "swordCollider", damage: 80, stateMachine: stateMachine))
         
+        
+        
         setupStateMachine()
+        
+        let shader = Bundle.main.url(forResource: "damage", withExtension: "shader")
+        
+        
+        if let shader = shader {
+            do {
+                let body = model.childNode(withName: "BODY", recursively: true)!
+                
+                body.geometry?.shaderModifiers = [
+                    .fragment: try String(contentsOf: shader, encoding: .utf8)
+                ]
+ 
+            } catch {
+
+            }
+        }
+        
+        print(model.geometry?.shaderModifiers)
+        
+        
     }
+    
+    
     
     override func update(deltaTime seconds: TimeInterval) {
         

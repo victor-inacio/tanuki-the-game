@@ -30,10 +30,20 @@ class EnemyAttackState: EnemyBaseState {
     override func update(deltaTime: TimeInterval) {
         timer += deltaTime
         
-        if (timer >= animationDuration * 0.5 && canAttack) {
+        if (timer >= animationDuration * 0.7 && canAttack) {
             let player = GameManager.player!
             canAttack = false
             player.healthComponent.receiveDamage(damageAmount: 20)
+            
+            player.body.geometry?.firstMaterial?.setValue(1, forKey: "isDamaging")
+            
+            player.body.runAction(SCNAction.sequence([
+                .wait(duration: 0.5),
+                .run({ node in
+                    node.geometry?.firstMaterial?.setValue(0, forKey: "isDamaging")
+                })
+            ]))
+            
         }
     }
     

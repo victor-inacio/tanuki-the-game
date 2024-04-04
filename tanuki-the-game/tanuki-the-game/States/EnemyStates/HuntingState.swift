@@ -24,7 +24,6 @@ class HuntingState: EnemyBaseState {
         var neighbours = 0
         var separationOffset: simd_float3 = .zero
         for enemy in GameManager.enemies {
-            
             if (enemy == entity) {
                 continue
             }
@@ -34,7 +33,6 @@ class HuntingState: EnemyBaseState {
             let offset = entity.agentComponent.position - otherAgent.position
             
             let sqrDist = simd_length_squared(offset)
-           
             
             if (sqrDist < visionRadius * visionRadius) {
                 neighbours += 1
@@ -42,18 +40,12 @@ class HuntingState: EnemyBaseState {
                 if (sqrDist < separationRadius * separationRadius) {
                     separationOffset += offset / sqrDist
                 }
-                
-                
             }
-            
-            
-            
         }
         
         if (neighbours != 0) {
             separationOffset /= Float(neighbours)
         }
-        
         
         
         if (!separationOffset.allZero()) {
