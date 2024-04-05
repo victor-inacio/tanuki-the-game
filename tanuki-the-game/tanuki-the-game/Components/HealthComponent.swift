@@ -15,10 +15,6 @@ class HealthComponent: GKComponent {
         self.currentHealth = health
         super.init()
         
-      
-        
-        
-        
         
         self.healthBarNode = createHeathBar()
         if let healthBarNode = self.healthBarNode {
@@ -44,18 +40,23 @@ class HealthComponent: GKComponent {
     }
     
     func createHeathBar() -> SCNNode {
-        let heathBarGeometry = SCNBox(width: 1, height: 0.15, length: 0, chamferRadius: 0)
-        let heathBarMaterial = SCNMaterial()
-        heathBarMaterial.diffuse.contents = UIColor.green
-        heathBarGeometry.materials = [heathBarMaterial]
+        let texture = SKTexture(imageNamed: "enemy1")
+
+        let boxGeometry = SCNBox(width: 1, height: 0.1, length: 0, chamferRadius: 0)
         
-        let heathBarNode = SCNNode(geometry: heathBarGeometry)
+        let material = SCNMaterial()
+        material.diffuse.contents = texture
+        
+        boxGeometry.materials = [material]
+        
+        let heathBarNode = SCNNode(geometry: boxGeometry)
+        
         let height = node.boundingBox.max.y - node.boundingBox.min.y
         heathBarNode.position.y = height + 0.4
         
-    
         return heathBarNode
     }
+
     
     private func updateHealthBar() {
         guard let healthBarNode = self.healthBarNode else {
@@ -67,17 +68,17 @@ class HealthComponent: GKComponent {
         var color: UIColor
         
         switch currentHealth {
-           case ..<(maxHealth * 0.25):
-               color = .red
-           case ..<(maxHealth * 0.5):
-               color = .yellow
-           default:
-               color = .green
-           }
-           
-           if let material = healthBarNode.geometry?.firstMaterial {
-               material.diffuse.contents = color
-           }
+        case ..<(maxHealth * 0.25):
+            color = .red
+        case ..<(maxHealth * 0.5):
+            color = .yellow
+        default:
+            color = .green
+        }
+        
+        if let material = healthBarNode.geometry?.firstMaterial {
+            material.diffuse.contents = color
+        }
     }
     
     public func receiveDamage(damageAmount: Float) {

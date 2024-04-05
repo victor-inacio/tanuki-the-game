@@ -53,27 +53,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         setupWaveStateMachine()
         setupSpawners()
         
-        // Create a red box geometry
-        let boxGeometry = SCNBox(width: 0.2, height: 0.2, length: 1.0, chamferRadius: 0.0)
-        let redMaterial = SCNMaterial()
-        redMaterial.diffuse.contents = UIColor.red
-        boxGeometry.materials = [redMaterial]
-        
-        // Create a node with the box geometry
-        let boxNode = SCNNode(geometry: boxGeometry)
-        boxNode.position = SCNVector3(0, 2, 6) // Place the box in front of the camera
-        
-        // Add physics body to the node
-        let boxPhysicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
-        boxPhysicsBody.categoryBitMask =  Bitmask.enemy.rawValue | Bitmask.character.rawValue
-        boxPhysicsBody.contactTestBitMask = Bitmask.character.rawValue
-
-        
-        boxNode.physicsBody = boxPhysicsBody
-        
-        // Add the node to the scene
-        rootNode.addChildNode(boxNode)
-
         
     }
     
