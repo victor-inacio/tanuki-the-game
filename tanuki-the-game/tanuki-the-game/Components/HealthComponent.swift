@@ -43,6 +43,7 @@ class HealthComponent: GKComponent {
         let texture = SKTexture(imageNamed: "enemy1")
 
         let boxGeometry = SCNBox(width: 1, height: 0.1, length: 0, chamferRadius: 0)
+
         
         let material = SCNMaterial()
         material.diffuse.contents = texture
@@ -62,23 +63,11 @@ class HealthComponent: GKComponent {
         guard let healthBarNode = self.healthBarNode else {
             return
         }
-        let scaleX = CGFloat(currentHealth / maxHealth)
-        healthBarNode.scale = SCNVector3(scaleX, 1, 1)
         
-        var color: UIColor
+        let currentFrame = 6 + 1 - currentHealth / maxHealth * 6
         
-        switch currentHealth {
-        case ..<(maxHealth * 0.25):
-            color = .red
-        case ..<(maxHealth * 0.5):
-            color = .yellow
-        default:
-            color = .green
-        }
         
-        if let material = healthBarNode.geometry?.firstMaterial {
-            material.diffuse.contents = color
-        }
+     
     }
     
     public func receiveDamage(damageAmount: Float) {
