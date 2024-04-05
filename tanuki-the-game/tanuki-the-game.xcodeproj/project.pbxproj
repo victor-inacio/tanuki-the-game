@@ -14,7 +14,6 @@
 		81A402A42BAB8355006AB0E8 /* RuneClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 81A402A32BAB8354006AB0E8 /* RuneClassifier.mlmodel */; };
 		81A402A72BB1EDD3006AB0E8 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A402A62BB1EDD3006AB0E8 /* MainMenuView.swift */; };
 		81A402A92BBB2EF0006AB0E8 /* DeathMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A402A82BBB2EF0006AB0E8 /* DeathMenuView.swift */; };
-		81A402AB2BBB3C7D006AB0E8 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A402AA2BBB3C7D006AB0E8 /* Coordinator.swift */; };
 		81A402AF2BBB4AD6006AB0E8 /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A402AE2BBB4AD6006AB0E8 /* CoordinatorView.swift */; };
 		81A402B42BBDF17B006AB0E8 /* DarumaDropOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81A402B32BBDF17B006AB0E8 /* DarumaDropOne-Regular.ttf */; };
 		986D6E382BA8B3D600AF42D6 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986D6E372BA8B3D600AF42D6 /* ButtonComponent.swift */; };
@@ -58,7 +57,6 @@
 		81A402A32BAB8354006AB0E8 /* RuneClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = RuneClassifier.mlmodel; sourceTree = "<group>"; };
 		81A402A62BB1EDD3006AB0E8 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		81A402A82BBB2EF0006AB0E8 /* DeathMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathMenuView.swift; sourceTree = "<group>"; };
-		81A402AA2BBB3C7D006AB0E8 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		81A402AE2BBB4AD6006AB0E8 /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
 		81A402B32BBDF17B006AB0E8 /* DarumaDropOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DarumaDropOne-Regular.ttf"; sourceTree = "<group>"; };
 		986D6E372BA8B3D600AF42D6 /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
@@ -129,7 +127,6 @@
 		81A402A52BB1EDA1006AB0E8 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
-				81A402AA2BBB3C7D006AB0E8 /* Coordinator.swift */,
 				81A402A62BB1EDD3006AB0E8 /* MainMenuView.swift */,
 				81A402A82BBB2EF0006AB0E8 /* DeathMenuView.swift */,
 				81A402AE2BBB4AD6006AB0E8 /* CoordinatorView.swift */,
@@ -330,7 +327,6 @@
 				98E0E3C62B9F47AA0034011F /* Overlay.swift in Sources */,
 				98E0E3C02B9E7C8F0034011F /* Joystick.swift in Sources */,
 				986D6E382BA8B3D600AF42D6 /* ButtonComponent.swift in Sources */,
-				81A402AB2BBB3C7D006AB0E8 /* Coordinator.swift in Sources */,
 				AB38C6422BAB602E006C279A /* GetAnimationsFromArt.swift in Sources */,
 				ABAFEA892BA22A8900BB5E9D /* PhysicsBodyComponent.swift in Sources */,
 				98DD7FD52BAE08CF00CB4FBB /* PlayerState.swift in Sources */,

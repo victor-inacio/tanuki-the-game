@@ -9,7 +9,6 @@ import SwiftUI
 
 struct DeathMenuView: View {
     
-//    @Environment(Coordinator.self) private var coordinator
     @Binding var currentView: CoordinatorViewType
     
     var body: some View {
@@ -23,8 +22,6 @@ struct DeathMenuView: View {
                         .bold()
                     
                     Button(action: {
-//                        coordinator.dismissFullScreenCover()
-//                        coordinator.popToRoot()
                         self.currentView = .mainMenuView
                         
                     }) {

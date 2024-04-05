@@ -9,7 +9,6 @@ import SwiftUI
 
 struct MainMenuView: View {
     
-//    @Environment(Coordinator.self) private var coordinator
     @Binding var currentView: CoordinatorViewType
     
     var body: some View {
@@ -22,11 +21,6 @@ struct MainMenuView: View {
                     .padding()
                 
                 Button(action: {
-                    //when testing game
-//                    coordinator.present(fullScreenCover: .game)
-                    
-                    //when testing drawing
-//                    coordinator.present(fullScreenCover: .drawing)
                     withAnimation(.easeInOut(duration: 0.7)) {
                         self.currentView = .game
                     }
