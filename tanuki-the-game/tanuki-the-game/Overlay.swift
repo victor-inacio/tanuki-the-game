@@ -14,8 +14,7 @@ class Overlay: SKScene {
         super.init(size: size)
         controllers = Controllers(frame: size)
         
-        controllers.position = .init(x: 0, y: 100)
-        
+    
         addChild(controllers)
     }
     

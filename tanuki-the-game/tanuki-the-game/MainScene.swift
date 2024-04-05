@@ -112,7 +112,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         self.waveStateMachine?.update(deltaTime: time)
         
         player.update(deltaTime: Time.deltaTime)
-//        enemy.update(deltaTime: Time.deltaTime)
     }
     
     func setupEnemy() {
@@ -150,11 +149,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     }
     
     
-    func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
-        
-        
-    }
-    
     func setupWaveStateMachine(){
         self.waveStateMachine = GKStateMachine(states: [
             WaveIdle(waveManager: waveManager),
@@ -162,7 +156,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
             WaveHoard2(waveManager: waveManager),
             WaveHoard3(waveManager: waveManager)
         ])
-        self.waveStateMachine?.enter(WaveHoard1.self)
+        self.waveStateMachine?.enter(WaveHoard3.self)
     }
     
     func setupSpawners(){

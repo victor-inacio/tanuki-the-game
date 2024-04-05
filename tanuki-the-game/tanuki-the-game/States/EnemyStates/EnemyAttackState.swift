@@ -45,10 +45,6 @@ class EnemyAttackState: EnemyBaseState {
                 player.healthComponent.receiveDamage(damageAmount: 20)
             }
         }
-        
-        if (timer >= animationDuration) {
-            
-        }
     }
     
     private func canReachAttack() -> Bool {
