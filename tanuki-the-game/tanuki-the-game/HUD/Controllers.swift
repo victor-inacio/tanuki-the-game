@@ -3,8 +3,9 @@ import SpriteKit
 class Controllers: SKNode
 {
     let joystick = Joystick()
-    let buttonA = Button(label: "A")
-    let initialJoystickPosition = CGPoint(x: 120, y: 0)
+    let buttonA = Button(texture: .init(imageNamed: "attack_button"))
+    let buttonB = Button(texture: .init(imageNamed: "transform_button"))
+    var initialJoystickPosition = CGPoint(x: 120, y: 0)
     
     weak var delegate: (ButtonDelegate)? {
         didSet {
@@ -12,16 +13,29 @@ class Controllers: SKNode
         }
     }
     
-    
-    
     init(frame: CGSize) {
         super.init()
         
-        joystick.position = initialJoystickPosition
-        addChild(joystick)
+        let padding = UIEdgeInsets(top: 70, left: 15, bottom: 40, right: 50)
+        let controllersContainers = SKShapeNode(rect: .init(origin: .init(x: padding.left, y: padding.bottom), size: .init(width: frame.width - padding.right, height: frame.height - padding.top)))
+            
+        controllersContainers.alpha = 0.0
+ 
         
-        buttonA.position = .init(x: frame.width - 120, y: 0)
+        addChild(controllersContainers)
+        addChild(joystick)
         addChild(buttonA)
+        addChild(buttonB)
+        
+        let controllersRect = controllersContainers.calculateAccumulatedFrame()
+        
+        initialJoystickPosition = .init(x: controllersRect.origin.x + joystick.calculateAccumulatedFrame().width / 2, y: controllersRect.origin.y + joystick.calculateAccumulatedFrame().height / 2)
+        joystick.position = initialJoystickPosition
+       
+
+        buttonA.position = .init(x: controllersRect.origin.x + controllersRect.width - buttonA.calculateAccumulatedFrame().height - buttonA.calculateAccumulatedFrame().height / 2, y: controllersRect.origin.y + buttonA.calculateAccumulatedFrame().height / 2)
+        
+        buttonB.position = .init(x: controllersRect.origin.x + controllersRect.width - buttonB.calculateAccumulatedFrame().height / 2, y: controllersRect.origin.y + buttonB.calculateAccumulatedFrame().height + buttonB.calculateAccumulatedFrame().height / 2)
         
         hideJoystick(after: 3.0)
     }

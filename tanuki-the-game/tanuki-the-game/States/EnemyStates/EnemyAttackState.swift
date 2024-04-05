@@ -12,14 +12,20 @@ class EnemyAttackState: EnemyBaseState {
         entity.agentComponent.active = false
         entity.model.animationPlayer(forKey: "attack")?.animation.repeatCount = 1
         entity.model.animationPlayer(forKey: "attack")?.play()
-  
+        entity.model.animationPlayer(forKey: "attack")?.paused = false
         let duration = entity.model.animationPlayer(forKey: "attack")?.animation.duration
  
         animationDuration = duration!
         
-        entity.model.animationPlayer(forKey: "attack")?.animation.animationDidStop = { animation, animatable, bool in
-            self.stateMachine?.enter(HuntingState.self)
-        }
+        
+        
+        entity.node.runAction(.sequence([
+            .wait(duration: animationDuration),
+            .run({ node in
+                self.stateMachine?.enter(HuntingState.self)
+            })
+        ]))
+    
 
     }
     
@@ -30,7 +36,6 @@ class EnemyAttackState: EnemyBaseState {
     override func update(deltaTime: TimeInterval) {
         timer += deltaTime
     
-        
         if (timer >= animationDuration * 0.7 && canAttack) {
             let player = GameManager.player!
             canAttack = false
@@ -45,12 +50,12 @@ class EnemyAttackState: EnemyBaseState {
     private func canReachAttack() -> Bool {
         
         let offset = entity.agentComponent.position - entity.target.node.simdWorldPosition
-        let distRange = entity.agentComponent.separationRadius
+        let distRange = entity.agentComponent.visionRadius
         let sqrDist = simd_length_squared(offset)
-        let isDistanceInRange = sqrDist < distRange * distRange
+        let isDistanceInRange = sqrDist <= distRange * distRange
         
         let angle = simd_float3.angle(vector1: entity.node.simdWorldFront, vector2: entity.agentComponent.position - entity.target.node.simdWorldPosition)
-        let isAngleInRange = angle * 180 / Float.pi <= 15
+        let isAngleInRange = angle * 180 / Float.pi <= 30
         
         return isDistanceInRange && isAngleInRange
     }
