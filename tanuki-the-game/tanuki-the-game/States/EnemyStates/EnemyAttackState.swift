@@ -54,12 +54,12 @@ class EnemyAttackState: EnemyBaseState {
     private func canReachAttack() -> Bool {
         
         let offset = entity.agentComponent.position - entity.target.node.simdWorldPosition
-        let distRange = entity.agentComponent.separationRadius
+        let distRange = entity.agentComponent.visionRadius
         let sqrDist = simd_length_squared(offset)
-        let isDistanceInRange = sqrDist < distRange * distRange
+        let isDistanceInRange = sqrDist <= distRange * distRange
         
         let angle = simd_float3.angle(vector1: entity.node.simdWorldFront, vector2: entity.agentComponent.position - entity.target.node.simdWorldPosition)
-        let isAngleInRange = angle * 180 / Float.pi <= 15
+        let isAngleInRange = angle * 180 / Float.pi <= 30
         
         return isDistanceInRange && isAngleInRange
     }
