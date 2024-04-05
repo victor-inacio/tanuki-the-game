@@ -25,12 +25,16 @@ struct CoordinatorView: View {
         switch currentView {
         case .mainMenuView:
             MainMenuView(currentView: $currentView)
+                .ignoresSafeArea()
         case .deathMenuView:
             DeathMenuView(currentView: $currentView)
+                .ignoresSafeArea()
         case .drawingView:
             DrawingView(currentView: $currentView, viewModel: DrawingViewModel(), presentationViewModel: PresentationViewModel())
+                .ignoresSafeArea()
         case .game :
             GameViewControllerWrapper()
+                .ignoresSafeArea()
         }
     }
 }

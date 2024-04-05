@@ -22,7 +22,9 @@ struct DeathMenuView: View {
                         .bold()
                     
                     Button(action: {
-                        self.currentView = .mainMenuView
+                        withAnimation(.easeOut(duration: 0.7)) {
+                            self.currentView = .mainMenuView
+                        }
                         
                     }) {
                             Text("Back to Menu")

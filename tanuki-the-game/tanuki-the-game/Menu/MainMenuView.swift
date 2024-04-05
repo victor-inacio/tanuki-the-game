@@ -15,8 +15,8 @@ struct MainMenuView: View {
         NavigationView {
             VStack {
                 Button(action: {
-                    withAnimation(.easeInOut(duration: 0.7)) {
-                        self.currentView = .deathMenuView
+                    withAnimation(.easeOut(duration: 0.7)) {
+                        self.currentView = .game
                     }
                 }) {
                     VStack{
@@ -25,7 +25,7 @@ struct MainMenuView: View {
                         Spacer()
                         Text("tap to play")
                             .foregroundStyle(.white)
-                            .font(.custom("DarumaDropOne-Regular", size: 35))
+                            .font(.custom("DarumaDropOne-Regular", size: 40))
                             .bold()
                         Spacer()
                     }
