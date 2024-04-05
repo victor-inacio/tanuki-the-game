@@ -14,36 +14,27 @@ struct MainMenuView: View {
     var body: some View {
         NavigationView {
             VStack {
-                Text("Sakemori")
-                    .font(.custom("DarumaDropOne-Regular", size: 100))
-                    .foregroundStyle(.brown)
-                    .bold()
-                    .padding()
-                
                 Button(action: {
                     withAnimation(.easeInOut(duration: 0.7)) {
                         self.currentView = .deathMenuView
                     }
-                    
                 }) {
-                    ZStack{
-                        RoundedRectangle(cornerRadius: 20)
+                    VStack{
+                        Spacer()
+                        Image(.appLogo)
+                        Spacer()
+                        Text("tap to play")
                             .foregroundStyle(.white)
-                            .frame(width: 130, height: 60)
-                        RoundedRectangle(cornerRadius: 17)
-                            .foregroundStyle(.brown)
-                            .frame(width: 120, height: 50)
-                        Text("Start")
-                            .foregroundStyle(.white)
-                            .font(.custom("DarumaDropOne-Regular", size: 25))
+                            .font(.custom("DarumaDropOne-Regular", size: 35))
                             .bold()
+                        Spacer()
                     }
                 }
                 .padding()
             }
             .ignoresSafeArea()
             .containerRelativeFrame([.horizontal, .vertical])
-            .background(.white)
+            .background(Color(hex: "457847"))
 //            .background(Gradient(colors: [.white, .white, .green]).opacity(1))
             //just trying to simulate having an image in the background
         }

@@ -17,7 +17,7 @@ struct DeathMenuView: View {
             .overlay(
                 VStack{
                     Text("GAME OVER")
-                        .font(.custom("DarumaDropOne-Regular", size: 50))
+                        .font(.custom("DarumaDropOne-Regular", size: 70))
                         .foregroundStyle(.white)
                         .bold()
                     
@@ -25,18 +25,10 @@ struct DeathMenuView: View {
                         self.currentView = .mainMenuView
                         
                     }) {
-                        ZStack{
-                            RoundedRectangle(cornerRadius: 20)
-                                .foregroundStyle(.white)
-                                .frame(width: 190, height: 60)
-                            RoundedRectangle(cornerRadius: 17)
-                                .foregroundStyle(.black)
-                                .frame(width: 180, height: 50)
                             Text("Back to Menu")
                                 .foregroundStyle(.white)
                                 .font(.custom("DarumaDropOne-Regular", size: 25))
                                 .bold()
-                        }
                     }
                     .padding()
                 }
