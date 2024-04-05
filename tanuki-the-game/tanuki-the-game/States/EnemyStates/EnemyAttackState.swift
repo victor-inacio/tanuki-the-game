@@ -12,14 +12,20 @@ class EnemyAttackState: EnemyBaseState {
         entity.agentComponent.active = false
         entity.model.animationPlayer(forKey: "attack")?.animation.repeatCount = 1
         entity.model.animationPlayer(forKey: "attack")?.play()
-  
+        entity.model.animationPlayer(forKey: "attack")?.paused = false
         let duration = entity.model.animationPlayer(forKey: "attack")?.animation.duration
  
         animationDuration = duration!
         
-        entity.model.animationPlayer(forKey: "attack")?.animation.animationDidStop = { animation, animatable, bool in
-            self.stateMachine?.enter(HuntingState.self)
-        }
+        
+        
+        entity.node.runAction(.sequence([
+            .wait(duration: animationDuration),
+            .run({ node in
+                self.stateMachine?.enter(HuntingState.self)
+            })
+        ]))
+    
 
     }
     
@@ -30,7 +36,6 @@ class EnemyAttackState: EnemyBaseState {
     override func update(deltaTime: TimeInterval) {
         timer += deltaTime
     
-        
         if (timer >= animationDuration * 0.7 && canAttack) {
             let player = GameManager.player!
             canAttack = false
@@ -39,6 +44,10 @@ class EnemyAttackState: EnemyBaseState {
             if (canReachAttack()) {
                 player.healthComponent.receiveDamage(damageAmount: 20)
             }
+        }
+        
+        if (timer >= animationDuration) {
+            
         }
     }
     

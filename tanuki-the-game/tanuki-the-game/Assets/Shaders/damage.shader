@@ -1,6 +1,5 @@
 uniform int isDamaging;
 
-
 vec3 output = vec3(1.0, 1.0, 1.0);
 
 
