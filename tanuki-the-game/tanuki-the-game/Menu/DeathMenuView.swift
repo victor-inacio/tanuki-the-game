@@ -17,7 +17,7 @@ struct DeathMenuView: View {
             .overlay(
                 VStack{
                     Text("GAME OVER")
-                        .font(.system(size: 40))
+                        .font(.custom("DarumaDropOne-Regular", size: 50))
                         .foregroundStyle(.white)
                         .bold()
                     
@@ -34,7 +34,7 @@ struct DeathMenuView: View {
                                 .frame(width: 180, height: 50)
                             Text("Back to Menu")
                                 .foregroundStyle(.white)
-                                .font(.system(size:25))
+                                .font(.custom("DarumaDropOne-Regular", size: 25))
                                 .bold()
                         }
                     }

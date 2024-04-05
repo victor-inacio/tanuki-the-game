@@ -15,14 +15,14 @@ struct MainMenuView: View {
         NavigationView {
             VStack {
                 Text("Sakemori")
-                    .font(.system(size: 60))
+                    .font(.custom("DarumaDropOne-Regular", size: 100))
                     .foregroundStyle(.brown)
                     .bold()
                     .padding()
                 
                 Button(action: {
                     withAnimation(.easeInOut(duration: 0.7)) {
-                        self.currentView = .game
+                        self.currentView = .deathMenuView
                     }
                     
                 }) {
@@ -35,7 +35,7 @@ struct MainMenuView: View {
                             .frame(width: 120, height: 50)
                         Text("Start")
                             .foregroundStyle(.white)
-                            .font(.system(size:25))
+                            .font(.custom("DarumaDropOne-Regular", size: 25))
                             .bold()
                     }
                 }

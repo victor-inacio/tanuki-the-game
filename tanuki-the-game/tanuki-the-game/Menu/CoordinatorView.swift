@@ -16,9 +16,7 @@ struct CoordinatorView: View {
     
     var body: some View {
         VStack {
-            Spacer()
             displayView()
-            Spacer()
         }
     }
     

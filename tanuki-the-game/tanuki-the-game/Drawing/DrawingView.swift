@@ -12,7 +12,6 @@ import UIKit
 
 struct DrawingView: View {
     
-//    @Environment(Coordinator.self) private var coordinator
     @Binding var currentView: CoordinatorViewType
     
     @ObservedObject var viewModel: DrawingViewModel
@@ -57,7 +56,6 @@ struct DrawingView: View {
                         Button(action: {
                             print("Dismissing view...")
 //                            presentationViewModel.isPresented = false // Dismiss the view using the presentationViewModel
-//                            coordinator.dismissFullScreenCover()
                             withAnimation(.easeInOut(duration: 1)) {
                                 self.currentView = .game
                             }
