@@ -9,28 +9,16 @@ protocol ButtonDelegate: AnyObject {
 
 class Button: SKNode {
     
-    
-    var labelNode: SKLabelNode!
     weak var delegate: ButtonDelegate?
     
-    init(label: String) {
+    init(texture: SKTexture) {
         super.init()
-        let backgroundSize: CGSize = .init(width: 50, height: 50)
         isUserInteractionEnabled = true
-        let labelNode = SKLabelNode(text: label)
-        labelNode.text = label
-        labelNode.position = .init(x: 0, y:  0)
         
-        labelNode.fontColor = .black
-        self.labelNode = labelNode
-        
-    
-        let background = SKShapeNode(ellipseIn: .init(x: -backgroundSize.width / 2, y: -backgroundSize.height / 3, width: backgroundSize.width, height: backgroundSize.height))
-        background.fillColor = .white
-        
-        addChild(background)
-        addChild(labelNode)
-   
+        let sprite = SKSpriteNode(texture: texture)
+        sprite.size = .init(width: 64, height: 64)
+        addChild(sprite)
+
     }
     
     public func onButtonDown() {    
