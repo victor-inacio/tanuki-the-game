@@ -9,7 +9,8 @@ import SwiftUI
 
 struct DeathMenuView: View {
     
-    @Environment(Coordinator.self) private var coordinator
+//    @Environment(Coordinator.self) private var coordinator
+    @Binding var currentView: CoordinatorViewType
     
     var body: some View {
         Color.black
@@ -22,8 +23,10 @@ struct DeathMenuView: View {
                         .bold()
                     
                     Button(action: {
-                        coordinator.dismissFullScreenCover()
-                        coordinator.popToRoot()
+//                        coordinator.dismissFullScreenCover()
+//                        coordinator.popToRoot()
+                        self.currentView = .mainMenuView
+                        
                     }) {
                         ZStack{
                             RoundedRectangle(cornerRadius: 20)
@@ -44,6 +47,6 @@ struct DeathMenuView: View {
     }
 }
 
-#Preview {
-    DeathMenuView().environment(Coordinator())
-}
+//#Preview {
+//    DeathMenuView().environment(Coordinator())
+//}

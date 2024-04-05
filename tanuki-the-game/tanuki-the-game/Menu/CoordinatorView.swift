@@ -7,24 +7,34 @@
 
 import SwiftUI
 
-struct CoordinatorView: View {
-  @State private var coordinator = Coordinator()
+enum CoordinatorViewType {
+    case mainMenuView, game, deathMenuView, drawingView
+}
 
-  var body: some View {
-    NavigationStack(path: $coordinator.path) {
-      coordinator.build(page: .mainMenu)
-        .navigationDestination(for: Page.self) { page in
-          coordinator.build(page: page)
-                .transition(.opacity.animation(.easeIn)) // Or other transition types like .move, .opacity, etc.
-            //WHY ISN'T THE ANIMATION WORKING OH MY GOOOOOOOOOOOOODDDD
-        }
-        .fullScreenCover(item: $coordinator.fullScreenCover) {
-          fullScreenCover in
-            coordinator.build(fullScreenCover: fullScreenCover)
+struct CoordinatorView: View {
+    @State private var currentView: CoordinatorViewType = .mainMenuView
+    
+    var body: some View {
+        VStack {
+            Spacer()
+            displayView()
+            Spacer()
         }
     }
-    .environment(coordinator)
-  }
+    
+    @ViewBuilder
+    func displayView() -> some View {
+        switch currentView {
+        case .mainMenuView:
+            MainMenuView(currentView: $currentView)
+        case .deathMenuView:
+            DeathMenuView(currentView: $currentView)
+        case .drawingView:
+            DrawingView(currentView: $currentView, viewModel: DrawingViewModel(), presentationViewModel: PresentationViewModel())
+        case .game :
+            GameViewControllerWrapper()
+        }
+    }
 }
 
 #Preview {

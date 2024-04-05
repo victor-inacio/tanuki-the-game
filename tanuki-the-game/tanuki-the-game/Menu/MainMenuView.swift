@@ -9,7 +9,8 @@ import SwiftUI
 
 struct MainMenuView: View {
     
-    @Environment(Coordinator.self) private var coordinator
+//    @Environment(Coordinator.self) private var coordinator
+    @Binding var currentView: CoordinatorViewType
     
     var body: some View {
         NavigationView {
@@ -22,10 +23,13 @@ struct MainMenuView: View {
                 
                 Button(action: {
                     //when testing game
-                    coordinator.present(fullScreenCover: .drawing)
+//                    coordinator.present(fullScreenCover: .game)
                     
                     //when testing drawing
 //                    coordinator.present(fullScreenCover: .drawing)
+                    withAnimation(.easeInOut(duration: 0.7)) {
+                        self.currentView = .game
+                    }
                     
                 }) {
                     ZStack{
@@ -52,6 +56,6 @@ struct MainMenuView: View {
     }
 }
 
-#Preview {
-    MainMenuView().environment(Coordinator())
-}
+//#Preview {
+//    MainMenuView(currentView:).environment(Coordinator())
+//}

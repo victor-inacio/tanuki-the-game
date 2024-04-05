@@ -37,15 +37,15 @@ class GameViewController: UIViewController {
 //        presentPopup()
     }
     
-    func presentPopup() {
-        let viewModel = DrawingViewModel() // Create view model instance
-        let contentView = DrawingView(viewModel: viewModel, presentationViewModel: presentationViewModel) // Pass the presentationViewModel
-        
-        // Present the ContentView as a popup
-        let popupViewController = UIHostingController(rootView: contentView)
-        popupViewController.modalPresentationStyle = .overFullScreen // Ensure transparent background
-        present(popupViewController, animated: true, completion: nil)
-    }
+//    func presentPopup() {
+//        let viewModel = DrawingViewModel() // Create view model instance
+//        let contentView = DrawingView(currentView: , viewModel: viewModel, presentationViewModel: presentationViewModel) // Pass the presentationViewModel
+//        
+//        // Present the ContentView as a popup
+//        let popupViewController = UIHostingController(rootView: contentView)
+//        popupViewController.modalPresentationStyle = .overFullScreen // Ensure transparent background
+//        present(popupViewController, animated: true, completion: nil)
+//    }
 }
 
 class PopupViewController: UIHostingController<DrawingView> {

@@ -8,7 +8,7 @@ protocol ButtonDelegate: AnyObject {
 }
 
 class ButtonComponent: SKNode {
-    
+
     
     var labelNode: SKLabelNode!
     weak var delegate: ButtonDelegate?
