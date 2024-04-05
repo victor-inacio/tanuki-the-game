@@ -3,8 +3,8 @@ import SpriteKit
 class Controllers: SKNode
 {
     let joystick = Joystick()
-    let buttonA = Button(label: "A")
-    let buttonB = Button(label: "B")
+    let buttonA = Button(texture: .init(imageNamed: "attack_button"))
+    let buttonB = Button(texture: .init(imageNamed: "transform_button"))
     var initialJoystickPosition = CGPoint(x: 120, y: 0)
     
     weak var delegate: (ButtonDelegate)? {
@@ -18,7 +18,8 @@ class Controllers: SKNode
         
         let padding = UIEdgeInsets(top: 70, left: 15, bottom: 40, right: 50)
         let controllersContainers = SKShapeNode(rect: .init(origin: .init(x: padding.left, y: padding.bottom), size: .init(width: frame.width - padding.right, height: frame.height - padding.top)))
-
+            
+        controllersContainers.alpha = 0.0
  
         
         addChild(controllersContainers)
