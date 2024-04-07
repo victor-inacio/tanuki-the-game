@@ -126,9 +126,10 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     
     func setupScenario(){
         
-        let collisionsScene = SCNScene( named: "Art.scnassets/collision.scn" )
+        let collisionsScene = SCNScene( named: "Map.scn" )
         collisionsScene!.rootNode.enumerateChildNodes { (_ child: SCNNode, _ _: UnsafeMutablePointer<ObjCBool>) in
             child.opacity = 1
+            child.position = SCNVector3(30, -1, 0)
             self.rootNode.addChildNode(child)
         }
     }
