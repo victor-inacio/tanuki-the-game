@@ -60,7 +60,7 @@ class MovementComponent: GKComponent{
         let collider = model.childNode(withName: "collider", recursively: true)!
         collider.physicsBody?.categoryBitMask = Bitmask.character.rawValue
         collider.physicsBody?.contactTestBitMask = 0
-        collider.physicsBody?.collisionBitMask = Bitmask.character.rawValue
+        collider.physicsBody?.collisionBitMask = Bitmask.enemy.rawValue
         
         
         
@@ -99,15 +99,8 @@ class MovementComponent: GKComponent{
         
         var characterVelocity = simd_float3.zero
         
-        
-        let direction = characterDirection(withPointOfView:renderer.pointOfView)
-        
-        if previousUpdateTime == 0.0 {
-            previousUpdateTime = time
-        }
-        
-        let deltaTime = time - previousUpdateTime
-        let characterSpeed = CGFloat(deltaTime) * 2 * walkSpeed
+        let direction = characterDirection(withPointOfView:renderer.pointOfView) 
+        let characterSpeed = CGFloat(deltaTime) * walkSpeed
         
         previousUpdateTime = time
         
@@ -248,7 +241,9 @@ class MovementComponent: GKComponent{
         
         // We now project the destination point onto the sliding plane.
         let distPlane = simd_dot(slidePlaneOrigin, slidePlaneNormal)
-        
+//        print("Slide Plane Origin:", slidePlaneOrigin)
+//        
+//        print("Slide Plane Normal:", slidePlaneNormal)
         // Project on plane.
         var t = planeIntersect(planeNormal: slidePlaneNormal, planeDist: distPlane,
                                rayOrigin: destinationPoint, rayDirection: slidePlaneNormal)

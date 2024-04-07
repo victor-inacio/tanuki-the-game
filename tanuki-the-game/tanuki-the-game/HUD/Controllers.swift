@@ -3,8 +3,13 @@ import SpriteKit
 class Controllers: SKNode
 {
     let joystick = Joystick()
-    let buttonA = ButtonComponent(label: "A")
-    let initialJoystickPosition = CGPoint(x: 120, y: 0)
+    let buttonA = Button(texture: .init(imageNamed: "attack_button"))
+    let buttonB = Button(texture: .init(imageNamed: "transform_button"))
+    var healthBar: HealthBar!
+    var initialJoystickPosition = CGPoint(x: 120, y: 0)
+    var parentFrame: CGSize!
+    
+    public var controllersContainers: ControllersPadding!
     
     weak var delegate: (ButtonDelegate)? {
         didSet {
@@ -12,20 +17,37 @@ class Controllers: SKNode
         }
     }
     
-    
-    
     init(frame: CGSize) {
         super.init()
         
-        joystick.position = initialJoystickPosition
-        addChild(joystick)
+        parentFrame = frame
         
-        buttonA.position = .init(x: frame.width - 120, y: 0)
+        addChild(joystick)
         addChild(buttonA)
         
+        addChild(buttonB)
+    
         hideJoystick(after: 3.0)
     }
     
+    public func setup() {
+        
+        controllersContainers = .init(parentFrame: parentFrame)
+        
+        healthBar = .init(currentHealth: 500, maxHealth: 1000)
+        let controllersRect = controllersContainers.calculateAccumulatedFrame()
+        
+        initialJoystickPosition = .init(x: controllersRect.origin.x + joystick.calculateAccumulatedFrame().width / 2, y: controllersRect.origin.y + joystick.calculateAccumulatedFrame().height / 2)
+        joystick.position = initialJoystickPosition
+        
+        
+        buttonA.position = .init(x: controllersRect.origin.x + controllersRect.width - buttonA.calculateAccumulatedFrame().height - buttonA.calculateAccumulatedFrame().height / 2, y: controllersRect.origin.y + buttonA.calculateAccumulatedFrame().height / 2)
+        
+        buttonB.position = .init(x: controllersRect.origin.x + controllersRect.width - buttonB.calculateAccumulatedFrame().height / 2, y: controllersRect.origin.y + buttonB.calculateAccumulatedFrame().height + buttonB.calculateAccumulatedFrame().height / 2)
+        
+        addChild(healthBar)
+        addChild(controllersContainers)
+    }
    
     
     required init?(coder aDecoder: NSCoder) {

@@ -22,6 +22,14 @@ class AnimationComponent: GKComponent {
         for animation in animations {
             let animationPlayer = loadAnimation(fromSceneNamed: animation.fromSceneNamed)
             
+            
+            animationPlayer.animation.isRemovedOnCompletion = false
+            
+
+            
+            
+          
+            
             nodeToAddAnimation.addAnimationPlayer(animationPlayer, forKey: animation.animationKey)
             
             animationPlayer.stop()

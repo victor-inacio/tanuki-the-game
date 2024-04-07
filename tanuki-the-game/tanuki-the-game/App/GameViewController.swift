@@ -27,6 +27,8 @@ class GameViewController: UIViewController {
         scnView.debugOptions = [.showPhysicsShapes]
         scnView.showsStatistics = true
         scnView.rendersContinuously = true
+        scnView.autoenablesDefaultLighting = true
+
         scene.background.contents = UIColor.black
         
         view.addSubview(scnView)

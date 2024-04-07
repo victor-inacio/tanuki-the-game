@@ -11,8 +11,11 @@ import GameplayKit
 class PlayerEntity: BaseEntity{
    
     var stateMachine: PlayerStateMachine!
-    let playerNode: SCNNode
-    let playerRotation: SCNNode
+    var body: SCNNode {
+        
+        return model.childNode(withName: "BODY", recursively: true)!
+        
+    }
     
     public lazy var movementComponent: MovementComponent = {
         guard let component = component(ofType: MovementComponent.self) else {
@@ -44,40 +47,39 @@ class PlayerEntity: BaseEntity{
     }
     
     init(physicsWorld: SCNPhysicsWorld){
-        self.playerNode = SCNNode()
-        self.playerRotation = SCNNode()
-        
         super.init()
+    
         self.stateMachine = PlayerStateMachine(player: self)
         
         self.addComponent(VisualComponent(modelFile:  "Art.scnassets/character/max.scn", nameOfChild: "Max_rootNode"))
         
-        setupPlayerHierarchy()
+        addComponent(HealthComponent(health: 1000, node: node))
   
-        self.addComponent(MovementComponent(topLevelNode: playerNode, rotationNode: playerRotation, modelNode: model, physicsWorld: physicsWorld))
+        self.addComponent(MovementComponent(topLevelNode: node, rotationNode: rotationNode, modelNode: model, physicsWorld: physicsWorld))
         
         self.addComponent(AnimationComponent(nodeToAddAnimation: model, animations: [
-            .init(fromSceneNamed: "Art.scnassets/character/max_idle.scn", animationKey: "idle"),
-            .init(fromSceneNamed: "Art.scnassets/character/max_walk.scn", animationKey: "walk")
+            .init(fromSceneNamed: "tanuki_idle.scn", animationKey: "idle"),
+            .init(fromSceneNamed: "tanuki_attack.scn", animationKey: "attack"),
+            .init(fromSceneNamed: "tanuki_walk.scn", animationKey: "walk")
         ]))
         
-        self.addComponent(AttackComponent(attackerModel: model, ColliderName: "swordCollider"))
+        self.addComponent(AttackComponent(topLevelNode: node, attackerModel: model, colliderName: "swordCollider", damage: 80, stateMachine: stateMachine))
+        
+        
         setupStateMachine()
     }
+    
+    
     
     override func update(deltaTime seconds: TimeInterval) {
         
         characterDirection = Input.movement
         
         stateMachine.update(deltaTime: seconds)
+        movementComponent.update(deltaTime: seconds)
+        
     }
-    
-    func setupPlayerHierarchy(){
-        playerNode.addChildNode(playerRotation)
-        playerRotation.addChildNode(model)
-    }
-    
-    
+
     func setupStateMachine(){
         stateMachine.enter(IdleState.self)
     }

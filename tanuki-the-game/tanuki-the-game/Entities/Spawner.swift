@@ -26,6 +26,36 @@ class Spawner {
                 
         currentTime += deltaTime
         
+        super.init()
+        
+
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    func spawnEnemy(){
+        if !waveManager.canSpawn || waveManager.enemiesSpawned == waveManager.toBeSpawned  { return }
+        
+      
+        let enemy = EnemyEntity()
+        enemy.node.position = spawnPoint.position
+        enemy.node.position.z = Float.random(in: 7...9)
+        enemy.agentComponent.position = enemy.node.simdWorldPosition
+        scene.rootNode.addChildNode(enemy.node)
+        enemy.node.entity = enemy
+        waveManager.enemiesSpawned += 1
+        
+        GameManager.addEntity(entity: enemy)
+    }
+
+    func setNewDelay() {
+        currentDelay = 2
+    }
+    
+     func update() {
+         currentTime += Time.deltaTime
         if (currentTime >= currentDelay) {
             spawnAtRandom()
             
