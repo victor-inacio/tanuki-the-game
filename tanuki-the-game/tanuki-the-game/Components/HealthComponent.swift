@@ -67,6 +67,7 @@ class HealthComponent: GKComponent {
         let currentFrame = 6 + 1 - currentHealth / maxHealth * 6
         
         
+       
      
     }
     

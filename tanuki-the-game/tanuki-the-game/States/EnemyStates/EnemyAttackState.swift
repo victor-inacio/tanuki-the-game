@@ -17,8 +17,6 @@ class EnemyAttackState: EnemyBaseState {
  
         animationDuration = duration!
         
-        
-        
         entity.node.runAction(.sequence([
             .wait(duration: animationDuration),
             .run({ node in

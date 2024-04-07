@@ -22,7 +22,7 @@ class GameManager {
     
     static var camera: Camera?
     
-    static var scene: SCNScene!
+    static var scene: MainScene!
     static var sceneRenderer: SCNSceneRenderer!
     
     static func addEntity(entity: GKEntity) {
