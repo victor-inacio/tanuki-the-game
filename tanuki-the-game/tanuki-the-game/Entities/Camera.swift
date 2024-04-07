@@ -17,8 +17,6 @@ class Camera: GKEntity {
         
         self.node = cameraNode
         self.camera = camera
-        
-        camera.fieldOfView = 70
     }
     
     public func followTarget(target: simd_float3, offset: simd_float3) {

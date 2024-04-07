@@ -12,19 +12,14 @@ class AttackComponent: GKComponent {
     
     var swordCollider: SCNNode
     
-    init(topLevelNode: SCNNode,attackerModel: SCNNode, colliderName: String, damage: Float, stateMachine: GKStateMachine){
+    init(attackerModel: SCNNode, ColliderName: String){
+
+        swordCollider = attackerModel.childNode(withName: ColliderName, recursively: true)!
+        swordCollider.physicsBody?.categoryBitMask = Bitmask.playerWeapon.rawValue
+        swordCollider.physicsBody?.contactTestBitMask = Bitmask.enemy.rawValue
+        swordCollider.physicsBody?.collisionBitMask = Bitmask.none.rawValue
+      
         
-        weaponCollider = attackerModel.childNode(withName: colliderName, recursively: true)!
-        weaponCollider.physicsBody?.categoryBitMask = Bitmask.playerWeapon.rawValue
-        weaponCollider.physicsBody?.contactTestBitMask = Bitmask.enemy.rawValue
-        weaponCollider.physicsBody?.collisionBitMask = Bitmask.none.rawValue
-        
-        
-        self.attackerModel = attackerModel
-        self.damage = damage
-        self.attacker = topLevelNode
-        self.stateMachine = stateMachine
-   
         super.init()
     }
     
@@ -32,14 +27,9 @@ class AttackComponent: GKComponent {
       
         
     }
-   
-    public func handleAttackContact(target: SCNNode) {
     
-        if let entity = target.entity as? EnemyEntity {
-            if stateMachine.currentState is AttackingState{
-            entity.healthComponent.receiveDamage(damageAmount: damage)
-            }
-        }
+    private func handleAttackContact(node: SCNNode) {
+        
     }
     
     required init?(coder: NSCoder) {

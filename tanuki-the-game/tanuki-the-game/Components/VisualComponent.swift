@@ -10,18 +10,12 @@ import GameplayKit
 
 
 class VisualComponent: GKComponent {
-    var containerNode = SCNNode()
-    var rotationNode = SCNNode()
     var model: SCNNode!
     
-   
      init(modelFile: String, nameOfChild: String){
 
         let scene = SCNScene(named: modelFile)!
          model = scene.rootNode.childNode( withName: nameOfChild , recursively: true)
-        
-         rotationNode.addChildNode(model)
-         containerNode.addChildNode(rotationNode)
         
         super.init()
     }

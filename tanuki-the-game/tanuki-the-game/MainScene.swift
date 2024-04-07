@@ -26,7 +26,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         self.physicsWorld.contactDelegate = self
         
         overlay = Overlay(size: scnView.bounds.size)
-        overlay.setup()
         overlay.controllerDelegate = self
         scnView.overlaySKScene = overlay
         
@@ -40,12 +39,32 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         ambientLightNode.light?.color = UIColor.white
         rootNode.addChildNode(ambientLightNode)
         
-        setupCamera()
         setupPlayer()
         setupScenario()
-        setupWaveStateMachine()
-        setupSpawners()
+        setupCamera()
         
+        // Create a red box geometry
+        let boxGeometry = SCNBox(width: 0.2, height: 0.2, length: 1.0, chamferRadius: 0.0)
+        let redMaterial = SCNMaterial()
+        redMaterial.diffuse.contents = UIColor.red
+        boxGeometry.materials = [redMaterial]
+        
+        // Create a node with the box geometry
+        let boxNode = SCNNode(geometry: boxGeometry)
+        boxNode.position = SCNVector3(0, 2, 6) // Place the box in front of the camera
+        
+        // Add physics body to the node
+        let boxPhysicsBody = SCNPhysicsBody(type: .dynamic, shape: nil)
+        boxPhysicsBody.categoryBitMask =  Bitmask.enemy.rawValue | Bitmask.character.rawValue
+        boxPhysicsBody.contactTestBitMask = Bitmask.character.rawValue
+
+        
+      
+   
+        boxNode.physicsBody = boxPhysicsBody
+        
+        // Add the node to the scene
+        rootNode.addChildNode(boxNode)
         
     }
     
@@ -67,108 +86,57 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
             return
         }
         
-        camera.followTarget(target: player.node.simdPosition, offset: simd_float3(1, 2, 0))
+        
+        camera.followTarget(target: player.playerNode.simdPosition, offset: simd_float3(1, 1.5, 0))
         
         player.update(deltaTime: time)
         player.movementComponent.update(atTime: time, with: renderer)
         
-        for enemy in GameManager.enemies {
-            enemy.update(deltaTime: Time.deltaTime)
-        }
-        
-        spawner.update()
-        self.waveStateMachine?.update(deltaTime: time)
-        
-        player.update(deltaTime: Time.deltaTime)
-    }
-    
-    func setupEnemy() {
-        
-        enemy = EnemyEntity()
-        enemy.node.simdPosition = .init(x: 0, y: 2, z: 8)
-        enemy.agentComponent.position = enemy.node.simdPosition
-    
-        rootNode.addChildNode(enemy.node)
     }
     
     func setupPlayer(){
         player = PlayerEntity(physicsWorld: self.physicsWorld)
-        let healthBar = overlay.healthBar
-        healthBar.currentHealth = player.healthComponent.currentHealth.value
-        healthBar.maxHealth = player.healthComponent.maxHealth.value
-        player.healthComponent.currentHealth.addObserver { value in
-            healthBar.currentHealth = value
-        }
-        player.healthComponent.maxHealth.addObserver { value in
-            healthBar.maxHealth = value
-        }
-        
-        
-        rootNode.addChildNode(player.node)
-        player.node.position = SCNVector3(x: -1, y: 0, z: 6)
+        rootNode.addChildNode(player.playerNode)
+        player.playerNode.position = SCNVector3(x: 0, y: 0, z: 6)
         
     }
     
     func setupScenario(){
-        
-        let collisionsScene = SCNScene( named: "Map.scn" )
+      
+        let collisionsScene = SCNScene( named: "Art.scnassets/collision.scn" )
         collisionsScene!.rootNode.enumerateChildNodes { (_ child: SCNNode, _ _: UnsafeMutablePointer<ObjCBool>) in
             child.opacity = 1
-            child.position = SCNVector3(30, -1, 0)
             self.rootNode.addChildNode(child)
         }
     }
     
     func setupCamera(){
         camera = Camera()
-        GameManager.camera = camera
+        
         rootNode.addChildNode(camera.node)
     }
     
     
-    func setupWaveStateMachine(){
-        self.waveStateMachine = GKStateMachine(states: [
-            WaveIdle(waveManager: waveManager),
-            WaveHoard1(waveManager: waveManager),
-            WaveHoard2(waveManager: waveManager),
-            WaveHoard3(waveManager: waveManager)
-        ])
-        self.waveStateMachine?.enter(WaveHoard3.self)
-    }
-    
-    func setupSpawners(){
-        spawner.scene = self
-        spawner.waveManager = waveManager
-        spawner.spawnPoint.position = SCNVector3(0, -0.5, 7)
-        spawner.scene.rootNode.addChildNode(spawner.spawnPoint)
+    func physicsWorld(_ world: SCNPhysicsWorld, didBegin contact: SCNPhysicsContact) {
+        let bitmaskA = contact.nodeA.physicsBody!.categoryBitMask
+        let bitmaskB = contact.nodeB.physicsBody!.categoryBitMask
+        let collision = bitmaskA | bitmaskB
+
+        switch collision {
+            case Bitmask.character.rawValue | Bitmask.enemy.rawValue:
+                print("Character collided with an enemy")
+                
+            case Bitmask.playerWeapon.rawValue | Bitmask.enemy.rawValue | Bitmask.character.rawValue:
+                print("Player weapon collided with enemy")
+                
+            default:
+                break
+        }
     }
 
     
     func physicsWorld(_ world: SCNPhysicsWorld, didUpdate contact: SCNPhysicsContact){
         
-        let bitmaskA = nodeA.physicsBody!.categoryBitMask
-        let bitmaskB = nodeB.physicsBody!.categoryBitMask
-        let collision = bitmaskA | bitmaskB
-        
-        switch collision {
-        case Bitmask.character.rawValue | Bitmask.enemy.rawValue:
-//            print("character -> enemy")
-            return
-            
-        case Bitmask.playerWeapon.rawValue | Bitmask.enemy.rawValue | Bitmask.character.rawValue:
-//            print("sword -> enemy")
-            let nodesInvolved = [nodeA, nodeB]
-            
-            for node in nodesInvolved {
-                if node.name == "collider"{
-                    player.attackComponent.handleAttackContact(target: node)
-            
-                }
-            }
-            
-        default:
-            break
-        }
     }
     func physicsWorld(_ world: SCNPhysicsWorld, didEnd contact: SCNPhysicsContact){
         
