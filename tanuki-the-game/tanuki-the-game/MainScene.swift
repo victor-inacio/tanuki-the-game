@@ -106,6 +106,17 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     func setupPlayer(){
         
         player = PlayerEntity(physicsWorld: self.physicsWorld)
+        let healthBar = overlay.healthBar
+        healthBar.currentHealth = player.healthComponent.currentHealth.value
+        healthBar.maxHealth = player.healthComponent.maxHealth.value
+        player.healthComponent.currentHealth.addObserver { value in
+            healthBar.currentHealth = value
+        }
+        player.healthComponent.maxHealth.addObserver { value in
+            healthBar.maxHealth = value
+        }
+        
+        
         rootNode.addChildNode(player.node)
         player.node.position = SCNVector3(x: -1, y: 0, z: 6)
         

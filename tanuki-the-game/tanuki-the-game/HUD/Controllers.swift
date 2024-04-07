@@ -22,14 +22,11 @@ class Controllers: SKNode
         
         parentFrame = frame
         
-      
         addChild(joystick)
         addChild(buttonA)
         
         addChild(buttonB)
     
-        
-        
         hideJoystick(after: 3.0)
     }
     
@@ -37,7 +34,7 @@ class Controllers: SKNode
         
         controllersContainers = .init(parentFrame: parentFrame)
         
-        healthBar = .init()
+        healthBar = .init(currentHealth: 500, maxHealth: 1000)
         let controllersRect = controllersContainers.calculateAccumulatedFrame()
         
         initialJoystickPosition = .init(x: controllersRect.origin.x + joystick.calculateAccumulatedFrame().width / 2, y: controllersRect.origin.y + joystick.calculateAccumulatedFrame().height / 2)

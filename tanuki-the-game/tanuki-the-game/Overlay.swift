@@ -10,6 +10,10 @@ class Overlay: SKScene {
         }
     }
     
+    var healthBar: HealthBar {
+        self.controllers.healthBar
+    }
+    
     override init(size: CGSize) {
         super.init(size: size)
         controllers = Controllers(frame: size)

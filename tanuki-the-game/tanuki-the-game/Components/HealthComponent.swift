@@ -3,16 +3,16 @@ import GameplayKit
 
 class HealthComponent: GKComponent {
     
-    var maxHealth: Float
+    var maxHealth: Subject<Float>
     var node: SCNNode
-    var currentHealth: Float
+    var currentHealth: Subject<Float>
     var healthBarNode: SCNNode?
     var receiveDamageCooldown = false
     
     init (health: Float, node: SCNNode) {
-        self.maxHealth = health
+        self.maxHealth = .init(value: health)
         self.node = node
-        self.currentHealth = health
+        self.currentHealth = .init(value: health)
         super.init()
         
         
@@ -64,20 +64,18 @@ class HealthComponent: GKComponent {
             return
         }
         
-        let currentFrame = 6 + 1 - currentHealth / maxHealth * 6
+//        let currentFrame = 6 + 1 - (currentHealth / maxHealth) * 6
         
         
-       
-     
     }
     
     public func receiveDamage(damageAmount: Float) {
         
         if receiveDamageCooldown == false{
-            self.currentHealth -= damageAmount
+            self.currentHealth.value -= damageAmount
         }
         
-        if currentHealth <= 0 {
+        if currentHealth.value <= 0 {
             die()
         } else {
             for body in (entity as! BaseEntity).bodies {
