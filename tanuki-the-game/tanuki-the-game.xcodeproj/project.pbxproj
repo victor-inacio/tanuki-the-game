@@ -44,6 +44,8 @@
 		98E8D0FA2BB5B1C900608087 /* faca-textura.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0F92BB5B1C900608087 /* faca-textura.jpg */; };
 		98E8D0FC2BB5B52200608087 /* folha-textura.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0FB2BB5B52200608087 /* folha-textura.jpg */; };
 		98E8D0FE2BB5B60B00608087 /* folhanormal.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0FD2BB5B60B00608087 /* folhanormal.jpeg */; };
+		98E98C602BC31EA900B2CC71 /* HealthBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E98C5F2BC31EA900B2CC71 /* HealthBar.swift */; };
+		98E98C622BC31FA700B2CC71 /* ControllersPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E98C612BC31FA700B2CC71 /* ControllersPadding.swift */; };
 		98F679F02B9B989D00A0EBEE /* tanuki_the_gameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F679EF2B9B989D00A0EBEE /* tanuki_the_gameApp.swift */; };
 		98F679F42B9B989E00A0EBEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F679F32B9B989E00A0EBEE /* Assets.xcassets */; };
 		98F679F72B9B989E00A0EBEE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F679F62B9B989E00A0EBEE /* Preview Assets.xcassets */; };
@@ -116,6 +118,8 @@
 		98E8D0F92BB5B1C900608087 /* faca-textura.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "faca-textura.jpg"; sourceTree = "<group>"; };
 		98E8D0FB2BB5B52200608087 /* folha-textura.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "folha-textura.jpg"; sourceTree = "<group>"; };
 		98E8D0FD2BB5B60B00608087 /* folhanormal.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = folhanormal.jpeg; sourceTree = "<group>"; };
+		98E98C5F2BC31EA900B2CC71 /* HealthBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthBar.swift; sourceTree = "<group>"; };
+		98E98C612BC31FA700B2CC71 /* ControllersPadding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ControllersPadding.swift; sourceTree = "<group>"; };
 		98F679EC2B9B989D00A0EBEE /* tanuki-the-game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tanuki-the-game.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		98F679EF2B9B989D00A0EBEE /* tanuki_the_gameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tanuki_the_gameApp.swift; sourceTree = "<group>"; };
 		98F679F32B9B989E00A0EBEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -301,6 +305,8 @@
 				98E0E3BF2B9E7C8F0034011F /* Joystick.swift */,
 				986D6E372BA8B3D600AF42D6 /* Button.swift */,
 				98E0E3C32B9F45B00034011F /* Controllers.swift */,
+				98E98C5F2BC31EA900B2CC71 /* HealthBar.swift */,
+				98E98C612BC31FA700B2CC71 /* ControllersPadding.swift */,
 			);
 			path = HUD;
 			sourceTree = "<group>";
@@ -498,7 +504,9 @@
 				98DD7FDB2BB1EF5A00CB4FBB /* GameManager.swift in Sources */,
 				989296682BA390C900681BCD /* Camera.swift in Sources */,
 				98F679F02B9B989D00A0EBEE /* tanuki_the_gameApp.swift in Sources */,
+				98E98C622BC31FA700B2CC71 /* ControllersPadding.swift in Sources */,
 				AB38C64A2BAB65E7006C279A /* WalkingState.swift in Sources */,
+				98E98C602BC31EA900B2CC71 /* HealthBar.swift in Sources */,
 				98DD7FD72BAE0CEC00CB4FBB /* PlayerStateMachine.swift in Sources */,
 				C3F701D62BB1FBB8001C6D13 /* WaveManager.swift in Sources */,
 				98E0E3C22B9E8A910034011F /* Math.swift in Sources */,

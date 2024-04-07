@@ -35,6 +35,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         
         GameManager.scene = self
         overlay = Overlay(size: scnView.bounds.size)
+        overlay.setup()
         overlay.controllerDelegate = self
         scnView.overlaySKScene = overlay
         
