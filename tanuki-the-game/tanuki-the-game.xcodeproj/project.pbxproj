@@ -69,6 +69,14 @@
 		ABF676C52B9F31B6007806B3 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF676C42B9F31B6007806B3 /* MainScene.swift */; };
 		ABF676C72B9F343D007806B3 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF676C62B9F343D007806B3 /* GameViewController.swift */; };
 		ABF676C92B9F37B8007806B3 /* VisualComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF676C82B9F37B8007806B3 /* VisualComponent.swift */; };
+		C330D4092BC317F80063E8DE /* map.dae in Resources */ = {isa = PBXBuildFile; fileRef = C330D4082BC317F80063E8DE /* map.dae */; };
+		C330D40B2BC318110063E8DE /* map_texture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C330D40A2BC318110063E8DE /* map_texture.jpg */; };
+		C330D40D2BC318440063E8DE /* altar texture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C330D40C2BC318440063E8DE /* altar texture.jpg */; };
+		C330D4112BC318A00063E8DE /* pillar_texture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = C330D4102BC318A00063E8DE /* pillar_texture.jpg */; };
+		C330D4132BC318B90063E8DE /* tree1_texture.png in Resources */ = {isa = PBXBuildFile; fileRef = C330D4122BC318B90063E8DE /* tree1_texture.png */; };
+		C330D4152BC318CC0063E8DE /* tree2_texture.png in Resources */ = {isa = PBXBuildFile; fileRef = C330D4142BC318CC0063E8DE /* tree2_texture.png */; };
+		C330D4172BC318DF0063E8DE /* RockTexture2.png in Resources */ = {isa = PBXBuildFile; fileRef = C330D4162BC318DF0063E8DE /* RockTexture2.png */; };
+		C330D4192BC31A960063E8DE /* Map.scn in Resources */ = {isa = PBXBuildFile; fileRef = C330D4182BC31A960063E8DE /* Map.scn */; };
 		C3F701C82BAE0B85001C6D13 /* HealthComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F701C72BAE0B85001C6D13 /* HealthComponent.swift */; };
 		C3F701CA2BB1F911001C6D13 /* Spawner.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F701C92BB1F911001C6D13 /* Spawner.swift */; };
 		C3F701CD2BB1FAD0001C6D13 /* WaveIdle.swift in Sources */ = {isa = PBXBuildFile; fileRef = C3F701CC2BB1FAD0001C6D13 /* WaveIdle.swift */; };
@@ -142,6 +150,14 @@
 		ABF676C42B9F31B6007806B3 /* MainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
 		ABF676C62B9F343D007806B3 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		ABF676C82B9F37B8007806B3 /* VisualComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualComponent.swift; sourceTree = "<group>"; };
+		C330D4082BC317F80063E8DE /* map.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = map.dae; sourceTree = "<group>"; };
+		C330D40A2BC318110063E8DE /* map_texture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = map_texture.jpg; sourceTree = "<group>"; };
+		C330D40C2BC318440063E8DE /* altar texture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "altar texture.jpg"; sourceTree = "<group>"; };
+		C330D4102BC318A00063E8DE /* pillar_texture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pillar_texture.jpg; sourceTree = "<group>"; };
+		C330D4122BC318B90063E8DE /* tree1_texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree1_texture.png; sourceTree = "<group>"; };
+		C330D4142BC318CC0063E8DE /* tree2_texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree2_texture.png; sourceTree = "<group>"; };
+		C330D4162BC318DF0063E8DE /* RockTexture2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RockTexture2.png; sourceTree = "<group>"; };
+		C330D4182BC31A960063E8DE /* Map.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Map.scn; sourceTree = "<group>"; };
 		C3F701C72BAE0B85001C6D13 /* HealthComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthComponent.swift; sourceTree = "<group>"; };
 		C3F701C92BB1F911001C6D13 /* Spawner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spawner.swift; sourceTree = "<group>"; };
 		C3F701CC2BB1FAD0001C6D13 /* WaveIdle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveIdle.swift; sourceTree = "<group>"; };
@@ -224,6 +240,7 @@
 		98E8D0E92BB4B6E600608087 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				C330D4012BC312AA0063E8DE /* Map */,
 				9808F7BD2BBF0139009D31AC /* Shaders */,
 				984F35832BBB359900A54B09 /* Karakasa */,
 				98E8D0F62BB5B14800608087 /* Tanuki */,
@@ -355,6 +372,21 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
+		C330D4012BC312AA0063E8DE /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				C330D4082BC317F80063E8DE /* map.dae */,
+				C330D4162BC318DF0063E8DE /* RockTexture2.png */,
+				C330D4122BC318B90063E8DE /* tree1_texture.png */,
+				C330D4142BC318CC0063E8DE /* tree2_texture.png */,
+				C330D40A2BC318110063E8DE /* map_texture.jpg */,
+				C330D40C2BC318440063E8DE /* altar texture.jpg */,
+				C330D4102BC318A00063E8DE /* pillar_texture.jpg */,
+				C330D4182BC31A960063E8DE /* Map.scn */,
+			);
+			path = Map;
+			sourceTree = "<group>";
+		};
 		C3F701CB2BB1FA42001C6D13 /* Wave */ = {
 			isa = PBXGroup;
 			children = (
@@ -437,22 +469,30 @@
 				98C4CBD32BBDC48A007D45CD /* fumaca.png in Resources */,
 				98E8D0FC2BB5B52200608087 /* folha-textura.jpg in Resources */,
 				984F35822BBB311C00A54B09 /* tanuki_attack.scn in Resources */,
+				C330D4132BC318B90063E8DE /* tree1_texture.png in Resources */,
 				984F35872BBB35A100A54B09 /* karakasa_walk.dae in Resources */,
 				98E8D0F82BB5B15F00608087 /* corpobake.jpeg in Resources */,
 				98E8D0FE2BB5B60B00608087 /* folhanormal.jpeg in Resources */,
 				984F35862BBB35A100A54B09 /* karakasa_attack.dae in Resources */,
 				984F358B2BBB35C900A54B09 /* karakasa_walk.scn in Resources */,
 				98E8D0F12BB4B90100608087 /* corpo-textura.jpg in Resources */,
+				C330D40B2BC318110063E8DE /* map_texture.jpg in Resources */,
 				98F679F72B9B989E00A0EBEE /* Preview Assets.xcassets in Resources */,
+				C330D40D2BC318440063E8DE /* altar texture.jpg in Resources */,
 				ABE190ED2BBDF7F3003449EF /* tanuki_idle.scn in Resources */,
 				984F35892BBB35BD00A54B09 /* karakasa_attack.scn in Resources */,
+				C330D4152BC318CC0063E8DE /* tree2_texture.png in Resources */,
 				984F35902BBB36D300A54B09 /* karakasa-normal.png in Resources */,
 				98E8D0FA2BB5B1C900608087 /* faca-textura.jpg in Resources */,
 				98E8D0F52BB4BBB700608087 /* tanuki_walk.scn in Resources */,
+				C330D4192BC31A960063E8DE /* Map.scn in Resources */,
 				ABE190E92BBDE353003449EF /* tanuki_idleeee.scn in Resources */,
 				984F358D2BBB35F500A54B09 /* Karakasa.scn in Resources */,
+				C330D4172BC318DF0063E8DE /* RockTexture2.png in Resources */,
+				C330D4112BC318A00063E8DE /* pillar_texture.jpg in Resources */,
 				98F679F42B9B989E00A0EBEE /* Assets.xcassets in Resources */,
 				ABE190E52BBDA7DD003449EF /* knife_collider.scn in Resources */,
+				C330D4092BC317F80063E8DE /* map.dae in Resources */,
 				9808F7BF2BBF014B009D31AC /* damage.shader in Resources */,
 				98E8D0EF2BB4B83F00608087 /* tanuki.scn in Resources */,
 			);
@@ -644,7 +684,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tanuki-the-game/Preview Content\"";
-				DEVELOPMENT_TEAM = 92UCDANR77;
+				DEVELOPMENT_TEAM = CKX23Y9XSA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -677,7 +717,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tanuki-the-game/Preview Content\"";
-				DEVELOPMENT_TEAM = 92UCDANR77;
+				DEVELOPMENT_TEAM = CKX23Y9XSA;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
