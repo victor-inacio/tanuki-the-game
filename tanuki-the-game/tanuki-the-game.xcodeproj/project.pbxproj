@@ -147,14 +147,14 @@
 		ABAFEA8C2BA22C3E00BB5E9D /* BaseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseEntity.swift; sourceTree = "<group>"; };
 		ABC207952BC42CC2000C364F /* Observer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Observer.swift; sourceTree = "<group>"; };
 		ABC207972BC42CD5000C364F /* HealthBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HealthBar.swift; sourceTree = "<group>"; };
-		ABC2079B2BC42CFE000C364F /* RockTexture2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = RockTexture2.png; path = Map/RockTexture2.png; sourceTree = "<group>"; };
-		ABC2079C2BC42CFE000C364F /* tree1_texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tree1_texture.png; path = Map/tree1_texture.png; sourceTree = "<group>"; };
-		ABC2079D2BC42CFE000C364F /* altar texture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "altar texture.jpg"; path = "Map/altar texture.jpg"; sourceTree = "<group>"; };
-		ABC2079E2BC42CFE000C364F /* Map.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; name = Map.scn; path = Map/Map.scn; sourceTree = "<group>"; };
-		ABC2079F2BC42CFE000C364F /* map.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; name = map.dae; path = Map/map.dae; sourceTree = "<group>"; };
-		ABC207A02BC42CFE000C364F /* pillar_texture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = pillar_texture.jpg; path = Map/pillar_texture.jpg; sourceTree = "<group>"; };
-		ABC207A12BC42CFE000C364F /* map_texture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = map_texture.jpg; path = Map/map_texture.jpg; sourceTree = "<group>"; };
-		ABC207A22BC42CFE000C364F /* tree2_texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = tree2_texture.png; path = Map/tree2_texture.png; sourceTree = "<group>"; };
+		ABC2079B2BC42CFE000C364F /* RockTexture2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = RockTexture2.png; sourceTree = "<group>"; };
+		ABC2079C2BC42CFE000C364F /* tree1_texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree1_texture.png; sourceTree = "<group>"; };
+		ABC2079D2BC42CFE000C364F /* altar texture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "altar texture.jpg"; sourceTree = "<group>"; };
+		ABC2079E2BC42CFE000C364F /* Map.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Map.scn; sourceTree = "<group>"; };
+		ABC2079F2BC42CFE000C364F /* map.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = map.dae; sourceTree = "<group>"; };
+		ABC207A02BC42CFE000C364F /* pillar_texture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pillar_texture.jpg; sourceTree = "<group>"; };
+		ABC207A12BC42CFE000C364F /* map_texture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = map_texture.jpg; sourceTree = "<group>"; };
+		ABC207A22BC42CFE000C364F /* tree2_texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree2_texture.png; sourceTree = "<group>"; };
 		ABC207AB2BC42D68000C364F /* ControllersPadding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllersPadding.swift; sourceTree = "<group>"; };
 		ABC429532BA4DB87009F0905 /* Art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Art.scnassets; sourceTree = "<group>"; };
 		ABE190E42BBDA7DD003449EF /* knife_collider.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = knife_collider.scn; sourceTree = "<group>"; };
@@ -246,14 +246,7 @@
 		98E8D0E92BB4B6E600608087 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				ABC2079D2BC42CFE000C364F /* altar texture.jpg */,
-				ABC207A12BC42CFE000C364F /* map_texture.jpg */,
-				ABC2079F2BC42CFE000C364F /* map.dae */,
-				ABC2079E2BC42CFE000C364F /* Map.scn */,
-				ABC207A02BC42CFE000C364F /* pillar_texture.jpg */,
-				ABC2079B2BC42CFE000C364F /* RockTexture2.png */,
-				ABC2079C2BC42CFE000C364F /* tree1_texture.png */,
-				ABC207A22BC42CFE000C364F /* tree2_texture.png */,
+				ABC207AD2BC4319B000C364F /* Map */,
 				9808F7BD2BBF0139009D31AC /* Shaders */,
 				984F35832BBB359900A54B09 /* Karakasa */,
 				98E8D0F62BB5B14800608087 /* Tanuki */,
@@ -347,6 +340,21 @@
 				ABA1A8862BB20BB9001C3533 /* AttackingState.swift */,
 			);
 			path = PlayerStates;
+			sourceTree = "<group>";
+		};
+		ABC207AD2BC4319B000C364F /* Map */ = {
+			isa = PBXGroup;
+			children = (
+				ABC2079D2BC42CFE000C364F /* altar texture.jpg */,
+				ABC207A12BC42CFE000C364F /* map_texture.jpg */,
+				ABC2079F2BC42CFE000C364F /* map.dae */,
+				ABC2079E2BC42CFE000C364F /* Map.scn */,
+				ABC207A02BC42CFE000C364F /* pillar_texture.jpg */,
+				ABC2079B2BC42CFE000C364F /* RockTexture2.png */,
+				ABC2079C2BC42CFE000C364F /* tree1_texture.png */,
+				ABC207A22BC42CFE000C364F /* tree2_texture.png */,
+			);
+			path = Map;
 			sourceTree = "<group>";
 		};
 		ABF676BD2B9F2EFA007806B3 /* Utility */ = {
