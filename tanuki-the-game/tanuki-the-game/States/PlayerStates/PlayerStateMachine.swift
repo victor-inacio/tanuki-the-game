@@ -10,7 +10,8 @@ class PlayerStateMachine: GKStateMachine {
         super.init(states: [
             IdleState(entity: player),
             WalkingState(entity: player),
-            AttackingState(entity: player)
+            AttackingState(entity: player),
+            TransformationState(entity: player)
         ])
       
     }
@@ -21,6 +22,7 @@ class PlayerStateMachine: GKStateMachine {
         if player.characterDirection.allZero() && currentState is IdleState == false && currentState is AttackingState == false  {
             enter(IdleState.self)
         }
-
+      
+     
     }
 }

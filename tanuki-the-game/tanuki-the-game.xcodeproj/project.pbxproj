@@ -42,7 +42,6 @@
 		98DD7FD32BAE073D00CB4FBB /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DD7FD22BAE073D00CB4FBB /* Input.swift */; };
 		98DD7FD52BAE08CF00CB4FBB /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DD7FD42BAE08CF00CB4FBB /* PlayerState.swift */; };
 		98DD7FD72BAE0CEC00CB4FBB /* PlayerStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DD7FD62BAE0CEC00CB4FBB /* PlayerStateMachine.swift */; };
-		98DD7FDB2BB1EF5A00CB4FBB /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DD7FDA2BB1EF5A00CB4FBB /* GameManager.swift */; };
 		98E0E3C02B9E7C8F0034011F /* Joystick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E3BF2B9E7C8F0034011F /* Joystick.swift */; };
 		98E0E3C22B9E8A910034011F /* Math.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E3C12B9E8A910034011F /* Math.swift */; };
 		98E0E3C42B9F45B00034011F /* Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E3C32B9F45B00034011F /* Controllers.swift */; };
@@ -83,6 +82,8 @@
 		ABC207A92BC42CFE000C364F /* map_texture.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ABC207A12BC42CFE000C364F /* map_texture.jpg */; };
 		ABC207AA2BC42CFE000C364F /* tree2_texture.png in Resources */ = {isa = PBXBuildFile; fileRef = ABC207A22BC42CFE000C364F /* tree2_texture.png */; };
 		ABC207AC2BC42D68000C364F /* ControllersPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC207AB2BC42D68000C364F /* ControllersPadding.swift */; };
+		ABC207AF2BC45003000C364F /* TransformationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC207AE2BC45003000C364F /* TransformationState.swift */; };
+		ABC207BA2BC46BC6000C364F /* katana.scn in Resources */ = {isa = PBXBuildFile; fileRef = ABC207B92BC46BC6000C364F /* katana.scn */; };
 		ABC429542BA4DB87009F0905 /* Art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = ABC429532BA4DB87009F0905 /* Art.scnassets */; };
 		ABE190E52BBDA7DD003449EF /* knife_collider.scn in Resources */ = {isa = PBXBuildFile; fileRef = ABE190E42BBDA7DD003449EF /* knife_collider.scn */; };
 		ABE190E92BBDE353003449EF /* tanuki_idleeee.scn in Resources */ = {isa = PBXBuildFile; fileRef = ABE190E82BBDE353003449EF /* tanuki_idleeee.scn */; };
@@ -141,7 +142,6 @@
 		98DD7FD22BAE073D00CB4FBB /* Input.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
 		98DD7FD42BAE08CF00CB4FBB /* PlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
 		98DD7FD62BAE0CEC00CB4FBB /* PlayerStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStateMachine.swift; sourceTree = "<group>"; };
-		98DD7FDA2BB1EF5A00CB4FBB /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		98E0E3BF2B9E7C8F0034011F /* Joystick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Joystick.swift; sourceTree = "<group>"; };
 		98E0E3C12B9E8A910034011F /* Math.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Math.swift; sourceTree = "<group>"; };
 		98E0E3C32B9F45B00034011F /* Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controllers.swift; sourceTree = "<group>"; };
@@ -183,6 +183,9 @@
 		ABC207A12BC42CFE000C364F /* map_texture.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = map_texture.jpg; sourceTree = "<group>"; };
 		ABC207A22BC42CFE000C364F /* tree2_texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree2_texture.png; sourceTree = "<group>"; };
 		ABC207AB2BC42D68000C364F /* ControllersPadding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllersPadding.swift; sourceTree = "<group>"; };
+		ABC207AE2BC45003000C364F /* TransformationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformationState.swift; sourceTree = "<group>"; };
+		ABC207B72BC46BA7000C364F /* katana-textura.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "katana-textura.jpg"; sourceTree = "<group>"; };
+		ABC207B92BC46BC6000C364F /* katana.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = katana.scn; sourceTree = "<group>"; };
 		ABC429532BA4DB87009F0905 /* Art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Art.scnassets; sourceTree = "<group>"; };
 		ABE190E42BBDA7DD003449EF /* knife_collider.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = knife_collider.scn; sourceTree = "<group>"; };
 		ABE190E82BBDE353003449EF /* tanuki_idleeee.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = tanuki_idleeee.scn; sourceTree = "<group>"; };
@@ -321,6 +324,7 @@
 		98E8D0E92BB4B6E600608087 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				ABC207B42BC46B81000C364F /* New Group */,
 				ABC207AD2BC4319B000C364F /* Map */,
 				9808F7BD2BBF0139009D31AC /* Shaders */,
 				984F35832BBB359900A54B09 /* Karakasa */,
@@ -385,7 +389,6 @@
 				ABA1A88A2BB4875B001C3533 /* GameManager.swift */,
 				ABF676C42B9F31B6007806B3 /* MainScene.swift */,
 				98E0E3C52B9F47AA0034011F /* Overlay.swift */,
-				98DD7FDA2BB1EF5A00CB4FBB /* GameManager.swift */,
 			);
 			path = "tanuki-the-game";
 			sourceTree = "<group>";
@@ -418,6 +421,7 @@
 				98DD7FD42BAE08CF00CB4FBB /* PlayerState.swift */,
 				98DD7FD62BAE0CEC00CB4FBB /* PlayerStateMachine.swift */,
 				ABA1A8862BB20BB9001C3533 /* AttackingState.swift */,
+				ABC207AE2BC45003000C364F /* TransformationState.swift */,
 			);
 			path = PlayerStates;
 			sourceTree = "<group>";
@@ -437,6 +441,15 @@
 				ABC207A22BC42CFE000C364F /* tree2_texture.png */,
 			);
 			path = Map;
+			sourceTree = "<group>";
+		};
+		ABC207B42BC46B81000C364F /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				ABC207B72BC46BA7000C364F /* katana-textura.jpg */,
+				ABC207B92BC46BC6000C364F /* katana.scn */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		ABF676BD2B9F2EFA007806B3 /* Utility */ = {
@@ -564,6 +577,7 @@
 				98E8D0FC2BB5B52200608087 /* folha-textura.jpg in Resources */,
 				984F35822BBB311C00A54B09 /* tanuki_attack.scn in Resources */,
 				984F35872BBB35A100A54B09 /* karakasa_walk.dae in Resources */,
+				ABC207BA2BC46BC6000C364F /* katana.scn in Resources */,
 				98E8D0F82BB5B15F00608087 /* corpobake.jpeg in Resources */,
 				ABC207A82BC42CFE000C364F /* pillar_texture.jpg in Resources */,
 				98E8D0FE2BB5B60B00608087 /* folhanormal.jpeg in Resources */,
@@ -601,6 +615,7 @@
 			files = (
 				AB38C63E2BAA1BC7006C279A /* MovementComponent.swift in Sources */,
 				ABF676C72B9F343D007806B3 /* GameViewController.swift in Sources */,
+				ABC207AF2BC45003000C364F /* TransformationState.swift in Sources */,
 				ABF676C12B9F2FB8007806B3 /* PlayerEntity.swift in Sources */,
 				ABAFEA8B2BA22C2200BB5E9D /* ScenarioEntity.swift in Sources */,
 				81A402C72BC462C8006AB0E8 /* Color.swift in Sources */,
@@ -639,7 +654,6 @@
 				81A402C52BC46257006AB0E8 /* DeathMenuView.swift in Sources */,
 				C3F701C82BAE0B85001C6D13 /* HealthComponent.swift in Sources */,
 				ABAFEA8D2BA22C3E00BB5E9D /* BaseEntity.swift in Sources */,
-				98DD7FDB2BB1EF5A00CB4FBB /* GameManager.swift in Sources */,
 				989296682BA390C900681BCD /* Camera.swift in Sources */,
 				81A402D12BC46371006AB0E8 /* DrawingViewModel.swift in Sources */,
 				98F679F02B9B989D00A0EBEE /* tanuki_the_gameApp.swift in Sources */,

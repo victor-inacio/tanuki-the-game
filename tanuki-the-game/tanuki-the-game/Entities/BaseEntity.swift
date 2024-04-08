@@ -11,7 +11,7 @@ import GameplayKit
 class BaseEntity: GKEntity{
     
     
-    private lazy var visualComponent: VisualComponent = {
+    public lazy var visualComponent: VisualComponent = {
         guard let component = component(ofType: VisualComponent.self) else {
             fatalError("VisualComponent not found")
         }
