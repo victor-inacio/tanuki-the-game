@@ -5,7 +5,10 @@ class TransformationState: PlayerState{
     override func didEnter(from previousState: GKState?){
     
       print("transforming")
-        changeToKatana
+        
+        
+        backToTanuki
+        setupAnimation
 
     }
     

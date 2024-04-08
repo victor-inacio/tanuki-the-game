@@ -75,6 +75,10 @@ class PlayerEntity: BaseEntity {
         visualComponent.katanaModel()
     }
     
+    func backToTanuki(){
+        visualComponent.backToTanuki()
+    }   
+    
     override func update(deltaTime seconds: TimeInterval) {
         
         characterDirection = Input.movement

@@ -67,7 +67,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         }
         
         if (button.name == "buttonB") {
-            // Eirado code
+            player.stateMachine.enter(TransformationState.self)
         }
         
     }

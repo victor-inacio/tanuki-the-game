@@ -18,6 +18,13 @@ class BaseEntity: GKEntity{
         return component
     }()
     
+    public lazy var animationComponent: AnimationComponent = {
+        guard let component = component(ofType: AnimationComponent.self) else {
+            fatalError("AnimationComponent not found")
+        }
+        return component
+    }()
+    
     var model: SCNNode {
         return visualComponent.model
     }

@@ -22,20 +22,27 @@ class VisualComponent: GKComponent {
 
         rotationNode.addChildNode(model)
         containerNode.addChildNode(rotationNode)
-        print("test")
         super.init()
         
     }
     
     
     func katanaModel(){
-//        "tanuki.scn", nameOfChild: "Armature"))
+        model.removeFromParentNode()
+        let scene = SCNScene(named: "katana_spin.scn")
+        model = scene!.rootNode.childNode( withName: "Katana" , recursively: true)!
+        rotationNode.addChildNode(model)
+    }
+    
+    func backToTanuki(){
         model.removeFromParentNode()
         let scene = SCNScene(named: "tanuki.scn")
         model = scene!.rootNode.childNode( withName: "Armature" , recursively: true)!
-//        model.scale = .init(x: 0.2, y: 0.2, z: 0.2)
         rotationNode.addChildNode(model)
+        print("wentBack")
     }
+    
+    
     
     
     required init?(coder: NSCoder) {

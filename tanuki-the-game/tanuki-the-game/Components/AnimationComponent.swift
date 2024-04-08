@@ -15,9 +15,19 @@ struct Animation {
 
 class AnimationComponent: GKComponent {
     
+    var animations: [Animation]
+    var nodeToAddAnimation: SCNNode
+    
     init(nodeToAddAnimation: SCNNode, animations: [Animation]){
+   
+        self.nodeToAddAnimation = nodeToAddAnimation
+        self.animations = animations
         super.init()
-       
+        setupAnimation()
+        
+    }
+  
+    public func setupAnimation(){
         for animation in animations {
             let animationPlayer = loadAnimation(fromSceneNamed: animation.fromSceneNamed)
             
@@ -27,9 +37,8 @@ class AnimationComponent: GKComponent {
 
             animationPlayer.stop()
         }
-        
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
