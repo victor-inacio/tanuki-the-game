@@ -35,6 +35,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         
         GameManager.scene = self
         overlay = Overlay(size: scnView.bounds.size)
+        overlay.setup()
         overlay.controllerDelegate = self
         scnView.overlaySKScene = overlay
         
@@ -105,6 +106,17 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     func setupPlayer(){
         
         player = PlayerEntity(physicsWorld: self.physicsWorld)
+        let healthBar = overlay.healthBar
+        healthBar.currentHealth = player.healthComponent.currentHealth.value
+        healthBar.maxHealth = player.healthComponent.maxHealth.value
+        player.healthComponent.currentHealth.addObserver { value in
+            healthBar.currentHealth = value
+        }
+        player.healthComponent.maxHealth.addObserver { value in
+            healthBar.maxHealth = value
+        }
+        
+        
         rootNode.addChildNode(player.node)
         player.node.position = SCNVector3(x: -1, y: 0, z: 6)
         
@@ -114,9 +126,10 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     
     func setupScenario(){
         
-        let collisionsScene = SCNScene( named: "Art.scnassets/collision.scn" )
+        let collisionsScene = SCNScene( named: "Map.scn" )
         collisionsScene!.rootNode.enumerateChildNodes { (_ child: SCNNode, _ _: UnsafeMutablePointer<ObjCBool>) in
             child.opacity = 1
+            child.position = SCNVector3(30, -1, 0)
             self.rootNode.addChildNode(child)
         }
     }

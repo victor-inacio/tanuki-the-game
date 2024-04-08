@@ -10,12 +10,20 @@ class Overlay: SKScene {
         }
     }
     
+    var healthBar: HealthBar {
+        self.controllers.healthBar
+    }
+    
     override init(size: CGSize) {
         super.init(size: size)
         controllers = Controllers(frame: size)
         
     
         addChild(controllers)
+    }
+    
+    public func setup() {
+        controllers.setup()
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -3,17 +3,17 @@ import GameplayKit
 
 class HealthComponent: GKComponent {
     
-    var maxHealth: Float
+    var maxHealth: Subject<Float>
     var node: SCNNode
-    var currentHealth: Float
+    var currentHealth: Subject<Float>
     var healthBarNode: SCNNode?
     var receiveDamageCooldown = false
     var lastFrame = 1
     
     init (health: Float, node: SCNNode) {
-        self.maxHealth = health
+        self.maxHealth = .init(value: health)
         self.node = node
-        self.currentHealth = health
+        self.currentHealth = .init(value: health)
         super.init()
         
         
@@ -73,11 +73,12 @@ class HealthComponent: GKComponent {
             return
         }
         
+
         let currentFrame = Int(6 + 1 - (currentHealth / maxHealth * 6))
-      
         
         let animation = animateTexture(withTextureNamed: "enemy", frameRange: lastFrame...currentFrame)
         
+
         let setTextureAction = SCNAction.run { _ in
                 let currentFrameTexture = SKTexture(imageNamed: String(format: "enemy%d", currentFrame))
                 healthBarNode.geometry?.firstMaterial?.diffuse.contents = currentFrameTexture
@@ -87,7 +88,7 @@ class HealthComponent: GKComponent {
         healthBarNode.runAction(.sequence([animation, setTextureAction])) {
                self.lastFrame = currentFrame
            }
-      
+
     }
     
     public func receiveDamage(damageAmount: Float) {
@@ -97,7 +98,7 @@ class HealthComponent: GKComponent {
             updateHealthBar()
         }
         
-        if currentHealth <= 0 {
+        if currentHealth.value <= 0 {
             die()
         } else {
             for body in (entity as! BaseEntity).bodies {
