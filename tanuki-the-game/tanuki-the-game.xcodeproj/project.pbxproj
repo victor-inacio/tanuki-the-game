@@ -19,6 +19,9 @@
 		984F35902BBB36D300A54B09 /* karakasa-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 984F358E2BBB36D200A54B09 /* karakasa-normal.png */; };
 		984F35912BBB36D300A54B09 /* karakasa-textura.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 984F358F2BBB36D200A54B09 /* karakasa-textura.jpg */; };
 		986D6E382BA8B3D600AF42D6 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986D6E372BA8B3D600AF42D6 /* Button.swift */; };
+		987339882BC435EB003C4F21 /* collision.scn in Resources */ = {isa = PBXBuildFile; fileRef = 987339872BC435EB003C4F21 /* collision.scn */; };
+		9873398A2BC437AB003C4F21 /* collision.dae in Resources */ = {isa = PBXBuildFile; fileRef = 987339892BC437AB003C4F21 /* collision.dae */; };
+		9873398C2BC437B2003C4F21 /* collision.scn in Resources */ = {isa = PBXBuildFile; fileRef = 9873398B2BC437B2003C4F21 /* collision.scn */; };
 		989296662BA38BE200681BCD /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989296652BA38BE200681BCD /* Time.swift */; };
 		989296682BA390C900681BCD /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989296672BA390C900681BCD /* Camera.swift */; };
 		9892966C2BA4B7CA00681BCD /* EnemyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9892966B2BA4B7CA00681BCD /* EnemyEntity.swift */; };
@@ -102,6 +105,9 @@
 		984F358E2BBB36D200A54B09 /* karakasa-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "karakasa-normal.png"; sourceTree = "<group>"; };
 		984F358F2BBB36D200A54B09 /* karakasa-textura.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "karakasa-textura.jpg"; sourceTree = "<group>"; };
 		986D6E372BA8B3D600AF42D6 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		987339872BC435EB003C4F21 /* collision.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = collision.scn; sourceTree = "<group>"; };
+		987339892BC437AB003C4F21 /* collision.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = collision.dae; sourceTree = "<group>"; };
+		9873398B2BC437B2003C4F21 /* collision.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = collision.scn; sourceTree = "<group>"; };
 		989296652BA38BE200681BCD /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		989296672BA390C900681BCD /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		9892966B2BA4B7CA00681BCD /* EnemyEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyEntity.swift; sourceTree = "<group>"; };
@@ -385,6 +391,9 @@
 			isa = PBXGroup;
 			children = (
 				C330D4082BC317F80063E8DE /* map.dae */,
+				987339892BC437AB003C4F21 /* collision.dae */,
+				9873398B2BC437B2003C4F21 /* collision.scn */,
+				987339872BC435EB003C4F21 /* collision.scn */,
 				C330D4162BC318DF0063E8DE /* RockTexture2.png */,
 				C330D4122BC318B90063E8DE /* tree1_texture.png */,
 				C330D4142BC318CC0063E8DE /* tree2_texture.png */,
@@ -486,6 +495,7 @@
 				984F358B2BBB35C900A54B09 /* karakasa_walk.scn in Resources */,
 				98E8D0F12BB4B90100608087 /* corpo-textura.jpg in Resources */,
 				C330D40B2BC318110063E8DE /* map_texture.jpg in Resources */,
+				9873398C2BC437B2003C4F21 /* collision.scn in Resources */,
 				98F679F72B9B989E00A0EBEE /* Preview Assets.xcassets in Resources */,
 				C330D40D2BC318440063E8DE /* altar texture.jpg in Resources */,
 				ABE190ED2BBDF7F3003449EF /* tanuki_idle.scn in Resources */,
@@ -497,8 +507,10 @@
 				C330D4192BC31A960063E8DE /* Map.scn in Resources */,
 				ABE190E92BBDE353003449EF /* tanuki_idleeee.scn in Resources */,
 				984F358D2BBB35F500A54B09 /* Karakasa.scn in Resources */,
+				9873398A2BC437AB003C4F21 /* collision.dae in Resources */,
 				C330D4172BC318DF0063E8DE /* RockTexture2.png in Resources */,
 				C330D4112BC318A00063E8DE /* pillar_texture.jpg in Resources */,
+				987339882BC435EB003C4F21 /* collision.scn in Resources */,
 				98F679F42B9B989E00A0EBEE /* Assets.xcassets in Resources */,
 				ABE190E52BBDA7DD003449EF /* knife_collider.scn in Resources */,
 				C330D4092BC317F80063E8DE /* map.dae in Resources */,
