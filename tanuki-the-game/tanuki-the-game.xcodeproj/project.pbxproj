@@ -10,6 +10,13 @@
 		81A402C12BC461FB006AB0E8 /* CoordinatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A402C02BC461FB006AB0E8 /* CoordinatorView.swift */; };
 		81A402C32BC46228006AB0E8 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A402C22BC46228006AB0E8 /* MainMenuView.swift */; };
 		81A402C52BC46257006AB0E8 /* DeathMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A402C42BC46257006AB0E8 /* DeathMenuView.swift */; };
+		81A402C72BC462C8006AB0E8 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A402C62BC462C8006AB0E8 /* Color.swift */; };
+		81A402CB2BC462FF006AB0E8 /* ConvertImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A402CA2BC462FF006AB0E8 /* ConvertImage.swift */; };
+		81A402CD2BC46339006AB0E8 /* RuneClassifier.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = 81A402CC2BC46339006AB0E8 /* RuneClassifier.mlmodel */; };
+		81A402CF2BC46354006AB0E8 /* DrawingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A402CE2BC46354006AB0E8 /* DrawingView.swift */; };
+		81A402D12BC46371006AB0E8 /* DrawingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A402D02BC46371006AB0E8 /* DrawingViewModel.swift */; };
+		81A402D42BC463A2006AB0E8 /* DrawingModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A402D32BC463A2006AB0E8 /* DrawingModel.swift */; };
+		81A402D82BC46BD0006AB0E8 /* DarumaDropOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 81A402D72BC46BD0006AB0E8 /* DarumaDropOne-Regular.ttf */; };
 		9808F7BC2BBDF80D009D31AC /* EnemyAttackState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9808F7BB2BBDF80D009D31AC /* EnemyAttackState.swift */; };
 		9808F7BF2BBF014B009D31AC /* damage.shader in Resources */ = {isa = PBXBuildFile; fileRef = 9808F7BE2BBF014B009D31AC /* damage.shader */; };
 		983F1ECC2BBA100900D66467 /* Physics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 983F1ECB2BBA100900D66467 /* Physics.swift */; };
@@ -21,7 +28,7 @@
 		984F358D2BBB35F500A54B09 /* Karakasa.scn in Resources */ = {isa = PBXBuildFile; fileRef = 984F358C2BBB35F500A54B09 /* Karakasa.scn */; };
 		984F35902BBB36D300A54B09 /* karakasa-normal.png in Resources */ = {isa = PBXBuildFile; fileRef = 984F358E2BBB36D200A54B09 /* karakasa-normal.png */; };
 		984F35912BBB36D300A54B09 /* karakasa-textura.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 984F358F2BBB36D200A54B09 /* karakasa-textura.jpg */; };
-		986D6E382BA8B3D600AF42D6 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986D6E372BA8B3D600AF42D6 /* Button.swift */; };
+		986D6E382BA8B3D600AF42D6 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 986D6E372BA8B3D600AF42D6 /* ButtonComponent.swift */; };
 		989296662BA38BE200681BCD /* Time.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989296652BA38BE200681BCD /* Time.swift */; };
 		989296682BA390C900681BCD /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989296672BA390C900681BCD /* Camera.swift */; };
 		9892966C2BA4B7CA00681BCD /* EnemyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9892966B2BA4B7CA00681BCD /* EnemyEntity.swift */; };
@@ -97,6 +104,14 @@
 		81A402C02BC461FB006AB0E8 /* CoordinatorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoordinatorView.swift; sourceTree = "<group>"; };
 		81A402C22BC46228006AB0E8 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
 		81A402C42BC46257006AB0E8 /* DeathMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeathMenuView.swift; sourceTree = "<group>"; };
+		81A402C62BC462C8006AB0E8 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		81A402CA2BC462FF006AB0E8 /* ConvertImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConvertImage.swift; sourceTree = "<group>"; };
+		81A402CC2BC46339006AB0E8 /* RuneClassifier.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = RuneClassifier.mlmodel; sourceTree = "<group>"; };
+		81A402CE2BC46354006AB0E8 /* DrawingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingView.swift; sourceTree = "<group>"; };
+		81A402D02BC46371006AB0E8 /* DrawingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingViewModel.swift; sourceTree = "<group>"; };
+		81A402D32BC463A2006AB0E8 /* DrawingModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawingModel.swift; sourceTree = "<group>"; };
+		81A402D72BC46BD0006AB0E8 /* DarumaDropOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DarumaDropOne-Regular.ttf"; sourceTree = "<group>"; };
+		81A402D92BC46CA4006AB0E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		9808F7BB2BBDF80D009D31AC /* EnemyAttackState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyAttackState.swift; sourceTree = "<group>"; };
 		9808F7BE2BBF014B009D31AC /* damage.shader */ = {isa = PBXFileReference; lastKnownFileType = text; path = damage.shader; sourceTree = "<group>"; };
 		983F1ECB2BBA100900D66467 /* Physics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Physics.swift; sourceTree = "<group>"; };
@@ -108,7 +123,7 @@
 		984F358C2BBB35F500A54B09 /* Karakasa.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = Karakasa.scn; sourceTree = "<group>"; };
 		984F358E2BBB36D200A54B09 /* karakasa-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "karakasa-normal.png"; sourceTree = "<group>"; };
 		984F358F2BBB36D200A54B09 /* karakasa-textura.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "karakasa-textura.jpg"; sourceTree = "<group>"; };
-		986D6E372BA8B3D600AF42D6 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		986D6E372BA8B3D600AF42D6 /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
 		987339872BC435EB003C4F21 /* collision.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = collision.scn; sourceTree = "<group>"; };
 		987339892BC437AB003C4F21 /* collision.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = collision.dae; sourceTree = "<group>"; };
 		9873398B2BC437B2003C4F21 /* collision.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = collision.scn; sourceTree = "<group>"; };
@@ -204,6 +219,34 @@
 				81A402C42BC46257006AB0E8 /* DeathMenuView.swift */,
 			);
 			path = Menus;
+			sourceTree = "<group>";
+		};
+		81A402C82BC462D9006AB0E8 /* Drawing */ = {
+			isa = PBXGroup;
+			children = (
+				81A402C92BC462EB006AB0E8 /* CoreML */,
+				81A402CE2BC46354006AB0E8 /* DrawingView.swift */,
+				81A402D02BC46371006AB0E8 /* DrawingViewModel.swift */,
+				81A402D32BC463A2006AB0E8 /* DrawingModel.swift */,
+			);
+			path = Drawing;
+			sourceTree = "<group>";
+		};
+		81A402C92BC462EB006AB0E8 /* CoreML */ = {
+			isa = PBXGroup;
+			children = (
+				81A402CC2BC46339006AB0E8 /* RuneClassifier.mlmodel */,
+				81A402CA2BC462FF006AB0E8 /* ConvertImage.swift */,
+			);
+			path = CoreML;
+			sourceTree = "<group>";
+		};
+		81A402D52BC464BC006AB0E8 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				81A402D72BC46BD0006AB0E8 /* DarumaDropOne-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		9808F7BD2BBF0139009D31AC /* Shaders */ = {
@@ -324,6 +367,8 @@
 		98F679EE2B9B989D00A0EBEE /* tanuki-the-game */ = {
 			isa = PBXGroup;
 			children = (
+				81A402D92BC46CA4006AB0E8 /* Info.plist */,
+				81A402C82BC462D9006AB0E8 /* Drawing */,
 				81A402BF2BC461D4006AB0E8 /* Menus */,
 				98B3B0E72BBDE05200F8BF54 /* States */,
 				C3F701CB2BB1FA42001C6D13 /* Wave */,
@@ -334,6 +379,7 @@
 				ABC429532BA4DB87009F0905 /* Art.scnassets */,
 				98F679F52B9B989E00A0EBEE /* Preview Content */,
 				ABF676BD2B9F2EFA007806B3 /* Utility */,
+				81A402D52BC464BC006AB0E8 /* Fonts */,
 				98E8D0E92BB4B6E600608087 /* Assets */,
 				ABF676BE2B9F2F08007806B3 /* App */,
 				ABA1A88A2BB4875B001C3533 /* GameManager.swift */,
@@ -358,7 +404,7 @@
 				ABC207AB2BC42D68000C364F /* ControllersPadding.swift */,
 				ABC207972BC42CD5000C364F /* HealthBar.swift */,
 				98E0E3BF2B9E7C8F0034011F /* Joystick.swift */,
-				986D6E372BA8B3D600AF42D6 /* Button.swift */,
+				986D6E372BA8B3D600AF42D6 /* ButtonComponent.swift */,
 				98E0E3C32B9F45B00034011F /* Controllers.swift */,
 			);
 			path = HUD;
@@ -406,6 +452,7 @@
 				AB38C6412BAB602E006C279A /* GetAnimationsFromArt.swift */,
 				983F1ECB2BBA100900D66467 /* Physics.swift */,
 				AB1FD84E2BC07C8C00F55F5B /* Animation.swift */,
+				81A402C62BC462C8006AB0E8 /* Color.swift */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -530,6 +577,7 @@
 				984F35902BBB36D300A54B09 /* karakasa-normal.png in Resources */,
 				98E8D0FA2BB5B1C900608087 /* faca-textura.jpg in Resources */,
 				98D67E952BC43E6100638E2F /* collision.dae in Resources */,
+				81A402D82BC46BD0006AB0E8 /* DarumaDropOne-Regular.ttf in Resources */,
 				98E8D0F52BB4BBB700608087 /* tanuki_walk.scn in Resources */,
 				ABC207AA2BC42CFE000C364F /* tree2_texture.png in Resources */,
 				ABE190E92BBDE353003449EF /* tanuki_idleeee.scn in Resources */,
@@ -555,21 +603,25 @@
 				ABF676C72B9F343D007806B3 /* GameViewController.swift in Sources */,
 				ABF676C12B9F2FB8007806B3 /* PlayerEntity.swift in Sources */,
 				ABAFEA8B2BA22C2200BB5E9D /* ScenarioEntity.swift in Sources */,
+				81A402C72BC462C8006AB0E8 /* Color.swift in Sources */,
 				AB38C6402BAA256A006C279A /* bitMask.swift in Sources */,
 				C3F701D32BB1FAF6001C6D13 /* WaveHoard3.swift in Sources */,
 				98E0E3C62B9F47AA0034011F /* Overlay.swift in Sources */,
 				ABC207AC2BC42D68000C364F /* ControllersPadding.swift in Sources */,
+				81A402CD2BC46339006AB0E8 /* RuneClassifier.mlmodel in Sources */,
 				C3F701CA2BB1F911001C6D13 /* Spawner.swift in Sources */,
 				ABA1A8892BB32DF7001C3533 /* ColliderComponent.swift in Sources */,
 				ABC207962BC42CC2000C364F /* Observer.swift in Sources */,
 				81A402C12BC461FB006AB0E8 /* CoordinatorView.swift in Sources */,
 				98E0E3C02B9E7C8F0034011F /* Joystick.swift in Sources */,
-				986D6E382BA8B3D600AF42D6 /* Button.swift in Sources */,
+				986D6E382BA8B3D600AF42D6 /* ButtonComponent.swift in Sources */,
 				AB38C6422BAB602E006C279A /* GetAnimationsFromArt.swift in Sources */,
 				C3F701D12BB1FAEB001C6D13 /* WaveHoard2.swift in Sources */,
 				ABAFEA892BA22A8900BB5E9D /* PhysicsBodyComponent.swift in Sources */,
 				ABA1A88B2BB4875B001C3533 /* GameManager.swift in Sources */,
+				81A402CB2BC462FF006AB0E8 /* ConvertImage.swift in Sources */,
 				98DD7FD52BAE08CF00CB4FBB /* PlayerState.swift in Sources */,
+				81A402D42BC463A2006AB0E8 /* DrawingModel.swift in Sources */,
 				983F1ECC2BBA100900D66467 /* Physics.swift in Sources */,
 				989296702BA4BDE500681BCD /* Bounds.swift in Sources */,
 				98B3B0EE2BBDE0F700F8BF54 /* BaseState.swift in Sources */,
@@ -583,11 +635,13 @@
 				ABF676C52B9F31B6007806B3 /* MainScene.swift in Sources */,
 				98B3B0F02BBDE19F00F8BF54 /* EnemyBaseState.swift in Sources */,
 				ABA87F402BACC14C00D60155 /* AttackComponent.swift in Sources */,
+				81A402CF2BC46354006AB0E8 /* DrawingView.swift in Sources */,
 				81A402C52BC46257006AB0E8 /* DeathMenuView.swift in Sources */,
 				C3F701C82BAE0B85001C6D13 /* HealthComponent.swift in Sources */,
 				ABAFEA8D2BA22C3E00BB5E9D /* BaseEntity.swift in Sources */,
 				98DD7FDB2BB1EF5A00CB4FBB /* GameManager.swift in Sources */,
 				989296682BA390C900681BCD /* Camera.swift in Sources */,
+				81A402D12BC46371006AB0E8 /* DrawingViewModel.swift in Sources */,
 				98F679F02B9B989D00A0EBEE /* tanuki_the_gameApp.swift in Sources */,
 				AB38C64A2BAB65E7006C279A /* WalkingState.swift in Sources */,
 				98DD7FD72BAE0CEC00CB4FBB /* PlayerStateMachine.swift in Sources */,
@@ -736,9 +790,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tanuki-the-game/Preview Content\"";
-				DEVELOPMENT_TEAM = 6FXWX5Z987;
+				DEVELOPMENT_TEAM = 3XAB48JYXN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "tanuki-the-game/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Sakemori;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -770,9 +825,10 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tanuki-the-game/Preview Content\"";
-				DEVELOPMENT_TEAM = 6FXWX5Z987;
+				DEVELOPMENT_TEAM = 3XAB48JYXN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "tanuki-the-game/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = Sakemori;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
