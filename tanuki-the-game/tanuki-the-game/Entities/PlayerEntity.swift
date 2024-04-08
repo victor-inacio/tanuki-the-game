@@ -16,7 +16,7 @@ class PlayerEntity: BaseEntity {
         return model.childNode(withName: "BODY", recursively: true)!
         
     }
-    
+
     public lazy var movementComponent: MovementComponent = {
         guard let component = component(ofType: MovementComponent.self) else {
             fatalError("VisualComponent not found")
@@ -31,8 +31,6 @@ class PlayerEntity: BaseEntity {
         }
         return component
     }()
-
-
 
     var characterDirection: vector_float2 {
         get {
@@ -53,8 +51,10 @@ class PlayerEntity: BaseEntity {
     
         self.stateMachine = PlayerStateMachine(player: self)
         
-        self.addComponent(VisualComponent(modelFile:  "tanuki.scn", nameOfChild: "Armature"))
+        self.addComponent(VisualComponent(modelFile: "tanuki.scn", nameOfChild: "Armature"))
         
+        
+
         addComponent(HealthComponent(health: 1000, node: node))
   
         self.addComponent(MovementComponent(topLevelNode: node, rotationNode: rotationNode, modelNode: model, physicsWorld: physicsWorld))
@@ -71,7 +71,9 @@ class PlayerEntity: BaseEntity {
         setupStateMachine()
     }
     
-    
+    func changeToKatanaModel() {
+        visualComponent.katanaModel()
+    }
     
     override func update(deltaTime seconds: TimeInterval) {
         
@@ -79,7 +81,7 @@ class PlayerEntity: BaseEntity {
         
         stateMachine.update(deltaTime: seconds)
         movementComponent.update(deltaTime: seconds)
-        
+
     }
 
     func setupStateMachine(){

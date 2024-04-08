@@ -17,6 +17,7 @@ class EnemyEntity: BaseEntity {
         }
         return component
     }()
+
     
     var stateMachine: EnemyStateMachine!
     var target: BaseEntity!

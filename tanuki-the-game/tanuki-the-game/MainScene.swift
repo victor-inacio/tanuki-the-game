@@ -53,8 +53,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         setupScenario()
         setupWaveStateMachine()
         setupSpawners()
-        
-        
     }
     
     func onButtonUp(button: Button) {
@@ -71,6 +69,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         if (button.name == "buttonB") {
             // Eirado code
         }
+        
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {

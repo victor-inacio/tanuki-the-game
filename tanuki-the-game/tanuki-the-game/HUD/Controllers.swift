@@ -3,8 +3,8 @@ import SpriteKit
 class Controllers: SKNode
 {
     let joystick = Joystick()
-    let buttonA = Button(texture: .init(imageNamed: "attack_button"))
-    let buttonB = Button(texture: .init(imageNamed: "transform_button"))
+    let buttonA = ButtonComponent(texture: .init(imageNamed: "attack_button"))
+    let buttonB = ButtonComponent(texture: .init(imageNamed: "transform_button"))
     var healthBar: HealthBar!
     var initialJoystickPosition = CGPoint(x: 120, y: 0)
     var parentFrame: CGSize!

@@ -21,7 +21,7 @@ struct GameViewControllerWrapper: UIViewControllerRepresentable {
 struct MyApp: App {
     var body: some Scene {
         WindowGroup {
-            GameViewControllerWrapper()
+            CoordinatorView()
                 .ignoresSafeArea()
         }
     }
