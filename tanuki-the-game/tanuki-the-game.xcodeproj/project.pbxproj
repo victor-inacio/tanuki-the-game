@@ -29,6 +29,7 @@
 		98B3B0F02BBDE19F00F8BF54 /* EnemyBaseState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B3B0EF2BBDE19F00F8BF54 /* EnemyBaseState.swift */; };
 		98C4CBD32BBDC48A007D45CD /* fumaca.png in Resources */ = {isa = PBXBuildFile; fileRef = 98C4CBD22BBDC48A007D45CD /* fumaca.png */; };
 		98D67E952BC43E6100638E2F /* collision.dae in Resources */ = {isa = PBXBuildFile; fileRef = 98D67E932BC43E6100638E2F /* collision.dae */; };
+		98D67E972BC468FB00638E2F /* collision.scn in Resources */ = {isa = PBXBuildFile; fileRef = 98D67E962BC468FB00638E2F /* collision.scn */; };
 		98DD7FD32BAE073D00CB4FBB /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DD7FD22BAE073D00CB4FBB /* Input.swift */; };
 		98DD7FD52BAE08CF00CB4FBB /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DD7FD42BAE08CF00CB4FBB /* PlayerState.swift */; };
 		98DD7FD72BAE0CEC00CB4FBB /* PlayerStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DD7FD62BAE0CEC00CB4FBB /* PlayerStateMachine.swift */; };
@@ -117,6 +118,7 @@
 		98C4CBD22BBDC48A007D45CD /* fumaca.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fumaca.png; sourceTree = "<group>"; };
 		98D67E922BC43E6100638E2F /* collision.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = collision.scn; sourceTree = "<group>"; };
 		98D67E932BC43E6100638E2F /* collision.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = collision.dae; sourceTree = "<group>"; };
+		98D67E962BC468FB00638E2F /* collision.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = collision.scn; sourceTree = "<group>"; };
 		98DD7FD22BAE073D00CB4FBB /* Input.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
 		98DD7FD42BAE08CF00CB4FBB /* PlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
 		98DD7FD62BAE0CEC00CB4FBB /* PlayerStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStateMachine.swift; sourceTree = "<group>"; };
@@ -363,6 +365,7 @@
 			isa = PBXGroup;
 			children = (
 				98D67E932BC43E6100638E2F /* collision.dae */,
+				98D67E962BC468FB00638E2F /* collision.scn */,
 				98D67E922BC43E6100638E2F /* collision.scn */,
 				ABC2079D2BC42CFE000C364F /* altar texture.jpg */,
 				ABC207A12BC42CFE000C364F /* map_texture.jpg */,
@@ -519,6 +522,7 @@
 				984F358D2BBB35F500A54B09 /* Karakasa.scn in Resources */,
 				98F679F42B9B989E00A0EBEE /* Assets.xcassets in Resources */,
 				ABE190E52BBDA7DD003449EF /* knife_collider.scn in Resources */,
+				98D67E972BC468FB00638E2F /* collision.scn in Resources */,
 				9808F7BF2BBF014B009D31AC /* damage.shader in Resources */,
 				ABC207A52BC42CFE000C364F /* altar texture.jpg in Resources */,
 				ABC207A72BC42CFE000C364F /* map.dae in Resources */,

@@ -2,8 +2,8 @@ import SpriteKit
 
 protocol ButtonDelegate: AnyObject {
     
-    func onButtonUp() -> Void
-    func onButtonDown() -> Void
+    func onButtonUp(button: Button) -> Void
+    func onButtonDown(button: Button) -> Void
     
 }
 
@@ -24,11 +24,11 @@ class Button: SKNode {
     public func onButtonDown() {   
         
         
-        delegate?.onButtonDown()
+        delegate?.onButtonDown(button: self)
     }
     
     public func onButtonUp() {
-        delegate?.onButtonUp()
+        delegate?.onButtonUp(button: self)
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -24,8 +24,9 @@ class Controllers: SKNode
         
         addChild(joystick)
         addChild(buttonA)
-        
+        buttonA.name = "buttonA"
         addChild(buttonB)
+        buttonB.name = "buttonB"
     
         hideJoystick(after: 3.0)
     }

@@ -57,13 +57,19 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         
     }
     
-    func onButtonUp() {
+    func onButtonUp(button: Button) {
         
     }
     
-    func onButtonDown() {
-        if player.stateMachine.currentState is AttackingState == false{
-            player.stateMachine.enter(AttackingState.self)
+    func onButtonDown(button: Button) {
+        if (button.name == "buttonA") {
+            if player.stateMachine.currentState is AttackingState == false{
+                player.stateMachine.enter(AttackingState.self)
+            }
+        }
+        
+        if (button.name == "buttonB") {
+            // Eirado code
         }
     }
     
@@ -80,9 +86,11 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
             return
         }
         
-        camera.followTarget(target: player.node.simdPosition, offset: simd_float3(1, 2, 0))
+      
         
         player.update(deltaTime: Time.deltaTime)
+        
+        camera.followTarget(target: player.node.simdPosition, offset: simd_float3(1, 2, 0))
         
         for enemy in GameManager.enemies {
             enemy.update(deltaTime: Time.deltaTime)
@@ -129,7 +137,25 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         let collisionsScene = SCNScene( named: "Map.scn" )
         collisionsScene!.rootNode.enumerateChildNodes { (_ child: SCNNode, _ _: UnsafeMutablePointer<ObjCBool>) in
             child.opacity = 1
-            child.position = SCNVector3(30, -1, 0)
+            child.position = SCNVector3(0, -1, 0)
+            child.scale = .init(x: 0.2, y: 0.2, z: 0.2)
+            
+            if let geometry = child.geometry {
+                let shape: SCNPhysicsShape = .init(geometry: geometry, options: [
+                    .type: SCNPhysicsShape.ShapeType.concavePolyhedron
+                ])
+                
+                if child.physicsBody == nil {
+                    child.physicsBody = SCNPhysicsBody(type: .static, shape: shape)
+                    
+                 
+                }
+                
+             
+            }
+            
+            child.categoryBitMask = Physics.collisionMeshBitMask
+            
             self.rootNode.addChildNode(child)
         }
     }
