@@ -7,7 +7,7 @@ protocol ButtonDelegate: AnyObject {
     
 }
 
-class Button: SKNode {
+class ButtonComponent: SKNode {
     
     weak var delegate: ButtonDelegate?
     
