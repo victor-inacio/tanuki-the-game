@@ -74,7 +74,7 @@ class HealthComponent: GKComponent {
         }
         
 
-        let currentFrame = Int(6 + 1 - (currentHealth / maxHealth * 6))
+        let currentFrame = Int(6 + 1 - (Float(currentHealth.value / maxHealth.value) * 6))
         
         let animation = animateTexture(withTextureNamed: "enemy", frameRange: lastFrame...currentFrame)
         
@@ -94,7 +94,7 @@ class HealthComponent: GKComponent {
     public func receiveDamage(damageAmount: Float) {
         
         if receiveDamageCooldown == false{
-            self.currentHealth -= damageAmount
+            self.currentHealth.value -= damageAmount
             updateHealthBar()
         }
         
