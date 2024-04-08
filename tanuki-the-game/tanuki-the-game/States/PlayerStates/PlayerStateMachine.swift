@@ -3,7 +3,7 @@ import GameplayKit
 class PlayerStateMachine: GKStateMachine {
     
     var player: PlayerEntity
-    var canEnterState: Bool = false
+    var canEnterState: Bool = true
     
     init(player: PlayerEntity) {
         self.player = player

@@ -29,9 +29,12 @@ class VisualComponent: GKComponent {
     
     
     func katanaModel(){
-        
-        let scene = SCNScene(named: "katana.scn")
-        model = scene!.rootNode.childNode( withName: "Katana" , recursively: true)!
+//        "tanuki.scn", nameOfChild: "Armature"))
+        model.removeFromParentNode()
+        let scene = SCNScene(named: "tanuki.scn")
+        model = scene!.rootNode.childNode( withName: "Armature" , recursively: true)!
+//        model.scale = .init(x: 0.2, y: 0.2, z: 0.2)
+        rotationNode.addChildNode(model)
     }
     
     

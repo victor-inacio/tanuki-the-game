@@ -14,6 +14,7 @@ class Controllers: SKNode
     weak var delegate: (ButtonDelegate)? {
         didSet {
             buttonA.delegate = delegate
+            buttonB.delegate = delegate
         }
     }
     
