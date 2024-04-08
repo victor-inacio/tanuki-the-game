@@ -55,7 +55,7 @@ class PlayerEntity: BaseEntity {
         
         
 
-        addComponent(HealthComponent(health: 1000, node: node))
+        addComponent(HealthComponent(health: 1000, node: node, showHealthBar: false))
   
         self.addComponent(MovementComponent(topLevelNode: node, rotationNode: rotationNode, modelNode: model, physicsWorld: physicsWorld))
         

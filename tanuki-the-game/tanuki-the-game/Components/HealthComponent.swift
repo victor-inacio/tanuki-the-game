@@ -10,16 +10,18 @@ class HealthComponent: GKComponent {
     var receiveDamageCooldown = false
     var lastFrame = 1
     
-    init (health: Float, node: SCNNode) {
+    init (health: Float, node: SCNNode, showHealthBar: Bool = true) {
         self.maxHealth = .init(value: health)
         self.node = node
         self.currentHealth = .init(value: health)
         super.init()
         
         
-        self.healthBarNode = createHealthBar()
-        if let healthBarNode = self.healthBarNode {
-            node.addChildNode(healthBarNode)
+        if (showHealthBar) {
+            self.healthBarNode = createHealthBar()
+            if let healthBarNode = self.healthBarNode {
+                node.addChildNode(healthBarNode)
+            }
         }
     }
     
