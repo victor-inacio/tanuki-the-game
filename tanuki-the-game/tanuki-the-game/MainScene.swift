@@ -53,8 +53,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         setupScenario()
         setupWaveStateMachine()
         setupSpawners()
-        
-        
     }
     
     func onButtonUp() {
@@ -65,6 +63,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         if player.stateMachine.currentState is AttackingState == false{
             player.stateMachine.enter(AttackingState.self)
         }
+        
     }
     
     func renderer(_ renderer: SCNSceneRenderer, updateAtTime time: TimeInterval) {
