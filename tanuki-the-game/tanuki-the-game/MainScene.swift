@@ -148,7 +148,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
             WaveHoard2(waveManager: waveManager),
             WaveHoard3(waveManager: waveManager)
         ])
-        self.waveStateMachine?.enter(WaveHoard3.self)
+        self.waveStateMachine?.enter(WaveHoard1.self)
     }
     
     func setupSpawners(){
