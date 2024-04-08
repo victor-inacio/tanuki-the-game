@@ -3,6 +3,7 @@ import GameplayKit
 class PlayerStateMachine: GKStateMachine {
     
     var player: PlayerEntity
+    var canEnterState: Bool = false
     
     init(player: PlayerEntity) {
         self.player = player
@@ -16,6 +17,15 @@ class PlayerStateMachine: GKStateMachine {
       
     }
     
+    override func enter(_ stateClass: AnyClass) -> Bool {
+        if canEnterState{
+            return super.enter(stateClass)
+        } else {
+            return super.enter(TransformationState.self)
+        }
+        
+    }
+    
     override func update(deltaTime sec: TimeInterval) {
         super.update(deltaTime: sec)
         
@@ -23,6 +33,5 @@ class PlayerStateMachine: GKStateMachine {
             enter(IdleState.self)
         }
       
-     
     }
 }

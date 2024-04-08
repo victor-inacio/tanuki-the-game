@@ -6,8 +6,8 @@ class PlayerState: BaseState<PlayerEntity> {
         self.entity.model
     }
     
-    var katanaTransformation: (){
-        self.entity.visualComponent.katanaModel()
+    var changeToKatana: (){
+        self.entity.changeToKatanaModel()
     }
-    
+
 }

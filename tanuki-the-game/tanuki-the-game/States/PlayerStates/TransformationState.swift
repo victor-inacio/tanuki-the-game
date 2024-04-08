@@ -4,7 +4,9 @@ class TransformationState: PlayerState{
     
     override func didEnter(from previousState: GKState?){
     
-        katanaTransformation
+      print("transforming")
+        changeToKatana
+
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool{

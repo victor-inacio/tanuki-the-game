@@ -73,7 +73,6 @@ class HealthComponent: GKComponent {
             return
         }
         
-
         let currentFrame = Int(6 + 1 - (Float(currentHealth.value / maxHealth.value) * 6))
         
         let animation = animateTexture(withTextureNamed: "enemy", frameRange: lastFrame...currentFrame)

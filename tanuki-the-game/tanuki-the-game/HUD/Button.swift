@@ -29,7 +29,6 @@ class Button: SKNode {
     
     public func onButtonUp() {
         delegate?.onButtonUp()
-        print("rdff")
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

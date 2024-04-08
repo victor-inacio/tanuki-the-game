@@ -16,21 +16,22 @@ class VisualComponent: GKComponent {
     
     
     init(modelFile: String, nameOfChild: String){
-        
+   
         let scene = SCNScene(named: modelFile)!
         model = scene.rootNode.childNode( withName: nameOfChild , recursively: true)
-        
+
         rotationNode.addChildNode(model)
         containerNode.addChildNode(rotationNode)
-        
+        print("test")
         super.init()
+        
     }
     
     
     func katanaModel(){
-      
-        let scene = SCNScene(named: "katana.scn")!
-        model = scene.rootNode.childNode( withName: "Cube" , recursively: true)
+        
+        let scene = SCNScene(named: "katana.scn")
+        model = scene!.rootNode.childNode( withName: "Katana" , recursively: true)!
     }
     
     
