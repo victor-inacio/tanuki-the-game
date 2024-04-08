@@ -7,8 +7,8 @@ class TransformationState: PlayerState{
       print("transforming")
         
         
-        backToTanuki
-        setupAnimation
+        changeToKatana
+        
 
     }
     

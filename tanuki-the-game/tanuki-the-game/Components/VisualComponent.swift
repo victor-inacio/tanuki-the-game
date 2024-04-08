@@ -29,9 +29,10 @@ class VisualComponent: GKComponent {
     
     func katanaModel(){
         model.removeFromParentNode()
-        let scene = SCNScene(named: "katana_spin.scn")
-        model = scene!.rootNode.childNode( withName: "Katana" , recursively: true)!
-        rotationNode.addChildNode(model)
+        let scene = SCNScene(named: "katana.scn")
+        model = scene!.rootNode.childNode( withName: "katana" , recursively: true)!
+        model.animationPlayer(forKey: "katana")?.play()
+        containerNode.addChildNode(model)
     }
     
     func backToTanuki(){
