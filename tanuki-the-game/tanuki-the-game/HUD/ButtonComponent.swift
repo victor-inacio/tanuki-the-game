@@ -2,8 +2,8 @@ import SpriteKit
 
 protocol ButtonDelegate: AnyObject {
     
-    func onButtonUp(button: Button) -> Void
-    func onButtonDown(button: Button) -> Void
+    func onButtonUp(button: ButtonComponent) -> Void
+    func onButtonDown(button: ButtonComponent) -> Void
     
 }
 

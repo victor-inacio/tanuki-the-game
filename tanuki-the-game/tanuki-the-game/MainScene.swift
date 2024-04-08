@@ -55,11 +55,11 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         setupSpawners()
     }
     
-    func onButtonUp(button: Button) {
+    func onButtonUp(button: ButtonComponent) {
         
     }
     
-    func onButtonDown(button: Button) {
+    func onButtonDown(button: ButtonComponent) {
         if (button.name == "buttonA") {
             if player.stateMachine.currentState is AttackingState == false{
                 player.stateMachine.enter(AttackingState.self)
