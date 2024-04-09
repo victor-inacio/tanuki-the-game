@@ -42,7 +42,7 @@ class VisualComponent: GKComponent {
         katanaModel.animationPlayer(forKey: "spin")?.play()
         
         let collider = model.childNode(withName: "katanaCollider", recursively: true)!
-        collider.physicsBody?.categoryBitMask = Bitmask.playerWeapon.rawValue
+        collider.physicsBody?.categoryBitMask = Bitmask.katanaCollider.rawValue
         collider.physicsBody?.contactTestBitMask = Bitmask.enemy.rawValue
         collider.physicsBody?.collisionBitMask = Bitmask.none.rawValue
         collider.entity = baseEntity
@@ -51,6 +51,9 @@ class VisualComponent: GKComponent {
     
     func backToTanuki(){
 
+        let collider = model.childNode(withName: "katanaCollider", recursively: true)!
+          collider.physicsBody = nil
+        
         model.opacity = 1
         katanaModel.removeFromParentNode()
     }

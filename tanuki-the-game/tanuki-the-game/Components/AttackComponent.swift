@@ -42,9 +42,6 @@ class AttackComponent: GKComponent {
             if stateMachine.currentState is AttackingState{
             entity.healthComponent.receiveDamage(damageAmount: damage)
             }
-            if stateMachine.currentState is TransformationState{
-            entity.healthComponent.receiveDamage(damageAmount: damage * 2)
-            }
         }
     }
     

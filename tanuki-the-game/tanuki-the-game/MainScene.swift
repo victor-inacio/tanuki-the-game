@@ -190,7 +190,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
             return
             
         case Bitmask.playerWeapon.rawValue | Bitmask.enemy.rawValue | Bitmask.character.rawValue:
-//            print("sword -> enemy")
             let nodesInvolved = [nodeA, nodeB]
             
             for node in nodesInvolved {
@@ -198,11 +197,18 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
                     player.attackComponent.handleAttackContact(target: node)
             
                 }
-    
+            }
+            
+        case Bitmask.katanaCollider.rawValue | Bitmask.enemy.rawValue | Bitmask.character.rawValue:
+            let nodesInvolved = [nodeA, nodeB]
+            
+            for node in nodesInvolved {
                 if node.name == "katanaCollider"{
                     player.attackComponent.handleAttackContact(target: node)
+                   
                 }
             }
+
             
         default:
             break
