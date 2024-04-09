@@ -44,7 +44,7 @@ class SpawnerEntity: GKEntity {
       
         let enemy = EnemyEntity()
         enemy.node.position = spawnPoint.position
-        enemy.node.position.z = Float.random(in: 7...9)
+        enemy.node.position.z = -1
         enemy.agentComponent.position = enemy.node.simdWorldPosition
         scene.rootNode.addChildNode(enemy.node)
         enemy.node.entity = enemy

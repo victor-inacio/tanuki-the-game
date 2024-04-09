@@ -34,6 +34,8 @@ class GameViewController: UIViewController {
 //        scnView.showsStatistics = true
         scnView.rendersContinuously = true
         scnView.autoenablesDefaultLighting = true
+        
+
 
         scene.background.contents = UIColor.black
         

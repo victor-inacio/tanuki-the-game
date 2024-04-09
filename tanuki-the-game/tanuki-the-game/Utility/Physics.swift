@@ -55,7 +55,7 @@ class Physics {
         
         if simd_length_squared(velocity) > 10E-4 * 10E-4 {
             let startPosition = position + collisionShapeOffsetFromModel
-            
+                
             return Physics.slideInWorld(fromPosition: startPosition, velocity: velocity, collisionShapeOffsetFromModel: collisionShapeOffsetFromModel, collisionShape: collisionShape)
         } else {
             return position
@@ -149,8 +149,7 @@ class Physics {
         
         // Advance start position to nearest point without collision.
         let computedVelocity = frictionCoeff * Float(1.0 - closestContact.sweepTestFraction) * originalDistance * normalized
-        
-        
+    
         return (computedVelocity, colliderPositionAtContact)
     }
 }
