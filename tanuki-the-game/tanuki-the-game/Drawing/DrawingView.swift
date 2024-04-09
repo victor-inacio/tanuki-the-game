@@ -25,14 +25,16 @@ struct DrawingView: View {
                     Spacer()
                     if viewModel.classificationResult == "sword" && viewModel.probability*100 >= 85{
                         ZStack{
-                            Image(.leaf)
-                                .resizable()
-                                .aspectRatio(1.6, contentMode: .fit)
-                                .padding()
-                            Image(.attackButton)
-                                .resizable()
-                                .frame(width: 200, height: 200)
-                                .padding()
+                            ZStack{
+                                Image(.leaf)
+                                    .resizable()
+                                    .aspectRatio(1.8, contentMode: .fit)
+                                Image(.attackButton)
+                                    .resizable()
+                                    .frame(width: 200, height: 200)
+                                    .padding()
+                            }
+                            .padding(.top, 40)
                             VStack{
                                 Text("Power Unlocked")
                                     .font(.custom("DarumaDropOne-Regular", size: 20))
@@ -43,10 +45,17 @@ struct DrawingView: View {
                         }
                     }else{
                         ZStack{
-                            Image(.leaf)
-                                .resizable()
-                                .aspectRatio(1.6, contentMode: .fit)
-                                .padding()
+                            ZStack{
+                                Image(.leaf)
+                                    .resizable()
+                                    .aspectRatio(1.8, contentMode: .fit)
+                                Image(.swordGuide)
+                                    .resizable()
+                                    .frame(width: 155, height: 280)
+                                    .padding()
+                                    .opacity(0.5)
+                            }
+                            .padding(.top, 40)
                             VStack{
                                 Text("Draw a sword to unlock your power")
                                     .font(.custom("DarumaDropOne-Regular", size: 20))
@@ -75,7 +84,7 @@ struct DrawingView: View {
                                 //Retornar autorização da Ult pro scenekit
                                 print("Dismissing view...")
     //                            presentationViewModel.isPresented = false // Dismiss the view using the presentationViewModel
-                                withAnimation(.easeInOut(duration: 2)) {
+                                withAnimation(.easeInOut(duration: 3)) {
                                     self.currentView = .game
                                 }
                                 
