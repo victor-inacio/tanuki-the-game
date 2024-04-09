@@ -60,7 +60,8 @@ class PlayerEntity: BaseEntity {
         self.addComponent(AnimationComponent(nodeToAddAnimation: model, animations: [
             .init(fromSceneNamed: "tanuki_idle.scn", animationKey: "idle"),
             .init(fromSceneNamed: "tanuki_attack.scn", animationKey: "attack"),
-            .init(fromSceneNamed: "tanuki_walk.scn", animationKey: "walk")
+            .init(fromSceneNamed: "tanuki_walk.scn", animationKey: "walk"),
+            .init(fromSceneNamed: "katana_spin.scn", animationKey: "spin")
            
         ]))
         

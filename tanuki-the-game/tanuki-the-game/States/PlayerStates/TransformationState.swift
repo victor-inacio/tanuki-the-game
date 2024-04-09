@@ -6,10 +6,8 @@ class TransformationState: PlayerState{
     
       print("transforming")
         
-        
         changeToKatana
         
-
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool{

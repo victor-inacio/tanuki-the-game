@@ -84,9 +84,10 @@
 		ABC207AA2BC42CFE000C364F /* tree2_texture.png in Resources */ = {isa = PBXBuildFile; fileRef = ABC207A22BC42CFE000C364F /* tree2_texture.png */; };
 		ABC207AC2BC42D68000C364F /* ControllersPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC207AB2BC42D68000C364F /* ControllersPadding.swift */; };
 		ABC207AF2BC45003000C364F /* TransformationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC207AE2BC45003000C364F /* TransformationState.swift */; };
+		ABC207D02BC4D675000C364F /* katana_spin.scn in Resources */ = {isa = PBXBuildFile; fileRef = ABC207CF2BC4D675000C364F /* katana_spin.scn */; };
+		ABC207D22BC4D680000C364F /* katana.scn in Resources */ = {isa = PBXBuildFile; fileRef = ABC207D12BC4D680000C364F /* katana.scn */; };
 		ABC429542BA4DB87009F0905 /* Art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = ABC429532BA4DB87009F0905 /* Art.scnassets */; };
 		ABE190E52BBDA7DD003449EF /* knife_collider.scn in Resources */ = {isa = PBXBuildFile; fileRef = ABE190E42BBDA7DD003449EF /* knife_collider.scn */; };
-		ABE190E92BBDE353003449EF /* tanuki_idleeee.scn in Resources */ = {isa = PBXBuildFile; fileRef = ABE190E82BBDE353003449EF /* tanuki_idleeee.scn */; };
 		ABE190ED2BBDF7F3003449EF /* tanuki_idle.scn in Resources */ = {isa = PBXBuildFile; fileRef = ABE190EC2BBDF7F3003449EF /* tanuki_idle.scn */; };
 		ABF676C12B9F2FB8007806B3 /* PlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF676C02B9F2FB8007806B3 /* PlayerEntity.swift */; };
 		ABF676C52B9F31B6007806B3 /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF676C42B9F31B6007806B3 /* MainScene.swift */; };
@@ -186,9 +187,10 @@
 		ABC207AB2BC42D68000C364F /* ControllersPadding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllersPadding.swift; sourceTree = "<group>"; };
 		ABC207AE2BC45003000C364F /* TransformationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformationState.swift; sourceTree = "<group>"; };
 		ABC207B72BC46BA7000C364F /* katana-textura.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "katana-textura.jpg"; sourceTree = "<group>"; };
+		ABC207CF2BC4D675000C364F /* katana_spin.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = katana_spin.scn; sourceTree = "<group>"; };
+		ABC207D12BC4D680000C364F /* katana.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = katana.scn; sourceTree = "<group>"; };
 		ABC429532BA4DB87009F0905 /* Art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Art.scnassets; sourceTree = "<group>"; };
 		ABE190E42BBDA7DD003449EF /* knife_collider.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = knife_collider.scn; sourceTree = "<group>"; };
-		ABE190E82BBDE353003449EF /* tanuki_idleeee.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = tanuki_idleeee.scn; sourceTree = "<group>"; };
 		ABE190EC2BBDF7F3003449EF /* tanuki_idle.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = tanuki_idle.scn; sourceTree = "<group>"; };
 		ABF676C02B9F2FB8007806B3 /* PlayerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEntity.swift; sourceTree = "<group>"; };
 		ABF676C42B9F31B6007806B3 /* MainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
@@ -337,7 +339,6 @@
 			isa = PBXGroup;
 			children = (
 				ABE190EC2BBDF7F3003449EF /* tanuki_idle.scn */,
-				ABE190E82BBDE353003449EF /* tanuki_idleeee.scn */,
 				ABE190E42BBDA7DD003449EF /* knife_collider.scn */,
 				98E8D0F42BB4BBB700608087 /* tanuki_walk.scn */,
 				98E8D0FD2BB5B60B00608087 /* folhanormal.jpeg */,
@@ -447,6 +448,8 @@
 		ABC207B42BC46B81000C364F /* katana */ = {
 			isa = PBXGroup;
 			children = (
+				ABC207D12BC4D680000C364F /* katana.scn */,
+				ABC207CF2BC4D675000C364F /* katana_spin.scn */,
 				ABC207B72BC46BA7000C364F /* katana-textura.jpg */,
 			);
 			path = katana;
@@ -577,6 +580,7 @@
 				98E8D0FC2BB5B52200608087 /* folha-textura.jpg in Resources */,
 				984F35822BBB311C00A54B09 /* tanuki_attack.scn in Resources */,
 				984F35872BBB35A100A54B09 /* karakasa_walk.dae in Resources */,
+				ABC207D22BC4D680000C364F /* katana.scn in Resources */,
 				98E8D0F82BB5B15F00608087 /* corpobake.jpeg in Resources */,
 				ABC207A82BC42CFE000C364F /* pillar_texture.jpg in Resources */,
 				98E8D0FE2BB5B60B00608087 /* folhanormal.jpeg in Resources */,
@@ -593,13 +597,13 @@
 				81A402D82BC46BD0006AB0E8 /* DarumaDropOne-Regular.ttf in Resources */,
 				98E8D0F52BB4BBB700608087 /* tanuki_walk.scn in Resources */,
 				ABC207AA2BC42CFE000C364F /* tree2_texture.png in Resources */,
-				ABE190E92BBDE353003449EF /* tanuki_idleeee.scn in Resources */,
 				984F358D2BBB35F500A54B09 /* Karakasa.scn in Resources */,
 				98F679F42B9B989E00A0EBEE /* Assets.xcassets in Resources */,
 				ABE190E52BBDA7DD003449EF /* knife_collider.scn in Resources */,
 				98D67E972BC468FB00638E2F /* collision.scn in Resources */,
 				9808F7BF2BBF014B009D31AC /* damage.shader in Resources */,
 				ABC207A52BC42CFE000C364F /* altar texture.jpg in Resources */,
+				ABC207D02BC4D675000C364F /* katana_spin.scn in Resources */,
 				ABC207A72BC42CFE000C364F /* map.dae in Resources */,
 				ABC207A32BC42CFE000C364F /* RockTexture2.png in Resources */,
 				98E8D0EF2BB4B83F00608087 /* tanuki.scn in Resources */,

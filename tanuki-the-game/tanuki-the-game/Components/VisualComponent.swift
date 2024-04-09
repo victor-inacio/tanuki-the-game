@@ -26,12 +26,11 @@ class VisualComponent: GKComponent {
         
     }
     
-    
     func katanaModel(){
         model.removeFromParentNode()
         let scene = SCNScene(named: "katana.scn")
-        model = scene!.rootNode.childNode( withName: "katana" , recursively: true)!
-        model.animationPlayer(forKey: "katana")?.play()
+        model = scene!.rootNode.childNode(withName: "katana" , recursively: true)!
+        model.animationPlayer(forKey: "spin")?.play()
         containerNode.addChildNode(model)
     }
     
