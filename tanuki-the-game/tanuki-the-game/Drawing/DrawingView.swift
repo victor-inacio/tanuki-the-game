@@ -23,10 +23,40 @@ struct DrawingView: View {
                 Color.white.ignoresSafeArea()
                 HStack{
                     Spacer()
-                    Image(.leaf)
-                        .resizable()
-                        .aspectRatio(1.6, contentMode: .fit)
-                        .padding()
+                    if viewModel.classificationResult == "sword" && viewModel.probability*100 >= 85{
+                        ZStack{
+                            Image(.leaf)
+                                .resizable()
+                                .aspectRatio(1.6, contentMode: .fit)
+                                .padding()
+                            Image(.attackButton)
+                                .resizable()
+                                .frame(width: 200, height: 200)
+                                .padding()
+                            VStack{
+                                Text("Power Unlocked")
+                                    .font(.custom("DarumaDropOne-Regular", size: 20))
+                                    .foregroundStyle(.black)
+                                    .padding()
+                                Spacer()
+                            }
+                        }
+                    }else{
+                        ZStack{
+                            Image(.leaf)
+                                .resizable()
+                                .aspectRatio(1.6, contentMode: .fit)
+                                .padding()
+                            VStack{
+                                Text("Draw a sword to unlock your power")
+                                    .font(.custom("DarumaDropOne-Regular", size: 20))
+                                    .foregroundStyle(.black)
+                                    .padding()
+                                Spacer()
+                            }
+                        }
+                    }
+                    
                 }
                 PKCanvasRepresentation(canvasView: $viewModel.canvasView)
                 
@@ -42,29 +72,18 @@ struct DrawingView: View {
                             viewModel.canvasView.drawing = PKDrawing()
                             if viewModel.classificationResult == "sword" && viewModel.probability*100 >= 85{
                                 print("Ultimate Activated")
-                                
                                 //Retornar autorização da Ult pro scenekit
+                                print("Dismissing view...")
+    //                            presentationViewModel.isPresented = false // Dismiss the view using the presentationViewModel
+                                withAnimation(.easeInOut(duration: 2)) {
+                                    self.currentView = .game
+                                }
                                 
                             }
                         }) {
                             Image(systemName: "square.and.arrow.down")
                                 .font(.system(size: 50))
                         }
-                        
-                        Spacer()
-                        // Button to dismiss the view
-                        Button(action: {
-                            print("Dismissing view...")
-//                            presentationViewModel.isPresented = false // Dismiss the view using the presentationViewModel
-                            withAnimation(.easeInOut(duration: 1)) {
-                                self.currentView = .game
-                            }
-                            
-                        }) {
-                            Image(systemName: "xmark.circle")
-                                .font(.system(size: 50))
-                        }
-                        .foregroundColor(.red) // Optionally change the color of the dismiss button
                         
                         Spacer()
                         

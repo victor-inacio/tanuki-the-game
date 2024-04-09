@@ -16,7 +16,7 @@ struct MainMenuView: View {
             VStack {
                 Button(action: {
                     withAnimation(.easeOut(duration: 1.5)) {
-                        self.currentView = .game
+                        self.currentView = .drawingView
                     }
                 }) {
                     VStack{
