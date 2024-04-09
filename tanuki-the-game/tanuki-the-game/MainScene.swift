@@ -104,7 +104,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     func setupEnemy() {
         
         enemy = EnemyEntity()
-        enemy.node.simdPosition = .init(x: 0, y: 2, z: 8)
+        enemy.node.simdPosition = .init(x: 0, y: 0, z: -1)
         enemy.agentComponent.position = enemy.node.simdPosition
     
         rootNode.addChildNode(enemy.node)
@@ -125,7 +125,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         
         
         rootNode.addChildNode(player.node)
-        player.node.position = SCNVector3(x: -1, y: 0, z: 6)
+        player.node.position = SCNVector3(x: 0, y: 0, z: -1)
         
         
         GameManager.player = player
@@ -133,8 +133,8 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     
     func setupScenario(){
         
-        let collisionsScene = SCNScene( named: "Map.scn" )
-        collisionsScene!.rootNode.enumerateChildNodes { (_ child: SCNNode, _ _: UnsafeMutablePointer<ObjCBool>) in
+        let map = SCNScene( named: "Map.scn" )
+        map!.rootNode.enumerateChildNodes { (_ child: SCNNode, _ _: UnsafeMutablePointer<ObjCBool>) in
             child.opacity = 1
             child.position = SCNVector3(0, -1, 0)
             child.scale = .init(x: 0.2, y: 0.2, z: 0.2)
@@ -157,6 +157,24 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
             
             self.rootNode.addChildNode(child)
         }
+        
+        let colliderMap = SCNScene(named: "collider.scn")
+        let colliders = colliderMap?.rootNode.enumerateChildNodes({ collider, _ in
+            collider.position = .init(x: 0, y: -1, z: 0)
+            collider.scale = .init(x: 0.2, y: 0.2, z: 0.2)
+            
+            let shape = SCNPhysicsShape(geometry: collider.geometry!, options: [
+                .scale: SCNVector3(x: 0.2, y: 0.2, z: 0.2),
+                .type: SCNPhysicsShape.ShapeType.concavePolyhedron
+            ])
+            
+            collider.physicsBody?.physicsShape = shape
+            collider.opacity = 0.0
+            rootNode.addChildNode(collider)
+        })
+        
+       
+        
     }
     
     func setupCamera(){

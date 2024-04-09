@@ -118,7 +118,7 @@ class MovementComponent: GKComponent{
         characterVelocity += downwardAcceleration
         
         
-        characterNode.simdWorldPosition = Physics.calculateSlidePos(position: characterNode.simdWorldPosition, velocity: characterVelocity, collisionShapeOffsetFromModel: collisionShapeOffsetFromModel, collisionShape: characterCollisionShape!)
+        characterNode.simdWorldPosition = !direction.allZero() ? Physics.calculateSlidePos(position: characterNode.simdWorldPosition, velocity: characterVelocity, collisionShapeOffsetFromModel: collisionShapeOffsetFromModel, collisionShape: characterCollisionShape!) : characterNode.simdWorldPosition
     }
     
     func characterDirection(withPointOfView pointOfView: SCNNode?) -> simd_float3 {

@@ -33,13 +33,15 @@
 		989296682BA390C900681BCD /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 989296672BA390C900681BCD /* Camera.swift */; };
 		9892966C2BA4B7CA00681BCD /* EnemyEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9892966B2BA4B7CA00681BCD /* EnemyEntity.swift */; };
 		989296702BA4BDE500681BCD /* Bounds.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9892966F2BA4BDE500681BCD /* Bounds.swift */; };
+		9897B6572BC5D29900BAF9E7 /* collider.scn in Resources */ = {isa = PBXBuildFile; fileRef = 9897B6562BC5D29900BAF9E7 /* collider.scn */; };
+		9897B6592BC5DDDA00BAF9E7 /* collider2.dae in Resources */ = {isa = PBXBuildFile; fileRef = 9897B6582BC5DDDA00BAF9E7 /* collider2.dae */; };
+		9897B65B2BC5DDEE00BAF9E7 /* collider2.scn in Resources */ = {isa = PBXBuildFile; fileRef = 9897B65A2BC5DDEE00BAF9E7 /* collider2.scn */; };
 		98B3B0EA2BBDE06A00F8BF54 /* EnemyStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B3B0E92BBDE06A00F8BF54 /* EnemyStateMachine.swift */; };
 		98B3B0EC2BBDE0C800F8BF54 /* HuntingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B3B0EB2BBDE0C800F8BF54 /* HuntingState.swift */; };
 		98B3B0EE2BBDE0F700F8BF54 /* BaseState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B3B0ED2BBDE0F700F8BF54 /* BaseState.swift */; };
 		98B3B0F02BBDE19F00F8BF54 /* EnemyBaseState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98B3B0EF2BBDE19F00F8BF54 /* EnemyBaseState.swift */; };
 		98C4CBD32BBDC48A007D45CD /* fumaca.png in Resources */ = {isa = PBXBuildFile; fileRef = 98C4CBD22BBDC48A007D45CD /* fumaca.png */; };
 		98D67E952BC43E6100638E2F /* collision.dae in Resources */ = {isa = PBXBuildFile; fileRef = 98D67E932BC43E6100638E2F /* collision.dae */; };
-		98D67E972BC468FB00638E2F /* collision.scn in Resources */ = {isa = PBXBuildFile; fileRef = 98D67E962BC468FB00638E2F /* collision.scn */; };
 		98DD7FD32BAE073D00CB4FBB /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DD7FD22BAE073D00CB4FBB /* Input.swift */; };
 		98DD7FD52BAE08CF00CB4FBB /* PlayerState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DD7FD42BAE08CF00CB4FBB /* PlayerState.swift */; };
 		98DD7FD72BAE0CEC00CB4FBB /* PlayerStateMachine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98DD7FD62BAE0CEC00CB4FBB /* PlayerStateMachine.swift */; };
@@ -133,14 +135,15 @@
 		989296672BA390C900681BCD /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		9892966B2BA4B7CA00681BCD /* EnemyEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyEntity.swift; sourceTree = "<group>"; };
 		9892966F2BA4BDE500681BCD /* Bounds.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bounds.swift; sourceTree = "<group>"; };
+		9897B6562BC5D29900BAF9E7 /* collider.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = collider.scn; sourceTree = "<group>"; };
+		9897B6582BC5DDDA00BAF9E7 /* collider2.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = collider2.dae; sourceTree = "<group>"; };
+		9897B65A2BC5DDEE00BAF9E7 /* collider2.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = collider2.scn; sourceTree = "<group>"; };
 		98B3B0E92BBDE06A00F8BF54 /* EnemyStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyStateMachine.swift; sourceTree = "<group>"; };
 		98B3B0EB2BBDE0C800F8BF54 /* HuntingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuntingState.swift; sourceTree = "<group>"; };
 		98B3B0ED2BBDE0F700F8BF54 /* BaseState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseState.swift; sourceTree = "<group>"; };
 		98B3B0EF2BBDE19F00F8BF54 /* EnemyBaseState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyBaseState.swift; sourceTree = "<group>"; };
 		98C4CBD22BBDC48A007D45CD /* fumaca.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fumaca.png; sourceTree = "<group>"; };
-		98D67E922BC43E6100638E2F /* collision.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = collision.scn; sourceTree = "<group>"; };
 		98D67E932BC43E6100638E2F /* collision.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = collision.dae; sourceTree = "<group>"; };
-		98D67E962BC468FB00638E2F /* collision.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = collision.scn; sourceTree = "<group>"; };
 		98DD7FD22BAE073D00CB4FBB /* Input.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
 		98DD7FD42BAE08CF00CB4FBB /* PlayerState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerState.swift; sourceTree = "<group>"; };
 		98DD7FD62BAE0CEC00CB4FBB /* PlayerStateMachine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerStateMachine.swift; sourceTree = "<group>"; };
@@ -430,9 +433,10 @@
 		ABC207AD2BC4319B000C364F /* Map */ = {
 			isa = PBXGroup;
 			children = (
+				9897B6582BC5DDDA00BAF9E7 /* collider2.dae */,
+				9897B65A2BC5DDEE00BAF9E7 /* collider2.scn */,
 				98D67E932BC43E6100638E2F /* collision.dae */,
-				98D67E962BC468FB00638E2F /* collision.scn */,
-				98D67E922BC43E6100638E2F /* collision.scn */,
+				9897B6562BC5D29900BAF9E7 /* collider.scn */,
 				ABC2079D2BC42CFE000C364F /* altar texture.jpg */,
 				ABC207A12BC42CFE000C364F /* map_texture.jpg */,
 				ABC2079F2BC42CFE000C364F /* map.dae */,
@@ -581,6 +585,7 @@
 				984F35822BBB311C00A54B09 /* tanuki_attack.scn in Resources */,
 				984F35872BBB35A100A54B09 /* karakasa_walk.dae in Resources */,
 				ABC207D22BC4D680000C364F /* katana.scn in Resources */,
+				9897B65B2BC5DDEE00BAF9E7 /* collider2.scn in Resources */,
 				98E8D0F82BB5B15F00608087 /* corpobake.jpeg in Resources */,
 				ABC207A82BC42CFE000C364F /* pillar_texture.jpg in Resources */,
 				98E8D0FE2BB5B60B00608087 /* folhanormal.jpeg in Resources */,
@@ -597,16 +602,17 @@
 				81A402D82BC46BD0006AB0E8 /* DarumaDropOne-Regular.ttf in Resources */,
 				98E8D0F52BB4BBB700608087 /* tanuki_walk.scn in Resources */,
 				ABC207AA2BC42CFE000C364F /* tree2_texture.png in Resources */,
+				9897B6592BC5DDDA00BAF9E7 /* collider2.dae in Resources */,
 				984F358D2BBB35F500A54B09 /* Karakasa.scn in Resources */,
 				98F679F42B9B989E00A0EBEE /* Assets.xcassets in Resources */,
 				ABE190E52BBDA7DD003449EF /* knife_collider.scn in Resources */,
-				98D67E972BC468FB00638E2F /* collision.scn in Resources */,
 				9808F7BF2BBF014B009D31AC /* damage.shader in Resources */,
 				ABC207A52BC42CFE000C364F /* altar texture.jpg in Resources */,
 				ABC207D02BC4D675000C364F /* katana_spin.scn in Resources */,
 				ABC207A72BC42CFE000C364F /* map.dae in Resources */,
 				ABC207A32BC42CFE000C364F /* RockTexture2.png in Resources */,
 				98E8D0EF2BB4B83F00608087 /* tanuki.scn in Resources */,
+				9897B6572BC5D29900BAF9E7 /* collider.scn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
