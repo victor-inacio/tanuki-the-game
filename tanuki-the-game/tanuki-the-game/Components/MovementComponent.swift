@@ -42,6 +42,7 @@ class MovementComponent: GKComponent{
 
     var direction = simd_float2()
     var speedFactor = 2.0
+    var walkSpeedFactor: Float = 3
     
     let dynamicControl: Bool
     
@@ -103,7 +104,7 @@ class MovementComponent: GKComponent{
         
         // move
         if !direction.allZero() {
-            characterVelocity = (direction * Float(characterSpeed)) / 3
+            characterVelocity = (direction * (Float(characterSpeed)) / walkSpeedFactor)
             let runModifier = Float(2.0)
             
             // animation walkSpeed

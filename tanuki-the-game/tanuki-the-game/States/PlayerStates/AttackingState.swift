@@ -17,7 +17,7 @@ class AttackingState: PlayerState{
         playerModel.animationPlayer(forKey: "attack")?.speed = 2
         playerModel.animationPlayer(forKey: "attack")?.play()
         
-        entity.movementComponent.walkSpeed = 3
+        entity.movementComponent.walkSpeedFactor = 1.3
         
         let animationDuration: TimeInterval = (playerModel.animationPlayer(forKey: "attack")?.animation.duration)! /   entity.movementComponent.speedFactor
         
@@ -42,7 +42,7 @@ class AttackingState: PlayerState{
     
     override func willExit(to nextState: GKState){
         attacking = false
-        entity.movementComponent.walkSpeed = 1
+        entity.movementComponent.walkSpeedFactor = 3
         playerModel.animationPlayer(forKey: "attack")?.stop(withBlendOutDuration: 0.2)
     }
     

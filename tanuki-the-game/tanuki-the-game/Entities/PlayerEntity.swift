@@ -70,14 +70,6 @@ class PlayerEntity: BaseEntity {
         
     }
     
-    func changeToKatanaModel() {
-        visualComponent.transformTokatana()
-    }
-    
-    func backToTanuki(){
-            visualComponent.backToTanuki()
-    }
-    
     override func update(deltaTime seconds: TimeInterval) {
         
         characterDirection = Input.movement
@@ -85,7 +77,6 @@ class PlayerEntity: BaseEntity {
         stateMachine.update(deltaTime: seconds)
         movementComponent.update(deltaTime: seconds)
 
-        print(stateMachine.currentState)
     }
 
     func setupStateMachine(){
