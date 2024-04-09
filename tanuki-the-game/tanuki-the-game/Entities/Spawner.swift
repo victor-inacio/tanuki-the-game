@@ -38,6 +38,7 @@ class SpawnerEntity: GKEntity {
     }
     
     func spawnEnemy(){
+        
         if !waveManager.canSpawn || waveManager.enemiesSpawned == waveManager.toBeSpawned  { return }
         
       

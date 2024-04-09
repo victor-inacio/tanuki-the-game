@@ -29,7 +29,7 @@ class EnemyEntity: BaseEntity {
         stateMachine = EnemyStateMachine(enemy: self)
         
         
-        self.addComponent(VisualComponent(modelFile:  "Karakasa.scn", nameOfChild: "Armature"))
+        self.addComponent(VisualComponent(modelFile:  "Karakasa.scn", nameOfChild: "Armature", baseEntity: self))
       
         
         addComponent(AgentComponent(model: model))

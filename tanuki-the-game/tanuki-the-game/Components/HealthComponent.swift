@@ -75,7 +75,7 @@ class HealthComponent: GKComponent {
             return
         }
         
-        let currentFrame = Int(6 + 1 - (Float(currentHealth.value / maxHealth.value) * 6))
+        let currentFrame = Int(17 + 1 - (Float(currentHealth.value / maxHealth.value) * 17))
         
         let animation = animateTexture(withTextureNamed: "enemy", frameRange: lastFrame...currentFrame)
         
@@ -120,8 +120,8 @@ class HealthComponent: GKComponent {
         }
     }
     
-    func die() {
-     GameManager.removeEntity(entity: self.node.entity!)
+    func die(){
+        GameManager.removeEntity(entity: self.node.entity!)
         self.node.removeFromParentNode()
     }
     

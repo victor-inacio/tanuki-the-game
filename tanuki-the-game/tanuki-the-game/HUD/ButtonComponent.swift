@@ -23,7 +23,6 @@ class ButtonComponent: SKNode {
     
     public func onButtonDown() {   
         
-        
         delegate?.onButtonDown(button: self)
     }
     
