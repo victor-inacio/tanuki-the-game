@@ -6,13 +6,15 @@ class TransformationState: PlayerState{
         
         print("transforming")
         
-        changeToKatana
-        
+        entity.visualComponent.transformTokatana()
         
         playerModel.runAction(.sequence([.wait(duration: 5), .run({ SCNNode in
-            self.backToTanuki
+            self.entity.visualComponent.backToTanuki()
             self.stateMachine?.enter(IdleState.self)
         })]))
+       
+        entity.movementComponent.walkSpeedFactor = 1.2
+    
     }
     
     override func isValidNextState(_ stateClass: AnyClass) -> Bool{
@@ -23,9 +25,11 @@ class TransformationState: PlayerState{
     }
     
     override func willExit(to nextState: GKState){
-        
+       
+        entity.movementComponent.walkSpeedFactor = 3.0
+
     }
-    
+
     
     override func update(deltaTime seconds: TimeInterval){
         
