@@ -25,7 +25,6 @@ class AttackingState: PlayerState{
             self.attacking = true
         })]))
         
-        
         entity.node.runAction(.sequence([.wait(duration: animationDuration * 0.4), .run({ _ in
             self.stateMachine?.enter(IdleState.self)
             print("animation ended")
