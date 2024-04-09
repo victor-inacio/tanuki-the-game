@@ -84,7 +84,7 @@ class MovementComponent: GKComponent{
         }
     }
     
-    var walkSpeed: CGFloat = 1.0 {
+    var walkSpeed: CGFloat = 1 {
         didSet {
             model.animationPlayer(forKey: "walk")?.speed = 1 * walkSpeed
         }

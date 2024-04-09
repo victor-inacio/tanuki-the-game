@@ -120,7 +120,7 @@ class HealthComponent: GKComponent {
         }
     }
     
-    func die() {
+    func die(){
         GameManager.removeEntity(entity: self.node.entity!)
         self.node.removeFromParentNode()
     }

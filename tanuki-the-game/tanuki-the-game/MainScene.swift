@@ -67,7 +67,10 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         }
         
         if (button.name == "buttonB") {
-            player.stateMachine.enter(TransformationState.self)
+            if player.stateMachine?.currentState is TransformationState == false{
+                player.stateMachine.enter(TransformationState.self)
+            }
+                
         }
         
     }
@@ -104,7 +107,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     func setupEnemy() {
         
         enemy = EnemyEntity()
-        enemy.node.simdPosition = .init(x: 0, y: 2, z: 8)
+        enemy.node.simdPosition = .init(x: 0, y: 2, z: 15)
         enemy.agentComponent.position = enemy.node.simdPosition
     
         rootNode.addChildNode(enemy.node)
@@ -125,7 +128,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         
         
         rootNode.addChildNode(player.node)
-        player.node.position = SCNVector3(x: -1, y: 0, z: 6)
+        player.node.position = SCNVector3(x: -1, y: 1, z: 15)
         
         
         GameManager.player = player
@@ -179,7 +182,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     func setupSpawners(){
         spawner.scene = self
         spawner.waveManager = waveManager
-        spawner.spawnPoint.position = SCNVector3(0, -0.5, 7)
+        spawner.spawnPoint.position = SCNVector3(0, 1, 15)
         spawner.scene.rootNode.addChildNode(spawner.spawnPoint)
     }
     
@@ -204,6 +207,10 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
                 if node.name == "collider"{
                     player.attackComponent.handleAttackContact(target: node)
             
+                }
+    
+                if node.name == "katanaCollider"{
+                    player.attackComponent.handleAttackContact(target: node)
                 }
             }
             

@@ -10,9 +10,10 @@ enum Bitmask {
     case collision
     case enemy
     case playerWeapon
-    case ground 
+    case ground
+    case katanaCollider
     case none
-    
+
     var rawValue: Int {
         switch self {
         case .character: return 1 << 0
@@ -20,7 +21,9 @@ enum Bitmask {
         case .enemy: return 1 << 2
         case .playerWeapon: return 1 << 3
         case .ground: return 1 << 4
+        case .katanaCollider: return 1 << 5 
         case .none: return 0
         }
     }
 }
+

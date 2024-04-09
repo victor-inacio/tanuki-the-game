@@ -11,7 +11,9 @@ class PlayerState: BaseState<PlayerEntity> {
     }
     
     var changeToKatana: (){
-        self.entity.changeToKatanaModel()
+      
+            self.entity.changeToKatanaModel()
+        
     }
     
     var backToTanuki: (){

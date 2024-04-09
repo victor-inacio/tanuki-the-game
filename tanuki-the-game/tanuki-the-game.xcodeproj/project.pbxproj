@@ -58,6 +58,8 @@
 		98F679F02B9B989D00A0EBEE /* tanuki_the_gameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98F679EF2B9B989D00A0EBEE /* tanuki_the_gameApp.swift */; };
 		98F679F42B9B989E00A0EBEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F679F32B9B989E00A0EBEE /* Assets.xcassets */; };
 		98F679F72B9B989E00A0EBEE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 98F679F62B9B989E00A0EBEE /* Preview Assets.xcassets */; };
+		AB099E982BC5C75D00F86B72 /* katana_spin.dae in Resources */ = {isa = PBXBuildFile; fileRef = AB099E972BC5C75C00F86B72 /* katana_spin.dae */; };
+		AB099E9A2BC5C76C00F86B72 /* katana_spin.scn in Resources */ = {isa = PBXBuildFile; fileRef = AB099E992BC5C76C00F86B72 /* katana_spin.scn */; };
 		AB1FD84F2BC07C8C00F55F5B /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1FD84E2BC07C8C00F55F5B /* Animation.swift */; };
 		AB38C63E2BAA1BC7006C279A /* MovementComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38C63D2BAA1BC7006C279A /* MovementComponent.swift */; };
 		AB38C6402BAA256A006C279A /* bitMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38C63F2BAA256A006C279A /* bitMask.swift */; };
@@ -84,8 +86,6 @@
 		ABC207AA2BC42CFE000C364F /* tree2_texture.png in Resources */ = {isa = PBXBuildFile; fileRef = ABC207A22BC42CFE000C364F /* tree2_texture.png */; };
 		ABC207AC2BC42D68000C364F /* ControllersPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC207AB2BC42D68000C364F /* ControllersPadding.swift */; };
 		ABC207AF2BC45003000C364F /* TransformationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC207AE2BC45003000C364F /* TransformationState.swift */; };
-		ABC207D02BC4D675000C364F /* katana_spin.scn in Resources */ = {isa = PBXBuildFile; fileRef = ABC207CF2BC4D675000C364F /* katana_spin.scn */; };
-		ABC207D22BC4D680000C364F /* katana.scn in Resources */ = {isa = PBXBuildFile; fileRef = ABC207D12BC4D680000C364F /* katana.scn */; };
 		ABC429542BA4DB87009F0905 /* Art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = ABC429532BA4DB87009F0905 /* Art.scnassets */; };
 		ABE190E52BBDA7DD003449EF /* knife_collider.scn in Resources */ = {isa = PBXBuildFile; fileRef = ABE190E42BBDA7DD003449EF /* knife_collider.scn */; };
 		ABE190ED2BBDF7F3003449EF /* tanuki_idle.scn in Resources */ = {isa = PBXBuildFile; fileRef = ABE190EC2BBDF7F3003449EF /* tanuki_idle.scn */; };
@@ -126,9 +126,6 @@
 		984F358E2BBB36D200A54B09 /* karakasa-normal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "karakasa-normal.png"; sourceTree = "<group>"; };
 		984F358F2BBB36D200A54B09 /* karakasa-textura.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "karakasa-textura.jpg"; sourceTree = "<group>"; };
 		986D6E372BA8B3D600AF42D6 /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
-		987339872BC435EB003C4F21 /* collision.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = collision.scn; sourceTree = "<group>"; };
-		987339892BC437AB003C4F21 /* collision.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = collision.dae; sourceTree = "<group>"; };
-		9873398B2BC437B2003C4F21 /* collision.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = collision.scn; sourceTree = "<group>"; };
 		989296652BA38BE200681BCD /* Time.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Time.swift; sourceTree = "<group>"; };
 		989296672BA390C900681BCD /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		9892966B2BA4B7CA00681BCD /* EnemyEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnemyEntity.swift; sourceTree = "<group>"; };
@@ -160,6 +157,8 @@
 		98F679EF2B9B989D00A0EBEE /* tanuki_the_gameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tanuki_the_gameApp.swift; sourceTree = "<group>"; };
 		98F679F32B9B989E00A0EBEE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		98F679F62B9B989E00A0EBEE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		AB099E972BC5C75C00F86B72 /* katana_spin.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = katana_spin.dae; sourceTree = "<group>"; };
+		AB099E992BC5C76C00F86B72 /* katana_spin.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = katana_spin.scn; sourceTree = "<group>"; };
 		AB1FD84E2BC07C8C00F55F5B /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		AB38C63D2BAA1BC7006C279A /* MovementComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementComponent.swift; sourceTree = "<group>"; };
 		AB38C63F2BAA256A006C279A /* bitMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bitMask.swift; sourceTree = "<group>"; };
@@ -187,8 +186,6 @@
 		ABC207AB2BC42D68000C364F /* ControllersPadding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllersPadding.swift; sourceTree = "<group>"; };
 		ABC207AE2BC45003000C364F /* TransformationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformationState.swift; sourceTree = "<group>"; };
 		ABC207B72BC46BA7000C364F /* katana-textura.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "katana-textura.jpg"; sourceTree = "<group>"; };
-		ABC207CF2BC4D675000C364F /* katana_spin.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = katana_spin.scn; sourceTree = "<group>"; };
-		ABC207D12BC4D680000C364F /* katana.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = katana.scn; sourceTree = "<group>"; };
 		ABC429532BA4DB87009F0905 /* Art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Art.scnassets; sourceTree = "<group>"; };
 		ABE190E42BBDA7DD003449EF /* knife_collider.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = knife_collider.scn; sourceTree = "<group>"; };
 		ABE190EC2BBDF7F3003449EF /* tanuki_idle.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = tanuki_idle.scn; sourceTree = "<group>"; };
@@ -298,16 +295,6 @@
 			path = EnemyStates;
 			sourceTree = "<group>";
 		};
-		98D67E912BC43E4400638E2F /* Recovered References */ = {
-			isa = PBXGroup;
-			children = (
-				9873398B2BC437B2003C4F21 /* collision.scn */,
-				987339892BC437AB003C4F21 /* collision.dae */,
-				987339872BC435EB003C4F21 /* collision.scn */,
-			);
-			name = "Recovered References";
-			sourceTree = "<group>";
-		};
 		98E0E3BE2B9E7C860034011F /* Components */ = {
 			isa = PBXGroup;
 			children = (
@@ -357,7 +344,6 @@
 			children = (
 				98F679EE2B9B989D00A0EBEE /* tanuki-the-game */,
 				98F679ED2B9B989D00A0EBEE /* Products */,
-				98D67E912BC43E4400638E2F /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -448,8 +434,8 @@
 		ABC207B42BC46B81000C364F /* katana */ = {
 			isa = PBXGroup;
 			children = (
-				ABC207D12BC4D680000C364F /* katana.scn */,
-				ABC207CF2BC4D675000C364F /* katana_spin.scn */,
+				AB099E972BC5C75C00F86B72 /* katana_spin.dae */,
+				AB099E992BC5C76C00F86B72 /* katana_spin.scn */,
 				ABC207B72BC46BA7000C364F /* katana-textura.jpg */,
 			);
 			path = katana;
@@ -580,7 +566,6 @@
 				98E8D0FC2BB5B52200608087 /* folha-textura.jpg in Resources */,
 				984F35822BBB311C00A54B09 /* tanuki_attack.scn in Resources */,
 				984F35872BBB35A100A54B09 /* karakasa_walk.dae in Resources */,
-				ABC207D22BC4D680000C364F /* katana.scn in Resources */,
 				98E8D0F82BB5B15F00608087 /* corpobake.jpeg in Resources */,
 				ABC207A82BC42CFE000C364F /* pillar_texture.jpg in Resources */,
 				98E8D0FE2BB5B60B00608087 /* folhanormal.jpeg in Resources */,
@@ -603,9 +588,10 @@
 				98D67E972BC468FB00638E2F /* collision.scn in Resources */,
 				9808F7BF2BBF014B009D31AC /* damage.shader in Resources */,
 				ABC207A52BC42CFE000C364F /* altar texture.jpg in Resources */,
-				ABC207D02BC4D675000C364F /* katana_spin.scn in Resources */,
+				AB099E9A2BC5C76C00F86B72 /* katana_spin.scn in Resources */,
 				ABC207A72BC42CFE000C364F /* map.dae in Resources */,
 				ABC207A32BC42CFE000C364F /* RockTexture2.png in Resources */,
+				AB099E982BC5C75D00F86B72 /* katana_spin.dae in Resources */,
 				98E8D0EF2BB4B83F00608087 /* tanuki.scn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
