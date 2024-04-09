@@ -90,8 +90,9 @@ struct DrawingView: View {
                                 
                             }
                         }) {
-                            Image(systemName: "square.and.arrow.down")
-                                .font(.system(size: 50))
+                            Image(.drawingSubmit)
+                                .resizable()
+                                .frame(width: 100, height: 100)
                         }
                         
                         Spacer()
