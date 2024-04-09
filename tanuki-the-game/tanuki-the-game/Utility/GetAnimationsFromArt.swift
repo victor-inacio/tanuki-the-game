@@ -9,7 +9,7 @@ import GameplayKit
 
 extension GKComponent{
     func loadAnimation(fromSceneNamed sceneName: String) -> SCNAnimationPlayer {
-        let scene = SCNScene( named: sceneName )!
+        let scene = SCNScene(named: sceneName)!
         
         var animationPlayer: SCNAnimationPlayer! = nil
         scene.rootNode.enumerateChildNodes { (child, stop) in

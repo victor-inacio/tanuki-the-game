@@ -23,6 +23,5 @@ class PlayerStateMachine: GKStateMachine {
             enter(IdleState.self)
         }
       
-     
     }
 }

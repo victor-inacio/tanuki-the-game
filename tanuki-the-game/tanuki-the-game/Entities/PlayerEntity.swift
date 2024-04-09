@@ -32,8 +32,6 @@ class PlayerEntity: BaseEntity {
         return component
     }()
 
-
-
     var characterDirection: vector_float2 {
         get {
             return movementComponent.direction
@@ -55,16 +53,16 @@ class PlayerEntity: BaseEntity {
         
         self.addComponent(VisualComponent(modelFile: "tanuki.scn", nameOfChild: "Armature"))
 
-        addComponent(HealthComponent(health: 1000, node: node))
+        addComponent(HealthComponent(health: 1000, node: node, showHealthBar: false))
   
-//        stateMachine.enter(TransformationState.self)
-        
         self.addComponent(MovementComponent(topLevelNode: node, rotationNode: rotationNode, modelNode: model, physicsWorld: physicsWorld))
         
         self.addComponent(AnimationComponent(nodeToAddAnimation: model, animations: [
             .init(fromSceneNamed: "tanuki_idle.scn", animationKey: "idle"),
             .init(fromSceneNamed: "tanuki_attack.scn", animationKey: "attack"),
-            .init(fromSceneNamed: "tanuki_walk.scn", animationKey: "walk")
+            .init(fromSceneNamed: "tanuki_walk.scn", animationKey: "walk"),
+            .init(fromSceneNamed: "katana_spin.scn", animationKey: "spin")
+           
         ]))
         
         self.addComponent(AttackComponent(topLevelNode: node, attackerModel: model, colliderName: "swordCollider", damage: 80, stateMachine: stateMachine))
@@ -73,7 +71,13 @@ class PlayerEntity: BaseEntity {
         setupStateMachine()
     }
     
+    func changeToKatanaModel() {
+        visualComponent.katanaModel()
+    }
     
+    func backToTanuki(){
+        visualComponent.backToTanuki()
+    }   
     
     override func update(deltaTime seconds: TimeInterval) {
         
@@ -81,7 +85,7 @@ class PlayerEntity: BaseEntity {
         
         stateMachine.update(deltaTime: seconds)
         movementComponent.update(deltaTime: seconds)
-        print(stateMachine.currentState)
+
     }
 
     func setupStateMachine(){

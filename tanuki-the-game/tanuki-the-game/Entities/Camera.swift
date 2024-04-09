@@ -12,7 +12,7 @@ class Camera: GKEntity {
         
         let cameraNode = SCNNode()
         let camera = SCNCamera()
-        
+        camera.zNear = 0.1
         cameraNode.camera = camera
         
         self.node = cameraNode

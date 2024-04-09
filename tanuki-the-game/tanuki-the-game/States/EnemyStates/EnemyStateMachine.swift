@@ -3,6 +3,8 @@ import GameplayKit
 class EnemyStateMachine: GKStateMachine {
     
     var enemy: EnemyEntity
+    var cantEnter = true
+    
     
     init(enemy: EnemyEntity) {
         self.enemy = enemy
@@ -12,6 +14,9 @@ class EnemyStateMachine: GKStateMachine {
             EnemyAttackState(entity: enemy)
         ])
     }
+    
+    
+    
     
     override func update(deltaTime: TimeInterval) {
         super.update(deltaTime: deltaTime)
