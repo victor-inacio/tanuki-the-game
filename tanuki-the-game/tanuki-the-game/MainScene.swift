@@ -49,7 +49,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         
         setupCamera()
         setupPlayer()
-        setupEnemy()
         setupScenario()
         setupWaveStateMachine()
         setupSpawners()
@@ -102,15 +101,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         self.waveStateMachine?.update(deltaTime: time)
         
         player.update(deltaTime: Time.deltaTime)
-    }
-    
-    func setupEnemy() {
-        
-        enemy = EnemyEntity()
-        enemy.node.simdPosition = .init(x: 0, y: 2, z: 15)
-        enemy.agentComponent.position = enemy.node.simdPosition
-    
-        rootNode.addChildNode(enemy.node)
     }
     
     func setupPlayer(){
