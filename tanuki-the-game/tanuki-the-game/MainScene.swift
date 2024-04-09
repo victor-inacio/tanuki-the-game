@@ -18,7 +18,8 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     var camera: Camera!
     var waveManager = WaveManager()
     var waveStateMachine: GKStateMachine?
-    var spawner: SpawnerEntity!
+    var spawners: [SpawnerEntity]!
+    
     
     
     var firstFrame = true
@@ -27,8 +28,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     
     init(scnView: SCNView) {
         super.init()
-        
-        spawner = SpawnerEntity(isVisible: true, scene: self)
         
         scnView.delegate = self
         self.physicsWorld.contactDelegate = self
@@ -69,7 +68,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
             if player.stateMachine?.currentState is TransformationState == false{
                 player.stateMachine.enter(TransformationState.self)
             }
-                
+            
         }
         
     }
@@ -87,7 +86,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
             return
         }
         
-      
+        
         
         player.update(deltaTime: Time.deltaTime)
         
@@ -97,7 +96,10 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
             enemy.update(deltaTime: Time.deltaTime)
         }
         
-        spawner.update()
+        for spawner in spawners {
+            spawner.update()
+        }
+        
         self.waveStateMachine?.update(deltaTime: time)
         
         player.update(deltaTime: Time.deltaTime)
@@ -140,10 +142,10 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
                 if child.physicsBody == nil {
                     child.physicsBody = SCNPhysicsBody(type: .static, shape: shape)
                     
-                 
+                    
                 }
                 
-             
+                
             }
             
             child.categoryBitMask = Physics.collisionMeshBitMask
@@ -170,10 +172,18 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     }
     
     func setupSpawners(){
-        spawner.scene = self
-        spawner.waveManager = waveManager
-        spawner.spawnPoint.position = SCNVector3(0, 1, 15)
-        spawner.scene.rootNode.addChildNode(spawner.spawnPoint)
+        spawners = [SpawnerEntity(isVisible: true, scene: self), SpawnerEntity(isVisible: true, scene: self), SpawnerEntity(isVisible: true, scene: self), SpawnerEntity(isVisible: true, scene: self)]
+        
+        for spawner in spawners {
+            spawner.scene = self
+            spawner.waveManager = waveManager
+            spawner.scene.rootNode.addChildNode(spawner.spawnPoint)
+        }
+        
+        spawners[0].spawnPoint.position = SCNVector3(-12, -0.5, -22)
+        spawners[1].spawnPoint.position = SCNVector3(-8, -0.5, -23)
+        spawners[2].spawnPoint.position = SCNVector3(-21, -0.5, -9)
+        spawners[3].spawnPoint.position = SCNVector3(3, -0.5, -6.6)
     }
     
     func physicsWorld(_ world: SCNPhysicsWorld, didUpdate contact: SCNPhysicsContact){
@@ -186,19 +196,19 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         
         switch collision {
         case Bitmask.character.rawValue | Bitmask.enemy.rawValue:
-//            print("character -> enemy")
+            //            print("character -> enemy")
             return
             
         case Bitmask.playerWeapon.rawValue | Bitmask.enemy.rawValue | Bitmask.character.rawValue:
-//            print("sword -> enemy")
+            //            print("sword -> enemy")
             let nodesInvolved = [nodeA, nodeB]
             
             for node in nodesInvolved {
                 if node.name == "collider"{
                     player.attackComponent.handleAttackContact(target: node)
-            
+                    
                 }
-    
+                
                 if node.name == "katanaCollider"{
                     player.attackComponent.handleAttackContact(target: node)
                 }
