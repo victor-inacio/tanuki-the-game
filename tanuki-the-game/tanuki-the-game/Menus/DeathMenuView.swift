@@ -23,7 +23,7 @@ struct DeathMenuView: View {
                     
                     Button(action: {
                         withAnimation(.easeOut(duration: 0.7)) {
-                            self.currentView = .game
+                            self.currentView = .mainMenuView
                         }
                         
                     }) {
