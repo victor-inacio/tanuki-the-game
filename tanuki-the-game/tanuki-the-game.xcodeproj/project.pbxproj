@@ -50,7 +50,6 @@
 		98E0E3C42B9F45B00034011F /* Controllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E3C32B9F45B00034011F /* Controllers.swift */; };
 		98E0E3C62B9F47AA0034011F /* Overlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E0E3C52B9F47AA0034011F /* Overlay.swift */; };
 		98E8D0DF2BB4AD0F00608087 /* AgentComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 98E8D0DE2BB4AD0F00608087 /* AgentComponent.swift */; };
-		98E8D0EF2BB4B83F00608087 /* tanuki.scn in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0EE2BB4B83F00608087 /* tanuki.scn */; };
 		98E8D0F12BB4B90100608087 /* corpo-textura.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0F02BB4B90100608087 /* corpo-textura.jpg */; };
 		98E8D0F52BB4BBB700608087 /* tanuki_walk.scn in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0F42BB4BBB700608087 /* tanuki_walk.scn */; };
 		98E8D0F82BB5B15F00608087 /* corpobake.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 98E8D0F72BB5B15F00608087 /* corpobake.jpeg */; };
@@ -63,6 +62,7 @@
 		AB099E982BC5C75D00F86B72 /* katana_spin.dae in Resources */ = {isa = PBXBuildFile; fileRef = AB099E972BC5C75C00F86B72 /* katana_spin.dae */; };
 		AB099E9A2BC5C76C00F86B72 /* katana_spin.scn in Resources */ = {isa = PBXBuildFile; fileRef = AB099E992BC5C76C00F86B72 /* katana_spin.scn */; };
 		AB099EA62BC5D1B700F86B72 /* katana-textura.jpg in Resources */ = {isa = PBXBuildFile; fileRef = AB099EA32BC5D1B700F86B72 /* katana-textura.jpg */; };
+		AB099EA82BC5E5EB00F86B72 /* tanuki.scn in Resources */ = {isa = PBXBuildFile; fileRef = AB099EA72BC5E5EB00F86B72 /* tanuki.scn */; };
 		AB1FD84F2BC07C8C00F55F5B /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB1FD84E2BC07C8C00F55F5B /* Animation.swift */; };
 		AB38C63E2BAA1BC7006C279A /* MovementComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38C63D2BAA1BC7006C279A /* MovementComponent.swift */; };
 		AB38C6402BAA256A006C279A /* bitMask.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB38C63F2BAA256A006C279A /* bitMask.swift */; };
@@ -150,7 +150,6 @@
 		98E0E3C32B9F45B00034011F /* Controllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Controllers.swift; sourceTree = "<group>"; };
 		98E0E3C52B9F47AA0034011F /* Overlay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Overlay.swift; sourceTree = "<group>"; };
 		98E8D0DE2BB4AD0F00608087 /* AgentComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgentComponent.swift; sourceTree = "<group>"; };
-		98E8D0EE2BB4B83F00608087 /* tanuki.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = tanuki.scn; sourceTree = "<group>"; };
 		98E8D0F02BB4B90100608087 /* corpo-textura.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "corpo-textura.jpg"; sourceTree = "<group>"; };
 		98E8D0F42BB4BBB700608087 /* tanuki_walk.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = tanuki_walk.scn; sourceTree = "<group>"; };
 		98E8D0F72BB5B15F00608087 /* corpobake.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = corpobake.jpeg; sourceTree = "<group>"; };
@@ -164,6 +163,7 @@
 		AB099E972BC5C75C00F86B72 /* katana_spin.dae */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml.dae; path = katana_spin.dae; sourceTree = "<group>"; };
 		AB099E992BC5C76C00F86B72 /* katana_spin.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = katana_spin.scn; sourceTree = "<group>"; };
 		AB099EA32BC5D1B700F86B72 /* katana-textura.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "katana-textura.jpg"; sourceTree = "<group>"; };
+		AB099EA72BC5E5EB00F86B72 /* tanuki.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = tanuki.scn; sourceTree = "<group>"; };
 		AB1FD84E2BC07C8C00F55F5B /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		AB38C63D2BAA1BC7006C279A /* MovementComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovementComponent.swift; sourceTree = "<group>"; };
 		AB38C63F2BAA256A006C279A /* bitMask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = bitMask.swift; sourceTree = "<group>"; };
@@ -330,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				ABE190EC2BBDF7F3003449EF /* tanuki_idle.scn */,
+				AB099EA72BC5E5EB00F86B72 /* tanuki.scn */,
 				ABE190E42BBDA7DD003449EF /* knife_collider.scn */,
 				98E8D0F42BB4BBB700608087 /* tanuki_walk.scn */,
 				98E8D0FD2BB5B60B00608087 /* folhanormal.jpeg */,
@@ -337,7 +338,6 @@
 				98E8D0F92BB5B1C900608087 /* faca-textura.jpg */,
 				98E8D0F72BB5B15F00608087 /* corpobake.jpeg */,
 				98E8D0F02BB4B90100608087 /* corpo-textura.jpg */,
-				98E8D0EE2BB4B83F00608087 /* tanuki.scn */,
 				984F35812BBB311C00A54B09 /* tanuki_attack.scn */,
 			);
 			path = Tanuki;
@@ -569,9 +569,9 @@
 				ABC207A62BC42CFE000C364F /* Map.scn in Resources */,
 				ABC207A42BC42CFE000C364F /* tree1_texture.png in Resources */,
 				98E8D0FC2BB5B52200608087 /* folha-textura.jpg in Resources */,
+				AB099EA82BC5E5EB00F86B72 /* tanuki.scn in Resources */,
 				984F35822BBB311C00A54B09 /* tanuki_attack.scn in Resources */,
 				984F35872BBB35A100A54B09 /* karakasa_walk.dae in Resources */,
-				ABC207D22BC4D680000C364F /* katana.scn in Resources */,
 				9897B65B2BC5DDEE00BAF9E7 /* collider2.scn in Resources */,
 				98E8D0F82BB5B15F00608087 /* corpobake.jpeg in Resources */,
 				ABC207A82BC42CFE000C364F /* pillar_texture.jpg in Resources */,
@@ -600,7 +600,6 @@
 				ABC207A72BC42CFE000C364F /* map.dae in Resources */,
 				ABC207A32BC42CFE000C364F /* RockTexture2.png in Resources */,
 				AB099E982BC5C75D00F86B72 /* katana_spin.dae in Resources */,
-				98E8D0EF2BB4B83F00608087 /* tanuki.scn in Resources */,
 				9897B6572BC5D29900BAF9E7 /* collider.scn in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -803,7 +802,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tanuki-the-game/Preview Content\"";
-				DEVELOPMENT_TEAM = CKX23Y9XSA;
+				DEVELOPMENT_TEAM = 6FXWX5Z987;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "tanuki-the-game/Info.plist";
@@ -838,7 +837,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tanuki-the-game/Preview Content\"";
-				DEVELOPMENT_TEAM = CKX23Y9XSA;
+				DEVELOPMENT_TEAM = 6FXWX5Z987;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "tanuki-the-game/Info.plist";
