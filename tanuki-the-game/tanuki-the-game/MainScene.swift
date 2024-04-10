@@ -90,6 +90,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         
         player.update(deltaTime: Time.deltaTime)
         
+        camera.followTarget(target: player.node.simdPosition, offset: simd_float3(1, 1.8, 0))
         
         for enemy in GameManager.enemies {
             enemy.update(deltaTime: Time.deltaTime)
@@ -127,6 +128,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         
         
         rootNode.addChildNode(player.node)
+        player.node.position = SCNVector3(x: -3, y: -0.5, z: -2)
         
         
         GameManager.player = player
@@ -147,11 +149,8 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
                 
                 if child.physicsBody == nil {
                     child.physicsBody = SCNPhysicsBody(type: .static, shape: shape)
-                    
-                    
+
                 }
-                
-                
             }
             
             child.categoryBitMask = Physics.collisionMeshBitMask
