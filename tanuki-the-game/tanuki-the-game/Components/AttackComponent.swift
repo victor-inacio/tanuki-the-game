@@ -36,13 +36,13 @@ class AttackComponent: GKComponent {
         
     }
    
-    public func handleAttackContact(target: SCNNode) {
+    public func handleAttackContact(attacker: SCNNode, target: SCNNode) {
     
         if let entity = target.entity as? EnemyEntity {
-            if stateMachine.currentState is AttackingState{
+            if stateMachine.currentState is AttackingState && attacker.name == "swordCollider"{
             entity.healthComponent.receiveDamage(damageAmount: damage)
             }
-            if stateMachine.currentState is TransformationState{
+            if stateMachine.currentState is TransformationState && attacker.name == "katanaCollider"{
             entity.healthComponent.receiveDamage(damageAmount: damage * 2)
             }
         }

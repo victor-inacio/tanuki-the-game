@@ -223,31 +223,31 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         
         switch collision {
         case Bitmask.character.rawValue | Bitmask.enemy.rawValue:
-            //            print("character -> enemy")
             return
             
         case Bitmask.playerWeapon.rawValue | Bitmask.enemy.rawValue | Bitmask.character.rawValue:
 
             let nodesInvolved = [nodeA, nodeB]
             
-            for node in nodesInvolved {
-                if node.name == "collider"{
-                    player.attackComponent.handleAttackContact(target: node)
-                    
-                }
-
+            let swordNode = nodesInvolved.first { $0.name == "swordCollider" }
+            let enemyColliderNode = nodesInvolved.first { $0.name == "collider" }
+            
+            if let sword = swordNode, let enemyCollider = enemyColliderNode {
+                player.attackComponent.handleAttackContact(attacker: sword, target: enemyCollider)
             }
             
         case Bitmask.katanaCollider.rawValue | Bitmask.enemy.rawValue | Bitmask.character.rawValue:
             let nodesInvolved = [nodeA, nodeB]
             
-            for node in nodesInvolved {
+            let katanaNode = nodesInvolved.first { $0.name == "katanaCollider" }
+            let enemyColliderNode = nodesInvolved.first { $0.name == "collider" }
+            
 
-                if node.name == "collider"{
-                    player.attackComponent.handleAttackContact(target: node)
-                
-                }
+            if let katana = katanaNode, let enemyCollider = enemyColliderNode {
+                player.attackComponent.handleAttackContact(attacker: katana, target: enemyCollider)
             }
+
+
 
             
         default:

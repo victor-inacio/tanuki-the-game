@@ -50,8 +50,6 @@ class VisualComponent: GKComponent {
     }
     
     func backToTanuki(){
-
-        
         
         model.opacity = 1
         katanaModel.removeFromParentNode()
