@@ -5,6 +5,7 @@ import GameplayKit
 class SpawnerEntity: GKEntity {
     
     var spawnPoint: SCNNode
+    var spawnPosition: SCNVector3
     var isVisible: Bool
     var currentDelay: TimeInterval = 0.0
     var currentTime: TimeInterval = 0.0
@@ -12,15 +13,17 @@ class SpawnerEntity: GKEntity {
     var waveManager: WaveManager!
     var enemy: EnemyEntity!
     static var enemies: [EnemyEntity] = []
-  
-
-    init(isVisible: Bool, scene: MainScene){
+    
+    
+    init(spawnPosition: SCNVector3, isVisible: Bool, scene: MainScene){
+        self.spawnPosition = spawnPosition
         self.isVisible = isVisible
         self.scene = scene
         
         let sphere = SCNSphere(radius: 0.2)
-            sphere.firstMaterial?.diffuse.contents = UIColor.green
-            spawnPoint = SCNNode(geometry: sphere)
+        sphere.firstMaterial?.diffuse.contents = UIColor.green
+        spawnPoint = SCNNode(geometry: sphere)
+        spawnPoint.worldPosition = spawnPosition
         
         if !isVisible {
             spawnPoint.isHidden = true
@@ -30,7 +33,7 @@ class SpawnerEntity: GKEntity {
         
         super.init()
         
-
+        
     }
     
     required init?(coder: NSCoder) {
@@ -41,10 +44,9 @@ class SpawnerEntity: GKEntity {
         
         if !waveManager.canSpawn || waveManager.enemiesSpawned == waveManager.toBeSpawned  { return }
         
-      
+        
         let enemy = EnemyEntity()
-        enemy.node.position = spawnPoint.position
-        enemy.node.position.z = -1
+        enemy.node.worldPosition = spawnPosition
         enemy.agentComponent.position = enemy.node.simdWorldPosition
         scene.rootNode.addChildNode(enemy.node)
         enemy.node.entity = enemy
@@ -52,13 +54,13 @@ class SpawnerEntity: GKEntity {
         
         GameManager.addEntity(entity: enemy)
     }
-
+    
     func setNewDelay() {
         currentDelay = 2
     }
     
-     func update() {
-         currentTime += Time.deltaTime
+    func update() {
+        currentTime += Time.deltaTime
         if (currentTime >= currentDelay) {
             spawnEnemy()
             currentTime = 0.0
