@@ -32,6 +32,7 @@ struct CoordinatorView: View {
         case .drawingView:
             DrawingView(currentView: $currentView, viewModel: DrawingViewModel(), presentationViewModel: PresentationViewModel())
                 .ignoresSafeArea()
+                .preferredColorScheme(.dark)
         case .game :
             GameViewControllerWrapper()
                 .ignoresSafeArea()
