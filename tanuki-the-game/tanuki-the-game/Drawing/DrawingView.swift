@@ -20,7 +20,7 @@ struct DrawingView: View {
     var body: some View {
         VStack {
             ZStack {
-                Color.white.ignoresSafeArea()
+                Color.init(hex: "ffffff").ignoresSafeArea()
                 HStack{
                     Spacer()
                     if viewModel.classificationResult == "sword" && viewModel.probability*100 >= 85{
