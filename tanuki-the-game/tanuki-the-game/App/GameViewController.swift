@@ -30,8 +30,8 @@ class GameViewController: UIViewController {
         scnView.defaultCameraController.inertiaEnabled = true
         scnView.defaultCameraController.maximumVerticalAngle = 89
         scnView.defaultCameraController.minimumVerticalAngle = -89
-        scnView.debugOptions = [.showPhysicsShapes]
-        scnView.showsStatistics = true
+//        scnView.debugOptions = [.showPhysicsShapes]
+//        scnView.showsStatistics = true
         scnView.rendersContinuously = true
         scnView.autoenablesDefaultLighting = true
         
