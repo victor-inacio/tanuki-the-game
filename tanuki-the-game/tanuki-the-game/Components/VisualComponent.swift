@@ -51,8 +51,7 @@ class VisualComponent: GKComponent {
     
     func backToTanuki(){
 
-        let collider = model.childNode(withName: "katanaCollider", recursively: true)!
-          collider.physicsBody = nil
+        
         
         model.opacity = 1
         katanaModel.removeFromParentNode()
