@@ -90,9 +90,9 @@ struct DrawingView: View {
                                 
                             }
                         }) {
-                            Image(.drawingSubmit)
-                                .resizable()
-                                .frame(width: 100, height: 100)
+//                            Image(.drawingSubmit)
+//                                .resizable()
+//                                .frame(width: 100, height: 100)
                         }
                         
                         Spacer()
