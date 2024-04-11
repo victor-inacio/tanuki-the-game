@@ -129,7 +129,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         
         
         rootNode.addChildNode(player.node)
-        player.node.position = SCNVector3(x: 0, y: 0, z: -1)
+        player.node.position = SCNVector3(x: -3, y: -0.5, z: -2)
         
         
         GameManager.player = player
@@ -163,7 +163,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         }
         
         let colliderMap = SCNScene(named: "collider.scn")
-        let colliders = colliderMap?.rootNode.enumerateChildNodes({ collider, _ in
+        colliderMap?.rootNode.enumerateChildNodes({ collider, _ in
             collider.position = .init(x: 0, y: -1, z: 0)
             collider.scale = .init(x: 0.2, y: 0.2, z: 0.2)
             

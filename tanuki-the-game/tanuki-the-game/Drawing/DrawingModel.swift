@@ -22,12 +22,8 @@ class CoreMLResult {
             return nil
         }
         
-        // Extract the class with the highest probability
-        guard let predictedClass = prediction.target as? String else {
-            print("Error: Unable to get predicted class.")
-            return nil
-        }
-        
+        let predictedClass = prediction.target
+
         // Find the probability associated with the predicted class
         guard let probability = prediction.targetProbability[predictedClass] else {
             print("Error: Unable to get probability for predicted class.")

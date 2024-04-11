@@ -89,7 +89,6 @@
 		ABC207AA2BC42CFE000C364F /* tree2_texture.png in Resources */ = {isa = PBXBuildFile; fileRef = ABC207A22BC42CFE000C364F /* tree2_texture.png */; };
 		ABC207AC2BC42D68000C364F /* ControllersPadding.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC207AB2BC42D68000C364F /* ControllersPadding.swift */; };
 		ABC207AF2BC45003000C364F /* TransformationState.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABC207AE2BC45003000C364F /* TransformationState.swift */; };
-		ABC429542BA4DB87009F0905 /* Art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = ABC429532BA4DB87009F0905 /* Art.scnassets */; };
 		ABE190E52BBDA7DD003449EF /* knife_collider.scn in Resources */ = {isa = PBXBuildFile; fileRef = ABE190E42BBDA7DD003449EF /* knife_collider.scn */; };
 		ABE190ED2BBDF7F3003449EF /* tanuki_idle.scn in Resources */ = {isa = PBXBuildFile; fileRef = ABE190EC2BBDF7F3003449EF /* tanuki_idle.scn */; };
 		ABF676C12B9F2FB8007806B3 /* PlayerEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABF676C02B9F2FB8007806B3 /* PlayerEntity.swift */; };
@@ -190,7 +189,6 @@
 		ABC207A22BC42CFE000C364F /* tree2_texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tree2_texture.png; sourceTree = "<group>"; };
 		ABC207AB2BC42D68000C364F /* ControllersPadding.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ControllersPadding.swift; sourceTree = "<group>"; };
 		ABC207AE2BC45003000C364F /* TransformationState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformationState.swift; sourceTree = "<group>"; };
-		ABC429532BA4DB87009F0905 /* Art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Art.scnassets; sourceTree = "<group>"; };
 		ABE190E42BBDA7DD003449EF /* knife_collider.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = knife_collider.scn; sourceTree = "<group>"; };
 		ABE190EC2BBDF7F3003449EF /* tanuki_idle.scn */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = tanuki_idle.scn; sourceTree = "<group>"; };
 		ABF676C02B9F2FB8007806B3 /* PlayerEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerEntity.swift; sourceTree = "<group>"; };
@@ -371,7 +369,6 @@
 				98E0E3BE2B9E7C860034011F /* Components */,
 				AB38C6432BAB612D006C279A /* HUD */,
 				98F679F32B9B989E00A0EBEE /* Assets.xcassets */,
-				ABC429532BA4DB87009F0905 /* Art.scnassets */,
 				98F679F52B9B989E00A0EBEE /* Preview Content */,
 				ABF676BD2B9F2EFA007806B3 /* Utility */,
 				81A402D52BC464BC006AB0E8 /* Fonts */,
@@ -564,7 +561,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				984F35912BBB36D300A54B09 /* karakasa-textura.jpg in Resources */,
-				ABC429542BA4DB87009F0905 /* Art.scnassets in Resources */,
 				98C4CBD32BBDC48A007D45CD /* fumaca.png in Resources */,
 				ABC207A62BC42CFE000C364F /* Map.scn in Resources */,
 				ABC207A42BC42CFE000C364F /* tree1_texture.png in Resources */,
@@ -802,7 +798,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tanuki-the-game/Preview Content\"";
-				DEVELOPMENT_TEAM = 6FXWX5Z987;
+				DEVELOPMENT_TEAM = 92UCDANR77;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "tanuki-the-game/Info.plist";
@@ -810,14 +806,14 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Sakemori;
+				MARKETING_VERSION = 2.5.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "Victor.tanuki-the-game";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -837,7 +833,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"tanuki-the-game/Preview Content\"";
-				DEVELOPMENT_TEAM = 6FXWX5Z987;
+				DEVELOPMENT_TEAM = 92UCDANR77;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "tanuki-the-game/Info.plist";
@@ -845,14 +841,14 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationLandscapeRight;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Sakemori;
+				MARKETING_VERSION = 2.5.1;
+				PRODUCT_BUNDLE_IDENTIFIER = "Victor.tanuki-the-game";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;

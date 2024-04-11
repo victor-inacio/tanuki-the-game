@@ -58,7 +58,7 @@ class Overlay: SKScene {
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
+        if touches.first != nil {
             
             controllers.onTouchEnd(touches: touches, event: event)
         }

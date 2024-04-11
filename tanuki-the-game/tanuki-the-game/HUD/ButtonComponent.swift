@@ -33,16 +33,15 @@ class ButtonComponent: SKNode {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         
         
-        if let first = touches.first {
+        if touches.first != nil {
             onButtonUp()
-          
         }
     }
     
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
-        if let first = touches.first {
+        if touches.first != nil {
             onButtonDown()
             
         }

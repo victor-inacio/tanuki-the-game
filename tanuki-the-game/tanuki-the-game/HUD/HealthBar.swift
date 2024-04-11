@@ -37,7 +37,7 @@ class HealthBar: SKSpriteNode {
 
     
     private func calculateFrame() -> String {
-        let ratio = currentHealth / maxHealth
+
         let frameCount: Float = 7
         let frameName = "player"
 

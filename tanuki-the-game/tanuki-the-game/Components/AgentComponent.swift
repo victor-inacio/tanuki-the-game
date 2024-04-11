@@ -128,9 +128,6 @@ class AgentComponent: GKComponent {
     }
     
     private func isCollisionAhead() -> Bool {
-        let height = node.boundingBox.max.y - node.boundingBox.min.y
-        
-        
         let from = SCNVector3(position)
         let to = SCNVector3(simd_float3(from) + node.simdWorldFront * visionRadius)
         
