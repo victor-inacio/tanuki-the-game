@@ -13,34 +13,39 @@ struct MainMenuView: View {
     
     var body: some View {
         NavigationView {
-            VStack {
-                Button(action: {
-                    withAnimation(.easeOut(duration: 1.5)) {
-                        self.currentView = .drawingView
-                    }
-                }) {
-                    VStack{
-                        Spacer()
-                        Image(.appLogo)
-                        Spacer()
-                        Text("tap to play")
-                            .foregroundStyle(.white)
-                            .font(.custom("DarumaDropOne-Regular", size: 40))
-                            .bold()
-                        Spacer()
-                    }
-                }
-                .padding()
+            ZStack {
+                Image(.menuBG)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .ignoresSafeArea()
+                VStack {
+                    Button(action: {
+                        withAnimation(.easeOut(duration: 1.5)) {
+                            self.currentView = .drawingView
+                        }
+                    }) {
+                        VStack{
+                            Spacer()
+                            Image(.appLogo)
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                                .frame(width: 528, height: 118)
+                            Spacer()
+                            Text("tap to play")
+                                .foregroundStyle(.white)
+                                .font(.custom("DarumaDropOne-Regular", size: 40))
+                                .bold()
+                            Spacer()
+                                        //            .background(Gradient(colors: [.white, .white, .green]).opacity(1))
+                            //just trying to simulate having an image in the background
+                        }
+                    }.padding()
+                }.ignoresSafeArea()
             }
-            .ignoresSafeArea()
-            .containerRelativeFrame([.horizontal, .vertical])
-            .background(Color(hex: "457847"))
-//            .background(Gradient(colors: [.white, .white, .green]).opacity(1))
-            //just trying to simulate having an image in the background
+            
+            //#Preview {
+            //    MainMenuView(currentView:).environment(Coordinator())
+            //}
         }
     }
 }
-
-//#Preview {
-//    MainMenuView(currentView:).environment(Coordinator())
-//}

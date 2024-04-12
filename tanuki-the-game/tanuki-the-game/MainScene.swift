@@ -90,7 +90,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         
         player.update(deltaTime: Time.deltaTime)
         
-        camera.followTarget(target: player.node.simdPosition, offset: simd_float3(1, 2, 0))
+        camera.followTarget(target: player.node.simdPosition, offset: simd_float3(1, 1.8, 0))
         
         for enemy in GameManager.enemies {
             enemy.update(deltaTime: Time.deltaTime)
@@ -110,7 +110,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
         enemy = EnemyEntity()
         enemy.node.simdPosition = .init(x: 0, y: 0, z: -1)
         enemy.agentComponent.position = enemy.node.simdPosition
-    
         rootNode.addChildNode(enemy.node)
     }
     
@@ -150,11 +149,8 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
                 
                 if child.physicsBody == nil {
                     child.physicsBody = SCNPhysicsBody(type: .static, shape: shape)
-                    
-                    
+
                 }
-                
-                
             }
             
             child.categoryBitMask = Physics.collisionMeshBitMask
@@ -177,7 +173,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
             rootNode.addChildNode(collider)
         })
         
-       
         
     }
     
@@ -199,7 +194,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
     }
     
     func setupSpawners(){
-        spawners = [SpawnerEntity(isVisible: true, scene: self), SpawnerEntity(isVisible: true, scene: self), SpawnerEntity(isVisible: true, scene: self), SpawnerEntity(isVisible: true, scene: self)]
+        spawners = [SpawnerEntity(spawnPosition: SCNVector3(-12, -0.5, -22), isVisible: true, scene: self), SpawnerEntity(spawnPosition: SCNVector3(-8, -0.5, -23), isVisible: true, scene: self), SpawnerEntity(spawnPosition: SCNVector3(-21, -0.5, -9), isVisible: true, scene: self), SpawnerEntity(spawnPosition: SCNVector3(3, -0.5, -6.6), isVisible: true, scene: self)]
         
         for spawner in spawners {
             spawner.scene = self
@@ -207,10 +202,6 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
             spawner.scene.rootNode.addChildNode(spawner.spawnPoint)
         }
         
-        spawners[0].spawnPoint.position = SCNVector3(-12, -0.5, -22)
-        spawners[1].spawnPoint.position = SCNVector3(-8, -0.5, -23)
-        spawners[2].spawnPoint.position = SCNVector3(-21, -0.5, -9)
-        spawners[3].spawnPoint.position = SCNVector3(3, -0.5, -6.6)
     }
     
     func physicsWorld(_ world: SCNPhysicsWorld, didUpdate contact: SCNPhysicsContact){
@@ -226,7 +217,7 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
             return
             
         case Bitmask.playerWeapon.rawValue | Bitmask.enemy.rawValue | Bitmask.character.rawValue:
-
+            
             let nodesInvolved = [nodeA, nodeB]
             
             let swordNode = nodesInvolved.first { $0.name == "swordCollider" }
@@ -242,13 +233,13 @@ class MainScene: SCNScene, SCNSceneRendererDelegate, ButtonDelegate, SCNPhysicsC
             let katanaNode = nodesInvolved.first { $0.name == "katanaCollider" }
             let enemyColliderNode = nodesInvolved.first { $0.name == "collider" }
             
-
+            
             if let katana = katanaNode, let enemyCollider = enemyColliderNode {
                 player.attackComponent.handleAttackContact(attacker: katana, target: enemyCollider)
             }
-
-
-
+            
+            
+            
             
         default:
             break

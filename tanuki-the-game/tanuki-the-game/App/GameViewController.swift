@@ -15,8 +15,7 @@ class GameViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-
+    
         let scnView = SCNView(frame: view.frame)
         
 
@@ -30,7 +29,8 @@ class GameViewController: UIViewController {
         scnView.defaultCameraController.inertiaEnabled = true
         scnView.defaultCameraController.maximumVerticalAngle = 89
         scnView.defaultCameraController.minimumVerticalAngle = -89
-
+//        scnView.debugOptions = [.showPhysicsShapes]
+//        scnView.showsStatistics = true
         scnView.rendersContinuously = true
         scnView.autoenablesDefaultLighting = true
         

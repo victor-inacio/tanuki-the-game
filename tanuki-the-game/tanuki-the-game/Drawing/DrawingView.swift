@@ -20,7 +20,7 @@ struct DrawingView: View {
     var body: some View {
         VStack {
             ZStack {
-                Color.white.ignoresSafeArea()
+                Color.init(hex: "ffffff").ignoresSafeArea()
                 HStack{
                     Spacer()
                     if viewModel.classificationResult == "sword" && viewModel.probability*100 >= 85{
@@ -90,8 +90,9 @@ struct DrawingView: View {
                                 
                             }
                         }) {
-                            Image(systemName: "square.and.arrow.down")
-                                .font(.system(size: 50))
+//                            Image(.drawingSubmit)
+//                                .resizable()
+//                                .frame(width: 100, height: 100)
                         }
                         
                         Spacer()
